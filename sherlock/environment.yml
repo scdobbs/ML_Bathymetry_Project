@@ -1,0 +1,41 @@
+name: bathy_diffusion
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Python
+  - python=3.10
+
+  # PyTorch with CUDA 11.8 (compatible with Sherlock's A100/V100 nodes)
+  - pytorch=2.1.*
+  - torchvision
+  - pytorch-cuda=11.8
+
+  # Geospatial
+  - rasterio=1.3.*
+  - gdal
+  - pyproj
+
+  # Scientific computing
+  - numpy
+  - scipy
+  - scikit-image
+
+  # Visualization
+  - matplotlib
+  - tqdm
+
+  # ML utilities
+  - tensorboard
+
+  # Notebook support (optional, for local analysis)
+  - jupyter
+  - ipykernel
+
+  # pip-only packages
+  - pip
+  - pip:
+    - tensorboardX
