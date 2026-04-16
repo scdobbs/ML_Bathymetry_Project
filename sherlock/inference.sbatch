@@ -21,8 +21,7 @@
 set -e
 mkdir -p logs
 
-source ~/.bashrc
-conda activate bathy_diffusion
+module load py-pytorch/2.4.1_py312
 
 PROJECT_DIR="/home/users/${USER}/GAN_Bathymetry_Project"
 SCRATCH_DIR="/scratch/users/${USER}/bathy_diffusion"

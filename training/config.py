@@ -43,7 +43,7 @@ class Config:
 
     # ---- Hardware ----------------------------------------------------------
     num_workers: int = 4
-    pin_memory: bool = True
+    pin_memory: bool = False   # Must be False for MPS (Apple Silicon); True only for CUDA
 
     def __post_init__(self):
         assert self.patch_size // 16 == self.lr_patch_size, \
