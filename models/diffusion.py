@@ -16,6 +16,8 @@ import torch
 import torch.nn as nn
 import numpy as np
 
+from models.unet import BathyUNet
+
 
 class GaussianDiffusion(nn.Module):
     """
@@ -238,3 +240,35 @@ class GaussianDiffusion(nn.Module):
                 samples = self.sample_ddpm(lr_b, n_realizations)
             results.append(samples)  # (n_realizations, 1, H, W)
         return torch.stack(results, dim=0)  # (B, n_realizations, 1, H, W)
+
+
+def build_diffusion_from_checkpoint(checkpoint_path, cfg, device):
+    """
+    Build a GaussianDiffusion model and load EMA weights from a checkpoint.
+
+    Args:
+        checkpoint_path: Path to a .pt file written by training/train.py.
+        cfg:             Config object (uses cfg.base_ch, cfg.time_dim,
+                         cfg.n_timesteps, cfg.beta_start, cfg.beta_end).
+        device:          Device string ('cuda' / 'mps' / 'cpu').
+
+    Returns:
+        GaussianDiffusion in eval() mode with EMA weights loaded.
+    """
+    unet = BathyUNet(
+        in_ch=2, out_ch=1,
+        base_ch=cfg.base_ch, time_dim=cfg.time_dim,
+        dropout=0.0,  # no dropout at inference
+    ).to(device)
+    diffusion = GaussianDiffusion(
+        unet,
+        n_timesteps=cfg.n_timesteps,
+        beta_start=cfg.beta_start,
+        beta_end=cfg.beta_end,
+    ).to(device)
+
+    state = torch.load(checkpoint_path, map_location=device)
+    ema_state = state.get('ema', state.get('model'))
+    diffusion.load_state_dict(ema_state)
+    diffusion.eval()
+    return diffusion

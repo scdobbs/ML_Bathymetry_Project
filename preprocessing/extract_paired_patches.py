@@ -25,10 +25,9 @@ import numpy as np
 import rasterio
 from rasterio.windows import from_bounds
 from rasterio.enums import Resampling
-from scipy.ndimage import zoom
 from tqdm import tqdm
 
-from data_utils import normalize_patch, bicubic_upsample
+from preprocessing.data_utils import normalize_patch, bicubic_upsample
 
 
 # Surveys held out for testing — never included in train or val

@@ -31,7 +31,7 @@ echo "Starting training on $(hostname) with GPU: $(nvidia-smi --query-gpu=name -
 echo "Patches: ${SCRATCH_DIR}/patches"
 echo "Output:  ${SCRATCH_DIR}/training"
 
-python training/train.py \
+python -m training.train \
     --patches_dir "${SCRATCH_DIR}/patches" \
     --out_dir     "${SCRATCH_DIR}/training" \
     --batch_size  16 \

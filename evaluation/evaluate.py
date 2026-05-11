@@ -20,7 +20,6 @@ Usage:
 """
 
 import os
-import sys
 import argparse
 import json
 import glob
@@ -29,12 +28,10 @@ import torch
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from models.unet import BathyUNet
-from models.diffusion import GaussianDiffusion
+from models.diffusion import build_diffusion_from_checkpoint
 from preprocessing.data_utils import denormalize_patch
 from training.config import Config
+from utils.device import get_device
 from evaluation.metrics import (
     psnr, ssim, mae, rmse,
     crps, coverage, sharpness, calibration_data,
@@ -43,16 +40,7 @@ from evaluation.metrics import (
 
 
 def load_model(checkpoint_path, cfg, device):
-    unet = BathyUNet(in_ch=2, out_ch=1, base_ch=cfg.base_ch,
-                     time_dim=cfg.time_dim, dropout=0.0).to(device)
-    diffusion = GaussianDiffusion(unet, n_timesteps=cfg.n_timesteps,
-                                  beta_start=cfg.beta_start,
-                                  beta_end=cfg.beta_end).to(device)
-    state = torch.load(checkpoint_path, map_location=device)
-    ema_state = state.get('ema', state.get('model'))
-    diffusion.load_state_dict(ema_state)
-    diffusion.eval()
-    return diffusion
+    return build_diffusion_from_checkpoint(checkpoint_path, cfg, device)
 
 
 def evaluate_patch(diffusion, lr_norm, hr_norm, stats, n_realizations, ddim_steps, device):
@@ -105,12 +93,7 @@ def main():
     args = parser.parse_args()
 
     os.makedirs(args.out_dir, exist_ok=True)
-    if torch.cuda.is_available():
-        device = 'cuda'
-    elif torch.backends.mps.is_available():
-        device = 'mps'
-    else:
-        device = 'cpu'
+    device = get_device()
     print(f"Device: {device}")
 
     cfg = Config()

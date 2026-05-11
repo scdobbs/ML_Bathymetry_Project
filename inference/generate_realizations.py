@@ -22,7 +22,6 @@ On Sherlock: use sherlock/inference.sbatch which runs this script.
 """
 
 import os
-import sys
 import argparse
 import numpy as np
 import torch
@@ -31,29 +30,15 @@ from rasterio.transform import from_origin
 from scipy.ndimage import zoom
 from tqdm import tqdm
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from models.unet import BathyUNet
-from models.diffusion import GaussianDiffusion
+from models.diffusion import build_diffusion_from_checkpoint
 from preprocessing.data_utils import normalize_patch, denormalize_patch, bicubic_upsample
 from training.config import Config
+from utils.device import get_device
 
 
 def load_model(checkpoint_path, cfg, device):
     """Load the EMA model from a checkpoint."""
-    unet = BathyUNet(
-        in_ch=2, out_ch=1,
-        base_ch=cfg.base_ch, time_dim=cfg.time_dim, dropout=0.0  # no dropout at inference
-    ).to(device)
-    diffusion = GaussianDiffusion(unet, n_timesteps=cfg.n_timesteps,
-                                  beta_start=cfg.beta_start,
-                                  beta_end=cfg.beta_end).to(device)
-
-    state = torch.load(checkpoint_path, map_location=device)
-    # Load EMA weights (higher quality than raw model weights)
-    ema_state = state.get('ema', state.get('model'))
-    diffusion.load_state_dict(ema_state)
-    diffusion.eval()
+    diffusion = build_diffusion_from_checkpoint(checkpoint_path, cfg, device)
     print(f"Loaded checkpoint: {checkpoint_path}")
     return diffusion
 
@@ -213,12 +198,7 @@ def main():
     parser.add_argument('--base_ch',        type=int, default=64)
     args = parser.parse_args()
 
-    if torch.cuda.is_available():
-        device = 'cuda'
-    elif torch.backends.mps.is_available():
-        device = 'mps'
-    else:
-        device = 'cpu'
+    device = get_device()
     print(f"Device: {device}")
 
     cfg = Config()

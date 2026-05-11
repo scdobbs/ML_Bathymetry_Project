@@ -3,14 +3,20 @@ All training hyperparameters in one place.
 Import Config and pass it through your training scripts.
 """
 
+import os
 from dataclasses import dataclass, field
 from typing import Tuple
+
+
+def _scratch(*parts: str) -> str:
+    """Build a path under the running user's Sherlock scratch space."""
+    return os.path.expandvars(os.path.join('/scratch/users/$USER', *parts))
 
 
 @dataclass
 class Config:
     # ---- Data ---------------------------------------------------------------
-    patches_dir: str = '/scratch/users/scdobbs/bathy_patches'
+    patches_dir: str = field(default_factory=lambda: _scratch('bathy_patches'))
     lr_tif: str = 'data_for_model/MorroBay_all_2020_interp_32m_converted.tif'
     patch_size: int = 64          # HR patch size (pixels at 2m resolution)
     lr_patch_size: int = 4        # LR patch size before upsampling (patch_size // 16)
@@ -35,7 +41,7 @@ class Config:
     spectral_loss_weight: float = 0.1
 
     # ---- Logging / checkpointing -------------------------------------------
-    out_dir: str = '/scratch/users/scdobbs/bathy_diffusion'
+    out_dir: str = field(default_factory=lambda: _scratch('bathy_diffusion'))
     log_every: int = 100          # Log loss every N iterations
     sample_every: int = 1000      # Save sample images every N iterations
     save_every: int = 5000        # Save checkpoint every N iterations

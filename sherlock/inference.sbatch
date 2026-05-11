@@ -33,7 +33,7 @@ cd "$PROJECT_DIR"
 
 echo "Generating realizations from checkpoint: $CHECKPOINT"
 
-python inference/generate_realizations.py \
+python -m inference.generate_realizations \
     --checkpoint     "$CHECKPOINT" \
     --lr_tif         "data_for_model/MorroBay_all_2020_interp_32m_converted.tif" \
     --out_dir        "${SCRATCH_DIR}/realizations" \
@@ -44,7 +44,7 @@ python inference/generate_realizations.py \
     --base_ch        64
 
 echo "Generating uncertainty maps..."
-python inference/uncertainty_maps.py \
+python -m inference.uncertainty_maps \
     --realizations_dir "${SCRATCH_DIR}/realizations" \
     --out_dir          "${SCRATCH_DIR}/uncertainty_maps" \
     --priority_fraction 0.10

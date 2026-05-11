@@ -25,7 +25,7 @@ SCRATCH_DIR="/scratch/users/${USER}/bathy_diffusion"
 
 cd "$PROJECT_DIR"
 
-python preprocessing/extract_paired_patches.py \
+python -m preprocessing.extract_paired_patches \
     --lr_path  "data_for_model/MorroBay_all_2020_interp_32m_converted.tif" \
     --hr_dir   "data_for_model/" \
     --out_dir  "${SCRATCH_DIR}/patches" \

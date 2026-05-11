@@ -14,7 +14,6 @@ import argparse
 import glob
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.gridspec as gridspec
 
 
 def load_random_patches(split_dir, n):

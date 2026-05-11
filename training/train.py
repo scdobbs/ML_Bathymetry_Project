@@ -1,15 +1,14 @@
 """
 Main training loop for the bathymetric super-resolution diffusion model.
 
-Run locally for a quick smoke test:
-    python training/train.py --patches_dir /path/to/patches --out_dir /tmp/test_run --n_epochs 1
+Run locally for a quick smoke test (from the project root):
+    python -m training.train --patches_dir /path/to/patches --out_dir /tmp/test_run --n_epochs 1
 
 Run on Sherlock:
     sbatch sherlock/train.sbatch
 """
 
 import os
-import sys
 import argparse
 import copy
 import torch
@@ -19,14 +18,12 @@ from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
 import numpy as np
 
-# Make sure parent directory is on the path when running as a script
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 from models.unet import BathyUNet
 from models.diffusion import GaussianDiffusion
 from models.losses import CombinedDiffusionLoss
 from preprocessing.data_utils import BathymetryPatchDataset
 from training.config import Config
+from utils.device import get_device
 
 
 # ---------------------------------------------------------------------------
@@ -81,12 +78,7 @@ def sample_and_log(diffusion_ema, lr_batch, writer, step, n_display):
 # ---------------------------------------------------------------------------
 
 def train(cfg: Config):
-    if torch.cuda.is_available():
-        device = 'cuda'
-    elif torch.backends.mps.is_available():
-        device = 'mps'
-    else:
-        device = 'cpu'
+    device = get_device()
     print(f"Using device: {device}")
 
     # Data
