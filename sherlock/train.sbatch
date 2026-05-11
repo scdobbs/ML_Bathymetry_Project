@@ -19,8 +19,13 @@
 set -e
 mkdir -p logs
 
-# Load Sherlock PyTorch module
-module load py-pytorch/2.4.1_py312
+# Prevent conda/PYTHONPATH from shadowing modules
+conda deactivate 2>/dev/null || true
+unset PYTHONPATH
+
+# Load modules and activate venv
+module load python/3.12.1 py-pytorch/2.4.1_py312 py-torchvision/0.19.1_py312
+source /home/users/${USER}/bathy_diffusion_env/bin/activate
 
 PROJECT_DIR="/home/users/${USER}/GAN_Bathymetry_Project"
 SCRATCH_DIR="/scratch/users/${USER}/bathy_diffusion"
@@ -31,10 +36,10 @@ echo "Starting training on $(hostname) with GPU: $(nvidia-smi --query-gpu=name -
 echo "Patches: ${SCRATCH_DIR}/patches"
 echo "Output:  ${SCRATCH_DIR}/training"
 
-python training/train.py \
+python3 training/train.py \
     --patches_dir "${SCRATCH_DIR}/patches" \
     --out_dir     "${SCRATCH_DIR}/training" \
-    --batch_size  16 \
+    --batch_size  64 \
     --n_epochs    500 \
     --base_ch     64
 

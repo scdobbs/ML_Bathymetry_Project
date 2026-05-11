@@ -118,9 +118,12 @@ def main():
     diffusion = load_model(args.checkpoint, cfg, device)
 
     # Load test patches
+    import random
     patch_files = sorted(glob.glob(os.path.join(args.test_patches, '*.npz')))
-    if args.max_patches:
-        patch_files = patch_files[:args.max_patches]
+    if args.max_patches and args.max_patches < len(patch_files):
+        random.seed(42)
+        patch_files = random.sample(patch_files, args.max_patches)
+        patch_files = sorted(patch_files)  # deterministic order after sampling
     print(f"Evaluating on {len(patch_files)} test patches")
 
     all_metrics = []

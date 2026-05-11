@@ -162,7 +162,7 @@ class GaussianDiffusion(nn.Module):
     # -----------------------------------------------------------------------
 
     @torch.no_grad()
-    def sample_ddim(self, lr_up, n_realizations=1, n_steps=50, eta=0.0):
+    def sample_ddim(self, lr_up, n_realizations=1, n_steps=50, eta=0.0, add_lr=False):
         """
         DDIM accelerated sampling (Song et al. 2020).
         Deterministic when eta=0, stochastic when eta=1 (recovers DDPM).
@@ -172,6 +172,7 @@ class GaussianDiffusion(nn.Module):
             n_realizations: number of independent samples
             n_steps:        number of DDIM steps (default 50)
             eta:            stochasticity level (0=deterministic, 1=full DDPM noise)
+            add_lr:         if True, add lr_up back to the sampled residual (residual mode)
 
         Returns:
             (n_realizations, 1, H, W) HR realizations
@@ -207,6 +208,8 @@ class GaussianDiffusion(nn.Module):
             noise = torch.randn_like(x) if eta > 0 else torch.zeros_like(x)
             x = ac_prev.sqrt() * x0_pred + dir_xt + sigma * noise
 
+        if add_lr:
+            x = x + lr_rep
         return x
 
     # -----------------------------------------------------------------------

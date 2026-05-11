@@ -3,20 +3,18 @@ channels:
   - pytorch
   - nvidia
   - conda-forge
-  - defaults
 
 dependencies:
-  # Python
-  - python=3.10
+  # Python (match Sherlock's ecosystem)
+  - python=3.12
 
-  # PyTorch with CUDA 11.8 (compatible with Sherlock's A100/V100 nodes)
-  - pytorch=2.1.*
+  # PyTorch with CUDA 12.4 (Sherlock A100/V100 nodes)
+  - pytorch>=2.2
   - torchvision
-  - pytorch-cuda=11.8
+  - pytorch-cuda=12.4
 
-  # Geospatial
-  - rasterio=1.3.*
-  - gdal
+  # Geospatial (conda-forge handles native GDAL/PROJ deps)
+  - rasterio
   - pyproj
 
   # Scientific computing
@@ -30,10 +28,6 @@ dependencies:
 
   # ML utilities
   - tensorboard
-
-  # Notebook support (optional, for local analysis)
-  - jupyter
-  - ipykernel
 
   # pip-only packages
   - pip

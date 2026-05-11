@@ -32,10 +32,14 @@ class Config:
     n_epochs: int = 500
     grad_clip: float = 1.0        # Gradient norm clipping
     ema_decay: float = 0.9999     # EMA of model weights (critical for quality)
-    spectral_loss_weight: float = 0.1
+    spectral_loss_weight: float = 1.0   # was 0.1 — increased to force HF content
+    gradient_loss_weight: float = 0.5   # Sobel edge loss on predicted x0
+    x0_loss_weight:       float = 0.5   # direct L1 on predicted x0 vs true x0
+    pretrained_ckpt: str = ''           # path to checkpoint for fine-tune init (weights only)
+    residual_mode: bool = True          # train on (HR - LR_bicubic) residual instead of full HR
 
     # ---- Logging / checkpointing -------------------------------------------
-    out_dir: str = '/scratch/users/scdobbs/bathy_diffusion'
+    out_dir: str = '/scratch/users/scdobbs/bathy_diffusion_v2'
     log_every: int = 100          # Log loss every N iterations
     sample_every: int = 1000      # Save sample images every N iterations
     save_every: int = 5000        # Save checkpoint every N iterations

@@ -91,7 +91,13 @@ class BathymetryPatchDataset(_TorchDataset):
     def __init__(self, patches_dir, augment=False):
         if not _TORCH_AVAILABLE:
             raise RuntimeError("PyTorch is required for BathymetryPatchDataset")
-        self.files = sorted(glob.glob(os.path.join(patches_dir, '*.npz')))
+        # Accept a single directory string or a list of directories
+        if isinstance(patches_dir, str):
+            patches_dir = [patches_dir]
+        self.files = []
+        for d in patches_dir:
+            self.files += glob.glob(os.path.join(d, '*.npz'))
+        self.files = sorted(set(self.files))
         if len(self.files) == 0:
             raise FileNotFoundError(f"No .npz patches found in {patches_dir}")
         self.augment = augment

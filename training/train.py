@@ -89,11 +89,12 @@ def train(cfg: Config):
         device = 'cpu'
     print(f"Using device: {device}")
 
-    # Data
+    # Data — patches_dir may be a single path or a list of paths
+    dirs = cfg.patches_dir if isinstance(cfg.patches_dir, list) else [cfg.patches_dir]
     train_dataset = BathymetryPatchDataset(
-        os.path.join(cfg.patches_dir, 'train'), augment=True)
+        [os.path.join(d, 'train') for d in dirs], augment=True)
     val_dataset   = BathymetryPatchDataset(
-        os.path.join(cfg.patches_dir, 'val'),   augment=False)
+        [os.path.join(d, 'val')   for d in dirs], augment=False)
 
     train_loader = DataLoader(train_dataset, batch_size=cfg.batch_size,
                               shuffle=True, num_workers=cfg.num_workers,
@@ -121,7 +122,11 @@ def train(cfg: Config):
     ema = EMA(diffusion, decay=cfg.ema_decay)
 
     # Loss
-    criterion = CombinedDiffusionLoss(spectral_weight=cfg.spectral_loss_weight)
+    criterion = CombinedDiffusionLoss(
+        spectral_weight=cfg.spectral_loss_weight,
+        gradient_weight=cfg.gradient_loss_weight,
+        x0_weight=cfg.x0_loss_weight,
+    ).to(device)
 
     # Optimizer
     optimizer = torch.optim.AdamW(unet.parameters(), lr=cfg.learning_rate,
@@ -141,19 +146,27 @@ def train(cfg: Config):
     display_lr = display_batch['lr'][:cfg.n_sample_display].to(device)
     display_hr = display_batch['hr'][:cfg.n_sample_display].to(device)
 
-    # Resume from checkpoint if available
+    # Resume or initialise from checkpoint
     start_epoch = 0
     global_step = 0
     latest_ckpt = _find_latest_checkpoint(ckpt_dir)
     if latest_ckpt:
+        # Full resume (same out_dir): restore model + optimiser + scheduler
         print(f"Resuming from {latest_ckpt}")
-        state = torch.load(latest_ckpt, map_location=device)
+        state = torch.load(latest_ckpt, map_location=device, weights_only=False)
         unet.load_state_dict(state['model'])
         ema.shadow.load_state_dict(state['ema'])
         optimizer.load_state_dict(state['optimizer'])
         scheduler.load_state_dict(state['scheduler'])
         start_epoch = state['epoch'] + 1
         global_step = state['global_step']
+    elif cfg.pretrained_ckpt:
+        # Fine-tune init: load model weights only, reset optimiser/scheduler
+        print(f"Fine-tune initialisation from {cfg.pretrained_ckpt}")
+        state = torch.load(cfg.pretrained_ckpt, map_location=device, weights_only=False)
+        unet.load_state_dict(state['model'])
+        ema.shadow.load_state_dict(state['ema'])
+        print("  Loaded model weights. Optimiser and scheduler reset (fresh fine-tune).")
 
     # Training
     for epoch in range(start_epoch, cfg.n_epochs):
@@ -169,17 +182,19 @@ def train(cfg: Config):
             B = hr.shape[0]
             t = torch.randint(0, cfg.n_timesteps, (B,), device=device)
 
+            # Residual mode: train on (HR - LR) so model learns to add texture
+            x0 = (hr - lr) if cfg.residual_mode else hr
+
             # Add noise
-            predicted_noise, target_noise = diffusion.p_losses(hr, lr, t)
+            predicted_noise, target_noise = diffusion.p_losses(x0, lr, t)
 
             # Compute loss (with spectral component)
             sac_t  = diffusion.sqrt_alphas_cumprod[t][:, None, None, None]
             soac_t = diffusion.sqrt_one_minus_alphas_cumprod[t][:, None, None, None]
-            noise_for_xt = target_noise
-            x_t = sac_t * hr + soac_t * noise_for_xt
+            x_t = sac_t * x0 + soac_t * target_noise
 
-            loss, l_noise, l_spectral = criterion(
-                predicted_noise, target_noise, hr, sac_t, soac_t, x_t)
+            loss, l_noise, l_spectral, l_gradient, l_x0 = criterion(
+                predicted_noise, target_noise, x0, sac_t, soac_t, x_t)
 
             optimizer.zero_grad()
             loss.backward()
@@ -194,9 +209,11 @@ def train(cfg: Config):
             # Log scalars
             if global_step % cfg.log_every == 0:
                 lr_now = scheduler.get_last_lr()[0]
-                writer.add_scalar('loss/total', loss.item(), global_step)
-                writer.add_scalar('loss/noise', l_noise.item(), global_step)
+                writer.add_scalar('loss/total',    loss.item(),       global_step)
+                writer.add_scalar('loss/noise',    l_noise.item(),    global_step)
                 writer.add_scalar('loss/spectral', l_spectral.item(), global_step)
+                writer.add_scalar('loss/gradient', l_gradient.item(), global_step)
+                writer.add_scalar('loss/x0',       l_x0.item(),       global_step)
                 writer.add_scalar('lr', lr_now, global_step)
 
             # Sample and display
@@ -234,11 +251,12 @@ def _evaluate(diffusion, criterion, loader, device, cfg):
             hr = batch['hr'].to(device)
             B  = hr.shape[0]
             t  = torch.randint(0, cfg.n_timesteps, (B,), device=device)
-            predicted_noise, target_noise = diffusion.p_losses(hr, lr, t)
+            x0 = (hr - lr) if cfg.residual_mode else hr
+            predicted_noise, target_noise = diffusion.p_losses(x0, lr, t)
             sac_t  = diffusion.sqrt_alphas_cumprod[t][:, None, None, None]
             soac_t = diffusion.sqrt_one_minus_alphas_cumprod[t][:, None, None, None]
-            x_t = sac_t * hr + soac_t * target_noise
-            loss, _, _ = criterion(predicted_noise, target_noise, hr, sac_t, soac_t, x_t)
+            x_t = sac_t * x0 + soac_t * target_noise
+            loss, *_ = criterion(predicted_noise, target_noise, x0, sac_t, soac_t, x_t)
             total += loss.item()
     diffusion.train()
     return total / len(loader)
@@ -276,21 +294,28 @@ def _save_checkpoint(ckpt_dir, model, ema, optimizer, scheduler,
 
 def main():
     parser = argparse.ArgumentParser(description='Train bathymetry diffusion SR model')
-    parser.add_argument('--patches_dir', default=None)
-    parser.add_argument('--out_dir',     default=None)
-    parser.add_argument('--batch_size',  type=int, default=None)
-    parser.add_argument('--n_epochs',    type=int, default=None)
-    parser.add_argument('--lr',          type=float, default=None)
-    parser.add_argument('--base_ch',     type=int, default=None)
+    parser.add_argument('--patches_dir',    default=None, nargs='+')
+    parser.add_argument('--out_dir',        default=None)
+    parser.add_argument('--batch_size',     type=int,   default=None)
+    parser.add_argument('--n_epochs',       type=int,   default=None)
+    parser.add_argument('--lr',             type=float, default=None)
+    parser.add_argument('--base_ch',        type=int,   default=None)
+    parser.add_argument('--pretrained',     default=None,
+                        help='Checkpoint to load weights from for fine-tuning (resets optimiser)')
+    parser.add_argument('--no_residual', action='store_true',
+                        help='Disable residual mode (train on full HR instead of HR-LR)')
     args = parser.parse_args()
 
     cfg = Config()
-    if args.patches_dir: cfg.patches_dir = args.patches_dir
+    if args.patches_dir:
+        cfg.patches_dir = args.patches_dir if len(args.patches_dir) > 1 else args.patches_dir[0]
     if args.out_dir:     cfg.out_dir = args.out_dir
     if args.batch_size:  cfg.batch_size = args.batch_size
     if args.n_epochs:    cfg.n_epochs = args.n_epochs
     if args.lr:          cfg.learning_rate = args.lr
     if args.base_ch:     cfg.base_ch = args.base_ch
+    if args.pretrained:  cfg.pretrained_ckpt = args.pretrained
+    if args.no_residual: cfg.residual_mode = False
 
     train(cfg)
 

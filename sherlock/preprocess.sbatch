@@ -16,8 +16,13 @@
 set -e
 mkdir -p logs
 
-# Load Sherlock PyTorch module
-module load py-pytorch/2.4.1_py312
+# Prevent conda/PYTHONPATH from shadowing modules
+conda deactivate 2>/dev/null || true
+unset PYTHONPATH
+
+# Load modules and activate venv
+module load python/3.12.1 py-pytorch/2.4.1_py312 py-torchvision/0.19.1_py312
+source /home/users/${USER}/bathy_diffusion_env/bin/activate
 
 # Project root (adjust to your Sherlock home/scratch path)
 PROJECT_DIR="/home/users/${USER}/GAN_Bathymetry_Project"
@@ -25,7 +30,7 @@ SCRATCH_DIR="/scratch/users/${USER}/bathy_diffusion"
 
 cd "$PROJECT_DIR"
 
-python preprocessing/extract_paired_patches.py \
+python3 preprocessing/extract_paired_patches.py \
     --lr_path  "data_for_model/MorroBay_all_2020_interp_32m_converted.tif" \
     --hr_dir   "data_for_model/" \
     --out_dir  "${SCRATCH_DIR}/patches" \
