@@ -29,8 +29,9 @@ python -m preprocessing.extract_paired_patches \
     --lr_path  "data_for_model/MorroBay_all_2020_interp_32m_converted.tif" \
     --hr_dir   "data_for_model/" \
     --out_dir  "${SCRATCH_DIR}/patches" \
-    --patch_size 64 \
-    --stride 32 \
+    --patch_size 512 \
+    --stride 256 \
+    --sr_ratio 16 \
     --nodata_threshold 0.10 \
     --flat_threshold 0.05
 

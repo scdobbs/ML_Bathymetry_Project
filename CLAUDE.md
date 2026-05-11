@@ -2,23 +2,22 @@
 
 ## Status
 
-**Work in progress** — undergoing a staged rewrite from the original
-2022-era DDPM/DDIM design to a 2026-era flow-matching design with H100
-optimization. The current `main` branch is the DDPM baseline; the
-`rewrite/flow-matching-2026` branch hosts the migration. Stage 1
-(housekeeping) is in this branch; later stages will replace the
-diffusion process, U-Net attention, conditioning pathway, training
-loop, and inference sampler.
+Six-stage rewrite from a 2022-era DDPM/DDIM design to a 2026-era flow-
+matching design is **complete** as of Stage 6. The `main` branch retains
+the original DDPM baseline for historical comparison; the
+`rewrite/flow-matching-2026` branch hosts the new code and is the active
+development line. End-to-end smoke runs on Sherlock are pending.
 
-The project name "GAN Bathymetry" is historical — the current model is
-a conditional diffusion model, not a GAN.
+The project name "GAN Bathymetry" is historical — the current model is a
+conditional rectified-flow model, not a GAN.
 
 ## Project Goal
 
-Proof-of-concept paper demonstrating **stochastic super-resolution of seafloor bathymetry**:
-- Upsample a 32m resolution MBES grid to 2m resolution
-- Generate multiple stochastic realizations to quantify spatial uncertainty
-- Identify high-uncertainty zones to guide targeted future surveys
+Proof-of-concept paper demonstrating **stochastic super-resolution of
+seafloor bathymetry**:
+- Upsample a 32 m resolution MBES grid to 2 m resolution.
+- Generate multiple stochastic realizations to quantify spatial uncertainty.
+- Identify high-uncertainty zones to guide targeted future surveys.
 
 ## Data
 
@@ -26,147 +25,167 @@ All data is in `data_for_model/`.
 
 | File | Resolution | Description |
 |---|---|---|
-| `MorroBay_all_2020_interp_32m_converted.tif` | 32m | Full-area low-resolution grid (LR) |
-| `*_Topo1m_*_utm.tif` / `*_converted.tif` (×18) | 2m (resampled from 1m) | High-resolution AUV survey patches (HR) |
+| `MorroBay_all_2020_interp_32m_converted.tif` | 32 m | Full-area LR grid |
+| `*_Topo1m_*_utm.tif` / `*_converted.tif` (×18) | 2 m (resampled from 1 m) | HR AUV survey patches |
 
-- **CRS**: All files in UTM projection
-- **Format**: Float32 GeoTIFF, elevation in meters (negative = below sea level)
-- **SR ratio**: 16× (32m → 2m)
-- **Area**: Morro Bay, CA continental shelf/slope
+- CRS: UTM. Format: float32 GeoTIFF, elevation in meters (negative = below sea level).
+- SR ratio: **16×** (configurable; not hardcoded).
+- Area: Morro Bay, CA continental shelf / slope.
 
-## Architecture (current baseline)
+## Architecture (post-rewrite)
 
-Conditional DDPM (SR3-style):
-- Models the full posterior `P(HR | LR)` — principled stochasticity
-- No mode collapse (unlike GANs)
-- Run N=50–100 samples → pixel-wise std dev = uncertainty map
-- U-Net backbone conditioned on bicubic-upsampled LR concatenated to the
-  noisy HR at every diffusion step
-- Linear β schedule, ε-prediction, DDIM sampler with eta=0 (deterministic)
+**Conditional rectified flow** on a hybrid CNN/transformer U-Net.
 
-This baseline will be replaced in later rewrite stages by rectified-flow /
-flow-matching training with EDM2 preconditioning, hybrid U-Net with
-transformer middle blocks, multi-scale cross-attention onto raw LR,
-512×512 tiles, and a stochastic sampler.
+- **Training objective**: rectified flow. Linear interpolant
+  x_t = (1 − t) x_0 + t z, target velocity v = z − x_0, primary loss is
+  MSE between predicted and target velocity. Logit-normal t sampling
+  concentrates supervision in the middle of the time interval.
+- **Model**: 6-level U-Net, 85 M parameters. Levels 0–3 are convolutional
+  ResBlocks with AdaLN-Zero time modulation. Levels 4–5 are DiT-style
+  transformer blocks with self-attention, **cross-attention onto raw LR
+  features**, and an MLP — all gated by AdaLN-Zero. Attention uses
+  `F.scaled_dot_product_attention` (Flash backend on H100).
+- **Conditioning**: a small CNN lifts raw LR (32 × 32) into K/V feature
+  maps at two scales (32 × 32, 16 × 16) matching the transformer levels.
+  No bicubic-upsample-then-concat path remains.
+- **CFG**: training-time conditioning dropout (prob 0.1) with a learned-
+  zero null token; inference-time guidance via the standard
+  v = v_uncond + s · (v_cond − v_uncond).
+- **Sampling**: 2nd-order Heun integration from t = 1 to t = 0 with
+  optional Langevin churn. Default 50 steps. Deterministic at churn=0.
+
+Initialization is DiT-style identity: AdaLN-Zero output gates and the
+final output Conv2d are zero-initialized; the second conv inside each
+ResBlock is zero-initialized. The model returns zero velocity at init
+and training starts from a stable identity-residual configuration.
 
 ## Project Structure
 
 ```
 GAN_Bathymetry_Project/
 ├── CLAUDE.md                            # This file
+├── METHOD.md                            # Method document for the paper
+├── pyproject.toml                       # Editable install for python -m ...
 ├── data_for_model/                      # Raw GeoTIFF inputs (do not modify)
 ├── preprocessing/
 │   ├── __init__.py
-│   ├── extract_paired_patches.py        # Extract paired LR/HR patches from overlapping areas
-│   ├── data_utils.py                    # Normalization, augmentation, dataset class
-│   └── validate_dataset.py              # Visualize and QC the extracted patches
+│   ├── extract_paired_patches.py        # 512×512 paired patches at SR=16×
+│   ├── data_utils.py                    # Returns {lr_raw, lr_up, hr, stats}
+│   └── validate_dataset.py              # 3-tensor visualizer
 ├── models/
 │   ├── __init__.py
-│   ├── unet.py                          # BathyUNet (4-level, attention at 16×16 + 8×8)
-│   ├── diffusion.py                     # GaussianDiffusion + build_diffusion_from_checkpoint
-│   └── losses.py                        # L1 noise loss + 2D log-power spectral loss
+│   ├── unet.py                          # BathyUNet: 6-level hybrid CNN + transformer
+│   ├── diffusion.py                     # RectifiedFlow + build_*_from_checkpoint
+│   └── losses.py                        # FlowMatchingLoss + RadialSpectralLoss
 ├── training/
 │   ├── __init__.py
 │   ├── config.py                        # All hyperparameters as a dataclass
-│   └── train.py                         # Main training loop (EMA, TensorBoard, checkpoints)
+│   └── train.py                         # DDP / bf16 / compile / foreach-EMA / grad-accum
 ├── inference/
 │   ├── __init__.py
-│   ├── generate_realizations.py         # Tile LR grid, generate N realizations, stitch
-│   └── uncertainty_maps.py              # Compute mean/std/CoV/IQR, export GeoTIFF
+│   ├── generate_realizations.py         # Tile + chunk + autocast + CFG/churn
+│   └── uncertainty_maps.py              # Mean/std/CoV/IQR/priority masks
 ├── evaluation/
 │   ├── __init__.py
-│   ├── metrics.py                       # PSNR, SSIM, CRPS, calibration
-│   └── evaluate.py                      # Run evaluation on held-out HR surveys
+│   ├── metrics.py                       # PSNR, SSIM, CRPS, coverage, slope KS
+│   └── evaluate.py                      # Run metrics on held-out test patches
 ├── utils/
 │   ├── __init__.py
-│   └── device.py                        # get_device() helper (cuda → mps → cpu)
+│   ├── device.py                        # get_device() helper (cuda → mps → cpu)
+│   └── distributed.py                   # setup_distributed, all_reduce_mean, ...
 └── sherlock/
-    ├── environment.yml                  # Conda environment (PyTorch 2.4.1 + CUDA 12.1)
+    ├── environment.yml                  # python=3.12, pytorch=2.4.1, cuda=12.1
     ├── preprocess.sbatch                # CPU job: extract patches
-    ├── train.sbatch                     # GPU job: train diffusion model
-    └── inference.sbatch                 # GPU job: generate realizations + uncertainty maps
+    ├── train.sbatch                     # torchrun --nproc_per_node=$SLURM_GPUS_ON_NODE
+    └── inference.sbatch                 # Optional --array=0-N region parallelism
 ```
 
-All entry points are run as Python modules from the project root, e.g.
-`python -m training.train ...`. The sbatch files already do this.
+Entry points run as `python -m pkg.mod ...` from the project root, e.g.
+`python -m training.train ...`. The sbatch files do this through
+`torchrun --module training.train`.
 
 ## Workflow
 
-### Step 1 — Preprocessing (local or Sherlock CPU)
+### 1 — Preprocessing
 ```bash
-# Extract paired patches from all overlap regions
+sbatch sherlock/preprocess.sbatch
+# or locally:
 python -m preprocessing.extract_paired_patches \
     --lr_path data_for_model/MorroBay_all_2020_interp_32m_converted.tif \
-    --hr_dir data_for_model/ \
-    --out_dir /path/to/patches/ \
-    --patch_size 64 \
-    --stride 32
-
-# Validate output
-python -m preprocessing.validate_dataset --patches_dir /path/to/patches/
+    --hr_dir  data_for_model/ \
+    --out_dir /scratch/.../bathy_patches/ \
+    --patch_size 512 --stride 256 --sr_ratio 16
+python -m preprocessing.validate_dataset --patches_dir /scratch/.../bathy_patches/
 ```
 
-### Step 2 — Training (Sherlock GPU)
+### 2 — Training
 ```bash
 sbatch sherlock/train.sbatch
-# Monitor via: tensorboard --logdir $OUT_DIR/logs/
+# Same script runs on 1 GPU (WORLD_SIZE=1) or N GPUs (--gres=gpu:h100:N).
 ```
 
-### Step 3 — Inference (Sherlock GPU)
+### 3 — Inference
 ```bash
 sbatch sherlock/inference.sbatch
-# Generates N=50 realizations over the full 32m grid + uncertainty maps
+# Or use --array=0-N to parallelize across sub-regions.
 ```
 
-### Step 4 — Uncertainty Maps (local, optional standalone)
+### 4 — Uncertainty maps (already chained from inference.sbatch)
 ```bash
 python -m inference.uncertainty_maps \
-    --realizations_dir /path/to/realizations/ \
-    --out_dir results/
+    --realizations_dir /scratch/.../realizations \
+    --out_dir          results/uncertainty/
 ```
 
-### Step 5 — Evaluation (uses held-out HR surveys)
+### 5 — Evaluation
 ```bash
 python -m evaluation.evaluate \
-    --checkpoint /path/to/checkpoint.pt \
-    --test_patches /path/to/patches/test/
+    --checkpoint   /scratch/.../ckpt_final.pt \
+    --test_patches /scratch/.../bathy_patches/test/
 ```
 
-## Key Design Choices (current baseline)
+## Key configurable knobs (training/config.py)
 
-- **Patch size**: 64×64 HR pixels (128m × 128m footprint at 2m resolution)
-- **LR condition**: 4×4 pixel window from 32m grid, bicubic-upsampled to 64×64
-- **Normalization**: Per-patch (subtract mean, divide by std dev) — preserves relative topography
-- **Train/val/test split**: By survey area, NOT random patches — prevents data leakage
-- **DDIM sampling**: 50 steps with eta=0 (deterministic)
-- **EMA**: Exponential moving average of model weights (critical for diffusion quality)
-- **Spectral loss**: 2D log-power FFT L1 loss to enforce correct texture wavelengths
+- `patch_size = 512`, `sr_ratio = 16`, `lr_patch_size = 32` (= patch / sr_ratio)
+- Model: `base_ch=64`, `ch_mult=(1,2,4,6,8,12)`, `n_heads=8`,
+  `transformer_levels=(4,5)`, `transformer_depth=2`, `time_dim=256`
+- Flow: `time_sampling="logit_normal"`, `n_sampling_steps=50`,
+  `sampler="heun"`, `churn=0.0`
+- CFG: `cfg_dropout_prob=0.1`, `cfg_scale=1.5`
+- Loss: `spectral_loss_weight=0.0` (off by default; on for ablations),
+  `spectral_loss_mode="radial"`, `spectral_loss_snr_weighting=True`
+- Training: `batch_size=16`, `learning_rate=2e-4`, `n_epochs=500`,
+  `grad_clip=1.0`, `ema_decay=0.9999`, `ema_warmup_steps=1000`,
+  `precision="bf16"`, `compile_model=True`, `grad_accum_steps=1`
+- Inference: `n_realizations_per_forward=10`, `tiles_per_batch=1`
+- DataLoader: `num_workers=16`, `pin_memory=True`,
+  `persistent_workers=True`, `prefetch_factor=4`
+- Distributed: `distributed=True`, `ddp_find_unused_params=False`
 
 ## Held-Out Test Surveys
 
-The following surveys are held out for final evaluation (never included in training):
+Never included in training:
 - `LuciaChica_2007_Topo1m_UTM_utm.tif`
 - `HeadlessCanyon_Topo1m_converted.tif`
 - `BankTopEastofCanyon3_Topo1m_converted.tif`
 
-(Selected to cover diverse geomorphological settings: open shelf, canyon head, bank top.)
-
 ## Sherlock Notes
 
-- Cluster: Stanford Sherlock, SLURM scheduler
-- Partition: `serc`
-- Module: `module load py-pytorch/2.4.1_py312` (used by all three sbatch files).
-  Rewrite target is PyTorch 2.5+; upgrade as soon as a 2.5+ build is published.
-- Scratch storage: `/scratch/users/$USER/` for patches, checkpoints, realizations
-- Home storage: `/home/users/$USER/` for code and configs
+- Partition: `serc`. Modules: `py-pytorch/2.4.1_py312`.
+- Scratch: `/scratch/users/$USER/` for patches, checkpoints, realizations.
+- Home: `/home/users/$USER/` for code.
+- H100 GPU requested via `--gres=gpu:h100:1`. Fall back to `--gres=gpu:1`
+  if the h100 selector isn't enabled on serc (documented in the sbatch
+  comments).
 
 ## Python Dependencies
 
-Core: `pytorch=2.4.1`, `pytorch-cuda=12.1`, `rasterio`, `numpy`, `scipy`,
-`matplotlib`, `tqdm`, `tensorboard`, `einops`. Pip: `flash-attn==2.6.3`
-(CUDA 12.x only).
+Core: `pytorch=2.4.1`, `pytorch-cuda=12.1`, `rasterio>=1.3`, `numpy`,
+`scipy`, `matplotlib`, `tqdm`, `tensorboard`, `einops`. Pip-only:
+`flash-attn==2.6.3` (CUDA 12.x), plus the package itself via
+`pip install -e .`. Triton ships with the PyTorch wheel.
 
-Install locally for development:
+Install locally:
 ```bash
 conda env create -f sherlock/environment.yml
 conda activate bathy_diffusion

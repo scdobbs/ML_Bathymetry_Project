@@ -67,6 +67,7 @@ class Config:
 
     # ---- Inference ---------------------------------------------------------
     n_realizations_per_forward: int = 10  # Cap on batched realizations per forward pass
+    tiles_per_batch: int = 1              # Tiles processed per forward (memory-bounded)
 
     # ---- Logging / checkpointing -------------------------------------------
     out_dir: str = field(default_factory=lambda: _scratch('bathy_diffusion'))

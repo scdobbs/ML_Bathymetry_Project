@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bathy-diffusion"
+version = "0.1.0"
+description = "Conditional rectified-flow super-resolution for seafloor bathymetry"
+requires-python = ">=3.12"
+license = { text = "Proprietary" }
+readme = "CLAUDE.md"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["models*", "preprocessing*", "training*", "inference*", "evaluation*", "utils*"]
+exclude = ["data_for_model*", "notebooks*", "sherlock*", "results*"]

@@ -7,19 +7,21 @@ channels:
 
 # Pinned to match the Sherlock module loaded by the .sbatch jobs:
 #     module load py-pytorch/2.4.1_py312
-# Gap to track: PyTorch 2.5+ is the rewrite target (better flash-attn-2 / SDPA
-# paths). Upgrade as soon as a 2.5+ module is published on the cluster.
+# Stage 6 gap to track: PyTorch 2.5+ is the upstream target (better
+# flash-attn-2 / SDPA paths). Bump the pin here and the module load line
+# in the .sbatch files together when a 2.5+ build is published on serc.
 dependencies:
   # Python
   - python=3.12
 
-  # PyTorch with CUDA 12.1 (matches Sherlock module + flash-attn 2.x wheels)
+  # PyTorch with CUDA 12.1 (matches Sherlock module + flash-attn 2.x wheels;
+  # triton ships with the PyTorch wheel, no separate install needed).
   - pytorch=2.4.1
   - torchvision
   - pytorch-cuda=12.1
 
   # Geospatial
-  - rasterio=1.3.*
+  - rasterio>=1.3
   - gdal
   - pyproj
 
@@ -43,5 +45,9 @@ dependencies:
   # pip-only packages
   - pip
   - pip:
-    # Gated on CUDA 12.x; --no-build-isolation avoids a torch re-resolve.
+    # flash-attn requires CUDA 12.x; --no-build-isolation avoids a torch
+    # re-resolve at install time.
     - flash-attn==2.6.3 --no-build-isolation
+    # Editable install of the project itself so `python -m training.train`
+    # resolves cleanly from any working directory.
+    - -e ..
