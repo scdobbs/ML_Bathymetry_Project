@@ -58,6 +58,7 @@ class Config:
     batch_size: int = 16
     learning_rate: float = 2e-4
     n_epochs: int = 500
+    max_steps: int = 0                # 0 = unlimited; stop after this many optimizer steps
     grad_clip: float = 1.0
     precision: str = "bf16"          # "bf16" or "fp32"
     compile_model: bool = True       # torch.compile the model

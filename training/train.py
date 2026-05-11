@@ -299,7 +299,10 @@ def train(cfg: Config):
         autocast = contextlib.nullcontext
 
     # ---- Training loop ----
+    done = False  # set when cfg.max_steps is reached mid-epoch
     for epoch in range(start_epoch, cfg.n_epochs):
+        if done:
+            break
         flow.train()
         if train_sampler is not None:
             train_sampler.set_epoch(epoch)
@@ -384,6 +387,16 @@ def train(cfg: Config):
                 _save_checkpoint(ckpt_dir, flow, ema, optimizer, scheduler,
                                  epoch, global_step)
 
+            if cfg.max_steps > 0 and global_step >= cfg.max_steps:
+                done = True
+                if is_main_process():
+                    print(f"Reached max_steps={cfg.max_steps}; stopping early.",
+                          flush=True)
+                break
+
+        if done:
+            break
+
         # ---- Validation ----
         val_loss = _evaluate(flow, criterion, val_loader, device, autocast)
         val_loss = all_reduce_mean(
@@ -446,6 +459,8 @@ def main():
                         action=argparse.BooleanOptionalAction, default=None,
                         help='Toggle torch.compile (default from Config)')
     parser.add_argument('--grad_accum_steps', type=int, default=None)
+    parser.add_argument('--max_steps',   type=int, default=None,
+                        help='Stop after this many optimizer steps (0 = unlimited)')
     args = parser.parse_args()
 
     cfg = Config()
@@ -460,6 +475,7 @@ def main():
     if args.precision:   cfg.precision = args.precision
     if args.compile_model is not None: cfg.compile_model = args.compile_model
     if args.grad_accum_steps is not None: cfg.grad_accum_steps = args.grad_accum_steps
+    if args.max_steps is not None: cfg.max_steps = args.max_steps
 
     train(cfg)
 
