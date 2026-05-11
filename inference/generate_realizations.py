@@ -63,7 +63,7 @@ def read_lr_tif(lr_tif_path):
     return arr, profile
 
 
-def run_inference(diffusion, lr_arr, lr_profile, patch_size, stride,
+def run_inference(diffusion, lr_arr, lr_profile, patch_size, stride, sr_ratio,
                   n_realizations, ddim_steps, device, out_dir):
     """
     Tile the LR grid, generate N realizations per tile, and stitch.
@@ -73,14 +73,14 @@ def run_inference(diffusion, lr_arr, lr_profile, patch_size, stride,
         lr_profile:   updated rasterio profile for the HR output
     """
     lr_h, lr_w = lr_arr.shape
-    lr_res = lr_profile['transform'].a      # pixel size in map units (meters)
-    hr_res = lr_res / 16.0                   # target resolution (2m)
-    scale  = 16
+    lr_res = lr_profile['transform'].a       # pixel size in map units (meters)
+    hr_res = lr_res / sr_ratio               # target resolution
+    scale  = sr_ratio
 
     hr_h = lr_h * scale
     hr_w = lr_w * scale
     hr_patch = patch_size                    # HR patch size
-    lr_tile  = patch_size // scale           # LR tile size (4×4)
+    lr_tile  = patch_size // scale           # LR tile size
 
     # Accumulation buffers: (n_realizations, hr_h, hr_w)
     accum   = np.zeros((n_realizations, hr_h, hr_w), dtype=np.float32)
@@ -193,8 +193,12 @@ def main():
     parser.add_argument('--out_dir',        required=True)
     parser.add_argument('--n_realizations', type=int, default=50)
     parser.add_argument('--ddim_steps',     type=int, default=50)
-    parser.add_argument('--patch_size',     type=int, default=64)
-    parser.add_argument('--stride',         type=int, default=32)
+    parser.add_argument('--patch_size',     type=int, default=None,
+                        help='HR patch size (defaults to Config.patch_size)')
+    parser.add_argument('--stride',         type=int, default=None,
+                        help='Patch stride in HR pixels (defaults to Config.stride)')
+    parser.add_argument('--sr_ratio',       type=int, default=None,
+                        help='Super-resolution ratio (defaults to Config.sr_ratio)')
     parser.add_argument('--base_ch',        type=int, default=64)
     args = parser.parse_args()
 
@@ -203,6 +207,9 @@ def main():
 
     cfg = Config()
     cfg.base_ch = args.base_ch
+    patch_size = args.patch_size if args.patch_size is not None else cfg.patch_size
+    stride     = args.stride     if args.stride     is not None else cfg.stride
+    sr_ratio   = args.sr_ratio   if args.sr_ratio   is not None else cfg.sr_ratio
 
     diffusion = load_model(args.checkpoint, cfg, device)
 
@@ -212,8 +219,9 @@ def main():
 
     realizations, hr_profile = run_inference(
         diffusion, lr_arr, lr_profile,
-        patch_size=args.patch_size,
-        stride=args.stride,
+        patch_size=patch_size,
+        stride=stride,
+        sr_ratio=sr_ratio,
         n_realizations=args.n_realizations,
         ddim_steps=args.ddim_steps,
         device=device,

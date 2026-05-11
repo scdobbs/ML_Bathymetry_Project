@@ -3,17 +3,19 @@ Extract paired (LR, HR) patches from all areas where high-resolution
 AUV surveys overlap with the 32m MBES grid.
 
 Outputs one .npz file per patch containing:
-    'lr':    float32 (1, patch_size, patch_size) — LR upsampled & normalized
-    'hr':    float32 (1, patch_size, patch_size) — HR normalized
-    'stats': float32 (2,) — [mean, std] of the HR patch (for denormalization)
+    'lr_raw': float32 (1, lr_patch_size, lr_patch_size) — raw LR, normalized
+    'lr_up':  float32 (1, patch_size, patch_size)        — bicubic-upsampled LR, normalized
+    'hr':     float32 (1, patch_size, patch_size)        — HR normalized
+    'stats':  float32 (2,) — [mean, std] of the HR patch (for denormalization)
 
 Usage:
-    python preprocessing/extract_paired_patches.py \
+    python -m preprocessing.extract_paired_patches \
         --lr_path data_for_model/MorroBay_all_2020_interp_32m_converted.tif \
         --hr_dir  data_for_model/ \
         --out_dir /scratch/users/$USER/bathy_patches/ \
-        --patch_size 64 \
-        --stride 32 \
+        --patch_size 512 \
+        --stride 256 \
+        --sr_ratio 16 \
         --nodata_threshold 0.1 \
         --flat_threshold 0.05
 """
@@ -115,7 +117,8 @@ def patch_is_valid(hr_patch, lr_patch, nodata_threshold, flat_threshold):
 
 
 def extract_patches_from_survey(hr_path, lr_src, out_dir, patch_size, stride,
-                                 nodata_threshold, flat_threshold, split_label):
+                                 sr_ratio, nodata_threshold, flat_threshold,
+                                 split_label):
     """
     Extract all valid patches from one HR survey file.
     Saves .npz files to out_dir/split_label/.
@@ -123,7 +126,7 @@ def extract_patches_from_survey(hr_path, lr_src, out_dir, patch_size, stride,
     """
     os.makedirs(os.path.join(out_dir, split_label), exist_ok=True)
     survey_name = os.path.splitext(os.path.basename(hr_path))[0]
-    lr_patch_size = patch_size // 16  # 32m / 2m = 16× ratio; 4×4 LR pixels for 64×64 HR
+    lr_patch_size = patch_size // sr_ratio
 
     count = 0
     with rasterio.open(hr_path) as hr_src:
@@ -143,7 +146,9 @@ def extract_patches_from_survey(hr_path, lr_src, out_dir, patch_size, stride,
         # For transect-style surveys (thin data footprints with large bounding boxes),
         # reading the whole overlap area at coarse resolution to find valid row/col bands
         # avoids iterating over thousands of all-nodata patch positions.
-        coarse_scale = max(1, patch_size // 8)   # read at 1/8 resolution for speed
+        # Cap at 32 so the prescreen stays meaningful at large patch sizes (at 512×512,
+        # patch_size // 8 = 64 would smear the prescreen across whole patches).
+        coarse_scale = max(1, min(32, patch_size // 8))
         overview_h = max(1, (row_end - row_start) // coarse_scale)
         overview_w = max(1, (col_end - col_start) // coarse_scale)
         overview_win = rasterio.windows.Window(col_start, row_start,
@@ -199,20 +204,21 @@ def extract_patches_from_survey(hr_path, lr_src, out_dir, patch_size, stride,
                 lr_patch_raw = np.where(np.isfinite(lr_patch_raw), lr_patch_raw,
                                         np.nanmean(lr_patch_raw))
 
-                # Normalize using HR patch statistics
+                # Normalize using HR patch statistics. lr_raw and lr_up share
+                # the same (mean, std) so they can be denormalized identically.
                 hr_norm, mean, std = normalize_patch(hr_patch)
-
-                # Upsample LR to patch_size and apply same normalization
+                lr_raw_norm = (lr_patch_raw - mean) / std
                 lr_up = bicubic_upsample(lr_patch_raw, patch_size)
-                lr_norm = (lr_up - mean) / std
+                lr_up_norm = (lr_up - mean) / std
 
                 fname = f"{survey_name}_r{row_off:05d}_c{col_off:05d}.npz"
                 out_path = os.path.join(out_dir, split_label, fname)
                 np.savez_compressed(
                     out_path,
-                    lr=lr_norm[np.newaxis].astype(np.float32),
+                    lr_raw=lr_raw_norm[np.newaxis].astype(np.float32),
+                    lr_up=lr_up_norm[np.newaxis].astype(np.float32),
                     hr=hr_norm[np.newaxis].astype(np.float32),
-                    stats=np.array([mean, std], dtype=np.float32)
+                    stats=np.array([mean, std], dtype=np.float32),
                 )
                 count += 1
 
@@ -227,15 +233,23 @@ def main():
                         help='Directory containing HR GeoTIFF files')
     parser.add_argument('--out_dir', required=True,
                         help='Output directory for .npz patch files')
-    parser.add_argument('--patch_size', type=int, default=64,
-                        help='HR patch size in pixels (default: 64)')
-    parser.add_argument('--stride', type=int, default=32,
-                        help='Stride between patches in HR pixels (default: 32)')
+    parser.add_argument('--patch_size', type=int, default=512,
+                        help='HR patch size in pixels (default: 512)')
+    parser.add_argument('--stride', type=int, default=256,
+                        help='Stride between patches in HR pixels (default: 256)')
+    parser.add_argument('--sr_ratio', type=int, default=16,
+                        help='Super-resolution ratio: HR_res / LR_res (default: 16)')
     parser.add_argument('--nodata_threshold', type=float, default=0.1,
                         help='Max fraction of nodata pixels allowed (default: 0.1)')
     parser.add_argument('--flat_threshold', type=float, default=0.05,
                         help='Min elevation range in meters to accept patch (default: 0.05)')
     args = parser.parse_args()
+
+    assert args.patch_size % args.sr_ratio == 0, (
+        f"--patch_size ({args.patch_size}) must be divisible by "
+        f"--sr_ratio ({args.sr_ratio})"
+    )
+    lr_patch_size = args.patch_size // args.sr_ratio
 
     # Find all HR survey files
     hr_files = sorted(
@@ -245,10 +259,8 @@ def main():
     hr_files = [f for f in hr_files if os.path.basename(f) != os.path.basename(args.lr_path)]
 
     print(f"Found {len(hr_files)} HR survey files")
-    print(f"Patch size: {args.patch_size}×{args.patch_size} HR pixels "
-          f"({args.patch_size * 2}m × {args.patch_size * 2}m)")
-    print(f"LR patch: {args.patch_size // 16}×{args.patch_size // 16} pixels "
-          f"before upsampling")
+    print(f"Patch size: {args.patch_size}×{args.patch_size} HR pixels at SR ratio {args.sr_ratio}×")
+    print(f"LR patch:   {lr_patch_size}×{lr_patch_size} pixels before upsampling")
 
     total_train = total_val = total_test = 0
 
@@ -269,8 +281,8 @@ def main():
             for hr_path in tqdm(file_list, desc=split_label):
                 n = extract_patches_from_survey(
                     hr_path, lr_src, args.out_dir, args.patch_size,
-                    args.stride, args.nodata_threshold, args.flat_threshold,
-                    split_label)
+                    args.stride, args.sr_ratio, args.nodata_threshold,
+                    args.flat_threshold, split_label)
                 print(f"  {os.path.basename(hr_path)}: {n} patches")
                 split_count += n
 

@@ -49,24 +49,32 @@ def bicubic_upsample(lr_arr, target_size):
     return zoom(lr_arr, factor, order=3).astype(np.float32)
 
 
-def augment_pair(hr, lr_up):
+def augment_triple(hr, lr_up, lr_raw):
     """
-    Apply random horizontal/vertical flips and 90-degree rotations
-    to a paired (HR, LR-upsampled) patch.
-    Both arrays must be 2D (H, W).
-    Returns augmented (hr, lr_up).
+    Apply the same random horizontal/vertical flips and 90-degree rotations
+    to all three arrays jointly.
+
+    hr and lr_up are at HR resolution (patch_size × patch_size); lr_raw is at
+    LR resolution (lr_patch_size × lr_patch_size). The flip/rotate operations
+    are scale-invariant and equivariant, so the same parameter choice applied
+    in each array's native frame produces a consistent triple.
+
+    Returns (hr, lr_up, lr_raw).
     """
     if random.random() > 0.5:
-        hr = np.fliplr(hr).copy()
-        lr_up = np.fliplr(lr_up).copy()
+        hr     = np.fliplr(hr).copy()
+        lr_up  = np.fliplr(lr_up).copy()
+        lr_raw = np.fliplr(lr_raw).copy()
     if random.random() > 0.5:
-        hr = np.flipud(hr).copy()
-        lr_up = np.flipud(lr_up).copy()
+        hr     = np.flipud(hr).copy()
+        lr_up  = np.flipud(lr_up).copy()
+        lr_raw = np.flipud(lr_raw).copy()
     k = random.randint(0, 3)
     if k > 0:
-        hr = np.rot90(hr, k).copy()
-        lr_up = np.rot90(lr_up, k).copy()
-    return hr, lr_up
+        hr     = np.rot90(hr, k).copy()
+        lr_up  = np.rot90(lr_up, k).copy()
+        lr_raw = np.rot90(lr_raw, k).copy()
+    return hr, lr_up, lr_raw
 
 
 # ---------------------------------------------------------------------------
@@ -75,13 +83,14 @@ def augment_pair(hr, lr_up):
 
 class BathymetryPatchDataset(_TorchDataset):
     """
-    Loads paired (LR, HR) bathymetry patches from .npz files.
+    Loads paired LR/HR bathymetry patches from .npz files.
     Requires PyTorch.
 
-    Each .npz contains:
-        'lr':    float32 array (1, H, W) — bicubic-upsampled LR patch, normalized
-        'hr':    float32 array (1, H, W) — HR patch, normalized
-        'stats': float32 array (2,) — [mean, std] used for normalization
+    Each .npz contains (Stage 2 schema):
+        'lr_raw': float32 (1, lr_patch_size, lr_patch_size) — raw LR, normalized
+        'lr_up':  float32 (1, patch_size, patch_size)        — bicubic-upsampled LR, normalized
+        'hr':     float32 (1, patch_size, patch_size)        — HR, normalized
+        'stats':  float32 (2,) — [mean, std] used for normalization
 
     Args:
         patches_dir: directory containing .npz patch files
@@ -101,15 +110,17 @@ class BathymetryPatchDataset(_TorchDataset):
 
     def __getitem__(self, idx):
         data = np.load(self.files[idx])
-        lr = data['lr'].squeeze()   # (H, W)
-        hr = data['hr'].squeeze()   # (H, W)
-        stats = data['stats']       # [mean, std]
+        lr_raw = data['lr_raw'].squeeze()   # (lr_patch_size, lr_patch_size)
+        lr_up  = data['lr_up'].squeeze()    # (patch_size, patch_size)
+        hr     = data['hr'].squeeze()       # (patch_size, patch_size)
+        stats  = data['stats']              # [mean, std]
 
         if self.augment:
-            hr, lr = augment_pair(hr, lr)
+            hr, lr_up, lr_raw = augment_triple(hr, lr_up, lr_raw)
 
-        lr    = torch.from_numpy(lr[np.newaxis]).float()
-        hr    = torch.from_numpy(hr[np.newaxis]).float()
-        stats = torch.from_numpy(stats).float()
+        lr_raw = torch.from_numpy(lr_raw[np.newaxis]).float()
+        lr_up  = torch.from_numpy(lr_up[np.newaxis]).float()
+        hr     = torch.from_numpy(hr[np.newaxis]).float()
+        stats  = torch.from_numpy(stats).float()
 
-        return {'lr': lr, 'hr': hr, 'stats': stats}
+        return {'lr_raw': lr_raw, 'lr_up': lr_up, 'hr': hr, 'stats': stats}
