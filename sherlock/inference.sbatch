@@ -37,11 +37,7 @@ python -m inference.generate_realizations \
     --checkpoint     "$CHECKPOINT" \
     --lr_tif         "data_for_model/MorroBay_all_2020_interp_32m_converted.tif" \
     --out_dir        "${SCRATCH_DIR}/realizations" \
-    --n_realizations 50 \
-    --ddim_steps     50 \
-    --patch_size     64 \
-    --stride         32 \
-    --base_ch        64
+    --n_realizations 50
 
 echo "Generating uncertainty maps..."
 python -m inference.uncertainty_maps \

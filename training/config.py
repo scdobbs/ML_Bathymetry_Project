@@ -85,14 +85,6 @@ class Config:
     distributed: bool = True              # DDP scaffolding (works on 1 GPU too)
     ddp_find_unused_params: bool = False
 
-    # ---- Diffusion legacy (DEPRECATED — Stage 4 will remove) ---------------
-    # These remain only so that legacy code paths and old checkpoints can
-    # still be loaded during the rewrite. New code should not read them.
-    n_timesteps: int = 1000          # deprecated
-    beta_start: float = 1e-4         # deprecated
-    beta_end: float = 0.02           # deprecated
-    ddim_steps: int = 50             # deprecated
-
     def __post_init__(self):
         # SR-ratio invariant
         assert self.patch_size % self.sr_ratio == 0, (
