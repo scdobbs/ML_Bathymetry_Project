@@ -234,8 +234,30 @@ def build_rectified_flow_from_checkpoint(checkpoint_path, cfg, device):
     ).to(device)
     flow = RectifiedFlow(unet, cfg).to(device)
 
-    state = torch.load(checkpoint_path, map_location=device)
-    ema_state = state.get('ema', state.get('model'))
-    flow.load_state_dict(ema_state)
+    state = torch.load(checkpoint_path, map_location=device, weights_only=False)
+
+    # Training (training/train.py:_save_checkpoint) stores the U-Net and the
+    # null-LR buffer under separate dotted keys: 'ema.model' / 'ema.null_lr'
+    # for the EMA weights, and 'flow.model' / 'flow.null_lr' for the live
+    # weights. Earlier code (and external callers) may also pass an old-style
+    # flat 'ema' or 'model' state_dict — keep that path as a fallback.
+    if 'ema.model' in state:
+        flow.model.load_state_dict(state['ema.model'])
+        if 'ema.null_lr' in state:
+            flow.null_lr.data.copy_(state['ema.null_lr'].to(device))
+    elif 'flow.model' in state:
+        flow.model.load_state_dict(state['flow.model'])
+        if 'flow.null_lr' in state:
+            flow.null_lr.data.copy_(state['flow.null_lr'].to(device))
+    else:
+        ema_state = state.get('ema', state.get('model'))
+        if ema_state is None:
+            raise KeyError(
+                f"Checkpoint at {checkpoint_path} has none of the expected "
+                f"keys (ema.model / flow.model / ema / model). Top-level "
+                f"keys present: {list(state.keys())}"
+            )
+        flow.load_state_dict(ema_state)
+
     flow.eval()
     return flow

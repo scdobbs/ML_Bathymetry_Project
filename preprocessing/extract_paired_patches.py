@@ -32,11 +32,18 @@ from tqdm import tqdm
 from preprocessing.data_utils import normalize_patch, bicubic_upsample
 
 
-# Surveys held out for testing — never included in train or val
+# Surveys held out for testing — never included in train or val.
+# Includes Morro Bay (original three) plus one NorCal and one Santa Barbara
+# survey so Phase-7 sample-diversity checks cover the full LR coverage area.
 HELD_OUT_SURVEYS = {
+    # Morro Bay shelf / slope / canyon
     'LuciaChica_2007_Topo1m_UTM_utm.tif',
     'HeadlessCanyon_Topo1m_converted.tif',
     'BankTopEastofCanyon3_Topo1m_converted.tif',
+    # NorCal shelf — Drakes Bay
+    'Bathymetry_DrakesBay.tif',
+    # Santa Barbara channel — Offshore Refugio Beach
+    'Bathymetry_OffshoreRefugioBeach.tif',
 }
 
 

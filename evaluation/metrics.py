@@ -149,10 +149,13 @@ def coverage(samples, target, alpha=0.90):
     Returns:
         Empirical coverage fraction
     """
-    lo = (1 - alpha) / 2 * 100
-    hi = (1 + alpha) / 2 * 100
-    lower = np.nanpercentile(samples, lo, axis=0)   # (H, W)
-    upper = np.nanpercentile(samples, hi, axis=0)
+    lo = (1 - alpha) / 2
+    hi = (1 + alpha) / 2
+    # np.quantile (no-NaN variant) is 50–100× faster than np.nanpercentile for
+    # large arrays. Preprocessing fills NaNs before patches are saved, and
+    # realizations are model outputs that don't contain NaNs.
+    lower = np.quantile(samples, lo, axis=0)   # (H, W)
+    upper = np.quantile(samples, hi, axis=0)
     within = (target >= lower) & (target <= upper)
     valid  = np.isfinite(target) & np.isfinite(lower) & np.isfinite(upper)
     return float(within[valid].mean())

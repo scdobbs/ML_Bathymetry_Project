@@ -1,10 +1,15 @@
 #!/bin/bash
 #SBATCH --job-name=bathy_e2e
 #SBATCH -p serc
-#SBATCH --gres=gpu:h100:1
+#SBATCH --gres=gpu:1
+#SBATCH --constraint=GPU_SKU:H100_SXM5
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=128G
-#SBATCH --time=4:00:00
+#SBATCH --time=12:00:00
+# Sherlock uses generic `gpu:N` GRES and constrains GPU type via features.
+# Serc has both A100 40GB and H100 80GB nodes; the constraint above pins
+# this job to an H100 (sh04-0Xn* hosts). To run on A100 instead, drop the
+# --constraint line.
 #SBATCH --output=logs/e2e_%j.out
 #SBATCH --error=logs/e2e_%j.err
 
@@ -39,7 +44,19 @@ set -e
 set -o pipefail
 mkdir -p logs
 
-module load py-pytorch/2.4.1_py312
+# Make sure conda's Python doesn't shadow the module-provided Python 3.12.
+type conda >/dev/null 2>&1 && {
+    conda deactivate >/dev/null 2>&1 || true
+    conda deactivate >/dev/null 2>&1 || true
+}
+unset PYTHONPATH
+
+module load python/3.12.1 py-pytorch/2.4.1_py312 py-torchvision/0.19.1_py312
+
+# Activate the per-user venv that has rasterio (with bundled libgdal),
+# einops, tensorboard, scipy, etc. installed against the module's torch.
+# Created and populated once by sherlock/setup.sh.
+source "${HOME}/bathy_diffusion_env/bin/activate"
 
 PROJECT_DIR="/home/users/${USER}/GAN_Bathymetry_Project"
 SCRATCH_DIR="/scratch/users/${USER}/bathy_diffusion"
@@ -49,7 +66,31 @@ cd "$PROJECT_DIR"
 
 N_TRAIN_STEPS=${N_TRAIN_STEPS:-5000}
 MAX_BENCH_STEPS=${MAX_BENCH_STEPS:-200}
-FULL_LR="data_for_model/MorroBay_all_2020_interp_32m_converted.tif"
+# Phase 4 (tiled inference) and Phase 6 (evaluation) honor this knob; the
+# Phase 7 diversity check stays at 50 to keep the std estimate meaningful.
+N_REALIZATIONS=${N_REALIZATIONS:-50}
+# Phase 6 (eval) is per-patch and runs flow.sample once per test patch.
+# At 50 realizations × 50 Heun steps, A100 averages ~95s/patch — full 1256
+# test set won't fit even in 12 hours.  Default to a 200-patch subsample
+# (well-balanced across the 5 test surveys after stratification).
+MAX_PATCHES=${MAX_PATCHES:-200}
+
+# Shared dataset (preprocessed once into /scratch/groups/hilley/) — Phase 4
+# iterates over the three LR grids that were used to build it.
+SHARED_LR_DIR="/scratch/groups/hilley/bathy_diffusion_2026/lr_tifs"
+LR_MORROBAY="${SHARED_LR_DIR}/MorroBay_all_2020_interp_32m_converted.tif"
+LR_NORCAL="${SHARED_LR_DIR}/norcal-to-triple-junction-32m.tif"
+LR_SB="${SHARED_LR_DIR}/Santa_Barbara_32m-clipped2.tif"
+
+# Backwards-compat alias for any later step that still wants a single LR.
+FULL_LR="$LR_MORROBAY"
+
+# Default 5 km × 5 km smoke bboxes (in each LR's own CRS) centred on a
+# representative HR survey in that region. Override with env vars for a
+# different region.  Set to "FULL" to run on the entire LR grid.
+INFER_BBOX_MORROBAY=${INFER_BBOX_MORROBAY:-"621275 3928924 626275 3933924"}     # PockmarkNorth, EPSG:32610
+INFER_BBOX_NORCAL=${INFER_BBOX_NORCAL:-"509319 4198253 514319 4203253"}          # DrakesBay, EPSG:26910
+INFER_BBOX_SB=${INFER_BBOX_SB:-"764530 3814620 769530 3819620"}                  # OffshoreRefugioBeach, EPSG:26910
 
 echo "======================================================================"
 echo "E2E smoke test"
@@ -67,7 +108,9 @@ echo
 # ============================================================
 # Phase 1 — Preprocessing
 # ============================================================
-PATCHES_DIR="${SCRATCH_DIR}/patches"
+# Use the shared-group dataset built once by the multi-LR preprocessing
+# run (Morro Bay + NorCal + Santa Barbara LRs, first-run-wins).
+PATCHES_DIR="/scratch/groups/hilley/bathy_diffusion_2026/patches_512"
 echo "### Phase 1: preprocessing"
 if [ -d "${PATCHES_DIR}/train" ] && [ -n "$(ls -A ${PATCHES_DIR}/train 2>/dev/null)" ]; then
     echo "  (cache hit — using existing ${PATCHES_DIR})"
@@ -75,7 +118,7 @@ if [ -d "${PATCHES_DIR}/train" ] && [ -n "$(ls -A ${PATCHES_DIR}/train 2>/dev/nu
     echo "  val  : $(ls ${PATCHES_DIR}/val/ 2>/dev/null | wc -l) patches"
     echo "  test : $(ls ${PATCHES_DIR}/test/ 2>/dev/null | wc -l) patches"
 else
-    python -m preprocessing.extract_paired_patches \
+    python3 -m preprocessing.extract_paired_patches \
         --lr_path "$FULL_LR" \
         --hr_dir  "data_for_model/" \
         --out_dir "${PATCHES_DIR}" \
@@ -103,7 +146,7 @@ for CFG in "bf16_compile:bf16:--compile" \
     START=$SECONDS
 
     # Single-GPU benchmark (no torchrun — keeps step accounting simple).
-    python -m training.train \
+    python3 -m training.train \
         --patches_dir "$PATCHES_DIR" \
         --out_dir     "$BENCH_OUT" \
         --batch_size  4 \
@@ -129,7 +172,12 @@ echo
 # ============================================================
 echo "### Phase 3: real training (${N_TRAIN_STEPS} steps, bf16 + compile)"
 TRAIN_OUT="${E2E_DIR}/training"
-torchrun \
+# Use `python3 -m torch.distributed.run` instead of `torchrun`. The
+# `torchrun` shim is the module's binary and spawns workers using
+# /share/software/user/open/python/3.12.1/bin/python3.12, which does not
+# see the venv's site-packages (where triton lives). Invoking through
+# `python3 -m` keeps workers on the venv's interpreter.
+python3 -m torch.distributed.run \
     --standalone \
     --nproc_per_node="${SLURM_GPUS_ON_NODE:-1}" \
     --module training.train \
@@ -151,40 +199,77 @@ echo "Using checkpoint: $CKPT"
 echo
 
 # ============================================================
-# Phase 4 — Inference on a small bbox (or the full grid)
+# Phase 4 — Inference over each of the three LR datasets
 # ============================================================
-echo "### Phase 4: inference"
-if [ -n "${INFER_BBOX:-}" ]; then
-    # Slice out the requested sub-region.
-    LR_INPUT="${E2E_DIR}/lr_smoke.tif"
-    echo "  Slicing LR to bbox: $INFER_BBOX"
-    gdalwarp -te $INFER_BBOX -of GTiff "$FULL_LR" "$LR_INPUT"
-else
-    LR_INPUT="$FULL_LR"
-    echo "  No INFER_BBOX set — running on FULL LR raster (size:"
-    gdalinfo "$FULL_LR" | grep -E "Size is|Pixel Size"
-    echo "  ); this may take a while."
-fi
+# For each LR grid, slice out the configured smoke bbox (or use the full
+# grid if INFER_BBOX_* == "FULL"), generate N realizations, and write into
+# a per-LR subdirectory.  Phase 5 then computes uncertainty per LR.
+echo "### Phase 4: inference (per-LR loop)"
 
-REAL_DIR="${E2E_DIR}/realizations"
-python -m inference.generate_realizations \
-    --checkpoint     "$CKPT" \
-    --lr_tif         "$LR_INPUT" \
-    --out_dir        "$REAL_DIR" \
-    --n_realizations 50 \
-    2>&1 | tee "${E2E_DIR}/inference.log"
+LR_NAMES=(MorroBay NorCal SantaBarbara)
+LR_PATHS=("$LR_MORROBAY" "$LR_NORCAL" "$LR_SB")
+LR_BBOXES=("$INFER_BBOX_MORROBAY" "$INFER_BBOX_NORCAL" "$INFER_BBOX_SB")
+
+for i in "${!LR_NAMES[@]}"; do
+    NAME="${LR_NAMES[$i]}"
+    LR_PATH="${LR_PATHS[$i]}"
+    BBOX="${LR_BBOXES[$i]}"
+
+    echo "  --- ${NAME} (LR=$(basename $LR_PATH)) ---"
+    if [ "$BBOX" = "FULL" ] || [ -z "$BBOX" ]; then
+        LR_INPUT="$LR_PATH"
+        echo "    Using FULL LR raster."
+        python3 -c "import rasterio; s=rasterio.open('$LR_PATH'); print(f'    size: {s.width}x{s.height} pixel size: {s.transform.a}')"
+    else
+        LR_INPUT="${E2E_DIR}/lr_smoke_${NAME}.tif"
+        echo "    Slicing LR to bbox: $BBOX"
+        # gdalwarp isn't on PATH (gdal module conflicts with pytorch's
+        # nccl), so use rasterio's Python API to clip. Reads the windowed
+        # subset and writes a new GeoTIFF with the correct transform.
+        python3 - "$LR_PATH" "$LR_INPUT" $BBOX <<'PY'
+import sys, rasterio
+from rasterio.windows import from_bounds
+src_path, dst_path = sys.argv[1], sys.argv[2]
+xmin, ymin, xmax, ymax = map(float, sys.argv[3:7])
+with rasterio.open(src_path) as src:
+    win = from_bounds(xmin, ymin, xmax, ymax, src.transform)
+    data = src.read(1, window=win)
+    profile = src.profile.copy()
+    profile.update(height=data.shape[0], width=data.shape[1],
+                   transform=src.window_transform(win),
+                   compress='deflate')
+    with rasterio.open(dst_path, 'w', **profile) as dst:
+        dst.write(data, 1)
+print(f"    Wrote {dst_path}  ({data.shape[1]}x{data.shape[0]} pixels)")
+PY
+    fi
+
+    REAL_DIR="${E2E_DIR}/realizations_${NAME}"
+    python3 -m inference.generate_realizations \
+        --checkpoint     "$CKPT" \
+        --lr_tif         "$LR_INPUT" \
+        --out_dir        "$REAL_DIR" \
+        --n_realizations "$N_REALIZATIONS" \
+        2>&1 | tee "${E2E_DIR}/inference_${NAME}.log"
+done
 echo
 
 # ============================================================
-# Phase 5 — Uncertainty maps
+# Phase 5 — Uncertainty maps (one set per LR)
 # ============================================================
-echo "### Phase 5: uncertainty maps"
-UNCERT_DIR="${E2E_DIR}/uncertainty"
-python -m inference.uncertainty_maps \
-    --realizations_dir "$REAL_DIR" \
-    --out_dir          "$UNCERT_DIR" \
-    --priority_fraction 0.10 \
-    2>&1 | tee "${E2E_DIR}/uncertainty.log"
+echo "### Phase 5: uncertainty maps (per-LR loop)"
+for NAME in "${LR_NAMES[@]}"; do
+    REAL_DIR="${E2E_DIR}/realizations_${NAME}"
+    UNCERT_DIR="${E2E_DIR}/uncertainty_${NAME}"
+    echo "  --- ${NAME} ---"
+    python3 -m inference.uncertainty_maps \
+        --realizations_dir "$REAL_DIR" \
+        --out_dir          "$UNCERT_DIR" \
+        --priority_fraction 0.10 \
+        2>&1 | tee "${E2E_DIR}/uncertainty_${NAME}.log"
+done
+# Pick MorroBay's outputs as the canonical UNCERT_DIR for the closing summary.
+UNCERT_DIR="${E2E_DIR}/uncertainty_MorroBay"
 echo
 
 # ============================================================
@@ -192,11 +277,12 @@ echo
 # ============================================================
 echo "### Phase 6: evaluation on held-out test patches"
 EVAL_DIR="${E2E_DIR}/eval"
-python -m evaluation.evaluate \
+python3 -m evaluation.evaluate \
     --checkpoint     "$CKPT" \
     --test_patches   "${PATCHES_DIR}/test" \
     --out_dir        "$EVAL_DIR" \
-    --n_realizations 50 \
+    --n_realizations "$N_REALIZATIONS" \
+    --max_patches    "$MAX_PATCHES" \
     2>&1 | tee "${E2E_DIR}/eval.log"
 echo
 
@@ -204,7 +290,7 @@ echo
 # Phase 7 — Sample-diversity check (mode-collapse sanity)
 # ============================================================
 echo "### Phase 7: sample-diversity check on held-out test patches"
-python - <<PY 2>&1 | tee "${E2E_DIR}/diversity.log"
+python3 - <<PY 2>&1 | tee "${E2E_DIR}/diversity.log"
 """Compute per-patch inter-realization std on the held-out test set.
 
 The mode-collapse failure mode of the pre-rewrite GAN/DDPM was that
@@ -212,11 +298,13 @@ realizations were near-identical. We now expect non-trivial spread —
 at minimum, std should be a meaningful fraction of the ground-truth
 local elevation range.
 """
-import os, glob, json
+import os, glob, json, re, random
+from collections import defaultdict
 import numpy as np
 import torch
 
 torch.manual_seed(0)
+random.seed(0)
 from models.diffusion import build_rectified_flow_from_checkpoint
 from preprocessing.data_utils import denormalize_patch
 from training.config import Config
@@ -225,11 +313,28 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 cfg = Config()
 flow = build_rectified_flow_from_checkpoint('${CKPT}', cfg, device)
 
-patches = sorted(glob.glob('${PATCHES_DIR}/test/*.npz'))
-print(f"Test patches: {len(patches)}")
+all_patches = sorted(glob.glob('${PATCHES_DIR}/test/*.npz'))
+print(f"Test patches: {len(all_patches)}")
+
+# Stratified sample: ~4 patches per survey so the diversity check spans
+# every test survey (Morro Bay + NorCal + Santa Barbara) rather than
+# the first 20 alphabetically.
+by_survey = defaultdict(list)
+for pf in all_patches:
+    # filenames are "<survey>_r{row:05d}_c{col:05d}.npz"
+    survey = re.sub(r'_r\d{5}_c\d{5}\.npz', '', os.path.basename(pf))
+    by_survey[survey].append(pf)
+
+PER_SURVEY = max(1, 20 // max(1, len(by_survey)))
+patches = []
+for survey, plist in by_survey.items():
+    random.shuffle(plist)
+    patches.extend(plist[:PER_SURVEY])
+print(f"Stratified sample: {len(patches)} patches across {len(by_survey)} surveys "
+      f"({PER_SURVEY} per survey)")
 
 per_patch = []
-for pf in patches[:20]:  # cap at 20 for time
+for pf in patches:
     data = np.load(pf)
     lr_raw_norm = data['lr_raw'].squeeze()
     hr_norm     = data['hr'].squeeze()
