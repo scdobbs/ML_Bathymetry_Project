@@ -49,10 +49,35 @@ class Config:
     cfg_dropout_prob: float = 0.1    # Conditioning-dropout probability during training
     cfg_scale: float = 1.5           # Default guidance scale at inference
 
+    # ---- Residual prediction (bicubic baseline) ----------------------------
+    # When True: model learns HR_residual = HR − bicubic(LR). The bicubic
+    # upsample of LR is concatenated as a 2nd input channel to the model, and
+    # added back to the integrated signal at sampling time. Forces the model's
+    # useful output to be the high-frequency residual; the LR-respecting
+    # baseline is automatic since the bicubic is added unconditionally.
+    residual_mode: bool = False
+
     # ---- Loss --------------------------------------------------------------
+    # Primary flow-matching loss type. "mse" is the standard L2; "huber"
+    # is smooth_l1 with beta=1 — quadratic for |error| < 1 (same gradient
+    # as MSE in the healthy regime) and linear for |error| ≥ 1, bounding
+    # outlier-sample influence. Use "huber" when outlier patches in the
+    # dataset destabilize training (e.g., residual mode where a 4% tail
+    # of patches has HR − bicubic of magnitude 10× the typical).
+    fm_loss_type: str = "mse"                  # "mse" or "huber"
+    fm_loss_huber_beta: float = 1.0
     spectral_loss_weight: float = 0.0          # Default off, configurable on
     spectral_loss_mode: str = "radial"         # "radial" or "2d"
     spectral_loss_snr_weighting: bool = True
+    # Data-consistency loss: ‖avg_pool(x0_pred, sr_ratio) − lr_raw‖². Forces
+    # the predicted HR to coarsen back to the LR conditioning, anchoring
+    # absolute elevation. SNR-weighted (down-weight high-t samples where
+    # x0_pred is dominated by noise) and masked by cfg_keep (skip CFG-dropped
+    # samples whose lr_raw was replaced by the null token).
+    consistency_loss_weight: float = 0.0
+    consistency_loss_snr_weighting: bool = True
+    consistency_loss_t_max: float = 0.5     # Only apply where t < this
+    consistency_loss_min_std: float = 1e-3  # Skip patches with HR std below this
 
     # ---- Training infrastructure -------------------------------------------
     batch_size: int = 16
@@ -109,3 +134,4 @@ class Config:
         assert self.sampler in ("heun", "euler"), self.sampler
         assert self.precision in ("bf16", "fp32"), self.precision
         assert self.spectral_loss_mode in ("radial", "2d"), self.spectral_loss_mode
+        assert self.fm_loss_type in ("mse", "huber"), self.fm_loss_type

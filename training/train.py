@@ -225,6 +225,7 @@ def train(cfg: Config):
               f"Val: {len(val_dataset)} patches", flush=True)
 
     # ---- Model (built unwrapped so checkpoint I/O is clean) ----
+    in_ch = 2 if getattr(cfg, 'residual_mode', False) else 1
     unet = BathyUNet(
         base_ch=cfg.base_ch,
         ch_mult=cfg.ch_mult,
@@ -232,6 +233,7 @@ def train(cfg: Config):
         transformer_levels=cfg.transformer_levels,
         transformer_depth=cfg.transformer_depth,
         time_dim=cfg.time_dim,
+        in_ch=in_ch,
     ).to(device)
     flow = RectifiedFlow(unet, cfg).to(device)
 
@@ -307,7 +309,7 @@ def train(cfg: Config):
         if train_sampler is not None:
             train_sampler.set_epoch(epoch)
 
-        running = {'total': 0.0, 'fm': 0.0, 'spectral': 0.0}
+        running = {'total': 0.0, 'fm': 0.0, 'spectral': 0.0, 'consistency': 0.0}
         running_count = 0
         accum_count = 0
         optimizer.zero_grad(set_to_none=True)
@@ -320,6 +322,7 @@ def train(cfg: Config):
         for batch in loop:
             hr = batch['hr'].to(device, non_blocking=True)
             lr_raw = batch['lr_raw'].to(device, non_blocking=True)
+            stats = batch['stats'].to(device, non_blocking=True)
 
             is_final_in_cycle = (accum_count == cfg.grad_accum_steps - 1)
             # DDP: skip all-reduce on intermediate micro-batches
@@ -329,15 +332,16 @@ def train(cfg: Config):
                 ddp_sync = contextlib.nullcontext()
 
             with ddp_sync, autocast():
-                output = flow.training_step(hr, lr_raw)
+                output = flow.training_step(hr, lr_raw, stats)
                 loss_dict = criterion(output)
                 loss = loss_dict['total'] / cfg.grad_accum_steps
             loss.backward()
 
             # Bookkeeping (use the un-scaled loss for logging)
-            running['total']    += loss_dict['total'].item()
-            running['fm']       += loss_dict['fm'].item()
-            running['spectral'] += loss_dict['spectral'].item()
+            running['total']       += loss_dict['total'].item()
+            running['fm']          += loss_dict['fm'].item()
+            running['spectral']    += loss_dict['spectral'].item()
+            running['consistency'] += loss_dict['consistency'].item()
             running_count += 1
 
             accum_count += 1
@@ -362,19 +366,21 @@ def train(cfg: Config):
                     k: all_reduce_mean(
                         torch.tensor(running[k] / running_count, device=device)
                     ).item()
-                    for k in ('total', 'fm', 'spectral')
+                    for k in ('total', 'fm', 'spectral', 'consistency')
                 }
-                running = {'total': 0.0, 'fm': 0.0, 'spectral': 0.0}
+                running = {'total': 0.0, 'fm': 0.0, 'spectral': 0.0, 'consistency': 0.0}
                 running_count = 0
                 if is_main_process():
                     lr_now = scheduler.get_last_lr()[0]
-                    writer.add_scalar('loss/total',    losses_reduced['total'],    global_step)
-                    writer.add_scalar('loss/fm',       losses_reduced['fm'],       global_step)
-                    writer.add_scalar('loss/spectral', losses_reduced['spectral'], global_step)
+                    writer.add_scalar('loss/total',       losses_reduced['total'],       global_step)
+                    writer.add_scalar('loss/fm',          losses_reduced['fm'],          global_step)
+                    writer.add_scalar('loss/spectral',    losses_reduced['spectral'],    global_step)
+                    writer.add_scalar('loss/consistency', losses_reduced['consistency'], global_step)
                     writer.add_scalar('lr', lr_now, global_step)
                     print(f"  step {global_step:6d}  loss={losses_reduced['total']:.4f}  "
                           f"fm={losses_reduced['fm']:.4f}  "
                           f"spec={losses_reduced['spectral']:.4f}  "
+                          f"cons={losses_reduced['consistency']:.4f}  "
                           f"lr={lr_now:.2e}", flush=True)
 
             if is_main_process() and global_step % cfg.sample_every == 0:
@@ -425,8 +431,9 @@ def _evaluate(flow, criterion, loader, device, autocast):
         for batch in loader:
             hr = batch['hr'].to(device, non_blocking=True)
             lr_raw = batch['lr_raw'].to(device, non_blocking=True)
+            stats = batch['stats'].to(device, non_blocking=True)
             with autocast():
-                output = flow.training_step(hr, lr_raw)
+                output = flow.training_step(hr, lr_raw, stats)
                 loss_dict = criterion(output)
             total += loss_dict['total'].item()
             n += 1
@@ -461,6 +468,17 @@ def main():
     parser.add_argument('--grad_accum_steps', type=int, default=None)
     parser.add_argument('--max_steps',   type=int, default=None,
                         help='Stop after this many optimizer steps (0 = unlimited)')
+    parser.add_argument('--consistency_loss_weight', type=float, default=None,
+                        help='Weight on the data-consistency loss '
+                             '(‖avg_pool(x0_pred, sr_ratio) − lr_raw‖²). 0 = off.')
+    parser.add_argument('--spectral_loss_weight', type=float, default=None,
+                        help='Weight on the radial spectral loss on x0_pred. 0 = off.')
+    parser.add_argument('--residual_mode',
+                        action=argparse.BooleanOptionalAction, default=None,
+                        help='Predict HR residual on top of bicubic-upsampled LR baseline.')
+    parser.add_argument('--fm_loss_type', choices=['mse', 'huber'], default=None,
+                        help='Primary flow-matching loss type. "huber" bounds '
+                             'outlier-sample influence (smooth_l1 beta=1).')
     args = parser.parse_args()
 
     cfg = Config()
@@ -476,6 +494,14 @@ def main():
     if args.compile_model is not None: cfg.compile_model = args.compile_model
     if args.grad_accum_steps is not None: cfg.grad_accum_steps = args.grad_accum_steps
     if args.max_steps is not None: cfg.max_steps = args.max_steps
+    if args.consistency_loss_weight is not None:
+        cfg.consistency_loss_weight = args.consistency_loss_weight
+    if args.spectral_loss_weight is not None:
+        cfg.spectral_loss_weight = args.spectral_loss_weight
+    if args.residual_mode is not None:
+        cfg.residual_mode = args.residual_mode
+    if args.fm_loss_type is not None:
+        cfg.fm_loss_type = args.fm_loss_type
 
     train(cfg)
 

@@ -22,6 +22,7 @@ does not need them.
 
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 from models.unet import BathyUNet
 
@@ -43,6 +44,7 @@ class RectifiedFlow(nn.Module):
         self.cfg_dropout_prob = cfg.cfg_dropout_prob
         self.cfg_scale = cfg.cfg_scale
         self.sr_ratio = cfg.sr_ratio
+        self.residual_mode = bool(getattr(cfg, 'residual_mode', False))
         # Null conditioning for CFG (a zero tensor at LR shape). Buffer so it
         # moves with the module and is deep-copyable for EMA.
         self.register_buffer(
@@ -83,12 +85,16 @@ class RectifiedFlow(nn.Module):
     # Training
     # -----------------------------------------------------------------------
 
-    def training_step(self, hr: torch.Tensor, lr_raw: torch.Tensor) -> dict:
+    def training_step(self, hr: torch.Tensor, lr_raw: torch.Tensor,
+                      stats: torch.Tensor = None) -> dict:
         """Forward training pass.
 
         Args:
             hr:     (B, 1, H, W) clean HR target, per-patch normalized.
             lr_raw: (B, 1, h, w) raw LR conditioning, per-patch normalized.
+            stats:  (B, 2) optional [mean, std] used to normalize the patch.
+                    Passed through so the data-consistency loss can skip
+                    patches whose HR std hit the divide-by-zero floor.
 
         Returns:
             dict with v_pred, v_target, t, x0_pred (and x0_true=hr for losses).
@@ -96,31 +102,55 @@ class RectifiedFlow(nn.Module):
         B = hr.shape[0]
         device = hr.device
 
+        # In residual mode the flow operates on the high-frequency residual
+        # (HR − bicubic-upsampled LR), and the bicubic is concatenated as a
+        # second input channel to the model. The bicubic baseline is added
+        # back at sampling time.
+        if self.residual_mode:
+            lr_up = F.interpolate(lr_raw, scale_factor=self.sr_ratio,
+                                  mode='bicubic', align_corners=False)
+            signal = hr - lr_up
+        else:
+            lr_up = None
+            signal = hr
+
         t = self.sample_t(B, device)
-        z = torch.randn_like(hr)
-        x_t = self.interpolate(hr, z, t)
-        v_target = self.velocity_target(hr, z)
+        z = torch.randn_like(signal)
+        x_t = self.interpolate(signal, z, t)
+        v_target = self.velocity_target(signal, z)
 
         # Classifier-free guidance dropout. Replace each sample's LR with the
-        # null token independently with probability cfg_dropout_prob.
+        # null token independently with probability cfg_dropout_prob. Only
+        # the cross-attention LR is dropped — the bicubic input remains as
+        # an architectural component (it's "input", not "conditioning").
         if self.training and self.cfg_dropout_prob > 0.0:
             keep = (torch.rand(B, device=device) >= self.cfg_dropout_prob)
-            keep = keep.view(B, 1, 1, 1).to(lr_raw.dtype)
-            lr_in = keep * lr_raw + (1 - keep) * self.null_lr
+            keep_mask = keep  # (B,) bool — for downstream data-consistency masking
+            keep_b = keep.view(B, 1, 1, 1).to(lr_raw.dtype)
+            lr_in = keep_b * lr_raw + (1 - keep_b) * self.null_lr
         else:
+            keep_mask = torch.ones(B, device=device, dtype=torch.bool)
             lr_in = lr_raw
 
-        v_pred = self.model(x_t, t, lr_in)
+        x_model_in = torch.cat([x_t, lr_up], dim=1) if self.residual_mode else x_t
+        v_pred = self.model(x_model_in, t, lr_in)
 
-        # x_t = x0 + t * v  ⇒  x0 = x_t - t * v
-        x0_pred = x_t - t.view(-1, 1, 1, 1) * v_pred
+        # x_t = x0 + t * v  ⇒  x0 = x_t - t * v  (x0 here is the signal:
+        # residual in residual mode, HR otherwise)
+        x0_pred_signal = x_t - t.view(-1, 1, 1, 1) * v_pred
+        # For downstream losses that compare against absolute HR (consistency,
+        # spectral), reconstruct the predicted HR from the residual.
+        x0_pred_hr = x0_pred_signal + lr_up if self.residual_mode else x0_pred_signal
 
         return {
-            'v_pred':   v_pred,
-            'v_target': v_target,
-            't':        t,
-            'x0_pred':  x0_pred,
-            'x0_true':  hr,        # passthrough for the spectral loss
+            'v_pred':         v_pred,
+            'v_target':       v_target,
+            't':              t,
+            'x0_pred':        x0_pred_hr,   # always in HR units (residual + lr_up if applicable)
+            'x0_true':        hr,           # passthrough for the spectral loss
+            'lr_raw':         lr_raw,       # passthrough for data-consistency
+            'cfg_keep_mask':  keep_mask,    # (B,) bool — True where lr_raw is real
+            'stats':          stats,        # (B, 2) or None — for degenerate-patch filtering
         }
 
     # -----------------------------------------------------------------------
@@ -163,6 +193,15 @@ class RectifiedFlow(nn.Module):
         H = h_lr * self.sr_ratio
         W = w_lr * self.sr_ratio
 
+        # Residual mode: bicubic-upsample the LR conditioning once and pass
+        # it as a 2nd input channel throughout the integration. The final
+        # integrated signal is the residual; we add the bicubic back below.
+        if self.residual_mode:
+            lr_up = F.interpolate(lr_cond, scale_factor=self.sr_ratio,
+                                  mode='bicubic', align_corners=False)
+        else:
+            lr_up = None
+
         # Initial noise
         if seed is not None:
             g = torch.Generator(device=device).manual_seed(seed)
@@ -182,14 +221,14 @@ class RectifiedFlow(nn.Module):
             dt = t_next - t_cur   # negative (we integrate backwards in t)
 
             t_b = t_cur.expand(n_realizations)
-            v_cur = self._velocity(x, t_b, lr_cond, null_lr, cfg_scale, use_cfg)
+            v_cur = self._velocity(x, t_b, lr_cond, null_lr, cfg_scale, use_cfg, lr_up)
 
             x_euler = x + dt * v_cur
 
             if self.sampler == 'heun' and t_next > 0:
                 t_next_b = t_next.expand(n_realizations)
                 v_next = self._velocity(x_euler, t_next_b, lr_cond, null_lr,
-                                        cfg_scale, use_cfg)
+                                        cfg_scale, use_cfg, lr_up)
                 x_next = x + dt * 0.5 * (v_cur + v_next)
             else:
                 x_next = x_euler
@@ -201,13 +240,24 @@ class RectifiedFlow(nn.Module):
 
             x = x_next
 
+        # In residual mode the integrated x is the predicted HR residual.
+        # The bicubic baseline is added unconditionally to recover HR.
+        if self.residual_mode:
+            x = x + lr_up
+
         return x
 
-    def _velocity(self, x, t_b, lr_cond, null_lr, cfg_scale, use_cfg):
-        """Predict velocity with optional CFG, in a single batched forward."""
+    def _velocity(self, x, t_b, lr_cond, null_lr, cfg_scale, use_cfg, lr_up=None):
+        """Predict velocity with optional CFG, in a single batched forward.
+
+        In residual mode, lr_up is concatenated as a 2nd input channel before
+        the model forward. The velocity is still 1-channel (velocity of the
+        residual).
+        """
+        x_in = torch.cat([x, lr_up], dim=1) if self.residual_mode else x
         if not use_cfg:
-            return self.model(x, t_b, lr_cond)
-        x_pair  = torch.cat([x,       x],       dim=0)
+            return self.model(x_in, t_b, lr_cond)
+        x_pair  = torch.cat([x_in,    x_in],    dim=0)
         t_pair  = torch.cat([t_b,     t_b],     dim=0)
         lr_pair = torch.cat([lr_cond, null_lr], dim=0)
         v_pair = self.model(x_pair, t_pair, lr_pair)
@@ -224,6 +274,7 @@ def build_rectified_flow_from_checkpoint(checkpoint_path, cfg, device):
 
     Replaces the Stage 1 build_diffusion_from_checkpoint factory.
     """
+    in_ch = 2 if getattr(cfg, 'residual_mode', False) else 1
     unet = BathyUNet(
         base_ch=cfg.base_ch,
         ch_mult=cfg.ch_mult,
@@ -231,6 +282,7 @@ def build_rectified_flow_from_checkpoint(checkpoint_path, cfg, device):
         transformer_levels=cfg.transformer_levels,
         transformer_depth=cfg.transformer_depth,
         time_dim=cfg.time_dim,
+        in_ch=in_ch,
     ).to(device)
     flow = RectifiedFlow(unet, cfg).to(device)
 
