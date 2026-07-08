@@ -1,0 +1,123 @@
+{
+  "directive": "DIRECTIVE_54 \u00a71 production-model preservation",
+  "model_name": "het_production_v1 (within-pair R2 0.555)",
+  "created": "2026-07-08T08:35:32",
+  "note": "NO production checkpoints were ever persisted (het LOUO fold models discarded after evaluation, reports 42/49). The paper's model is defined by code+seed+config and its LOUO per-patch sigma parquet. This manifest preserves that full set.",
+  "n_files": 11,
+  "total_bytes": 288174,
+  "missing": [],
+  "backup_dir": "/scratch/users/scdobbs/dir54/protect/production_backup",
+  "oak_staged_dest": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/models/het_production_v1/",
+  "files": [
+    {
+      "relpath": "step0_bakeoff/het_louo/het_louo_perpatch.parquet",
+      "source": "/scratch/users/scdobbs/step0_bakeoff/het_louo/het_louo_perpatch.parquet",
+      "size": 221263,
+      "mtime": 1783035418.0,
+      "sha256": "5f43906157c59fd1346455bb7fa8a64a26bb1cb1ea6042715ed8581f40d7291e",
+      "backup_path": "/scratch/users/scdobbs/dir54/protect/production_backup/step0_bakeoff/het_louo/het_louo_perpatch.parquet",
+      "backup_sha256": "5f43906157c59fd1346455bb7fa8a64a26bb1cb1ea6042715ed8581f40d7291e",
+      "backup_verified": true
+    },
+    {
+      "relpath": "step0_bakeoff/het_louo/het_louo_summary.json",
+      "source": "/scratch/users/scdobbs/step0_bakeoff/het_louo/het_louo_summary.json",
+      "size": 5953,
+      "mtime": 1783035418.0,
+      "sha256": "63f2d3c655b6683c5e58bf37382450496e28f757f994997c495f02ba0e6870e9",
+      "backup_path": "/scratch/users/scdobbs/dir54/protect/production_backup/step0_bakeoff/het_louo/het_louo_summary.json",
+      "backup_sha256": "63f2d3c655b6683c5e58bf37382450496e28f757f994997c495f02ba0e6870e9",
+      "backup_verified": true
+    },
+    {
+      "relpath": "step0_bakeoff/het_louo/decomp35_results.json",
+      "source": "/scratch/users/scdobbs/step0_bakeoff/het_louo/decomp35_results.json",
+      "size": 3730,
+      "mtime": 1783035769.0,
+      "sha256": "00c982f765ccb94467adb048e3c0f386540fac475dcff1e4b8f9a2842fe2d228",
+      "backup_path": "/scratch/users/scdobbs/dir54/protect/production_backup/step0_bakeoff/het_louo/decomp35_results.json",
+      "backup_sha256": "00c982f765ccb94467adb048e3c0f386540fac475dcff1e4b8f9a2842fe2d228",
+      "backup_verified": true
+    },
+    {
+      "relpath": "step0_bakeoff/het_louo/drape40_results.json",
+      "source": "/scratch/users/scdobbs/step0_bakeoff/het_louo/drape40_results.json",
+      "size": 3131,
+      "mtime": 1783100518.0,
+      "sha256": "69c94c72164c8d964f97e73bd77f8608c2629fc9c859f076da0c971fb6a862d3",
+      "backup_path": "/scratch/users/scdobbs/dir54/protect/production_backup/step0_bakeoff/het_louo/drape40_results.json",
+      "backup_sha256": "69c94c72164c8d964f97e73bd77f8608c2629fc9c859f076da0c971fb6a862d3",
+      "backup_verified": true
+    },
+    {
+      "relpath": "step0_bakeoff/het_louo/guard5_results.json",
+      "source": "/scratch/users/scdobbs/step0_bakeoff/het_louo/guard5_results.json",
+      "size": 2829,
+      "mtime": 1783098186.0,
+      "sha256": "2c175dd6ced75b2f13078f0047eb481a5c1cac3c1c567e57d9b7504ce726204a",
+      "backup_path": "/scratch/users/scdobbs/dir54/protect/production_backup/step0_bakeoff/het_louo/guard5_results.json",
+      "backup_sha256": "2c175dd6ced75b2f13078f0047eb481a5c1cac3c1c567e57d9b7504ce726204a",
+      "backup_verified": true
+    },
+    {
+      "relpath": "step0_bakeoff/het_louo/heuristic37_results.json",
+      "source": "/scratch/users/scdobbs/step0_bakeoff/het_louo/heuristic37_results.json",
+      "size": 4970,
+      "mtime": 1783094758.0,
+      "sha256": "3c01885f32d7793983ba762ef37841ca3a17894cece63ffae1ca9f577fca7ed7",
+      "backup_path": "/scratch/users/scdobbs/dir54/protect/production_backup/step0_bakeoff/het_louo/heuristic37_results.json",
+      "backup_sha256": "3c01885f32d7793983ba762ef37841ca3a17894cece63ffae1ca9f577fca7ed7",
+      "backup_verified": true
+    },
+    {
+      "relpath": "step0_bakeoff/het_louo/validation42_results.json",
+      "source": "/scratch/users/scdobbs/step0_bakeoff/het_louo/validation42_results.json",
+      "size": 4983,
+      "mtime": 1783101214.0,
+      "sha256": "f9e02c51e611b99cfa95a06e453e748133e5cd5216ae81cf92d121f1765861c5",
+      "backup_path": "/scratch/users/scdobbs/dir54/protect/production_backup/step0_bakeoff/het_louo/validation42_results.json",
+      "backup_sha256": "f9e02c51e611b99cfa95a06e453e748133e5cd5216ae81cf92d121f1765861c5",
+      "backup_verified": true
+    },
+    {
+      "relpath": "step0_bakeoff/het_louo.py",
+      "source": "/scratch/users/scdobbs/step0_bakeoff/het_louo.py",
+      "size": 14527,
+      "mtime": 1783029678.0,
+      "sha256": "bd3adc24cd7a2032060fc4cef988a455562e3d7135276c4e3217f0c45c6186e5",
+      "backup_path": "/scratch/users/scdobbs/dir54/protect/production_backup/step0_bakeoff/het_louo.py",
+      "backup_sha256": "bd3adc24cd7a2032060fc4cef988a455562e3d7135276c4e3217f0c45c6186e5",
+      "backup_verified": true
+    },
+    {
+      "relpath": "step0_bakeoff/step0_bakeoff.py",
+      "source": "/scratch/users/scdobbs/step0_bakeoff/step0_bakeoff.py",
+      "size": 18599,
+      "mtime": 1783021088.0,
+      "sha256": "018c28199f3193ffafec76872a080f5fd6a8f04b524c55fcee01834595692338",
+      "backup_path": "/scratch/users/scdobbs/dir54/protect/production_backup/step0_bakeoff/step0_bakeoff.py",
+      "backup_sha256": "018c28199f3193ffafec76872a080f5fd6a8f04b524c55fcee01834595692338",
+      "backup_verified": true
+    },
+    {
+      "relpath": "step0_bakeoff/run_het_louo.sbatch",
+      "source": "/scratch/users/scdobbs/step0_bakeoff/run_het_louo.sbatch",
+      "size": 1115,
+      "mtime": 1783029737.0,
+      "sha256": "606edf78586c3620aeff764a17a7dc27d31bab14003df8bf6020b71ab0349e26",
+      "backup_path": "/scratch/users/scdobbs/dir54/protect/production_backup/step0_bakeoff/run_het_louo.sbatch",
+      "backup_sha256": "606edf78586c3620aeff764a17a7dc27d31bab14003df8bf6020b71ab0349e26",
+      "backup_verified": true
+    },
+    {
+      "relpath": "step0_bakeoff/het_louo_32571349.out",
+      "source": "/scratch/users/scdobbs/step0_bakeoff/het_louo_32571349.out",
+      "size": 7074,
+      "mtime": 1783035418.0,
+      "sha256": "3b786e15a0a668b99205e0df2ba08c981b1d97da3571a0f3c77a439ea8ff9e04",
+      "backup_path": "/scratch/users/scdobbs/dir54/protect/production_backup/step0_bakeoff/het_louo_32571349.out",
+      "backup_sha256": "3b786e15a0a668b99205e0df2ba08c981b1d97da3571a0f3c77a439ea8ff9e04",
+      "backup_verified": true
+    }
+  ]
+}

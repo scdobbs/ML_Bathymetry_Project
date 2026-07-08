@@ -1,0 +1,251 @@
+{
+  "n_folds": 8,
+  "n_patches": 1763,
+  "alphas": [
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    0.95
+  ],
+  "reliability": {
+    "pooled": {
+      "coverage": [
+        0.587,
+        0.682,
+        0.771,
+        0.852,
+        0.92,
+        0.951
+      ],
+      "cal_err": 0.052,
+      "signed_bias": 0.052
+    },
+    "per_fold": {
+      "NA090": {
+        "coverage": [
+          0.714,
+          0.8,
+          0.871,
+          0.923,
+          0.958,
+          0.975
+        ],
+        "cal_err": 0.132,
+        "signed_bias": 0.132
+      },
+      "NA080": {
+        "coverage": [
+          0.517,
+          0.612,
+          0.729,
+          0.845,
+          0.921,
+          0.954
+        ],
+        "cal_err": 0.021,
+        "signed_bias": 0.021
+      },
+      "TN399": {
+        "coverage": [
+          0.526,
+          0.623,
+          0.714,
+          0.8,
+          0.883,
+          0.927
+        ],
+        "cal_err": 0.017,
+        "signed_bias": 0.004
+      },
+      "RR1506": {
+        "coverage": [
+          0.672,
+          0.779,
+          0.861,
+          0.925,
+          0.968,
+          0.984
+        ],
+        "cal_err": 0.123,
+        "signed_bias": 0.123
+      },
+      "AT37-13": {
+        "coverage": [
+          0.626,
+          0.725,
+          0.81,
+          0.881,
+          0.942,
+          0.971
+        ],
+        "cal_err": 0.084,
+        "signed_bias": 0.084
+      },
+      "EW0207": {
+        "coverage": [
+          0.398,
+          0.488,
+          0.587,
+          0.693,
+          0.802,
+          0.864
+        ],
+        "cal_err": 0.103,
+        "signed_bias": -0.103
+      },
+      "FK181031": {
+        "coverage": [
+          0.567,
+          0.672,
+          0.77,
+          0.858,
+          0.933,
+          0.962
+        ],
+        "cal_err": 0.052,
+        "signed_bias": 0.052
+      },
+      "TN299": {
+        "coverage": [
+          0.641,
+          0.728,
+          0.808,
+          0.879,
+          0.937,
+          0.965
+        ],
+        "cal_err": 0.085,
+        "signed_bias": 0.085
+      }
+    },
+    "cal_err_range": [
+      0.017,
+      0.132
+    ],
+    "n_folds_overconfident": 1,
+    "n_folds_underconfident": 6,
+    "n_folds_wellcal": 1
+  },
+  "acquisition_economics": {
+    "area_deciles_pct": [
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+    ],
+    "pooled_gain_curve": {
+      "sigma": [
+        0.387,
+        0.502,
+        0.597,
+        0.681,
+        0.753,
+        0.814,
+        0.871,
+        0.926,
+        0.972,
+        1.0
+      ],
+      "coarseRMS": [
+        0.327,
+        0.442,
+        0.531,
+        0.612,
+        0.682,
+        0.754,
+        0.815,
+        0.879,
+        0.936,
+        1.0
+      ],
+      "uniform": [
+        0.1,
+        0.206,
+        0.306,
+        0.403,
+        0.504,
+        0.602,
+        0.703,
+        0.798,
+        0.903,
+        1.0
+      ]
+    },
+    "top20_capture": {
+      "sigma": 0.502,
+      "coarseRMS": 0.442,
+      "uniform": 0.206
+    },
+    "gain_auc": {
+      "sigma": 0.705,
+      "coarseRMS": 0.653,
+      "uniform": 0.5
+    },
+    "effort_multiplier_note": "sigma top20 / uniform top20 = effort saved vs blind survey",
+    "per_fold": {
+      "NA090__MGDS_31212": {
+        "sigma_top20": 0.576,
+        "coarseRMS_top20": 0.481,
+        "uniform_top20": 0.209,
+        "sigma_auc": 0.724
+      },
+      "NA080__MGDS_31290": {
+        "sigma_top20": 0.841,
+        "coarseRMS_top20": 0.803,
+        "uniform_top20": 0.237,
+        "sigma_auc": 0.895
+      },
+      "TN399__MGDS_30373": {
+        "sigma_top20": 0.459,
+        "coarseRMS_top20": 0.355,
+        "uniform_top20": 0.208,
+        "sigma_auc": 0.676
+      },
+      "RR1506__MGDS_29779": {
+        "sigma_top20": 0.53,
+        "coarseRMS_top20": 0.482,
+        "uniform_top20": 0.185,
+        "sigma_auc": 0.727
+      },
+      "AT37-13__MGDS_31199": {
+        "sigma_top20": 0.304,
+        "coarseRMS_top20": 0.306,
+        "uniform_top20": 0.205,
+        "sigma_auc": 0.606
+      },
+      "EW0207__MGDS_32556": {
+        "sigma_top20": 0.502,
+        "coarseRMS_top20": 0.363,
+        "uniform_top20": 0.2,
+        "sigma_auc": 0.723
+      },
+      "FK181031__MGDS_24618": {
+        "sigma_top20": 0.81,
+        "coarseRMS_top20": 0.745,
+        "uniform_top20": 0.204,
+        "sigma_auc": 0.87
+      },
+      "TN299__MGDS_27339": {
+        "sigma_top20": 0.242,
+        "coarseRMS_top20": 0.214,
+        "uniform_top20": 0.198,
+        "sigma_auc": 0.587
+      },
+      "TN299__MGDS_31253": {
+        "sigma_top20": 0.256,
+        "coarseRMS_top20": 0.232,
+        "uniform_top20": 0.205,
+        "sigma_auc": 0.541
+      }
+    }
+  },
+  "box_vs_pixel_note": "patch = ~256 m survey box; the gain curve IS the contiguous-box acquisition sim at operational scale. Box-vs-per-pixel needs per-pixel sigma maps (not persisted; GPU to regenerate, disallowed \u00a71). Guard-5 covariance already settled by reports 39/41."
+}
