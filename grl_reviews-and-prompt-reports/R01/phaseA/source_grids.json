@@ -1,0 +1,551 @@
+[
+ {
+  "pid": "NA090__MGDS_31212",
+  "grid": "hr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/NA090__MGDS_31212/hr.tif",
+  "nodata_meta": NaN,
+  "dtype": "float64",
+  "shape": [
+   2397,
+   2410
+  ],
+  "n_nan_unmasked": 2824089,
+  "n_inf": 0,
+  "n_le_m9000": 0,
+  "n_fill_exact": 0,
+  "n_masked_by_rasterio": 2824089,
+  "n_pixels": 5776770,
+  "valid_mask_shape": [
+   2397,
+   2410
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.5111300951916036,
+  "n_valid_mask": 2952681,
+  "valid_but_nonfinite_or_sentinel": 0,
+  "invalid_but_finite": 0,
+  "depth_min_valid": -1898.476806640625,
+  "depth_max_valid": -1770.1265869140625,
+  "depth_median_valid": -1851.7117919921875,
+  "frac_positive_valid": 0.0
+ },
+ {
+  "pid": "NA090__MGDS_31212",
+  "grid": "lr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/NA090__MGDS_31212/lr.tif",
+  "nodata_meta": -9999.0,
+  "dtype": "float64",
+  "shape": [
+   79,
+   79
+  ],
+  "n_nan_unmasked": 0,
+  "n_inf": 0,
+  "n_le_m9000": 0,
+  "n_fill_exact": 0,
+  "n_masked_by_rasterio": 0,
+  "n_pixels": 6241,
+  "valid_mask_shape": [
+   2397,
+   2410
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.5111300951916036
+ },
+ {
+  "pid": "NA080__MGDS_31290",
+  "grid": "hr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/NA080__MGDS_31290/hr.tif",
+  "nodata_meta": -9999.0,
+  "dtype": "float64",
+  "shape": [
+   16680,
+   11491
+  ],
+  "n_nan_unmasked": 0,
+  "n_inf": 0,
+  "n_le_m9000": 138098968,
+  "n_fill_exact": 138098968,
+  "n_masked_by_rasterio": 138098968,
+  "n_pixels": 191669880,
+  "valid_mask_shape": [
+   16680,
+   11491
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.27948661521570317,
+  "n_valid_mask": 53570912,
+  "valid_but_nonfinite_or_sentinel": 0,
+  "invalid_but_finite": 0,
+  "depth_min_valid": -3486.47412109375,
+  "depth_max_valid": -2955.175537109375,
+  "depth_median_valid": -3308.937744140625,
+  "frac_positive_valid": 0.0
+ },
+ {
+  "pid": "NA080__MGDS_31290",
+  "grid": "lr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/NA080__MGDS_31290/lr.tif",
+  "nodata_meta": -9999.0,
+  "dtype": "float64",
+  "shape": [
+   291,
+   200
+  ],
+  "n_nan_unmasked": 0,
+  "n_inf": 0,
+  "n_le_m9000": 41890,
+  "n_fill_exact": 41890,
+  "n_masked_by_rasterio": 41890,
+  "n_pixels": 58200,
+  "valid_mask_shape": [
+   16680,
+   11491
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.27948661521570317
+ },
+ {
+  "pid": "TN399__MGDS_30373",
+  "grid": "hr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN399__MGDS_30373/hr.tif",
+  "nodata_meta": NaN,
+  "dtype": "float64",
+  "shape": [
+   25730,
+   8410
+  ],
+  "n_nan_unmasked": 104477126,
+  "n_inf": 0,
+  "n_le_m9000": 0,
+  "n_fill_exact": 0,
+  "n_masked_by_rasterio": 104477126,
+  "n_pixels": 216389300,
+  "valid_mask_shape": [
+   25730,
+   8410
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.4755808027476405,
+  "n_valid_mask": 111912174,
+  "valid_but_nonfinite_or_sentinel": 0,
+  "invalid_but_finite": 0,
+  "depth_min_valid": -2767.986572265625,
+  "depth_max_valid": -2478.346923828125,
+  "depth_median_valid": -2560.572265625,
+  "frac_positive_valid": 0.0
+ },
+ {
+  "pid": "TN399__MGDS_30373",
+  "grid": "lr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN399__MGDS_30373/lr.tif",
+  "nodata_meta": -9999.0,
+  "dtype": "float64",
+  "shape": [
+   582,
+   190
+  ],
+  "n_nan_unmasked": 0,
+  "n_inf": 0,
+  "n_le_m9000": 20200,
+  "n_fill_exact": 20200,
+  "n_masked_by_rasterio": 20200,
+  "n_pixels": 110580,
+  "valid_mask_shape": [
+   25730,
+   8410
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.4755808027476405
+ },
+ {
+  "pid": "RR1506__MGDS_29779",
+  "grid": "hr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/RR1506__MGDS_29779/hr.tif",
+  "nodata_meta": NaN,
+  "dtype": "float64",
+  "shape": [
+   12398,
+   7462
+  ],
+  "n_nan_unmasked": 49761287,
+  "n_inf": 0,
+  "n_le_m9000": 0,
+  "n_fill_exact": 0,
+  "n_masked_by_rasterio": 49761287,
+  "n_pixels": 92513876,
+  "valid_mask_shape": [
+   12398,
+   7462
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.45767504109329504,
+  "n_valid_mask": 42752589,
+  "valid_but_nonfinite_or_sentinel": 0,
+  "invalid_but_finite": 0,
+  "depth_min_valid": -1517.024658203125,
+  "depth_max_valid": -628.0989990234375,
+  "depth_median_valid": -1006.9461059570312,
+  "frac_positive_valid": 0.0
+ },
+ {
+  "pid": "RR1506__MGDS_29779",
+  "grid": "lr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/RR1506__MGDS_29779/lr.tif",
+  "nodata_meta": -9999.0,
+  "dtype": "float64",
+  "shape": [
+   613,
+   369
+  ],
+  "n_nan_unmasked": 0,
+  "n_inf": 0,
+  "n_le_m9000": 21375,
+  "n_fill_exact": 21375,
+  "n_masked_by_rasterio": 21375,
+  "n_pixels": 226197,
+  "valid_mask_shape": [
+   12398,
+   7462
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.45767504109329504
+ },
+ {
+  "pid": "AT37-13__MGDS_31199",
+  "grid": "hr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/AT37-13__MGDS_31199/hr.tif",
+  "nodata_meta": NaN,
+  "dtype": "float64",
+  "shape": [
+   2455,
+   2983
+  ],
+  "n_nan_unmasked": 4300596,
+  "n_inf": 0,
+  "n_le_m9000": 0,
+  "n_fill_exact": 0,
+  "n_masked_by_rasterio": 4300596,
+  "n_pixels": 7323265,
+  "valid_mask_shape": [
+   2455,
+   2983
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.4094430557954683,
+  "n_valid_mask": 3022669,
+  "valid_but_nonfinite_or_sentinel": 0,
+  "invalid_but_finite": 0,
+  "depth_min_valid": -2040.33251953125,
+  "depth_max_valid": -1470.90478515625,
+  "depth_median_valid": -1651.7314453125,
+  "frac_positive_valid": 0.0
+ },
+ {
+  "pid": "AT37-13__MGDS_31199",
+  "grid": "lr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/AT37-13__MGDS_31199/lr.tif",
+  "nodata_meta": -9999.0,
+  "dtype": "float64",
+  "shape": [
+   106,
+   129
+  ],
+  "n_nan_unmasked": 0,
+  "n_inf": 0,
+  "n_le_m9000": 161,
+  "n_fill_exact": 161,
+  "n_masked_by_rasterio": 161,
+  "n_pixels": 13674,
+  "valid_mask_shape": [
+   2455,
+   2983
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.4094430557954683
+ },
+ {
+  "pid": "EW0207__MGDS_32556",
+  "grid": "hr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/EW0207__MGDS_32556/hr.tif",
+  "nodata_meta": NaN,
+  "dtype": "float64",
+  "shape": [
+   16668,
+   12122
+  ],
+  "n_nan_unmasked": 152100641,
+  "n_inf": 0,
+  "n_le_m9000": 0,
+  "n_fill_exact": 0,
+  "n_masked_by_rasterio": 152100641,
+  "n_pixels": 202049496,
+  "valid_mask_shape": [
+   16668,
+   12122
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.22032941373929485,
+  "n_valid_mask": 49948855,
+  "valid_but_nonfinite_or_sentinel": 0,
+  "invalid_but_finite": 0,
+  "depth_min_valid": -2298.355712890625,
+  "depth_max_valid": -1572.781005859375,
+  "depth_median_valid": -1877.0257568359375,
+  "frac_positive_valid": 0.0
+ },
+ {
+  "pid": "EW0207__MGDS_32556",
+  "grid": "lr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/EW0207__MGDS_32556/lr.tif",
+  "nodata_meta": -9999.0,
+  "dtype": "float64",
+  "shape": [
+   258,
+   188
+  ],
+  "n_nan_unmasked": 0,
+  "n_inf": 0,
+  "n_le_m9000": 3249,
+  "n_fill_exact": 3249,
+  "n_masked_by_rasterio": 3249,
+  "n_pixels": 48504,
+  "valid_mask_shape": [
+   16668,
+   12122
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.22032941373929485
+ },
+ {
+  "pid": "FK181031__MGDS_24618",
+  "grid": "hr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/FK181031__MGDS_24618/hr.tif",
+  "nodata_meta": NaN,
+  "dtype": "float64",
+  "shape": [
+   6680,
+   4847
+  ],
+  "n_nan_unmasked": 11851125,
+  "n_inf": 0,
+  "n_le_m9000": 0,
+  "n_fill_exact": 0,
+  "n_masked_by_rasterio": 11851125,
+  "n_pixels": 32377960,
+  "valid_mask_shape": [
+   6680,
+   4847
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.6339755500346532,
+  "n_valid_mask": 20526835,
+  "valid_but_nonfinite_or_sentinel": 0,
+  "invalid_but_finite": 0,
+  "depth_min_valid": -3808.25927734375,
+  "depth_max_valid": -3627.045166015625,
+  "depth_median_valid": -3788.580078125,
+  "frac_positive_valid": 0.0
+ },
+ {
+  "pid": "FK181031__MGDS_24618",
+  "grid": "lr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/FK181031__MGDS_24618/lr.tif",
+  "nodata_meta": -9999.0,
+  "dtype": "float64",
+  "shape": [
+   107,
+   78
+  ],
+  "n_nan_unmasked": 0,
+  "n_inf": 0,
+  "n_le_m9000": 0,
+  "n_fill_exact": 0,
+  "n_masked_by_rasterio": 0,
+  "n_pixels": 8346,
+  "valid_mask_shape": [
+   6680,
+   4847
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.6339755500346532
+ },
+ {
+  "pid": "TN299__MGDS_27339",
+  "grid": "hr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN299__MGDS_27339/hr.tif",
+  "nodata_meta": -9999.0,
+  "dtype": "float64",
+  "shape": [
+   15589,
+   8577
+  ],
+  "n_nan_unmasked": 0,
+  "n_inf": 0,
+  "n_le_m9000": 98718196,
+  "n_fill_exact": 98718196,
+  "n_masked_by_rasterio": 98718196,
+  "n_pixels": 133706853,
+  "valid_mask_shape": [
+   15589,
+   8577
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.10739761409237565,
+  "n_valid_mask": 34988657,
+  "valid_but_nonfinite_or_sentinel": 0,
+  "invalid_but_finite": 0,
+  "depth_min_valid": -3322.140625,
+  "depth_max_valid": -2554.345947265625,
+  "depth_median_valid": -3068.0810546875,
+  "frac_positive_valid": 0.0
+ },
+ {
+  "pid": "TN299__MGDS_27339",
+  "grid": "lr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN299__MGDS_27339/lr.tif",
+  "nodata_meta": -9999.0,
+  "dtype": "float64",
+  "shape": [
+   304,
+   168
+  ],
+  "n_nan_unmasked": 0,
+  "n_inf": 0,
+  "n_le_m9000": 45590,
+  "n_fill_exact": 45590,
+  "n_masked_by_rasterio": 45590,
+  "n_pixels": 51072,
+  "valid_mask_shape": [
+   15589,
+   8577
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.10739761409237565
+ },
+ {
+  "pid": "TN299__MGDS_31253",
+  "grid": "hr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN299__MGDS_31253/hr.tif",
+  "nodata_meta": NaN,
+  "dtype": "float64",
+  "shape": [
+   3609,
+   3591
+  ],
+  "n_nan_unmasked": 6541844,
+  "n_inf": 0,
+  "n_le_m9000": 0,
+  "n_fill_exact": 0,
+  "n_masked_by_rasterio": 6541844,
+  "n_pixels": 12959919,
+  "valid_mask_shape": [
+   3609,
+   3591
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.48694270388572647,
+  "n_valid_mask": 6418075,
+  "valid_but_nonfinite_or_sentinel": 0,
+  "invalid_but_finite": 0,
+  "depth_min_valid": -1218.400634765625,
+  "depth_max_valid": -455.92877197265625,
+  "depth_median_valid": -1058.6441650390625,
+  "frac_positive_valid": 0.0
+ },
+ {
+  "pid": "TN299__MGDS_31253",
+  "grid": "lr",
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN299__MGDS_31253/lr.tif",
+  "nodata_meta": -9999.0,
+  "dtype": "float64",
+  "shape": [
+   98,
+   98
+  ],
+  "n_nan_unmasked": 0,
+  "n_inf": 0,
+  "n_le_m9000": 935,
+  "n_fill_exact": 935,
+  "n_masked_by_rasterio": 935,
+  "n_pixels": 9604,
+  "valid_mask_shape": [
+   3609,
+   3591
+  ],
+  "valid_mask_values": [
+   0,
+   1
+  ],
+  "valid_mask_nodata": 255.0,
+  "joint_valid_frac": 0.48694270388572647
+ }
+]

@@ -1,0 +1,25 @@
+{
+ "n": 1763,
+ "frac_patches_with_hole": 0.41293250141803745,
+ "medians": {
+  "n_valid": 65536.0,
+  "has_hole": 0.0,
+  "frac_interior": 0.86431884765625,
+  "top1_near_border": 0.9740458015267176,
+  "top1_near_hole": 0.0,
+  "top1_near_either": 0.9877862595419847,
+  "resid_rms": 3.120077419961443,
+  "resid_rms_interior": 0.7288030863720454,
+  "sigma_mean": 0.9953005313873291,
+  "sigma_mean_interior": 0.539437472820282,
+  "bic_rms_dm_interior": 0.36091518462357036,
+  "C": 0.0717387042638794
+ },
+ "within_r2": {
+  "sigma_vs_resid": 0.5527065799813455,
+  "sigma_int_vs_resid_int": 0.7158125992029043,
+  "sigma_int_vs_bic_dm_int": 0.39869160235412904,
+  "C_vs_resid_int": 0.2727667114124601,
+  "C_vs_bic_dm_int": 0.5726328515750894
+ }
+}
