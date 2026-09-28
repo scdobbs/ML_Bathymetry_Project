@@ -48,3 +48,4 @@ env/
 logs/*.out
 logs/*.err
 slurm-*.out
+grl_reviews-and-prompt-reports/*.pdf

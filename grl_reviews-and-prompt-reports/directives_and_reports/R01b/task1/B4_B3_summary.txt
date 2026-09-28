@@ -1,0 +1,33 @@
+B4: mean|err| / mean sigma by distance to border (pooled over 8 units, pixel-weighted)
+ d:      0     1     2     3     4     6     8    12    16    24    32    48    64
+ err: 4.69  4.97  4.91  4.49  3.12  2.62  1.98  1.33  1.15  0.93  0.82  0.74  0.72
+ sig: 4.80  5.02  5.03  4.54  3.48  2.70  2.28  1.41  1.25  1.00  0.86  0.76  0.75
+ interior level (48-64 px): err 0.725, sigma 0.753
+ distance where mean|err| stays within 50% of interior: 18 px
+ distance where mean|err| stays within 20% of interior: 28 px
+ distance where mean|err| stays within 10% of interior: 35 px
+
+ per unit: d where mean|err| within 20% of that unit's interior; interior err; err at d=0
+  NA090     reach= 28 px  interior=0.295  d0=3.62  d0/interior=12x  sigma d0=5.73 interior sigma=0.48
+  NA080     reach=  9 px  interior=2.038  d0=4.08  d0/interior=2x  sigma d0=3.89 interior sigma=1.83
+  TN399     reach= 33 px  interior=0.492  d0=1.28  d0/interior=3x  sigma d0=1.70 interior sigma=0.51
+  RR1506    reach= 17 px  interior=0.490  d0=3.14  d0/interior=6x  sigma d0=5.44 interior sigma=0.65
+  AT37-13   reach= 40 px  interior=0.189  d0=1.67  d0/interior=9x  sigma d0=2.95 interior sigma=0.31
+  EW0207    reach= 32 px  interior=0.876  d0=5.51  d0/interior=6x  sigma d0=4.56 interior sigma=0.85
+  FK181031  reach= 23 px  interior=1.415  d0=3.23  d0/interior=2x  sigma d0=2.68 interior sigma=1.18
+  TN299     reach=  8 px  interior=0.291  d0=9.73  d0/interior=33x  sigma d0=8.18 interior sigma=0.43
+
+B3 deciles: mean fraction of |mu|>5 pixels by decile of ...
+ std_m: [0.13,1.8] 0.158 | [1.8,2.9] 0.060 | [2.9,4] 0.028 | [4,5.5] 0.044 | [5.5,7.3] 0.022 | [7.3,10] 0.027 | [10,15] 0.028 | [15,22] 0.025 | [22,33] 0.030 | [33,79] 0.037
+ max_abs_in: [0.56,1.5] 0.016 | [1.5,1.8] 0.024 | [1.8,2] 0.027 | [2,2.1] 0.030 | [2.1,2.3] 0.027 | [2.3,2.5] 0.026 | [2.5,2.8] 0.022 | [2.8,3.4] 0.016 | [3.4,5] 0.020 | [5,1.5e+02] 0.249
+ abs_off_norm: [0.0002,0.045] 0.029 | [0.045,0.091] 0.031 | [0.092,0.15] 0.028 | [0.15,0.23] 0.032 | [0.23,0.36] 0.024 | [0.36,0.52] 0.019 | [0.52,0.78] 0.016 | [0.78,1.1] 0.014 | [1.1,2.2] 0.018 | [2.2,52] 0.247
+
+per-unit B3/B5:
+  NA090     top1<=8px border 1.00 | top1 in fill-step 0.000 vs all 0.000 | frac mu>5 mean 0.018 | sigma clamp 0.014 | partial rho rim 0.15 interior 0.07 | rho interior 0.06
+  NA080     top1<=8px border 0.96 | top1 in fill-step 0.026 vs all 0.018 | frac mu>5 mean 0.132 | sigma clamp 0.021 | partial rho rim 0.29 interior 0.14 | rho interior 0.34
+  TN399     top1<=8px border 0.53 | top1 in fill-step 0.033 vs all 0.040 | frac mu>5 mean 0.024 | sigma clamp 0.025 | partial rho rim 0.26 interior 0.08 | rho interior 0.09
+  RR1506    top1<=8px border 0.97 | top1 in fill-step 0.022 vs all 0.007 | frac mu>5 mean 0.044 | sigma clamp 0.038 | partial rho rim 0.28 interior 0.15 | rho interior 0.11
+  AT37-13   top1<=8px border 0.44 | top1 in fill-step 0.038 vs all 0.030 | frac mu>5 mean 0.034 | sigma clamp 0.036 | partial rho rim 0.37 interior 0.10 | rho interior 0.11
+  EW0207    top1<=8px border 0.82 | top1 in fill-step 0.029 vs all 0.039 | frac mu>5 mean 0.049 | sigma clamp 0.029 | partial rho rim 0.23 interior 0.07 | rho interior 0.10
+  FK181031  top1<=8px border 0.93 | top1 in fill-step 0.000 vs all 0.000 | frac mu>5 mean 0.053 | sigma clamp 0.037 | partial rho rim 0.16 interior 0.08 | rho interior 0.14
+  TN299     top1<=8px border 1.00 | top1 in fill-step 0.054 vs all 0.072 | frac mu>5 mean 0.027 | sigma clamp 0.028 | partial rho rim 0.21 interior 0.08 | rho interior 0.10
