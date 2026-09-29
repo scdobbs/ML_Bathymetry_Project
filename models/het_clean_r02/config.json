@@ -1,0 +1,28 @@
+{
+ "out_dir": "/scratch/users/scdobbs/grl_review/R02/het_clean_r02",
+ "patches": "/scratch/users/scdobbs/grl_review/R02/patches_clean",
+ "steps": 8000,
+ "base_ch": 32,
+ "batch": 32,
+ "lr": 0.0002,
+ "cap_per_pair": 2500,
+ "held_cap": 200,
+ "workers": 10,
+ "seed": 20260928,
+ "only_fold": "",
+ "folds": [
+  "NA090",
+  "NA080",
+  "TN399",
+  "RR1506",
+  "AT37-13",
+  "FK181031",
+  "TN299"
+ ],
+ "excluded": [
+  "EW0207__MGDS_32556"
+ ],
+ "code_hash": "06934d0b70b8c051",
+ "torch": "2.4.0a0",
+ "recipe": "het_louo.py + R02 \u00a72.1 changes (reflect pad, PixelLN, in_ch 2, clamp [-14,8], NLL, seed)"
+}

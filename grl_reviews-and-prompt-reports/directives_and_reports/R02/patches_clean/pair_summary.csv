@@ -1,0 +1,10 @@
+pair_id,saved,rejected,note
+AT37-13__MGDS_31199,186,210,"CLEAN k=8 lr_px=11 win=256 step=128 rej={'joint': 210, 'hr_valid': 0, 'flat': 0, 'lr_valid': 0} [val]"
+NA080__MGDS_31290,13036,32196,"CLEAN k=16 lr_px=4 win=256 step=64 rej={'joint': 32196, 'hr_valid': 0, 'flat': 0, 'lr_valid': 0} [train]"
+NA090__MGDS_31212,177,112,"CLEAN k=8 lr_px=8 win=256 step=128 rej={'joint': 112, 'hr_valid': 0, 'flat': 0, 'lr_valid': 0} [test]"
+RR1506__MGDS_29779,10366,11104,"CLEAN k=8 lr_px=13 win=256 step=64 rej={'joint': 11104, 'hr_valid': 0, 'flat': 0, 'lr_valid': 0} [train]"
+TN399__MGDS_30373,25221,25851,"CLEAN k=16 lr_px=6 win=256 step=64 rej={'joint': 25851, 'hr_valid': 0, 'flat': 0, 'lr_valid': 0} [train]"
+TN299__MGDS_27339,3593,27847,"CLEAN k=16 lr_px=5 win=256 step=64 rej={'joint': 27847, 'hr_valid': 0, 'flat': 0, 'lr_valid': 0} [train]"
+FK181031__MGDS_24618,5010,2262,"CLEAN k=16 lr_px=4 win=256 step=64 rej={'joint': 2262, 'hr_valid': 0, 'flat': 0, 'lr_valid': 0} [train]"
+TN299__MGDS_31253,1539,1270,"CLEAN k=8 lr_px=7 win=256 step=64 rej={'joint': 1270, 'hr_valid': 0, 'flat': 0, 'lr_valid': 0} [train]"
+EW0207__MGDS_32556,10917,36885,"CLEAN k=16 lr_px=4 win=256 step=64 rej={'joint': 36885, 'hr_valid': 0, 'flat': 0, 'lr_valid': 0} [train]"

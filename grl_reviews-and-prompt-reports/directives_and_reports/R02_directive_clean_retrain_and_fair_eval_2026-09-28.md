@@ -1,16 +1,23 @@
 # R02 — Directive: clean-pipeline retrain of the heteroscedastic CNN, and a fair evaluation
 
 **Series:** post-review (R-series).
-**Issued:** 2026-09-28 (drafted in advance of REPORT_R01b)
-**Issued by:** steering/assessment instance, on Steve's instruction
+**Issued:** 2026-09-28 (revised after REPORT_R01b; §2.0 values set by Steve)
+**Issued by:** steering/assessment instance, on Steve's rulings after REPORT_R01b
 **Executor:** Claude Code on Sherlock (fresh instance). Read, in order: R01, REPORT_R01a, R01b, REPORT_R01b,
 `CHANGE_LEDGER.md`, then `het_louo.py` and `preprocessing/extract_colocated_patches.py`.
 **Repo:** `/home/users/scdobbs/GAN_Bathymetry_Project`, branch `rewrite/flow-matching-2026`
 **Report:** `grl_reviews-and-prompt-reports/REPORT_R02_<date>.md`, append-only (parts R02a, R02b… allowed)
 **Arbiter:** Steve.
 
-> **Start gate.** Do not begin until REPORT_R01b exists **and** Steve has recorded two values in §2.0 below:
-> the rim width and the loss (NLL or β-NLL). If either is missing, stop and ask.
+> **Start gate: satisfied.** REPORT_R01b exists and Steve has set the §2.0 values (rim 48 px, standard NLL,
+> GroupNorm replaced).
+>
+> **Challenge clause.** Steve has asked that the executor push back if it finds an error in the steering
+> instance's reasoning. Before building anything, read §2.0–2.1 against REPORT_R01b. If any ruling there
+> rests on a wrong premise (for example, the claim that per-pixel channel LayerNorm removes spatial coupling,
+> or that 48 px is a sufficient rim for the new architecture), **stop and write a short R02-pre note to
+> Steve** stating the error, the evidence, and your proposed alternative. Do not silently substitute your own
+> choice. If you find no error, say so in one line in the report and proceed.
 
 ---
 
@@ -90,10 +97,18 @@ stop.
 
 ## 2. Model and training
 
-### 2.0 Values set by Steve from REPORT_R01b (fill in before start)
+### 2.0 Values set by Steve from REPORT_R01b
 
-- Rim width for overlapping-tile inference: `RIM = ___ px` (R01b B2 recommendation, ≥ 32)
-- Loss: `NLL` or `β-NLL, β = 0.5` → `___` (R01b B5 recommendation)
+- **Rim width: `RIM = 48 px`** (stride 160). R01b measured the border decay on the old architecture at 28 px
+  pooled and up to 40 px per unit (AT37-13). 48 px adds margin, because the normalization change below
+  alters the receptive field. R02 must re-measure the border error profile on the new model (§3.1a).
+- **Loss: standard Gaussian NLL.** R01b B5: interior partial ρ = 0.09 (not material); the rim signal was the
+  zero-padding artifact.
+- **Normalization: replace `GroupNorm` with per-pixel LayerNorm over the channel axis only** (normalizes
+  each pixel's channel vector; no pooling over space). R01b B2: GroupNorm's per-tile statistics made the
+  effective receptive field tile-wide (23–27% of gradient mass beyond 64 px; 99% radius 165 px), so a rim
+  could not isolate the border and overlapping windows would disagree. With channel-only normalization the
+  receptive field should be the convolutional one (theoretical 119 px, half-width ≈ 60 px).
 
 ### 2.1 Recipe
 
@@ -106,8 +121,9 @@ wd 1e-4, cosine to 1e-6, grad-clip 1.0, bf16, per-pair cap 2,500, no augmentatio
 | Inputs and target as §1.1 (ship-only normalization, LR-level fill, offset removed from target) | R01a B1, A4, A5 |
 | `in_ch = 2` (validity channel added) | R01a B1 fill row |
 | **Reflect padding** on every conv (`padding_mode='reflect'`) | R01a B1 padding row; R01b B3/B4 |
+| **`GroupNorm` → per-pixel channel LayerNorm** in every block (FiLM conditioning unchanged, applied after the norm as before) | R01b B2 |
 | log-variance clamp widened to [−14, 8] and the fraction of pixels at either clamp reported | R01a B1 σ row (σ at the clamp) |
-| Loss per §2.0 | R01b B5 |
+| Loss: standard Gaussian NLL, masked as before | R01b B5 |
 | EW0207 excluded from all training folds | R01a A7 |
 | **Fixed seed** (record it), deterministic flags where available; **save every fold's weights** | report 55 §C (production un-seeded, weights discarded) |
 
@@ -141,6 +157,15 @@ mosaicking is visible.
 **Pixels scored:** primary = all joint-valid pixels of the mosaic; sensitivity = joint-valid pixels ≥ 16 px
 from any invalid pixel (coverage edges).
 
+**§3.1a Border and receptive-field re-measurement (new model).** Before scoring, repeat R01b B2 (gradient
+probing, 20 patches: radius holding 95% and 99% of gradient mass, mass beyond 64 px) and R01b B4 (mean
+|error| and mean σ vs distance to the tile border, 0–64 px, single-tile inference) on the new model. Report
+whether the effective field is now local and whether the border error reaches its interior level within
+48 px. If it does not, still complete the evaluation with RIM = 48, flag it in the bottom line, and state the
+rim the data would support; Steve decides whether a re-evaluation at a wider rim is warranted (no retrain).
+Also report the seam check: on overlapping windows, the RMS difference between the two windows' μ and σ
+in their shared central strip.
+
 ### 3.2 Does the model predict the seafloor? (meters, offset removed)
 
 Per unit, median across units, and pooled:
@@ -163,8 +188,11 @@ fine band). This speaks directly to the title claim.
 
 **Predictors**, all computed from ship-side data only, in meters, on the identical patches:
 - σ_m (patch mean of per-pixel σ)
-- roughness C and roughness-3, **recomputed** if R01b Task 2 found any AUV-derived normalization
-- metadata baseline (report-44 features; linear and GBT), likewise recomputed if needed
+- roughness C and roughness-3, **recomputed in meters from `lr_up_m` only** (R01b Task 2: the originals were
+  divided by the AUV patch std; anisotropy is scale-free and may be reused)
+- metadata baseline (report-44 features; linear and GBT), **recomputed** per R01b Task 2: slope from `lr_up_m`
+  in meters; depth = `mu_lr` (ship mean, not the AUV patch mean); fraction valid from `lr_valid` only (not the
+  joint mask); `dist_edge` and `lr_native` unchanged
 - **free combined baseline**: GBT on roughness + metadata together (the strongest free predictor)
 - **σ + free combined**: GBT on σ plus all free features, to measure σ's incremental value
 
@@ -203,8 +231,9 @@ for the same units on T-ship, for σ and for the free combined baseline.
 
 ## 4. Report structure (`REPORT_R02_<date>.md`)
 
-1. Bottom line (≤ 12 lines): leak test result; does μ beat bicubic; does σ beat the free baselines on
-   T-ship and T-cnn, with CIs; does σ add incremental value over free features.
+1. Bottom line (≤ 12 lines): challenge-clause outcome; leak test result; §3.1a receptive-field and border
+   result; does μ beat bicubic, and is μ's fine-band power coherent with HR; does σ beat the free baselines
+   on T-ship and T-cnn, with CIs; does σ add incremental value over free features.
 2. §1 clean patch set: construction, integrity, leak test.
 3. §2 training: folds, seed, GPU time, clamp fractions, convergence curves per fold.
 4. §3.2–3.5 tables and spectra.

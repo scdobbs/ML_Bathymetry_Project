@@ -1,0 +1,906 @@
+{
+ "n": 100,
+ "n_pass": 100,
+ "tiles": [
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 5376,
+   "c0": 7040,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -5.32781982421875,
+   "delta_noise": -34.3271484375
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 3392,
+   "c0": 9472,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -6.1588134765625,
+   "delta_noise": -15.3773193359375
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 8128,
+   "c0": 4544,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 2.98345947265625,
+   "delta_noise": -101.72833251953125
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 14784,
+   "c0": 1280,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 3.4658203125,
+   "delta_noise": -280.78924560546875
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 10496,
+   "c0": 3840,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 14.86614990234375,
+   "delta_noise": -150.780517578125
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 7616,
+   "c0": 5632,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -7.6195068359375,
+   "delta_noise": -186.2938232421875
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 7872,
+   "c0": 6080,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -4.72100830078125,
+   "delta_noise": -103.77569580078125
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 13440,
+   "c0": 2368,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 5.75579833984375,
+   "delta_noise": -237.6734619140625
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 6144,
+   "c0": 7552,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -2.5751953125,
+   "delta_noise": -2.0758056640625
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 16064,
+   "c0": 1920,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -16.28533935546875,
+   "delta_noise": -309.23248291015625
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 16064,
+   "c0": 256,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 5.1656494140625,
+   "delta_noise": -291.76824951171875
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 7168,
+   "c0": 5568,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -22.11932373046875,
+   "delta_noise": -125.15179443359375
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 9408,
+   "c0": 9152,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 12.03155517578125,
+   "delta_noise": -41.51153564453125
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 10304,
+   "c0": 3136,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -9.61993408203125,
+   "delta_noise": -175.544677734375
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 1344,
+   "c0": 5120,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -26.537841796875,
+   "delta_noise": 151.53277587890625
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 12480,
+   "c0": 2880,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -4.3729248046875,
+   "delta_noise": -211.2513427734375
+  },
+  {
+   "pair_id": "FK181031__MGDS_24618",
+   "r0": 3584,
+   "c0": 3776,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -1.0894775390625,
+   "delta_noise": 1800.249755859375
+  },
+  {
+   "pair_id": "FK181031__MGDS_24618",
+   "r0": 4928,
+   "c0": 3008,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.74951171875,
+   "delta_noise": 1795.484130859375
+  },
+  {
+   "pair_id": "FK181031__MGDS_24618",
+   "r0": 512,
+   "c0": 1792,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.24560546875,
+   "delta_noise": 1791.0947265625
+  },
+  {
+   "pair_id": "FK181031__MGDS_24618",
+   "r0": 2304,
+   "c0": 1792,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 2.4764404296875,
+   "delta_noise": 1809.6240234375
+  },
+  {
+   "pair_id": "FK181031__MGDS_24618",
+   "r0": 3648,
+   "c0": 1920,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.468017578125,
+   "delta_noise": 1789.6343994140625
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 5632,
+   "c0": 7552,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 6.8927001953125,
+   "delta_noise": 1323.8466796875
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 10752,
+   "c0": 5504,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 9.9952392578125,
+   "delta_noise": 1307.122314453125
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 5632,
+   "c0": 9728,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 7.21044921875,
+   "delta_noise": 1440.6527099609375
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 11648,
+   "c0": 6848,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 7.1783447265625,
+   "delta_noise": 1399.1943359375
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 8896,
+   "c0": 7040,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 5.5626220703125,
+   "delta_noise": 1369.788818359375
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 12672,
+   "c0": 3392,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 5.527587890625,
+   "delta_noise": 1288.8489990234375
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 11008,
+   "c0": 5120,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 12.7784423828125,
+   "delta_noise": 1285.4180908203125
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 14016,
+   "c0": 6400,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 23.0009765625,
+   "delta_noise": 1387.049560546875
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 11648,
+   "c0": 5952,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 11.183837890625,
+   "delta_noise": 1271.477783203125
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 7936,
+   "c0": 6528,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 8.308837890625,
+   "delta_noise": 1227.8701171875
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 9472,
+   "c0": 1088,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 8.968017578125,
+   "delta_noise": 1263.18310546875
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 11776,
+   "c0": 6080,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 8.89892578125,
+   "delta_noise": 1263.2347412109375
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 9152,
+   "c0": 768,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 9.513671875,
+   "delta_noise": 1265.8876953125
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 7040,
+   "c0": 7872,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 5.4661865234375,
+   "delta_noise": 1394.666015625
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 13952,
+   "c0": 3776,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 7.30029296875,
+   "delta_noise": 1358.89501953125
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 6016,
+   "c0": 256,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 6.2655029296875,
+   "delta_noise": -1202.2196044921875
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 8064,
+   "c0": 3136,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 8.3499755859375,
+   "delta_noise": -481.1448974609375
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 7872,
+   "c0": 5376,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 1.58984375,
+   "delta_noise": -918.5818481445312
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 6016,
+   "c0": 3264,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 13.21160888671875,
+   "delta_noise": -731.023193359375
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 6208,
+   "c0": 3136,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 5.085693359375,
+   "delta_noise": -566.28515625
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 8128,
+   "c0": 128,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 6.4228515625,
+   "delta_noise": -1026.9638671875
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 10432,
+   "c0": 2176,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 7.37335205078125,
+   "delta_noise": -1082.7216796875
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 6336,
+   "c0": 1728,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 6.9420166015625,
+   "delta_noise": -562.154541015625
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 8128,
+   "c0": 5696,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 3.050445556640625,
+   "delta_noise": -1007.4820556640625
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 9920,
+   "c0": 5056,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 9.890380859375,
+   "delta_noise": -1284.6297607421875
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 7552,
+   "c0": 6016,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 9.173980712890625,
+   "delta_noise": -1070.204345703125
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 9280,
+   "c0": 5760,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 6.838958740234375,
+   "delta_noise": -1039.248291015625
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 5248,
+   "c0": 3264,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 7.93072509765625,
+   "delta_noise": -1077.6064453125
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 11968,
+   "c0": 2432,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 5.93389892578125,
+   "delta_noise": -1085.5794677734375
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 5696,
+   "c0": 4160,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 10.1822509765625,
+   "delta_noise": -998.1054077148438
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 9408,
+   "c0": 2112,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -5.6700439453125,
+   "delta_noise": -1004.6214599609375
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 9344,
+   "c0": 2368,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 2.23895263671875,
+   "delta_noise": -867.9631958007812
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 7552,
+   "c0": 3584,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 9.6676025390625,
+   "delta_noise": -478.31256103515625
+  },
+  {
+   "pair_id": "TN299__MGDS_27339",
+   "r0": 3264,
+   "c0": 3904,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -1.901123046875,
+   "delta_noise": 1055.111328125
+  },
+  {
+   "pair_id": "TN299__MGDS_27339",
+   "r0": 4416,
+   "c0": 3968,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 4.988525390625,
+   "delta_noise": 906.9962158203125
+  },
+  {
+   "pair_id": "TN299__MGDS_27339",
+   "r0": 5888,
+   "c0": 3328,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 9.637939453125,
+   "delta_noise": 1089.680908203125
+  },
+  {
+   "pair_id": "TN299__MGDS_27339",
+   "r0": 3584,
+   "c0": 4160,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 2.51123046875,
+   "delta_noise": 1063.221435546875
+  },
+  {
+   "pair_id": "TN299__MGDS_27339",
+   "r0": 2304,
+   "c0": 6848,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 6.668212890625,
+   "delta_noise": 845.82080078125
+  },
+  {
+   "pair_id": "TN299__MGDS_27339",
+   "r0": 6720,
+   "c0": 3328,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.98046875,
+   "delta_noise": 1078.523681640625
+  },
+  {
+   "pair_id": "TN299__MGDS_27339",
+   "r0": 1216,
+   "c0": 7168,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 1.3084716796875,
+   "delta_noise": 875.49853515625
+  },
+  {
+   "pair_id": "TN299__MGDS_27339",
+   "r0": 6080,
+   "c0": 3776,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 5.405029296875,
+   "delta_noise": 1057.3037109375
+  },
+  {
+   "pair_id": "TN299__MGDS_31253",
+   "r0": 832,
+   "c0": 2240,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.2598876953125,
+   "delta_noise": -919.861328125
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 2304,
+   "c0": 3072,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.9278564453125,
+   "delta_noise": 561.7584228515625
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 21184,
+   "c0": 6208,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 2.106201171875,
+   "delta_noise": 554.2398071289062
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 16384,
+   "c0": 2688,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 2.361328125,
+   "delta_noise": 602.8746948242188
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 25024,
+   "c0": 6080,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 8.408447265625,
+   "delta_noise": 545.2784423828125
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 18496,
+   "c0": 4608,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 1.0576171875,
+   "delta_noise": 517.1544799804688
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 13440,
+   "c0": 1728,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.6800537109375,
+   "delta_noise": 660.2444458007812
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 14592,
+   "c0": 3136,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.72705078125,
+   "delta_noise": 533.0509033203125
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 16704,
+   "c0": 6016,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -2.5284423828125,
+   "delta_noise": 561.1859741210938
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 20608,
+   "c0": 4672,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.428955078125,
+   "delta_noise": 539.3563842773438
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 14464,
+   "c0": 960,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -2.3363037109375,
+   "delta_noise": 691.7161865234375
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 19136,
+   "c0": 4800,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 2.912841796875,
+   "delta_noise": 527.7168579101562
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 22848,
+   "c0": 4928,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 1.812744140625,
+   "delta_noise": 549.7635498046875
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 8192,
+   "c0": 4736,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.55078125,
+   "delta_noise": 539.440673828125
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 10496,
+   "c0": 4864,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.0478515625,
+   "delta_noise": 535.6634521484375
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 12544,
+   "c0": 2944,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.9951171875,
+   "delta_noise": 524.5247192382812
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 16960,
+   "c0": 2368,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.418212890625,
+   "delta_noise": 601.6298828125
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 4672,
+   "c0": 3392,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.097412109375,
+   "delta_noise": 555.828369140625
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 17728,
+   "c0": 6784,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 7.0289306640625,
+   "delta_noise": 604.0794677734375
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 10880,
+   "c0": 7168,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 1.3828125,
+   "delta_noise": 658.8189697265625
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 19392,
+   "c0": 4288,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 1.8831787109375,
+   "delta_noise": 553.2176513671875
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 1984,
+   "c0": 1728,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.779296875,
+   "delta_noise": 566.8504028320312
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 13056,
+   "c0": 3072,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 1.375732421875,
+   "delta_noise": 525.96435546875
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 5312,
+   "c0": 2560,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.893798828125,
+   "delta_noise": 565.3489379882812
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 16704,
+   "c0": 1216,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -1.739990234375,
+   "delta_noise": 683.958251953125
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 19712,
+   "c0": 5440,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 3.38623046875,
+   "delta_noise": 527.0934448242188
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 19200,
+   "c0": 4928,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 3.819091796875,
+   "delta_noise": 527.8110961914062
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 5824,
+   "c0": 3584,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 1.740966796875,
+   "delta_noise": 554.2096557617188
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 17152,
+   "c0": 1856,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -3.2513427734375,
+   "delta_noise": 605.227783203125
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 20992,
+   "c0": 5824,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -1.6962890625,
+   "delta_noise": 531.1397094726562
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 512,
+   "c0": 2944,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 1.6514892578125,
+   "delta_noise": 572.935302734375
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 8896,
+   "c0": 3200,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 2.091064453125,
+   "delta_noise": 538.1572265625
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 18112,
+   "c0": 3968,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.05322265625,
+   "delta_noise": 542.6256713867188
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 14656,
+   "c0": 5632,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.77490234375,
+   "delta_noise": 553.0900268554688
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 16256,
+   "c0": 1792,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -1.173095703125,
+   "delta_noise": 610.6122436523438
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 10304,
+   "c0": 1280,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 4.4716796875,
+   "delta_noise": 663.259033203125
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 15360,
+   "c0": 3904,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.569091796875,
+   "delta_noise": 514.7120361328125
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 7360,
+   "c0": 4544,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.7109375,
+   "delta_noise": 548.1608276367188
+  }
+ ]
+}

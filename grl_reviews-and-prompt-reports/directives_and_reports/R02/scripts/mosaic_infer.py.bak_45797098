@@ -1,0 +1,180 @@
+"""R02 §3.1 — overlapping-window inference over each held-out unit's full harmonized extent, plus the
+§3.1a re-measurements (gradient receptive field; border error profile on single-tile inference) and the
+seam check. GPU. Each unit is scored by the fold model that did not train on it; EW0207 by ALL7.
+
+Outputs per unit (/scratch/users/scdobbs/grl_review/R02/mosaics/<unit>/):
+  mosaic.npz     mu_m, sigma_m, lr_up_m, delta_m (per-window median(HR - lr_up_m), label-side), joint (uint8),
+                 lr_valid_hr (uint8), covered (uint8: pixel written by a window)
+  seam.json      RMS(mu_m diff), RMS(sigma_m diff) between windows offset by 80 px on their shared central strip
+  tiles_mosaic.npz  the held evaluation tiles (same footprints as the paper) re-cut from the mosaic:
+                 keys, mu_m, sigma_m, lr_up_m, hr_m, delta, joint, interior16 (joint & >=16 px from invalid)
+  rf_probe.csv / border_profile.json  (§3.1a; written once, from the single-tile maps of the training job)
+"""
+from __future__ import annotations
+import argparse, glob, json, os, sys, time
+import numpy as np, pandas as pd, torch
+from scipy.ndimage import distance_transform_edt
+sys.path.insert(0, "/scratch/users/scdobbs/grl_review/R02"); import het_clean as hc
+sys.path.insert(0, "/home/users/scdobbs/GAN_Bathymetry_Project")
+from preprocessing import extract_clean_patches as ecp
+from preprocessing.colocated_utils import load_manifest, load_k_map
+
+DATA = "/oak/stanford/groups/hilley/auv_ship_colocated_bathy"
+PATCHES = hc.PATCHES; MODELS = hc.OUT
+OUTROOT = "/scratch/users/scdobbs/grl_review/R02/mosaics"
+UNIT_PAIRS = dict(hc.FOLDS); UNIT_PAIRS["EW0207"] = hc.EW
+MODEL_FOR = {u: f"fold_{u}" for u in hc.FOLDS}; MODEL_FOR["EW0207"] = "fold_ALL7"
+WIN = 256
+
+
+def load_model(fold_dir, device):
+    m = hc.HetUNetClean(base_ch=32); m.load_state_dict(torch.load(os.path.join(fold_dir, "ckpt.pt"), map_location=device))
+    return m.to(device).eval()
+
+
+@torch.no_grad()
+def run_windows(model, g, windows, s_floor, device, batch=16):
+    """Yield (r0, c0, mu_m, sigma_m, lr_up_m, lr_valid_hr, mu_lr, s_lr) for windows with >=2 LR-valid cells."""
+    buf = []
+    def flush():
+        if not buf: return []
+        inp = torch.stack([torch.from_numpy(np.stack([b[2]["x"], b[2]["lr_valid_hr"].astype(np.float32)])) for b in buf]).to(device)
+        sc = torch.from_numpy(np.stack([g["scale_vec"]] * len(buf))).to(device)
+        with torch.autocast("cuda", dtype=torch.bfloat16):
+            mean, log_var = model(inp, sc)
+        mean = mean.float().cpu().numpy()[:, 0]; sig = np.exp(0.5 * log_var.float().cpu().numpy()[:, 0])
+        out = []
+        for (r0, c0, inp_d), mu, sg in zip(buf, mean, sig):
+            out.append((r0, c0, mu * inp_d["s_lr"] + inp_d["mu_lr"], sg * inp_d["s_lr"], inp_d["lr_up_m"], inp_d["lr_valid_hr"], inp_d["mu_lr"], inp_d["s_lr"]))
+        buf.clear(); return out
+    for r0, c0 in windows:
+        lr, lv = ecp.tile_ship_side(g, r0, c0, WIN)
+        inp = ecp.build_inputs(lr, lv, WIN, s_floor)
+        if inp is None: continue
+        buf.append((r0, c0, inp))
+        if len(buf) >= batch:
+            for o in flush(): yield o
+    for o in flush(): yield o
+
+
+def mosaic_unit(unit, model, g, rim, s_floor, device, seam_n=30, seed=0):
+    H, W = g["H"], g["W"]; stride = WIN - 2 * rim
+    rows = list(range(0, max(H - WIN, 0) + 1, stride)); cols = list(range(0, max(W - WIN, 0) + 1, stride))
+    if rows[-1] != H - WIN: rows.append(H - WIN)
+    if cols[-1] != W - WIN: cols.append(W - WIN)
+    # skip windows with no LR coverage at all (nothing to infer)
+    windows = [(r, c) for r in rows for c in cols]
+    mu = np.full((H, W), np.nan, np.float32); sg = np.full((H, W), np.nan, np.float32); lu = np.full((H, W), np.nan, np.float32)
+    lvm = np.zeros((H, W), np.uint8); cov = np.zeros((H, W), np.uint8); dl = np.full((H, W), np.nan, np.float32)
+    t0 = time.time(); n = 0
+    for r0, c0, mu_m, sg_m, lr_up_m, lv_hr, mu_lr, s_lr in run_windows(model, g, windows, s_floor, device):
+        # keep the central region; extend to the tile edge where the window touches the extent edge
+        rs = 0 if r0 == 0 else rim; re = WIN if r0 + WIN >= H else WIN - rim
+        cs = 0 if c0 == 0 else rim; ce = WIN if c0 + WIN >= W else WIN - rim
+        sl = (slice(r0 + rs, r0 + re), slice(c0 + cs, c0 + ce)); wl = (slice(rs, re), slice(cs, ce))
+        mu[sl] = mu_m[wl]; sg[sl] = sg_m[wl]; lu[sl] = lr_up_m[wl]; lvm[sl] = lv_hr[wl]; cov[sl] = 1
+        # label-side per-window offset (evaluation only)
+        hr = g["hr_arr"][r0:r0 + WIN, c0:c0 + WIN]; hv = g["hrv_arr"][r0:r0 + WIN, c0:c0 + WIN] & np.isfinite(hr)
+        j = hv & lv_hr
+        dl[sl] = float(np.median((hr - lr_up_m)[j])) if j.sum() >= 64 else np.nan
+        n += 1
+    joint = (g["hrv_arr"] & np.isfinite(g["hr_arr"]) & (lvm == 1) & (cov == 1)).astype(np.uint8)
+    print(f"  {unit}: {n} windows in {time.time()-t0:.0f}s; joint px {int(joint.sum())}", flush=True)
+    # seam check: windows offset by stride/2 in columns; compare mu, sigma on the shared central strip
+    rng = np.random.default_rng(seed); seam = []
+    cand = [(r, c) for r in rows for c in cols if c + stride // 2 + WIN <= W]
+    pick = [cand[i] for i in rng.permutation(len(cand))[:seam_n]]
+    rr = slice(rim, WIN - rim); ca = slice(rim + stride // 2, WIN - rim); cb = slice(rim, WIN - rim - stride // 2)
+    for r0, c0 in pick:
+        outs = list(run_windows(model, g, [(r0, c0), (r0, c0 + stride // 2)], s_floor, device))
+        if len(outs) != 2: continue
+        a, b = outs
+        m = a[5][rr, ca] & b[5][rr, cb]
+        if m.sum() < 100: continue
+        seam.append(dict(r0=int(r0), c0=int(c0),
+                         rms_mu=float(np.sqrt(np.mean((a[2][rr, ca][m] - b[2][rr, cb][m]) ** 2))),
+                         rms_sigma=float(np.sqrt(np.mean((a[3][rr, ca][m] - b[3][rr, cb][m]) ** 2))),
+                         sigma_level=float(np.median(a[3][rr, ca][m])),
+                         lrup_rms_diff=float(np.sqrt(np.mean((a[4][rr, ca][m] - b[4][rr, cb][m]) ** 2)))))
+    return dict(mu_m=mu, sigma_m=sg, lr_up_m=lu, delta_m=dl, joint=joint, lr_valid_hr=lvm, covered=cov), seam
+
+
+def recut_tiles(unit, mos, g, held_files):
+    keys, MU, SG, LU, HR, DL, J, I16 = [], [], [], [], [], [], [], []
+    for f in held_files:
+        base = os.path.basename(f); r0 = int(base.split("_r")[-1][:6]); c0 = int(base.split("_c")[-1][:6])
+        sl = (slice(r0, r0 + WIN), slice(c0, c0 + WIN))
+        hr = g["hr_arr"][sl]; hv = g["hrv_arr"][sl] & np.isfinite(hr)
+        j = (mos["joint"][sl] == 1) & hv
+        d = np.load(f, allow_pickle=True); delta_tile = float(np.asarray(d["stats"]).ravel()[2])   # the stored per-tile delta
+        inv = ~j
+        i16 = j & (distance_transform_edt(~inv) >= 16) if inv.any() else j.copy()
+        keys.append(base); MU.append(mos["mu_m"][sl]); SG.append(mos["sigma_m"][sl]); LU.append(mos["lr_up_m"][sl])
+        HR.append(np.where(hv, hr, np.nan).astype(np.float32)); DL.append(delta_tile); J.append(j.astype(np.uint8)); I16.append(i16.astype(np.uint8))
+    return dict(keys=np.array(keys), mu_m=np.stack(MU), sigma_m=np.stack(SG), lr_up_m=np.stack(LU), hr_m=np.stack(HR),
+                delta=np.array(DL, np.float32), joint=np.stack(J), interior16=np.stack(I16))
+
+
+def rf_probe(device, n_per_unit=3, seed=0):
+    rows = []; rng = np.random.default_rng(seed); yy, xx = np.mgrid[:WIN, :WIN]; rr = np.sqrt((yy - 128) ** 2 + (xx - 128) ** 2)
+    for unit in hc.FOLDS:
+        model = load_model(os.path.join(MODELS, MODEL_FOR[unit]), device)
+        pp = np.load(os.path.join(MODELS, MODEL_FOR[unit], "perpixel_tile.npz"), allow_pickle=True)
+        held = hc.files_for(UNIT_PAIRS[unit], PATCHES, 200)
+        for i in rng.choice(len(held), size=min(n_per_unit, len(held)), replace=False):
+            s = hc.DS.load_sample(held[i]); x = s["inp"][None].to(device).requires_grad_(True); sc = s["scale"][None].to(device)
+            mean, logvar = model(x, sc); corr = mean - x[:, :1]
+            for name, out in (("mu_minus_x", corr), ("logvar", logvar)):
+                if x.grad is not None: x.grad.zero_()
+                out[0, 0, 128, 128].backward(retain_graph=True)
+                gr = x.grad[0, 0].abs().cpu().numpy(); tot = gr.sum() + 1e-30
+                order = np.argsort(rr.ravel()); cum = np.cumsum(gr.ravel()[order]) / tot; rs = rr.ravel()[order]
+                rows.append(dict(unit=unit, file=os.path.basename(held[i]), quantity=name,
+                                 r95=float(rs[np.searchsorted(cum, 0.95)]), r99=float(rs[np.searchsorted(cum, 0.99)]),
+                                 **{f"mass_within_{R}": float(gr[rr <= R].sum() / tot) for R in (8, 16, 32, 48, 64, 96)}))
+    return pd.DataFrame(rows)
+
+
+def border_profile():
+    """Single-tile inference (training job's perpixel_tile.npz): mean |y - mu| and mean sigma vs distance to border."""
+    yy, xx = np.mgrid[:WIN, :WIN]; db = np.minimum(np.minimum(yy, WIN - 1 - yy), np.minimum(xx, WIN - 1 - xx))
+    prof = {}
+    for unit in list(hc.FOLDS) + ["EW0207"]:
+        pp = np.load(os.path.join(MODELS, MODEL_FOR[unit], "perpixel_tile.npz"), allow_pickle=True)
+        acc = {}
+        for k, mu, sg in zip(pp["key"], pp["mu"], pp["sigma"]):
+            f = [p for p in glob.glob(os.path.join(PATCHES, "*", k))][0]; d = np.load(f, allow_pickle=True)
+            y = d["y"][0]; m = d["hr_valid"][0].astype(bool) & d["lr_valid_hr"][0].astype(bool); e = np.abs(y - mu.astype(np.float32))
+            for dd in range(0, 65):
+                s2 = m & (db == dd)
+                if s2.any():
+                    a = acc.setdefault(dd, [0, 0.0, 0.0]); a[0] += int(s2.sum()); a[1] += float(e[s2].sum()); a[2] += float(sg.astype(np.float32)[s2].sum())
+        prof[unit] = {dd: dict(n=a[0], mean_err=a[1] / a[0], mean_sigma=a[2] / a[0]) for dd, a in acc.items()}
+    return prof
+
+
+def main():
+    ap = argparse.ArgumentParser(); ap.add_argument("--rim", type=int, default=48); ap.add_argument("--s_floor", type=float, default=0.5)
+    ap.add_argument("--units", default=",".join(list(hc.FOLDS) + ["EW0207"])); ap.add_argument("--skip_probe", action="store_true")
+    args = ap.parse_args(); device = torch.device("cuda"); os.makedirs(OUTROOT, exist_ok=True)
+    pairs = load_manifest(DATA)
+    if not args.skip_probe:
+        rf_probe(device).to_csv(os.path.join(OUTROOT, "rf_probe.csv"), index=False); print("rf probe done", flush=True)
+        json.dump(border_profile(), open(os.path.join(OUTROOT, "border_profile.json"), "w"), indent=1); print("border profile done", flush=True)
+    for unit in args.units.split(","):
+        model = load_model(os.path.join(MODELS, MODEL_FOR[unit]), device); od = os.path.join(OUTROOT, unit); os.makedirs(od, exist_ok=True)
+        for pid in UNIT_PAIRS[unit]:
+            row = pairs[pairs.pair_id == pid].iloc[0]; g = ecp.pair_setup(DATA, row, WIN)
+            mos, seam = mosaic_unit(f"{unit}/{pid}", model, g, args.rim, args.s_floor, device)
+            held = hc.files_for([pid], PATCHES, 200)
+            tiles = recut_tiles(unit, mos, g, held)
+            pd_ = pid if len(UNIT_PAIRS[unit]) > 1 else ""
+            np.savez_compressed(os.path.join(od, f"mosaic{('_' + pid) if pd_ else ''}.npz"), **mos,
+                                transform=np.array(g["transform"].to_gdal(), np.float64), crs=np.array(str(g["dst_crs"])), hr_res=np.float32(g["hr_res"]))
+            np.savez_compressed(os.path.join(od, f"tiles_mosaic{('_' + pid) if pd_ else ''}.npz"), **tiles)
+            json.dump(seam, open(os.path.join(od, f"seam{('_' + pid) if pd_ else ''}.json"), "w"), indent=1)
+            print(f"  wrote {unit} {pid}: tiles={len(tiles['keys'])} seam_n={len(seam)}", flush=True)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,217 @@
+"""R02 §3.2–§3.7 evaluation. CPU. Reads the mosaic re-cut tiles (primary), the single-tile maps (secondary),
+and the clean patches. All targets and predictors in meters, offset removed (per-tile delta from the clean npz).
+
+Predictors (ship-side only, meters): sigma_m; roughness C / roughness-3 recomputed from lr_up_m; metadata
+(slope from lr_up_m, dist_edge and frac_valid from lr_valid_hr, depth = mu_lr, lr_native); free combined GBT;
+sigma + free GBT. GBTs nested LOUO (dependency-free GBT from dir44/task5_metadata.py).
+Targets (patch level): T-ship = RMS(HR - delta - lr_up_m), T-cnn = RMS(HR - delta - mu_m), on the scored pixels.
+Metrics: within-unit R2 (report-36: log-log after removing each unit's mean of both), per-unit Spearman,
+top-20% capture; bootstrap-over-units 95% CI (2,000 resamples) on sigma-minus-baseline differences.
+"""
+from __future__ import annotations
+import glob, json, os, sys
+import numpy as np, pandas as pd
+from scipy.stats import spearmanr
+from scipy.ndimage import gaussian_filter, distance_transform_edt
+sys.path.insert(0, "/scratch/users/scdobbs/step0_bakeoff"); import step0_bakeoff as b0
+sys.path.insert(0, "/scratch/users/scdobbs/dir44"); import task5_metadata as t5
+sys.path.insert(0, "/scratch/users/scdobbs/grl_review/R02"); import het_clean as hc
+
+MOS = "/scratch/users/scdobbs/grl_review/R02/mosaics"; PATCHES = hc.PATCHES; MODELS = hc.OUT
+OUT = "/scratch/users/scdobbs/grl_review/R02/eval"; os.makedirs(OUT, exist_ok=True)
+UNITS7 = list(hc.FOLDS); UNIT_PAIRS = dict(hc.FOLDS); UNIT_PAIRS["EW0207"] = hc.EW
+EPS = 1e-9
+
+
+def radial_psd(a, m):
+    """Radial power spectrum of a detrended, mean-filled 2-D field; returns (freq cycles/px, power)."""
+    r = b0._detrend(a, m); r = np.where(m, r, 0.0)
+    P = np.abs(np.fft.fft2(r)) ** 2; H, W = a.shape
+    fy = np.fft.fftfreq(H)[:, None]; fx = np.fft.fftfreq(W)[None, :]; fr = np.sqrt(fy ** 2 + fx ** 2)
+    bins = np.linspace(0, 0.5, 65); idx = np.digitize(fr.ravel(), bins) - 1; ok = (idx >= 0) & (idx < 64)
+    pw = np.bincount(idx[ok], weights=P.ravel()[ok], minlength=64) / np.maximum(np.bincount(idx[ok], minlength=64), 1)
+    return 0.5 * (bins[1:] + bins[:-1]), pw
+
+
+def fine_coherence(a, b, m, f_lo, f_hi):
+    ra = np.where(m, b0._detrend(a, m), 0.0); rb = np.where(m, b0._detrend(b, m), 0.0)
+    A = np.fft.fft2(ra); B = np.fft.fft2(rb); H, W = a.shape
+    fy = np.fft.fftfreq(H)[:, None]; fx = np.fft.fftfreq(W)[None, :]; fr = np.sqrt(fy ** 2 + fx ** 2)
+    ann = (fr >= f_lo) & (fr <= f_hi)
+    if ann.sum() < 8: return np.nan
+    num = np.abs(np.sum(A[ann] * np.conj(B[ann]))) ** 2; den = np.sum(np.abs(A[ann]) ** 2) * np.sum(np.abs(B[ann]) ** 2) + EPS
+    return float(num / den)
+
+
+def per_tile_rows(unit, pid, mode):
+    """mode 'mosaic' (primary, from tiles_mosaic) or 'tile' (secondary, single-tile inference)."""
+    od = os.path.join(MOS, unit); suffix = f"_{pid}" if len(UNIT_PAIRS[unit]) > 1 else ""
+    T = dict(np.load(os.path.join(od, f"tiles_mosaic{suffix}.npz"), allow_pickle=True))   # decompress each key ONCE (lazy NpzFile re-inflates per access)
+    if mode == "tile":
+        pp = dict(np.load(os.path.join(MODELS, ("fold_ALL7" if unit == "EW0207" else f"fold_{unit}"), "perpixel_tile.npz"), allow_pickle=True))
+        pmap = {k: i for i, k in enumerate(pp["key"])}
+    rows = []; spectra = []
+    for i, key in enumerate(T["keys"]):
+        d = np.load(glob.glob(os.path.join(PATCHES, "*", str(key)))[0], allow_pickle=True); st = np.asarray(d["stats"]).ravel()
+        mu_lr, s_lr, delta, k, lr_native, hr_res = float(st[0]), float(st[1]), float(st[2]), float(st[5]), float(st[6]), float(st[7])
+        hr = T["hr_m"][i]; lu = T["lr_up_m"][i]; j = T["joint"][i].astype(bool); i16 = T["interior16"][i].astype(bool)
+        if mode == "mosaic":
+            mu = T["mu_m"][i]; sg = T["sigma_m"][i]; jm = j & np.isfinite(mu)
+        else:
+            q = pmap[str(key)]; mu = pp["mu"][q].astype(np.float32) * s_lr + mu_lr; sg = pp["sigma"][q].astype(np.float32) * s_lr; jm = j
+        hr_off = hr - delta
+        f_lr = hr_res / lr_native; f_hi = min(k * f_lr, 0.45)
+        if jm.sum() < 64: continue
+        def rms(a, m): return float(np.sqrt(np.mean(a[m] ** 2)))
+        lv_hr = d["lr_valid_hr"][0].astype(bool)
+        C, curv, aniso = b0.coarse_features(lu, jm, f_lr)                      # meters, ship grid only
+        sig = max(lr_native / hr_res / 2.0, 1.0); lu_f = np.where(np.isfinite(lu), lu, np.nanmean(lu)).astype(float); sm = gaussian_filter(lu_f, sigma=sig); gy, gx = np.gradient(sm)   # mosaic-cut tiles can hold NaN outside window coverage; fill before smoothing (slope is read on jm only)
+        slope = float(np.mean(np.sqrt(gx ** 2 + gy ** 2)[jm]))
+        dist = distance_transform_edt(lv_hr) if lv_hr.any() else np.zeros_like(lu, float)
+        r = dict(unit=unit, pid=pid, key=str(key), mode=mode, n_scored=int(jm.sum()), n_interior=int((i16 & jm).sum()),
+                 mu_lr=mu_lr, s_lr=s_lr, delta=delta, hr_std_m=float(st[4]), s_floor_hit=bool(st[8] > 0.5),
+                 # §3.2 per tile (all scored px / interior px)
+                 rms_flat=rms(hr_off - mu_lr, jm), rms_bic=rms(hr_off - lu, jm), rms_cnn=rms(hr_off - mu, jm),
+                 mae_flat=float(np.median(np.abs(hr_off - mu_lr)[jm])), mae_bic=float(np.median(np.abs(hr_off - lu)[jm])), mae_cnn=float(np.median(np.abs(hr_off - mu)[jm])),
+                 rms_bic_i16=rms(hr_off - lu, i16 & jm) if (i16 & jm).sum() > 64 else np.nan, rms_cnn_i16=rms(hr_off - mu, i16 & jm) if (i16 & jm).sum() > 64 else np.nan,
+                 fine_hr=b0.band_rms(hr_off, jm, f_lr, f_hi), fine_bic=b0.band_rms(lu, jm, f_lr, f_hi), fine_cnn=b0.band_rms(mu, jm, f_lr, f_hi),
+                 coh_fine_cnn=fine_coherence(mu, hr_off, jm, f_lr, f_hi), coh_fine_bic=fine_coherence(lu, hr_off, jm, f_lr, f_hi),
+                 # §3.3 targets
+                 T_ship=rms(hr_off - lu, jm), T_cnn=rms(hr_off - mu, jm),
+                 T_ship_i16=rms(hr_off - lu, i16 & jm) if (i16 & jm).sum() > 64 else np.nan, T_cnn_i16=rms(hr_off - mu, i16 & jm) if (i16 & jm).sum() > 64 else np.nan,
+                 # predictors (ship side, meters)
+                 sigma_m=float(sg[jm].mean()), C=float(C), curv=float(curv), aniso=float(aniso), slope=slope,
+                 dist_edge=float(np.mean(dist[jm])), frac_valid=float(lv_hr.mean()), depth=mu_lr, lr_native=lr_native,
+                 # §3.4 calibration
+                 sig_over_resid=float(np.median(sg[jm]) / (np.median(np.abs(hr_off - mu)[jm]) + EPS)),
+                 cov1=float(np.mean(np.abs(hr_off - mu)[jm] <= sg[jm])), cov2=float(np.mean(np.abs(hr_off - mu)[jm] <= 2 * sg[jm])),
+                 clamp_hi=float(np.mean(sg[jm] / s_lr >= np.exp(4.0) * 0.999)), clamp_lo=float(np.mean(sg[jm] / s_lr <= np.exp(-7.0) * 1.001)))
+        rows.append(r)
+        if mode == "mosaic":
+            fq, ph = radial_psd(hr_off, jm); _, pl = radial_psd(lu, jm); _, pm = radial_psd(mu, jm)
+            spectra.append(dict(f=fq, hr=ph, bic=pl, cnn=pm, f_lr=f_lr, f_hi=f_hi))
+    return rows, spectra
+
+
+# ---------------- §3.3 machinery ----------------
+def within_r2(x, y, g):
+    x = np.log10(np.asarray(x) + EPS); y = np.log10(np.asarray(y) + EPS); g = np.asarray(g)
+    xd = x - pd.Series(x).groupby(g).transform("mean").values; yd = y - pd.Series(y).groupby(g).transform("mean").values
+    b = np.sum(xd * yd) / max(np.sum(xd * xd), EPS); return float(1 - np.sum((yd - b * xd) ** 2) / max(np.sum(yd ** 2), EPS))
+
+
+def capture20(pred, err, g):
+    out = {}
+    for u in np.unique(g):
+        s = g == u; p = np.asarray(pred)[s]; e = np.asarray(err)[s] ** 2
+        k = max(1, int(round(0.2 * s.sum()))); top = np.argsort(p)[::-1][:k]
+        out[str(u)] = float(e[top].sum() / (e.sum() + EPS))
+    return out
+
+
+def per_unit_rho(pred, err, g):
+    return {str(u): float(spearmanr(np.asarray(pred)[g == u], np.asarray(err)[g == u])[0]) for u in np.unique(g)}
+
+
+def nested_gbt(df, cols, target, units):
+    """LOUO: each unit's prediction comes from a GBT trained on the other units (log target)."""
+    pred = np.full(len(df), np.nan)
+    for u in units:
+        tr = df.unit != u; te = df.unit == u
+        Xtr = df.loc[tr, cols].values.astype(float); ytr = np.log10(df.loc[tr, target].values + EPS); Xte = df.loc[te, cols].values.astype(float)
+        pred[te.values] = 10 ** t5.gbt_fit_predict(Xtr, ytr, Xte)
+    return pred
+
+
+def evaluate_predictors(df, target, units, boot=2000, seed=0):
+    d = df[df.unit.isin(units)].reset_index(drop=True); g = d.unit.values; y = d[target].values
+    P = {"sigma": d.sigma_m.values, "roughness_C": d.C.values}
+    # roughness-3: frozen convention is a LINEAR log fit on [log10 C, curv, aniso] (task3/task5); nested LOUO linear
+    def nested_linear(cols):
+        pred = np.full(len(d), np.nan)
+        for u in units:
+            tr = (g != u); te = (g == u)
+            X = d[cols].values.astype(float).copy(); X[:, 0] = np.log10(X[:, 0] + EPS) if cols[0] == "C" else X[:, 0]
+            mu = X[tr].mean(0); sd = X[tr].std(0) + EPS; A = np.c_[(X - mu) / sd, np.ones(len(X))]
+            beta, *_ = np.linalg.lstsq(A[tr], np.log10(y[tr] + EPS), rcond=None); pred[te] = 10 ** (A[te] @ beta)
+        return pred
+    META = ["slope", "dist_edge", "frac_valid", "depth", "lr_native"]
+    P["roughness3"] = nested_linear(["C", "curv", "aniso"])
+    P["metadata_linear"] = nested_linear(META)
+    P["metadata_gbt"] = nested_gbt(d, META, target, units)
+    P["free_combined_gbt"] = nested_gbt(d, ["C", "curv", "aniso"] + META, target, units)
+    P["sigma_plus_free_gbt"] = nested_gbt(d, ["sigma_m", "C", "curv", "aniso"] + META, target, units)
+    res = {}
+    for name, p in P.items():
+        res[name] = dict(within_r2=within_r2(p, y, g), rho=per_unit_rho(p, y, g), capture20=capture20(p, y, g))
+        res[name]["rho_median"] = float(np.median(list(res[name]["rho"].values()))); res[name]["capture20_median"] = float(np.median(list(res[name]["capture20"].values())))
+    # per-unit within R2 (each unit alone: demeaning is trivial, so report per-unit r^2 of log-log) and pooled bootstrap over units
+    rng = np.random.default_rng(seed); ulist = list(units)
+    def stat_diff(a, b, idx):
+        sel = np.isin(g, [ulist[i] for i in idx]); gg = g[sel]
+        # resample units with replacement: concatenate copies
+        parts_p_a, parts_p_b, parts_y, parts_g = [], [], [], []
+        for n, i in enumerate(idx):
+            s = g == ulist[i]; parts_p_a.append(P[a][s]); parts_p_b.append(P[b][s]); parts_y.append(y[s]); parts_g.append(np.full(s.sum(), n))
+        pa, pb, yy, gg = map(np.concatenate, (parts_p_a, parts_p_b, parts_y, parts_g))
+        return (within_r2(pa, yy, gg) - within_r2(pb, yy, gg),
+                np.median(list(capture20(pa, yy, gg).values())) - np.median(list(capture20(pb, yy, gg).values())),
+                np.median(list(per_unit_rho(pa, yy, gg).values())) - np.median(list(per_unit_rho(pb, yy, gg).values())))
+    comps = [("sigma", b) for b in ("roughness_C", "roughness3", "metadata_linear", "metadata_gbt", "free_combined_gbt")] + [("sigma_plus_free_gbt", "free_combined_gbt")]
+    ci = {}
+    for a, b in comps:
+        obs = stat_diff(a, b, list(range(len(ulist))))
+        bs = np.array([stat_diff(a, b, rng.integers(0, len(ulist), len(ulist))) for _ in range(boot)])
+        n_better = int(sum(res[a]["rho"][u] > res[b]["rho"][u] for u in map(str, ulist)))
+        n_better_cap = int(sum(res[a]["capture20"][u] > res[b]["capture20"][u] for u in map(str, ulist)))
+        ci[f"{a}_minus_{b}"] = dict(within_r2=dict(obs=obs[0], ci95=[float(np.percentile(bs[:, 0], 2.5)), float(np.percentile(bs[:, 0], 97.5))]),
+                                    capture20_median=dict(obs=obs[1], ci95=[float(np.percentile(bs[:, 1], 2.5)), float(np.percentile(bs[:, 1], 97.5))]),
+                                    rho_median=dict(obs=obs[2], ci95=[float(np.percentile(bs[:, 2], 2.5)), float(np.percentile(bs[:, 2], 97.5))]),
+                                    units_where_first_better_rho=n_better, units_where_first_better_capture=n_better_cap, n_units=len(ulist))
+    return dict(predictors=res, comparisons=ci, n_patches=int(len(d)))
+
+
+def main():
+    rows = []; spectra = {}
+    for unit in UNITS7 + ["EW0207"]:
+        for pid in UNIT_PAIRS[unit]:
+            for mode in ("mosaic", "tile"):
+                r, sp = per_tile_rows(unit, pid, mode); rows += r
+                if sp: spectra.setdefault(unit, []).extend(sp)
+            print(f"  {unit} {pid}: {sum(1 for x in rows if x['unit']==unit and x['pid']==pid)} rows", flush=True)
+    df = pd.DataFrame(rows); df.to_parquet(os.path.join(OUT, "pertile.parquet"))
+    out = {}
+    for mode in ("mosaic", "tile"):
+        dm = df[df["mode"] == mode]
+        # §3.2
+        def agg(d):
+            return dict(n=int(len(d)),
+                        **{f"{k}_median": float(d[k].median()) for k in ["rms_flat", "rms_bic", "rms_cnn", "mae_flat", "mae_bic", "mae_cnn", "rms_bic_i16", "rms_cnn_i16", "coh_fine_cnn", "coh_fine_bic"]},
+                        **{f"{k}_pooled_rms": float(np.sqrt(np.average(d[k] ** 2, weights=d.n_scored))) for k in ["rms_flat", "rms_bic", "rms_cnn"]},
+                        fine_ratio_cnn_median=float((d.fine_cnn / (d.fine_hr + EPS)).median()), fine_ratio_bic_median=float((d.fine_bic / (d.fine_hr + EPS)).median()),
+                        sig_over_resid_median=float(d.sig_over_resid.median()), cov1_median=float(d.cov1.median()), cov2_median=float(d.cov2.median()),
+                        clamp_hi_mean=float(d.clamp_hi.mean()), clamp_lo_mean=float(d.clamp_lo.mean()), s_floor_hit_frac=float(d.s_floor_hit.mean()))
+        out[mode] = dict(per_unit={u: agg(dm[dm.unit == u]) for u in UNITS7 + ["EW0207"]}, pooled7=agg(dm[dm.unit.isin(UNITS7)]),
+                         median_across_units7={k: float(np.median([agg(dm[dm.unit == u])[k] for u in UNITS7])) for k in agg(dm[dm.unit == UNITS7[0]]) if k != "n"})
+        # §3.3 on 7 units, both targets, all scored px and interior-16 sensitivity
+        for tgt in ("T_ship", "T_cnn", "T_ship_i16", "T_cnn_i16"):
+            dd = dm.dropna(subset=[tgt])
+            out[mode][f"s33_{tgt}"] = evaluate_predictors(dd, tgt, UNITS7)
+            print(f"  [{mode}/{tgt}] sigma R2={out[mode][f's33_{tgt}']['predictors']['sigma']['within_r2']:.3f} rough3={out[mode][f's33_{tgt}']['predictors']['roughness3']['within_r2']:.3f} free={out[mode][f's33_{tgt}']['predictors']['free_combined_gbt']['within_r2']:.3f}", flush=True)
+        # §3.5 EW0207 alone (descriptive: per-unit rho and capture with sigma vs roughness, no LOUO training needed for sigma/C)
+        de = dm[dm.unit == "EW0207"]
+        out[mode]["ew0207"] = {t: dict(sigma_rho=float(spearmanr(de.sigma_m, de[t])[0]), C_rho=float(spearmanr(de.C, de[t])[0]),
+                                       sigma_capture20=capture20(de.sigma_m.values, de[t].values, de.unit.values)["EW0207"],
+                                       C_capture20=capture20(de.C.values, de[t].values, de.unit.values)["EW0207"]) for t in ("T_ship", "T_cnn")}
+        json.dump(out, open(os.path.join(OUT, "results.json"), "w"), indent=1, default=float)
+    # spectra: per-unit median curves
+    spec_out = {}
+    for u, lst in spectra.items():
+        f = lst[0]["f"]; spec_out[u] = dict(f=f.tolist(), hr=np.median([s["hr"] for s in lst], 0).tolist(), bic=np.median([s["bic"] for s in lst], 0).tolist(),
+                                            cnn=np.median([s["cnn"] for s in lst], 0).tolist(), f_lr=float(np.median([s["f_lr"] for s in lst])), f_hi=float(np.median([s["f_hi"] for s in lst])))
+    json.dump(spec_out, open(os.path.join(OUT, "spectra.json"), "w"))
+    print("wrote", OUT, flush=True)
+
+
+if __name__ == "__main__":
+    main()
