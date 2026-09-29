@@ -1,0 +1,606 @@
+{
+ "n": 100,
+ "n_identical": 100,
+ "tiles": [
+  {
+   "pair_id": "2009_Amundsen__MGDS_30046",
+   "r0": 2176,
+   "c0": 1920,
+   "identical": true
+  },
+  {
+   "pair_id": "AR26__MGDS_31838",
+   "r0": 384,
+   "c0": 768,
+   "identical": true
+  },
+  {
+   "pair_id": "AR26__MGDS_31838",
+   "r0": 320,
+   "c0": 2560,
+   "identical": true
+  },
+  {
+   "pair_id": "AT37-13__MGDS_31199",
+   "r0": 1664,
+   "c0": 2560,
+   "identical": true
+  },
+  {
+   "pair_id": "AT37-13__MGDS_31199",
+   "r0": 384,
+   "c0": 768,
+   "identical": true
+  },
+  {
+   "pair_id": "AT37-13__MGDS_31199",
+   "r0": 1536,
+   "c0": 1920,
+   "identical": true
+  },
+  {
+   "pair_id": "AT37-13__MGDS_31199",
+   "r0": 1920,
+   "c0": 1792,
+   "identical": true
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 10176,
+   "c0": 3840,
+   "identical": true
+  },
+  {
+   "pair_id": "EW0207__MGDS_32556",
+   "r0": 14336,
+   "c0": 2624,
+   "identical": true
+  },
+  {
+   "pair_id": "EW9801__MGDS_31425",
+   "r0": 1664,
+   "c0": 640,
+   "identical": true
+  },
+  {
+   "pair_id": "EW9801__MGDS_31425",
+   "r0": 1728,
+   "c0": 512,
+   "identical": true
+  },
+  {
+   "pair_id": "FK181031__MGDS_24618",
+   "r0": 4864,
+   "c0": 2880,
+   "identical": true
+  },
+  {
+   "pair_id": "FK181031__MGDS_24618",
+   "r0": 3520,
+   "c0": 2240,
+   "identical": true
+  },
+  {
+   "pair_id": "FK181031__MGDS_24618",
+   "r0": 4608,
+   "c0": 3648,
+   "identical": true
+  },
+  {
+   "pair_id": "NA076__MGDS_32317",
+   "r0": 2112,
+   "c0": 2432,
+   "identical": true
+  },
+  {
+   "pair_id": "NA076__MGDS_32317",
+   "r0": 1856,
+   "c0": 448,
+   "identical": true
+  },
+  {
+   "pair_id": "NA076__MGDS_32317",
+   "r0": 1920,
+   "c0": 512,
+   "identical": true
+  },
+  {
+   "pair_id": "NA076__MGDS_32317",
+   "r0": 1728,
+   "c0": 832,
+   "identical": true
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 15744,
+   "c0": 5440,
+   "identical": true
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 4992,
+   "c0": 9984,
+   "identical": true
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 8896,
+   "c0": 6336,
+   "identical": true
+  },
+  {
+   "pair_id": "NA080__MGDS_31290",
+   "r0": 15104,
+   "c0": 3584,
+   "identical": true
+  },
+  {
+   "pair_id": "NA090__MGDS_31212",
+   "r0": 1024,
+   "c0": 256,
+   "identical": true
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 8960,
+   "c0": 3136,
+   "identical": true
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 8192,
+   "c0": 3840,
+   "identical": true
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 7104,
+   "c0": 2752,
+   "identical": true
+  },
+  {
+   "pair_id": "RR1506__MGDS_29779",
+   "r0": 7744,
+   "c0": 2240,
+   "identical": true
+  },
+  {
+   "pair_id": "TN299__MGDS_27339",
+   "r0": 2880,
+   "c0": 6080,
+   "identical": true
+  },
+  {
+   "pair_id": "TN299__MGDS_27339",
+   "r0": 7488,
+   "c0": 3584,
+   "identical": true
+  },
+  {
+   "pair_id": "TN299__MGDS_27339",
+   "r0": 1728,
+   "c0": 7168,
+   "identical": true
+  },
+  {
+   "pair_id": "TN299__MGDS_27339",
+   "r0": 2560,
+   "c0": 4352,
+   "identical": true
+  },
+  {
+   "pair_id": "TN299__MGDS_31253",
+   "r0": 3008,
+   "c0": 1408,
+   "identical": true
+  },
+  {
+   "pair_id": "TN299__MGDS_31253",
+   "r0": 704,
+   "c0": 832,
+   "identical": true
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 14400,
+   "c0": 4096,
+   "identical": true
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 12416,
+   "c0": 2624,
+   "identical": true
+  },
+  {
+   "pair_id": "TN399__MGDS_30373",
+   "r0": 18368,
+   "c0": 4736,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180426m2_Channel1000",
+   "r0": 1280,
+   "c0": 1472,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180426m2_Channel1000",
+   "r0": 1152,
+   "c0": 192,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180426m2_Channel1000",
+   "r0": 1024,
+   "c0": 960,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180426m2_Channel1000",
+   "r0": 256,
+   "c0": 1024,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180426m2_Channel1000",
+   "r0": 1728,
+   "c0": 576,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180427m1_Channel700",
+   "r0": 512,
+   "c0": 896,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180427m1_Channel700",
+   "r0": 1344,
+   "c0": 1472,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180427m1_Channel700",
+   "r0": 896,
+   "c0": 64,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180427m1_Channel700",
+   "r0": 960,
+   "c0": 704,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180427m3_PockmarkNorth",
+   "r0": 576,
+   "c0": 1088,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180427m3_PockmarkNorth",
+   "r0": 192,
+   "c0": 832,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180428m1_Cable",
+   "r0": 448,
+   "c0": 3264,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180428m1_Cable",
+   "r0": 256,
+   "c0": 896,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180428m1_Cable",
+   "r0": 64,
+   "c0": 896,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__201804_LuciaChica2m",
+   "r0": 1792,
+   "c0": 2304,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__201804_LuciaChica2m",
+   "r0": 1600,
+   "c0": 1856,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__201804_LuciaChica2m",
+   "r0": 960,
+   "c0": 1216,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190314m4_LuciaChica970m",
+   "r0": 448,
+   "c0": 192,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190314m4_LuciaChica970m",
+   "r0": 768,
+   "c0": 768,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190315m1_HeadlessCanyon",
+   "r0": 768,
+   "c0": 704,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190315m1_HeadlessCanyon",
+   "r0": 0,
+   "c0": 3008,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190315m1_HeadlessCanyon",
+   "r0": 320,
+   "c0": 2048,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190316m1_BankTop",
+   "r0": 1344,
+   "c0": 1920,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m1_1000mGully",
+   "r0": 2176,
+   "c0": 640,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m1_1000mGully",
+   "r0": 2496,
+   "c0": 1216,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m1_1000mGully",
+   "r0": 1088,
+   "c0": 1216,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m1_1000mGully",
+   "r0": 1472,
+   "c0": 512,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m1_1000mGully",
+   "r0": 2176,
+   "c0": 1536,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m2_600mGully",
+   "r0": 3520,
+   "c0": 704,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m2_600mGully",
+   "r0": 832,
+   "c0": 4480,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m2_600mGully",
+   "r0": 3328,
+   "c0": 1088,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m2_600mGully",
+   "r0": 640,
+   "c0": 4672,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m2_600mGully",
+   "r0": 2304,
+   "c0": 3200,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190318m2_Transect601060m",
+   "r0": 4992,
+   "c0": 6912,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190318m2_Transect601060m",
+   "r0": 896,
+   "c0": 14208,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190318m2_Transect601060m",
+   "r0": 6976,
+   "c0": 2496,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190318m2_Transect601060m",
+   "r0": 7104,
+   "c0": 2432,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190318m2_Transect601060m",
+   "r0": 2368,
+   "c0": 11712,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190318m2_Transect601060m",
+   "r0": 2368,
+   "c0": 11584,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190510m2_BankFlankIncipCh",
+   "r0": 384,
+   "c0": 0,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190510m2_BankFlankIncipCh",
+   "r0": 192,
+   "c0": 64,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m1_6thHeadlessCany",
+   "r0": 256,
+   "c0": 1920,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m1_6thHeadlessCany",
+   "r0": 640,
+   "c0": 2176,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+   "r0": 704,
+   "c0": 0,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+   "r0": 960,
+   "c0": 1792,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+   "r0": 448,
+   "c0": 960,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+   "r0": 192,
+   "c0": 1856,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+   "r0": 256,
+   "c0": 2176,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__basin_flank",
+   "r0": 832,
+   "c0": 1792,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__basin_flank",
+   "r0": 896,
+   "c0": 1472,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__basin_flank",
+   "r0": 1536,
+   "c0": 1216,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__basin_flank",
+   "r0": 1472,
+   "c0": 1152,
+   "identical": true
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__pockmark_south",
+   "r0": 1088,
+   "c0": 576,
+   "identical": true
+  },
+  {
+   "pair_id": "ccz_so268_1",
+   "r0": 512,
+   "c0": 640,
+   "identical": true
+  },
+  {
+   "pair_id": "ccz_so268_1",
+   "r0": 768,
+   "c0": 1344,
+   "identical": true
+  },
+  {
+   "pair_id": "discol_so242_1",
+   "r0": 256,
+   "c0": 1536,
+   "identical": true
+  },
+  {
+   "pair_id": "discol_so242_1",
+   "r0": 320,
+   "c0": 1408,
+   "identical": true
+  },
+  {
+   "pair_id": "discol_so242_1",
+   "r0": 128,
+   "c0": 2112,
+   "identical": true
+  },
+  {
+   "pair_id": "discol_so242_1",
+   "r0": 320,
+   "c0": 2560,
+   "identical": true
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 3200,
+   "c0": 1984,
+   "identical": true
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 768,
+   "c0": 2112,
+   "identical": true
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 1216,
+   "c0": 1472,
+   "identical": true
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 3008,
+   "c0": 3072,
+   "identical": true
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 3136,
+   "c0": 3328,
+   "identical": true
+  }
+ ]
+}

@@ -1,0 +1,384 @@
+
+MBGRID Parameters:
+List of input files: datalist.mb-1
+Output fileroot:     pilot
+Input Data Type:     Topography
+Gridding algorithm:  Gaussian Weighted Mean
+Grid projection: Geographic
+Grid dimensions: 229 610
+Grid bounds:
+  Longitude: -104.3373 -104.2420
+  Latitude:     9.7111    9.9618
+Working grid dimensions: 229 610
+Working Grid bounds:
+  Longitude: -104.3373 -104.2420
+  Latitude:     9.7111    9.9618
+Longitude interval: 0.000418 degrees or 45.836788 m
+Latitude interval:  0.000412 degrees or 45.523121 m
+Specified Longitude interval: 0.000418 degrees
+Specified Latitude interval:  0.000411 degrees
+Input data bounds:
+  Longitude: -104.3421 -104.2373
+  Latitude:     9.6986    9.9743
+Gaussian filter 1/e length: 1.000000 grid intervals
+Spline interpolation not applied
+Background not applied
+Grid format 100:  GMT grid
+Real value of 99999.000000 used to flag regions with no data
+Data density and sigma grids also created
+MBIO parameters:
+  Ping averaging:       1
+  Longitude flipping:   0
+  Speed minimum:       0.0 km/hr
+56718 data points processed in 0095_20220122_163100_TGT.all.mb58 (minmax: -2836.404785 -2540.723389)
+103753 data points processed in 0096_20220122_170102_TGT.all.mb58 (minmax: -2863.111084 -2358.653076)
+109321 data points processed in 0097_20220122_173107_TGT.all.mb58 (minmax: -2878.817139 -2378.826172)
+110224 data points processed in 0098_20220122_180104_TGT.all.mb58 (minmax: -2937.842773 -2136.402344)
+110935 data points processed in 0099_20220122_183059_TGT.all.mb58 (minmax: -2928.236328 -2355.455322)
+77607 data points processed in 0100_20220122_190100_TGT.all.mb58 (minmax: -2895.393311 -2502.983887)
+0 data points processed in 0340_20220129_153014_TGT.all.mb58 (minmax: 0.000000 0.000000)
+0 data points processed in 0341_20220129_153332_TGT.all.mb58 (minmax: 0.000000 0.000000)
+0 data points processed in 0342_20220129_154647_TGT.all.mb58 (minmax: 0.000000 0.000000)
+0 data points processed in 9999_220227093205_tmp.all.mb58 (minmax: 0.000000 0.000000)
+
+568558 total data points processed
+
+Total number of bins:            139690
+Bins set using data:             103864
+Bins set using interpolation:    0
+Bins set using background:       0
+Bins not set:                    35826
+Maximum number of data in a bin: 162
+Minimum value:   -2877.20   Maximum value:   -2147.53
+Minimum sigma:    0.26947   Maximum sigma:  179.63171
+
+Running gmt module grdinfo to get file bounds and min max...
+	gmt grdinfo -pilot.grd
+	gmt grdinfo output: pilot.grd: Title: Topography Grid
+	gmt grdinfo output: pilot.grd: Command: /usr/local/bin/mbgrid
+	gmt grdinfo output: pilot.grd: Remark: 
+	gmt grdinfo output: 	Projection: Geographic
+	gmt grdinfo output: 	Grid created by /usr/local/bin/mbgrid
+	gmt grdinfo output: 	MB-system Version 5.8.2beta06
+	gmt grdinfo output: 	Run by <scdobbs> on <sh04-09n22.int> at <Tue Sep 29 13:00:56 20
+	gmt grdinfo output: pilot.grd: Gridline node registration used [Geographic grid]
+	gmt grdinfo output: pilot.grd: Grid file format: nf = GMT netCDF format (32-bit float), CF-1.7
+	gmt grdinfo output: pilot.grd: x_min: -104.337286659 x_max: -104.242014223 x_inc: 0.000417861559698 name: Longitude n_columns: 229
+	gmt grdinfo output: pilot.grd: y_min: 9.71110686497 y_max: 9.96175699733 y_inc: 0.000411576572014 name: Latitude n_rows: 610
+	gmt grdinfo output: pilot.grd: z_min: -2877.20239258 z_max: -2147.52709961 name: Topography (m)
+	gmt grdinfo output: pilot.grd: scale_factor: 1 add_offset: 0
+	gmt grdinfo output: pilot.grd: format: netCDF-4 chunk_size: 229,153 shuffle: on deflation_level: 3
+	gmt grdinfo output: GEOGCS["unknown",
+	gmt grdinfo output:     DATUM["WGS_1984",
+	gmt grdinfo output:         SPHEROID["WGS 84",6378137,298.257223563,
+	gmt grdinfo output:             AUTHORITY["EPSG","7030"]],
+	gmt grdinfo output:         AUTHORITY["EPSG","6326"]],
+	gmt grdinfo output:     PRIMEM["Greenwich",0,
+	gmt grdinfo output:         AUTHORITY["EPSG","8901"]],
+	gmt grdinfo output:     UNIT["degree",0.0174532925199433,
+	gmt grdinfo output:         AUTHORITY["EPSG","9122"]],
+	gmt grdinfo output:     AXIS["Longitude",EAST],
+	gmt grdinfo output:     AXIS["Latitude",NORTH]]
+gmt mapproject tmp13468.dat -Jm1.0 -R-104.33728666/-104.24201422/9.711106865/9.9617569973
+1.00000363913e-09	-3.0249216465e-11
+0.095272437	-3.0249216465e-11
+0.095272437	0.252736409844
+1.00000363913e-09	0.252736409844
+
+Program Status:
+--------------
+
+  GMT Version:
+    Version 6.1.1
+
+
+  Plot Style:
+    Color Fill
+    Contours
+    Horizontal Color Scale
+
+  Input Files:
+    Data GRD File:            pilot.grd
+    Intensity GRD List File:   
+
+  Output Files:
+    Output plot name root:    pilot.grd
+    Color palette table:      pilot.grd.cpt
+    Plotting shellscript:     pilot.grd.cmd
+    Plot file:                pilot.grd.ps
+    Render to image:          Off
+
+  Plot Attributes:
+    Plot width:               2.8272
+    Plot height:              7.5000
+    Page size:                a
+    Page width:               8.5
+    Page height:              11
+    Projection:               -Jm29.675
+    Axes annotation:          -B2m -B+t"File pilot.grd - Topography Grid"
+    Orientation:              portrait
+    Number of colors:         11
+    Color Palette:           Haxby Colors
+
+  Grid Data Attributes:
+    Longitude min max:        -104.337286659  -104.242014223
+    Latitude min max:            9.711106865     9.961756997
+    Data min max:                 -2877      -2148
+
+  Primary Grid Plotting Controls:
+    Contour control:          25
+    Color start datum:        -2887.500000
+    Color end datum:          -2012.500000
+    Color datum interval:     87.500000
+
+  Miscellaneous Plotting Controls:
+    Contour pen attributes:   c1p
+
+  GMT Default Values Reset in Script:
+    PROJ_LENGTH_UNIT          inch
+    PS_MEDIA                  archA
+    FONT_ANNOT_PRIMARY        8,Helvetica,black
+    FONT_ANNOT_SECONDARY      8,Helvetica,black
+    FONT_LABEL                8,Helvetica,black
+    FONT_TITLE                10,Helvetica,black
+    PS_PAGE_ORIENTATION       LANDSCAPE
+    COLOR_BACKGROUND          black
+    COLOR_FOREGROUND          white
+    COLOR_NAN                 white
+    FORMAT_GEO_MAP            ddd:mm
+
+--------------
+
+Plot generation shellscript <pilot.grd.cmd> created.
+
+Instructions:
+  Execute <pilot.grd.cmd> to generate Postscript plot <pilot.grd.ps>.
+  Executing <pilot.grd.cmd> also attempts to display the plot on the screen.
+
+--------------
+
+
+Running gmt module grdinfo to get file bounds and min max...
+	gmt grdinfo -pilot_num.grd
+	gmt grdinfo output: pilot_num.grd: Title: Topography Grid
+	gmt grdinfo output: pilot_num.grd: Command: /usr/local/bin/mbgrid
+	gmt grdinfo output: pilot_num.grd: Remark: 
+	gmt grdinfo output: 	Projection: Geographic
+	gmt grdinfo output: 	Grid created by /usr/local/bin/mbgrid
+	gmt grdinfo output: 	MB-system Version 5.8.2beta06
+	gmt grdinfo output: 	Run by <scdobbs> on <sh04-09n22.int> at <Tue Sep 29 13:00:56 20
+	gmt grdinfo output: pilot_num.grd: Gridline node registration used [Geographic grid]
+	gmt grdinfo output: pilot_num.grd: Grid file format: nf = GMT netCDF format (32-bit float), CF-1.7
+	gmt grdinfo output: pilot_num.grd: x_min: -104.337286659 x_max: -104.242014223 x_inc: 0.000417861559698 name: Longitude n_columns: 229
+	gmt grdinfo output: pilot_num.grd: y_min: 9.71110686497 y_max: 9.96175699733 y_inc: 0.000411576572014 name: Latitude n_rows: 610
+	gmt grdinfo output: pilot_num.grd: z_min: 1 z_max: 162 name: Topography (m)
+	gmt grdinfo output: pilot_num.grd: scale_factor: 1 add_offset: 0
+	gmt grdinfo output: pilot_num.grd: format: netCDF-4 chunk_size: 229,153 shuffle: on deflation_level: 3
+	gmt grdinfo output: GEOGCS["unknown",
+	gmt grdinfo output:     DATUM["WGS_1984",
+	gmt grdinfo output:         SPHEROID["WGS 84",6378137,298.257223563,
+	gmt grdinfo output:             AUTHORITY["EPSG","7030"]],
+	gmt grdinfo output:         AUTHORITY["EPSG","6326"]],
+	gmt grdinfo output:     PRIMEM["Greenwich",0,
+	gmt grdinfo output:         AUTHORITY["EPSG","8901"]],
+	gmt grdinfo output:     UNIT["degree",0.0174532925199433,
+	gmt grdinfo output:         AUTHORITY["EPSG","9122"]],
+	gmt grdinfo output:     AXIS["Longitude",EAST],
+	gmt grdinfo output:     AXIS["Latitude",NORTH]]
+gmt mapproject tmp13512.dat -Jm1.0 -R-104.33728666/-104.24201422/9.711106865/9.9617569973
+1.00000363913e-09	-3.0249216465e-11
+0.095272437	-3.0249216465e-11
+0.095272437	0.252736409844
+1.00000363913e-09	0.252736409844
+
+Program Status:
+--------------
+
+  GMT Version:
+    Version 6.1.1
+
+
+  Plot Style:
+    Color Fill
+    Horizontal Color Scale
+
+  Input Files:
+    Data GRD File:            pilot_num.grd
+    Intensity GRD List File:   
+
+  Output Files:
+    Output plot name root:    pilot_num.grd
+    Color palette table:      pilot_num.grd.cpt
+    Plotting shellscript:     pilot_num.grd.cmd
+    Plot file:                pilot_num.grd.ps
+    Render to image:          Off
+
+  Plot Attributes:
+    Plot width:               2.8272
+    Plot height:              7.5000
+    Page size:                a
+    Page width:               8.5
+    Page height:              11
+    Projection:               -Jm29.675
+    Axes annotation:          -B2m -B+t"File pilot_num.grd - Topography Grid"
+    Orientation:              portrait
+    Number of colors:         11
+    Color Palette:           High Intensity Colors
+
+  Grid Data Attributes:
+    Longitude min max:        -104.337286659  -104.242014223
+    Latitude min max:            9.711106865     9.961756997
+    Data min max:                     1        162
+
+  Primary Grid Plotting Controls:
+    Color start datum:        0.000000
+    Color end datum:          175.000000
+    Color datum interval:     17.500000
+
+  GMT Default Values Reset in Script:
+    PROJ_LENGTH_UNIT          inch
+    PS_MEDIA                  archA
+    FONT_ANNOT_PRIMARY        8,Helvetica,black
+    FONT_ANNOT_SECONDARY      8,Helvetica,black
+    FONT_LABEL                8,Helvetica,black
+    FONT_TITLE                10,Helvetica,black
+    PS_PAGE_ORIENTATION       LANDSCAPE
+    COLOR_BACKGROUND          black
+    COLOR_FOREGROUND          white
+    COLOR_NAN                 white
+    FORMAT_GEO_MAP            ddd:mm
+
+--------------
+
+Plot generation shellscript <pilot_num.grd.cmd> created.
+
+Instructions:
+  Execute <pilot_num.grd.cmd> to generate Postscript plot <pilot_num.grd.ps>.
+  Executing <pilot_num.grd.cmd> also attempts to display the plot on the screen.
+
+--------------
+
+
+Running gmt module grdinfo to get file bounds and min max...
+	gmt grdinfo -pilot_sd.grd
+	gmt grdinfo output: pilot_sd.grd: Title: Topography Grid
+	gmt grdinfo output: pilot_sd.grd: Command: /usr/local/bin/mbgrid
+	gmt grdinfo output: pilot_sd.grd: Remark: 
+	gmt grdinfo output: 	Projection: Geographic
+	gmt grdinfo output: 	Grid created by /usr/local/bin/mbgrid
+	gmt grdinfo output: 	MB-system Version 5.8.2beta06
+	gmt grdinfo output: 	Run by <scdobbs> on <sh04-09n22.int> at <Tue Sep 29 13:00:57 20
+	gmt grdinfo output: pilot_sd.grd: Gridline node registration used [Geographic grid]
+	gmt grdinfo output: pilot_sd.grd: Grid file format: nf = GMT netCDF format (32-bit float), CF-1.7
+	gmt grdinfo output: pilot_sd.grd: x_min: -104.337286659 x_max: -104.242014223 x_inc: 0.000417861559698 name: Longitude n_columns: 229
+	gmt grdinfo output: pilot_sd.grd: y_min: 9.71110686497 y_max: 9.96175699733 y_inc: 0.000411576572014 name: Latitude n_rows: 610
+	gmt grdinfo output: pilot_sd.grd: z_min: 0 z_max: 179.631698608 name: Topography (m)
+	gmt grdinfo output: pilot_sd.grd: scale_factor: 1 add_offset: 0
+	gmt grdinfo output: pilot_sd.grd: format: netCDF-4 chunk_size: 229,153 shuffle: on deflation_level: 3
+	gmt grdinfo output: GEOGCS["unknown",
+	gmt grdinfo output:     DATUM["WGS_1984",
+	gmt grdinfo output:         SPHEROID["WGS 84",6378137,298.257223563,
+	gmt grdinfo output:             AUTHORITY["EPSG","7030"]],
+	gmt grdinfo output:         AUTHORITY["EPSG","6326"]],
+	gmt grdinfo output:     PRIMEM["Greenwich",0,
+	gmt grdinfo output:         AUTHORITY["EPSG","8901"]],
+	gmt grdinfo output:     UNIT["degree",0.0174532925199433,
+	gmt grdinfo output:         AUTHORITY["EPSG","9122"]],
+	gmt grdinfo output:     AXIS["Longitude",EAST],
+	gmt grdinfo output:     AXIS["Latitude",NORTH]]
+gmt mapproject tmp13897.dat -Jm1.0 -R-104.33728666/-104.24201422/9.711106865/9.9617569973
+1.00000363913e-09	-3.0249216465e-11
+0.095272437	-3.0249216465e-11
+0.095272437	0.252736409844
+1.00000363913e-09	0.252736409844
+
+Program Status:
+--------------
+
+  GMT Version:
+    Version 6.1.1
+
+
+  Plot Style:
+    Color Fill
+    Horizontal Color Scale
+
+  Input Files:
+    Data GRD File:            pilot_sd.grd
+    Intensity GRD List File:   
+
+  Output Files:
+    Output plot name root:    pilot_sd.grd
+    Color palette table:      pilot_sd.grd.cpt
+    Plotting shellscript:     pilot_sd.grd.cmd
+    Plot file:                pilot_sd.grd.ps
+    Render to image:          Off
+
+  Plot Attributes:
+    Plot width:               2.8272
+    Plot height:              7.5000
+    Page size:                a
+    Page width:               8.5
+    Page height:              11
+    Projection:               -Jm29.675
+    Axes annotation:          -B2m -B+t"File pilot_sd.grd - Topography Grid"
+    Orientation:              portrait
+    Number of colors:         11
+    Color Palette:           High Intensity Colors
+
+  Grid Data Attributes:
+    Longitude min max:        -104.337286659  -104.242014223
+    Latitude min max:            9.711106865     9.961756997
+    Data min max:                     0      179.6
+
+  Primary Grid Plotting Controls:
+    Color start datum:        0.000000
+    Color end datum:          200.000000
+    Color datum interval:     20.000000
+
+  GMT Default Values Reset in Script:
+    PROJ_LENGTH_UNIT          inch
+    PS_MEDIA                  archA
+    FONT_ANNOT_PRIMARY        8,Helvetica,black
+    FONT_ANNOT_SECONDARY      8,Helvetica,black
+    FONT_LABEL                8,Helvetica,black
+    FONT_TITLE                10,Helvetica,black
+    PS_PAGE_ORIENTATION       LANDSCAPE
+    COLOR_BACKGROUND          black
+    COLOR_FOREGROUND          white
+    COLOR_NAN                 white
+    FORMAT_GEO_MAP            ddd:mm
+
+--------------
+
+Plot generation shellscript <pilot_sd.grd.cmd> created.
+
+Instructions:
+  Execute <pilot_sd.grd.cmd> to generate Postscript plot <pilot_sd.grd.ps>.
+  Executing <pilot_sd.grd.cmd> also attempts to display the plot on the screen.
+
+--------------
+
+
+--- stderr ---
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").

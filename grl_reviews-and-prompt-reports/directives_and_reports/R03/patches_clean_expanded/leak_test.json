@@ -1,0 +1,906 @@
+{
+ "n": 100,
+ "n_pass": 100,
+ "tiles": [
+  {
+   "pair_id": "2009_Amundsen__MGDS_30046",
+   "r0": 512,
+   "c0": 1600,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.1544036865234375,
+   "delta_noise": -1669.3349609375
+  },
+  {
+   "pair_id": "2009_Amundsen__MGDS_30046",
+   "r0": 3136,
+   "c0": 2368,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.6829986572265625,
+   "delta_noise": -1811.4237060546875
+  },
+  {
+   "pair_id": "2009_Amundsen__MGDS_30046",
+   "r0": 1856,
+   "c0": 2560,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.8842926025390625,
+   "delta_noise": -1771.180908203125
+  },
+  {
+   "pair_id": "2009_Amundsen__MGDS_30046",
+   "r0": 3136,
+   "c0": 2240,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.2837066650390625,
+   "delta_noise": -1798.8109130859375
+  },
+  {
+   "pair_id": "2009_Amundsen__MGDS_30046",
+   "r0": 3008,
+   "c0": 2560,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 1.1203460693359375,
+   "delta_noise": -1795.775634765625
+  },
+  {
+   "pair_id": "2009_Amundsen__MGDS_30046",
+   "r0": 1920,
+   "c0": 6848,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.034717559814453125,
+   "delta_noise": -1891.112060546875
+  },
+  {
+   "pair_id": "2009_Amundsen__MGDS_30046",
+   "r0": 3008,
+   "c0": 3392,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.7317581176757812,
+   "delta_noise": -1867.9979248046875
+  },
+  {
+   "pair_id": "2009_Amundsen__MGDS_30046",
+   "r0": 128,
+   "c0": 1216,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.0785675048828125,
+   "delta_noise": -1627.330810546875
+  },
+  {
+   "pair_id": "2009_Amundsen__MGDS_30046",
+   "r0": 2880,
+   "c0": 4544,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.32061004638671875,
+   "delta_noise": -1882.515625
+  },
+  {
+   "pair_id": "2009_Amundsen__MGDS_30046",
+   "r0": 3584,
+   "c0": 3136,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.3398704528808594,
+   "delta_noise": -1875.2210693359375
+  },
+  {
+   "pair_id": "2009_Amundsen__MGDS_30046",
+   "r0": 2624,
+   "c0": 2432,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.19556427001953125,
+   "delta_noise": -1775.1943359375
+  },
+  {
+   "pair_id": "2009_Amundsen__MGDS_30046",
+   "r0": 3520,
+   "c0": 3392,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.19601821899414062,
+   "delta_noise": -1874.687255859375
+  },
+  {
+   "pair_id": "2009_Amundsen__MGDS_30046",
+   "r0": 3904,
+   "c0": 1792,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.910247802734375,
+   "delta_noise": -1854.4898681640625
+  },
+  {
+   "pair_id": "2009_Amundsen__MGDS_30046",
+   "r0": 3072,
+   "c0": 2752,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.07292938232421875,
+   "delta_noise": -1821.2598876953125
+  },
+  {
+   "pair_id": "AR26__MGDS_31838",
+   "r0": 576,
+   "c0": 320,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -14.744140625,
+   "delta_noise": -327.612060546875
+  },
+  {
+   "pair_id": "EW9801__MGDS_31425",
+   "r0": 1280,
+   "c0": 768,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 3.56573486328125,
+   "delta_noise": -808.9447631835938
+  },
+  {
+   "pair_id": "EW9801__MGDS_31425",
+   "r0": 1344,
+   "c0": 512,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 7.28826904296875,
+   "delta_noise": -804.9618530273438
+  },
+  {
+   "pair_id": "NA076__MGDS_32317",
+   "r0": 1536,
+   "c0": 1408,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.85174560546875,
+   "delta_noise": -1157.3975830078125
+  },
+  {
+   "pair_id": "NA076__MGDS_32317",
+   "r0": 2432,
+   "c0": 1216,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.89398193359375,
+   "delta_noise": -1130.3135986328125
+  },
+  {
+   "pair_id": "NA076__MGDS_32317",
+   "r0": 1856,
+   "c0": 1536,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.37689208984375,
+   "delta_noise": -1148.49658203125
+  },
+  {
+   "pair_id": "NA076__MGDS_32317",
+   "r0": 2176,
+   "c0": 1920,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.0645751953125,
+   "delta_noise": -1138.677490234375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180426m2_Channel1000",
+   "r0": 1472,
+   "c0": 832,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.472412109375,
+   "delta_noise": -974.1923217773438
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180427m1_Channel700",
+   "r0": 448,
+   "c0": 704,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.061126708984375,
+   "delta_noise": -1185.029296875
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180427m1_Channel700",
+   "r0": 1728,
+   "c0": 1664,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.100067138671875,
+   "delta_noise": -1194.127197265625
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180427m1_Channel700",
+   "r0": 1856,
+   "c0": 1536,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.0877685546875,
+   "delta_noise": -1189.10693359375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180427m1_Channel700",
+   "r0": 256,
+   "c0": 1024,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.01397705078125,
+   "delta_noise": -1201.0980224609375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180427m3_PockmarkNorth",
+   "r0": 1344,
+   "c0": 1024,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.08709716796875,
+   "delta_noise": -1053.2669677734375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180427m3_PockmarkNorth",
+   "r0": 256,
+   "c0": 704,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.197052001953125,
+   "delta_noise": -1077.998779296875
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180427m3_PockmarkNorth",
+   "r0": 320,
+   "c0": 768,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.237274169921875,
+   "delta_noise": -1077.254150390625
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180427m3_PockmarkNorth",
+   "r0": 960,
+   "c0": 128,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.32757568359375,
+   "delta_noise": -1044.224365234375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180428m1_Cable",
+   "r0": 512,
+   "c0": 9152,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 1.45416259765625,
+   "delta_noise": -1516.737548828125
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180428m1_Cable",
+   "r0": 320,
+   "c0": 9408,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 1.50286865234375,
+   "delta_noise": -1525.75830078125
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180428m1_Cable",
+   "r0": 192,
+   "c0": 3648,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.34991455078125,
+   "delta_noise": -1307.095458984375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20180428m1_Cable",
+   "r0": 320,
+   "c0": 3584,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.381103515625,
+   "delta_noise": -1301.873046875
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__201804_LuciaChica2m",
+   "r0": 2240,
+   "c0": 1792,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.575469970703125,
+   "delta_noise": -1034.21630859375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__201804_LuciaChica2m",
+   "r0": 1664,
+   "c0": 1664,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.695526123046875,
+   "delta_noise": -1028.85009765625
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__201804_LuciaChica2m",
+   "r0": 2304,
+   "c0": 1600,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.07965087890625,
+   "delta_noise": -1028.272216796875
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__201804_LuciaChica2m",
+   "r0": 2368,
+   "c0": 1344,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.71063232421875,
+   "delta_noise": -1020.773681640625
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__201804_LuciaChica2m",
+   "r0": 1984,
+   "c0": 1920,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.352294921875,
+   "delta_noise": -1036.5716552734375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__201804_LuciaChica2m",
+   "r0": 1408,
+   "c0": 1024,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.453857421875,
+   "delta_noise": -1012.771484375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190315m1_HeadlessCanyon",
+   "r0": 256,
+   "c0": 2816,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 3.09356689453125,
+   "delta_noise": -1383.386474609375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190315m1_HeadlessCanyon",
+   "r0": 256,
+   "c0": 1664,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.54669189453125,
+   "delta_noise": -1262.144287109375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190316m1_BankTop",
+   "r0": 1344,
+   "c0": 1408,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.0094146728515625,
+   "delta_noise": -1550.756103515625
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190316m1_BankTop",
+   "r0": 1024,
+   "c0": 2176,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.0991363525390625,
+   "delta_noise": -1522.295166015625
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190316m1_BankTop",
+   "r0": 1664,
+   "c0": 1920,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.6608734130859375,
+   "delta_noise": -1536.50146484375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190316m1_BankTop",
+   "r0": 640,
+   "c0": 3904,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -1.079559326171875,
+   "delta_noise": -1534.5394287109375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190316m1_BankTop",
+   "r0": 1472,
+   "c0": 1536,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.3340301513671875,
+   "delta_noise": -1547.164306640625
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m1_1000mGully",
+   "r0": 1600,
+   "c0": 640,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.16058349609375,
+   "delta_noise": -1046.253662109375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m2_600mGully",
+   "r0": 3008,
+   "c0": 2368,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.26458740234375,
+   "delta_noise": -1160.985595703125
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m2_600mGully",
+   "r0": 3392,
+   "c0": 3136,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.50335693359375,
+   "delta_noise": -1165.486572265625
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m2_600mGully",
+   "r0": 384,
+   "c0": 5056,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.87322998046875,
+   "delta_noise": -1340.1884765625
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m2_600mGully",
+   "r0": 3200,
+   "c0": 2880,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.13128662109375,
+   "delta_noise": -1158.5625
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190317m2_600mGully",
+   "r0": 3776,
+   "c0": 192,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.403076171875,
+   "delta_noise": -1082.7210693359375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190510m1_BankFlankHoles",
+   "r0": 1152,
+   "c0": 832,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -2.69964599609375,
+   "delta_noise": -1178.0606689453125
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190510m1_BankFlankHoles",
+   "r0": 832,
+   "c0": 1984,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.49444580078125,
+   "delta_noise": -1197.403076171875
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190510m1_BankFlankHoles",
+   "r0": 128,
+   "c0": 2240,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -2.33270263671875,
+   "delta_noise": -1219.18359375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190510m2_BankFlankIncipCh",
+   "r0": 2816,
+   "c0": 1024,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.3031005859375,
+   "delta_noise": -1322.752685546875
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190510m2_BankFlankIncipCh",
+   "r0": 1664,
+   "c0": 832,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.31201171875,
+   "delta_noise": -1286.4383544921875
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190510m2_BankFlankIncipCh",
+   "r0": 2176,
+   "c0": 512,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.289581298828125,
+   "delta_noise": -1387.396484375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190510m2_BankFlankIncipCh",
+   "r0": 2368,
+   "c0": 448,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.43377685546875,
+   "delta_noise": -1411.240478515625
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190510m2_BankFlankIncipCh",
+   "r0": 512,
+   "c0": 448,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.706634521484375,
+   "delta_noise": -1320.271240234375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190510m2_BankFlankIncipCh",
+   "r0": 2432,
+   "c0": 576,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -1.258758544921875,
+   "delta_noise": -1384.455078125
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m1_6thHeadlessCany",
+   "r0": 1152,
+   "c0": 1152,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 1.529876708984375,
+   "delta_noise": -1093.7054443359375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m1_6thHeadlessCany",
+   "r0": 960,
+   "c0": 1856,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.072357177734375,
+   "delta_noise": -1206.73681640625
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m1_6thHeadlessCany",
+   "r0": 1472,
+   "c0": 192,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.559814453125,
+   "delta_noise": -1039.1697998046875
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m1_6thHeadlessCany",
+   "r0": 1728,
+   "c0": 448,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -3.688934326171875,
+   "delta_noise": -1132.21435546875
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m1_6thHeadlessCany",
+   "r0": 1408,
+   "c0": 1728,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.0968017578125,
+   "delta_noise": -1348.84326171875
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m1_6thHeadlessCany",
+   "r0": 1408,
+   "c0": 704,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 3.157196044921875,
+   "delta_noise": -1144.173583984375
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m1_6thHeadlessCany",
+   "r0": 768,
+   "c0": 2304,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.07421875,
+   "delta_noise": -1398.925048828125
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+   "r0": 704,
+   "c0": 2560,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.37109375,
+   "delta_noise": -1575.12353515625
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+   "r0": 704,
+   "c0": 2624,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.342254638671875,
+   "delta_noise": -1574.882080078125
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+   "r0": 128,
+   "c0": 2816,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.3726806640625,
+   "delta_noise": -1578.6700439453125
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+   "r0": 832,
+   "c0": 192,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.5919189453125,
+   "delta_noise": -1476.680908203125
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+   "r0": 384,
+   "c0": 960,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.3117523193359375,
+   "delta_noise": -1554.512451171875
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+   "r0": 896,
+   "c0": 1664,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.097869873046875,
+   "delta_noise": -1546.9129638671875
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__luciachica_2007",
+   "r0": 832,
+   "c0": 704,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.19403076171875,
+   "delta_noise": -1015.2020263671875
+  },
+  {
+   "pair_id": "cal_dig_morro_bay__pockmark_south",
+   "r0": 320,
+   "c0": 1536,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.1573486328125,
+   "delta_noise": -1079.3953857421875
+  },
+  {
+   "pair_id": "discol_so242_1",
+   "r0": 1472,
+   "c0": 1344,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.46826171875,
+   "delta_noise": 2162.2060546875
+  },
+  {
+   "pair_id": "discol_so242_1",
+   "r0": 2048,
+   "c0": 448,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.33984375,
+   "delta_noise": 2165.390625
+  },
+  {
+   "pair_id": "discol_so242_1",
+   "r0": 0,
+   "c0": 2112,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -2.1748046875,
+   "delta_noise": 2101.1669921875
+  },
+  {
+   "pair_id": "discol_so242_1",
+   "r0": 896,
+   "c0": 448,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 1.95654296875,
+   "delta_noise": 2139.874755859375
+  },
+  {
+   "pair_id": "discol_so242_1",
+   "r0": 2048,
+   "c0": 1408,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -2.68994140625,
+   "delta_noise": 2158.155029296875
+  },
+  {
+   "pair_id": "discol_so242_1",
+   "r0": 256,
+   "c0": 1984,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -2.35009765625,
+   "delta_noise": 2112.69091796875
+  },
+  {
+   "pair_id": "discol_so242_1",
+   "r0": 512,
+   "c0": 1472,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -2.916015625,
+   "delta_noise": 2144.938232421875
+  },
+  {
+   "pair_id": "discol_so242_1",
+   "r0": 1536,
+   "c0": 512,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.24951171875,
+   "delta_noise": 2149.86962890625
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 1024,
+   "c0": 3584,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.225830078125,
+   "delta_noise": 1144.4468994140625
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 1536,
+   "c0": 4544,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -12.959716796875,
+   "delta_noise": 956.8734741210938
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 2304,
+   "c0": 832,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -4.3070068359375,
+   "delta_noise": 1663.546875
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 4416,
+   "c0": 2176,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -3.4794921875,
+   "delta_noise": 970.46923828125
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 1664,
+   "c0": 2240,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 0.7532958984375,
+   "delta_noise": 1485.2899169921875
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 3712,
+   "c0": 2368,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -2.6339111328125,
+   "delta_noise": 1314.57958984375
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 1856,
+   "c0": 2304,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 1.5419921875,
+   "delta_noise": 1463.827880859375
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 2304,
+   "c0": 1984,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.6319580078125,
+   "delta_noise": 1551.641845703125
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 1408,
+   "c0": 3008,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -1.0767822265625,
+   "delta_noise": 1189.762939453125
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 1280,
+   "c0": 2688,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -2.1907958984375,
+   "delta_noise": 1292.157470703125
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 1024,
+   "c0": 3008,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -3.1156005859375,
+   "delta_noise": 1194.35302734375
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 4608,
+   "c0": 3072,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -6.44091796875,
+   "delta_noise": 759.4879760742188
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 2944,
+   "c0": 640,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 2.7742919921875,
+   "delta_noise": 1793.7288818359375
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 128,
+   "c0": 960,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": 4.986083984375,
+   "delta_noise": 1843.3782958984375
+  },
+  {
+   "pair_id": "tag_m127",
+   "r0": 1600,
+   "c0": 2048,
+   "inputs_identical_true_vs_noise": true,
+   "stored_equals_regenerated": true,
+   "delta_true": -0.190185546875,
+   "delta_noise": 1503.8876953125
+  }
+ ]
+}

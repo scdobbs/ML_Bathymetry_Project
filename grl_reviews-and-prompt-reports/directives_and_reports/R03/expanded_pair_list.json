@@ -1,0 +1,38 @@
+{
+ "pairs": [
+  "cal_dig_morro_bay__20180426m2_Channel1000",
+  "cal_dig_morro_bay__20180427m1_Channel700",
+  "cal_dig_morro_bay__20180427m3_PockmarkNorth",
+  "cal_dig_morro_bay__20180428m1_Cable",
+  "cal_dig_morro_bay__201804_LuciaChica2m",
+  "cal_dig_morro_bay__20190314m4_LuciaChica970m",
+  "cal_dig_morro_bay__20190315m1_HeadlessCanyon",
+  "cal_dig_morro_bay__20190316m1_BankTop",
+  "cal_dig_morro_bay__20190317m1_1000mGully",
+  "cal_dig_morro_bay__20190317m2_600mGully",
+  "cal_dig_morro_bay__20190318m2_Transect601060m",
+  "cal_dig_morro_bay__20190510m1_BankFlankHoles",
+  "cal_dig_morro_bay__20190510m2_BankFlankIncipCh",
+  "cal_dig_morro_bay__20190511m1_6thHeadlessCany",
+  "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+  "cal_dig_morro_bay__basin_flank",
+  "cal_dig_morro_bay__luciachica_2007",
+  "cal_dig_morro_bay__pockmark_south",
+  "ccz_so268_1",
+  "discol_so242_1",
+  "tag_m127",
+  "EW9801__MGDS_31425",
+  "AR26__MGDS_31838",
+  "NA076__MGDS_32317",
+  "2009_Amundsen__MGDS_30046"
+ ],
+ "stopped_no_k": {
+  "KIWI10RR__MGDS_24499": "stage_c2c_sweep status=no_curve, max_recoverable_k=None",
+  "TN268__MGDS_30466": "stage_c2c_sweep status=no_curve (HR superseded), max_recoverable_k=None; shares lu16 with EW0207",
+  "FK181031__MGDS_24367": "stage_c2c_sweep max_recoverable_k=None (Alarcon Rise; shares lu08 with FK181031__MGDS_24618)"
+ },
+ "lockbox": [
+  "AT42-03__MGDS_32007",
+  "TN159__MGDS_21981"
+ ]
+}

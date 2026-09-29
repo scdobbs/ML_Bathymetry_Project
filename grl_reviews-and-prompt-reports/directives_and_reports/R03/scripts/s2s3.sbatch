@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --job-name=r03_s2s3
+#SBATCH -p serc
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=32G
+#SBATCH --time=02:00:00
+#SBATCH --output=/scratch/users/scdobbs/grl_review/R03/logs/%x_%j.out
+#SBATCH --error=/scratch/users/scdobbs/grl_review/R03/logs/%x_%j.err
+type conda >/dev/null 2>&1 && { conda deactivate >/dev/null 2>&1 || true; conda deactivate >/dev/null 2>&1 || true; }
+unset PYTHONPATH; module load python/3.12.1 py-pytorch/2.4.1_py312 py-torchvision/0.19.1_py312; source "${HOME}/bathy_diffusion_env/bin/activate"
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK; cd /home/users/scdobbs/GAN_Bathymetry_Project; echo "=== $(date) $(hostname) ==="
+python /scratch/users/scdobbs/grl_review/R03/s2_decomposition.py && python /scratch/users/scdobbs/grl_review/R03/s3_bands.py
+echo "=== done $(date) ==="

@@ -1,0 +1,74 @@
+{
+ "lockbox_pairs": [
+  "AT42-03__MGDS_32007",
+  "TN159__MGDS_21981"
+ ],
+ "manifest_row_sha256": {
+  "AT42-03__MGDS_32007": "dbd2ed7120bd90d50f254fdbc50264c1abb5f5b04daf2651f9cdf3467458dc5f",
+  "TN159__MGDS_21981": "a21d357cc8b3495ee69440e41c06a5fc14708d8a97e662bab2a4c23b72270429"
+ },
+ "guard_mechanism": "r03_common.install_lockbox_guard() wraps builtins.open, rasterio.open and numpy.load; any path containing a lockbox pair id raises PermissionError before any read; run at import",
+ "scripts": {
+  "features_context.py": {
+   "imports_r03_common": true,
+   "defines_guard": false
+  },
+  "integrity_expanded.py": {
+   "imports_r03_common": true,
+   "defines_guard": false
+  },
+  "r03_common.py": {
+   "imports_r03_common": false,
+   "defines_guard": true
+  },
+  "r03_metrics.py": {
+   "imports_r03_common": false,
+   "defines_guard": false
+  },
+  "run_extract_expanded.py": {
+   "imports_r03_common": true,
+   "defines_guard": false
+  },
+  "s2_decomposition.py": {
+   "imports_r03_common": true,
+   "defines_guard": false
+  },
+  "s3_bands.py": {
+   "imports_r03_common": true,
+   "defines_guard": false
+  },
+  "s4_baselines.py": {
+   "imports_r03_common": true,
+   "defines_guard": false
+  },
+  "s5_cases.py": {
+   "imports_r03_common": true,
+   "defines_guard": false
+  },
+  "s6_audit.py": {
+   "imports_r03_common": true,
+   "defines_guard": false
+  },
+  "s6_pilot.py": {
+   "imports_r03_common": true,
+   "defines_guard": false
+  },
+  "s7_lockbox.py": {
+   "imports_r03_common": true,
+   "defines_guard": true
+  }
+ },
+ "grep_l_r03_common": [
+  "features_context.py",
+  "integrity_expanded.py",
+  "run_extract_expanded.py",
+  "s2_decomposition.py",
+  "s3_bands.py",
+  "s4_baselines.py",
+  "s5_cases.py",
+  "s6_audit.py",
+  "s6_pilot.py",
+  "s7_lockbox.py"
+ ],
+ "all_scripts_guarded": false
+}
