@@ -1,0 +1,1208 @@
+{
+ "n": 200,
+ "n_identical": 200,
+ "n_tiles": 100,
+ "n_blocks": 100,
+ "rows": [
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r006528_c010752",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r007552_c006272",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r004224_c007936",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r016384_c004352",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r005120_c010368",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r010624_c006656",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r000256_c001664",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r009472_c004992",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r004352_c008448",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r014592_c001152",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r012160_c006016",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r015872_c005120",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r007296_c006400",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r007936_c007168",
+   "block_id": 7,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r014720_c006016",
+   "block_id": 0,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r011648_c005888",
+   "block_id": 7,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r006016_c007808",
+   "block_id": 0,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r010112_c007168",
+   "block_id": 12,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r007680_c006400",
+   "block_id": 8,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r003968_c010112",
+   "block_id": 12,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r012544_c005120",
+   "block_id": 9,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r011264_c004224",
+   "block_id": 6,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r013952_c002304",
+   "block_id": 6,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "tile_id": "NA080__MGDS_31290_r015104_c004736",
+   "block_id": 13,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r015744_c001152",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r020736_c003584",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r014208_c004352",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r020992_c006272",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r023296_c006272",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r012416_c004608",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r004608_c002816",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r012544_c003968",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r012288_c006400",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r006912_c005888",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r011776_c002944",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r003968_c001664",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r003072_c002944",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r016128_c003200",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r014976_c005888",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r013696_c005248",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r008448_c003456",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r010240_c000512",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r011776_c001792",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r014336_c002688",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r007168_c003840",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r014464_c004224",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r002560_c002560",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r016384_c005760",
+   "block_id": 3,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r000384_c003200",
+   "block_id": 12,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r015488_c006016",
+   "block_id": 9,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r010368_c007552",
+   "block_id": 4,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r001536_c001920",
+   "block_id": 13,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r017664_c001920",
+   "block_id": 6,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r017664_c006528",
+   "block_id": 11,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r020096_c004736",
+   "block_id": 15,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r008320_c003072",
+   "block_id": 4,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r021504_c004352",
+   "block_id": 2,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r022528_c005888",
+   "block_id": 15,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r006016_c003072",
+   "block_id": 15,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r005888_c005504",
+   "block_id": 3,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r009600_c004096",
+   "block_id": 1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r008576_c002816",
+   "block_id": 15,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r012160_c001408",
+   "block_id": 12,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r013824_c003072",
+   "block_id": 12,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r009728_c007168",
+   "block_id": 6,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r020736_c004864",
+   "block_id": 0,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r021504_c006528",
+   "block_id": 10,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r012672_c005248",
+   "block_id": 14,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r016640_c002432",
+   "block_id": 10,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r010112_c004864",
+   "block_id": 10,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r022272_c005888",
+   "block_id": 12,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r009088_c004608",
+   "block_id": 9,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r011520_c005120",
+   "block_id": 9,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r016256_c005504",
+   "block_id": 2,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r011136_c004736",
+   "block_id": 9,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "tile_id": "TN399__MGDS_30373_r016512_c006016",
+   "block_id": 2,
+   "identical": true
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190316m1_BankTop",
+   "tile_id": "cal_dig_morro_bay__20190316m1_BankTop_r000128_c003456",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190316m1_BankTop",
+   "tile_id": "cal_dig_morro_bay__20190316m1_BankTop_r000896_c002048",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190316m1_BankTop",
+   "tile_id": "cal_dig_morro_bay__20190316m1_BankTop_r001408_c001280",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190316m1_BankTop",
+   "tile_id": "cal_dig_morro_bay__20190316m1_BankTop_r002048_c000896",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190316m1_BankTop",
+   "tile_id": "cal_dig_morro_bay__20190316m1_BankTop_r000384_c003072",
+   "block_id": 15,
+   "identical": true
+  },
+  {
+   "pair": "TN299__MGDS_27339",
+   "tile_id": "TN299__MGDS_27339_r001280_c005760",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN299__MGDS_27339",
+   "tile_id": "TN299__MGDS_27339_r006016_c004224",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN299__MGDS_27339",
+   "tile_id": "TN299__MGDS_27339_r006144_c003840",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN299__MGDS_27339",
+   "tile_id": "TN299__MGDS_27339_r006656_c003584",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN299__MGDS_27339",
+   "tile_id": "TN299__MGDS_27339_r003328_c007296",
+   "block_id": 3,
+   "identical": true
+  },
+  {
+   "pair": "TN299__MGDS_27339",
+   "tile_id": "TN299__MGDS_27339_r001536_c004992",
+   "block_id": 14,
+   "identical": true
+  },
+  {
+   "pair": "EX1402L2__MGDS_31073",
+   "tile_id": "EX1402L2__MGDS_31073_r001408_c000128",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "EX1402L2__MGDS_31073",
+   "tile_id": "EX1402L2__MGDS_31073_r001664_c000512",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r010624_c003840",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r011520_c004224",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r007552_c005632",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r010752_c004480",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r009344_c005760",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r009088_c005888",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r006272_c000384",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r011136_c004992",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r007680_c006400",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r000896_c003968",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r006400_c004992",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r004864_c002304",
+   "block_id": 9,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r006144_c004096",
+   "block_id": 1,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r002048_c004096",
+   "block_id": 14,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r009600_c002944",
+   "block_id": 3,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r011648_c005760",
+   "block_id": 7,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r009472_c002688",
+   "block_id": 4,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r007680_c007040",
+   "block_id": 9,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r009344_c001792",
+   "block_id": 8,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r009472_c005888",
+   "block_id": 3,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r007680_c004096",
+   "block_id": 0,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r010880_c004352",
+   "block_id": 7,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r005376_c003328",
+   "block_id": 1,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r008704_c000768",
+   "block_id": 8,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r011008_c002304",
+   "block_id": 15,
+   "identical": true
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "tile_id": "RR1506__MGDS_29779_r007552_c001536",
+   "block_id": 0,
+   "identical": true
+  },
+  {
+   "pair": "discol_so242_1",
+   "tile_id": "discol_so242_1_r000000_c002688",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "discol_so242_1",
+   "tile_id": "discol_so242_1_r001920_c000896",
+   "block_id": 6,
+   "identical": true
+  },
+  {
+   "pair": "discol_so242_1",
+   "tile_id": "discol_so242_1_r001536_c000512",
+   "block_id": 14,
+   "identical": true
+  },
+  {
+   "pair": "discol_so242_1",
+   "tile_id": "discol_so242_1_r000128_c001792",
+   "block_id": 15,
+   "identical": true
+  },
+  {
+   "pair": "discol_so242_1",
+   "tile_id": "discol_so242_1_r001408_c001024",
+   "block_id": 15,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r009728_c004480",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r001664_c009984",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r004224_c008704",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r008192_c004096",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r006016_c007296",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r002048_c009600",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r001408_c005248",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r006912_c005504",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r005248_c006912",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r007296_c005376",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r005632_c007040",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r000896_c009088",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r005120_c008320",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r009984_c003072",
+   "block_id": 10,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r016000_c001792",
+   "block_id": 10,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r009088_c004352",
+   "block_id": 8,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r003968_c009216",
+   "block_id": 4,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r006784_c006656",
+   "block_id": 8,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r014080_c004736",
+   "block_id": 0,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r013056_c001536",
+   "block_id": 7,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r016256_c002048",
+   "block_id": 5,
+   "identical": true
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "tile_id": "EW0207__MGDS_32556_r013952_c003584",
+   "block_id": 3,
+   "identical": true
+  },
+  {
+   "pair": "AR26__MGDS_31838",
+   "tile_id": "AR26__MGDS_31838_r000256_c001536",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN299__MGDS_31253",
+   "tile_id": "TN299__MGDS_31253_r001408_c001664",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190511m1_6thHeadlessCany",
+   "tile_id": "cal_dig_morro_bay__20190511m1_6thHeadlessCany_r000256_c001920",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r010112_c005760",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r009472_c001152",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r004480_c007808",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r013184_c006400",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r008832_c007040",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r011520_c005888",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r013440_c004608",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r009728_c005632",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r008704_c009728",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r011008_c003840",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r011648_c006016",
+   "block_id": 8,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r016384_c004096",
+   "block_id": 2,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r010880_c006400",
+   "block_id": 14,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r012672_c006144",
+   "block_id": 0,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r015744_c004480",
+   "block_id": 6,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r014848_c003584",
+   "block_id": 3,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r004864_c008192",
+   "block_id": 2,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r014336_c005248",
+   "block_id": 2,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r012160_c005632",
+   "block_id": 4,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r012544_c005248",
+   "block_id": 14,
+   "identical": true
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "tile_id": "NA080__MGDS_31289_r013568_c004864",
+   "block_id": 15,
+   "identical": true
+  },
+  {
+   "pair": "NA076__MGDS_32317",
+   "tile_id": "NA076__MGDS_32317_r002432_c002176",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_33068",
+   "tile_id": "TN399__MGDS_33068_r002688_c000384",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_33068",
+   "tile_id": "TN399__MGDS_33068_r001280_c000128",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "TN399__MGDS_33068",
+   "tile_id": "TN399__MGDS_33068_r001280_c000896",
+   "block_id": 4,
+   "identical": true
+  },
+  {
+   "pair": "FK181031__MGDS_24618",
+   "tile_id": "FK181031__MGDS_24618_r003072_c003456",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "FK181031__MGDS_24618",
+   "tile_id": "FK181031__MGDS_24618_r003200_c001024",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "FK181031__MGDS_24618",
+   "tile_id": "FK181031__MGDS_24618_r001920_c002176",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "FK181031__MGDS_24618",
+   "tile_id": "FK181031__MGDS_24618_r005760_c001664",
+   "block_id": 6,
+   "identical": true
+  },
+  {
+   "pair": "FK181031__MGDS_24618",
+   "tile_id": "FK181031__MGDS_24618_r004992_c000256",
+   "block_id": 0,
+   "identical": true
+  },
+  {
+   "pair": "FK181031__MGDS_24618",
+   "tile_id": "FK181031__MGDS_24618_r003200_c004352",
+   "block_id": 0,
+   "identical": true
+  },
+  {
+   "pair": "FK151121__MGDS_22383",
+   "tile_id": "FK151121__MGDS_22383_r002304_c002560",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "FK151121__MGDS_22383",
+   "tile_id": "FK151121__MGDS_22383_r000512_c002560",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "FK151121__MGDS_22383",
+   "tile_id": "FK151121__MGDS_22383_r001408_c002560",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "FK151121__MGDS_22383",
+   "tile_id": "FK151121__MGDS_22383_r001280_c002048",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "FK151121__MGDS_22383",
+   "tile_id": "FK151121__MGDS_22383_r004352_c003072",
+   "block_id": 1,
+   "identical": true
+  },
+  {
+   "pair": "FK151121__MGDS_22383",
+   "tile_id": "FK151121__MGDS_22383_r002176_c001536",
+   "block_id": 0,
+   "identical": true
+  },
+  {
+   "pair": "FK151121__MGDS_22383",
+   "tile_id": "FK151121__MGDS_22383_r002432_c002432",
+   "block_id": 15,
+   "identical": true
+  },
+  {
+   "pair": "FK151121__MGDS_22383",
+   "tile_id": "FK151121__MGDS_22383_r002048_c003072",
+   "block_id": 4,
+   "identical": true
+  },
+  {
+   "pair": "FK151121__MGDS_22383",
+   "tile_id": "FK151121__MGDS_22383_r004224_c002048",
+   "block_id": 2,
+   "identical": true
+  },
+  {
+   "pair": "FK151121__MGDS_22383",
+   "tile_id": "FK151121__MGDS_22383_r001792_c001408",
+   "block_id": 8,
+   "identical": true
+  },
+  {
+   "pair": "KM0923__MGDS_31429",
+   "tile_id": "KM0923__MGDS_31429_r003968_c000768",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "KM0923__MGDS_31429",
+   "tile_id": "KM0923__MGDS_31429_r001024_c003328",
+   "block_id": 3,
+   "identical": true
+  },
+  {
+   "pair": "KM0923__MGDS_31429",
+   "tile_id": "KM0923__MGDS_31429_r004224_c000256",
+   "block_id": 0,
+   "identical": true
+  },
+  {
+   "pair": "tag_m127",
+   "tile_id": "tag_m127_r002944_c003200",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "tag_m127",
+   "tile_id": "tag_m127_r002688_c002304",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "tag_m127",
+   "tile_id": "tag_m127_r002816_c003584",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "tag_m127",
+   "tile_id": "tag_m127_r002432_c002816",
+   "block_id": 1,
+   "identical": true
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190318m2_Transect601060m",
+   "tile_id": "cal_dig_morro_bay__20190318m2_Transect601060m_r007168_c002304",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "NA090__MGDS_31212",
+   "tile_id": "NA090__MGDS_31212_r001408_c001280",
+   "block_id": -1,
+   "identical": true
+  },
+  {
+   "pair": "cal_dig_morro_bay__20180426m2_Channel1000",
+   "tile_id": "cal_dig_morro_bay__20180426m2_Channel1000_r001792_c001152",
+   "block_id": 2,
+   "identical": true
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190510m2_BankFlankIncipCh",
+   "tile_id": "cal_dig_morro_bay__20190510m2_BankFlankIncipCh_r000896_c000128",
+   "block_id": 13,
+   "identical": true
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190314m4_LuciaChica970m",
+   "tile_id": "cal_dig_morro_bay__20190314m4_LuciaChica970m_r000512_c000896",
+   "block_id": 12,
+   "identical": true
+  },
+  {
+   "pair": "cal_dig_morro_bay__20180427m1_Channel700",
+   "tile_id": "cal_dig_morro_bay__20180427m1_Channel700_r001536_c000896",
+   "block_id": 14,
+   "identical": true
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190510m1_BankFlankHoles",
+   "tile_id": "cal_dig_morro_bay__20190510m1_BankFlankHoles_r001024_c001024",
+   "block_id": 13,
+   "identical": true
+  }
+ ]
+}

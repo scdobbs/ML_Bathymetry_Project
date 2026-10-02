@@ -1,0 +1,600 @@
+[
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "RR1506__MGDS_29779",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/RR1506__MGDS_29779/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 202705,
+   "n_cells_with_soundings": 204734,
+   "usable_manifest": true,
+   "unit": "lu00",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "discol_so242_1",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/discol_so242_1/ship_products_v2_1",
+   "available": true,
+   "flags": [
+    "registration_shift"
+   ],
+   "usable_rule": false,
+   "n_common_with_lr": 17287,
+   "n_cells_with_soundings": 28968,
+   "usable_manifest": false,
+   "unit": "lu02",
+   "usable_manifest_raw": "False",
+   "reason": "registration_shift_unresolved (rulings R4)"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "AT37-13__MGDS_31199",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/AT37-13__MGDS_31199/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 13421,
+   "n_cells_with_soundings": 13490,
+   "usable_manifest": true,
+   "unit": "lu04",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "TN399__MGDS_30373",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN399__MGDS_30373/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 89392,
+   "n_cells_with_soundings": 90387,
+   "usable_manifest": true,
+   "unit": "lu05",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "TN399__MGDS_33068",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN399__MGDS_33068/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 7763,
+   "n_cells_with_soundings": 7820,
+   "usable_manifest": true,
+   "unit": "lu05",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "AT42-06__MGDS_5174",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/AT42-06__MGDS_5174/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 12202,
+   "n_cells_with_soundings": 12296,
+   "usable_manifest": true,
+   "unit": "lu05",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "ccz_so268_1",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/ccz_so268_1/ship_products_v2_1",
+   "available": true,
+   "flags": [
+    "registration_shift"
+   ],
+   "usable_rule": false,
+   "n_common_with_lr": 4338,
+   "n_cells_with_soundings": 9292,
+   "usable_manifest": false,
+   "unit": "lu06",
+   "usable_manifest_raw": "False",
+   "reason": "registration_shift_unresolved (rulings R4)"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "EW9801__MGDS_31425",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/EW9801__MGDS_31425/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 5255,
+   "n_cells_with_soundings": 5465,
+   "usable_manifest": true,
+   "unit": "lu07",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "KM0923__MGDS_31429",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/KM0923__MGDS_31429/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 9079,
+   "n_cells_with_soundings": 10353,
+   "usable_manifest": true,
+   "unit": "lu07",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "FK181031__MGDS_24618",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/FK181031__MGDS_24618/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 8346,
+   "n_cells_with_soundings": 8346,
+   "usable_manifest": true,
+   "unit": "lu08",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "tag_m127",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/tag_m127/ship_products_v2_1",
+   "available": true,
+   "flags": [
+    "registration_shift"
+   ],
+   "usable_rule": false,
+   "n_common_with_lr": 111884,
+   "n_cells_with_soundings": 111884,
+   "usable_manifest": false,
+   "unit": "lu09",
+   "usable_manifest_raw": "False",
+   "reason": "registration_shift_unresolved (rulings R4)"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "NA090__MGDS_31212",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/NA090__MGDS_31212/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 6241,
+   "n_cells_with_soundings": 6241,
+   "usable_manifest": true,
+   "unit": "lu10",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "NA076__MGDS_32317",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/NA076__MGDS_32317/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 23613,
+   "n_cells_with_soundings": 23650,
+   "usable_manifest": true,
+   "unit": "lu11",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__20180426m2_Channel1000",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/20180426m2_Channel1000/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__20180427m1_Channel700",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/20180427m1_Channel700/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__20180427m3_PockmarkNorth",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/20180427m3_PockmarkNorth/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__20180428m1_Cable",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/20180428m1_Cable/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__201804_LuciaChica2m",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/201804_LuciaChica2m/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__20190314m4_LuciaChica970m",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/20190314m4_LuciaChica970m/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__20190315m1_HeadlessCanyon",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/20190315m1_HeadlessCanyon/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__20190316m1_BankTop",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/20190316m1_BankTop/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__20190317m1_1000mGully",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/20190317m1_1000mGully/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__20190317m2_600mGully",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/20190317m2_600mGully/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__20190318m2_Transect601060m",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/20190318m2_Transect601060m/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__20190510m1_BankFlankHoles",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/20190510m1_BankFlankHoles/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__20190510m2_BankFlankIncipCh",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/20190510m2_BankFlankIncipCh/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__20190511m1_6thHeadlessCany",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/20190511m1_6thHeadlessCany/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/20190511m2_BankTopEofCanyon3/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__basin_flank",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/basin_flank/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__luciachica_2007",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/luciachica_2007/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "cal_dig_morro_bay__pockmark_south",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/cal_dig_morro_bay/pockmark_south/ship_products_v2_1",
+   "available": false,
+   "flags": null,
+   "usable_rule": false,
+   "usable_manifest": false,
+   "unit": "lu12",
+   "usable_manifest_raw": "False",
+   "reason": "unavailable: ship LR (Cal DIG I 10 m mosaic, 10.5066/P9QQZ27U) is a processed NOS BAG mosaic "
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "NA080__MGDS_31290",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/NA080__MGDS_31290/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 16310,
+   "n_cells_with_soundings": 58200,
+   "usable_manifest": true,
+   "unit": "lu13",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "NA080__MGDS_31289",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/NA080__MGDS_31289/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 16348,
+   "n_cells_with_soundings": 58491,
+   "usable_manifest": true,
+   "unit": "lu13",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "AR26__MGDS_31838",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/AR26__MGDS_31838/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 12279,
+   "n_cells_with_soundings": 13684,
+   "usable_manifest": true,
+   "unit": "lu14",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "TN299__MGDS_27339",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN299__MGDS_27339/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 5399,
+   "n_cells_with_soundings": 22435,
+   "usable_manifest": true,
+   "unit": "lu15",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "TN299__MGDS_31253",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN299__MGDS_31253/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 8661,
+   "n_cells_with_soundings": 8668,
+   "usable_manifest": true,
+   "unit": "lu15",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "FK151121__MGDS_22383",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/FK151121__MGDS_22383/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 5818,
+   "n_cells_with_soundings": 5827,
+   "usable_manifest": true,
+   "unit": "nu00",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [
+   "ship_xtrack_frac NaN where count >= 1"
+  ],
+  "info": {
+   "pair_id": "EX1402L2__MGDS_31073",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/EX1402L2__MGDS_31073/ship_products_v2_1",
+   "available": true,
+   "flags": [],
+   "usable_rule": true,
+   "n_common_with_lr": 10834,
+   "n_cells_with_soundings": 10841,
+   "usable_manifest": true,
+   "unit": "vu02",
+   "usable_manifest_raw": "True",
+   "reason": "available, no v2.1 flags"
+  }
+ },
+ {
+  "errors": [],
+  "info": {
+   "pair_id": "EW0207__MGDS_32556",
+   "dir": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/EW0207__MGDS_32556/ship_products_v2_1",
+   "available": true,
+   "flags": [
+    "vertical_offset"
+   ],
+   "usable_rule": false,
+   "n_common_with_lr": 44781,
+   "n_cells_with_soundings": 45248,
+   "usable_manifest": false,
+   "unit": "lu16",
+   "usable_manifest_raw": "False",
+   "reason": "flagged: vertical_offset (contract v2.1 \u00a76, no sign-off)"
+  }
+ }
+]

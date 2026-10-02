@@ -1,0 +1,360 @@
+{
+ "block": {
+  "n": 41606,
+  "A_fine": {
+   "ref_C": {
+    "pred": "ref_C",
+    "target": "A_fine",
+    "scale": "block",
+    "per_unit": {
+     "lu16": {
+      "n": 41584,
+      "rho": 0.4060885201367231,
+      "capture20": 0.39995367921230074,
+      "r2_loglog": 0.173627448331664
+     }
+    },
+    "median": {
+     "rho": 0.4060885201367231,
+     "r2_loglog": 0.173627448331664,
+     "capture20": 0.39995367921230074
+    },
+    "n_units_scored": {
+     "rho": 1,
+     "r2_loglog": 1,
+     "capture20": 1
+    },
+    "pooled": {
+     "n": 41584,
+     "rho": 0.4060885201367231,
+     "capture20": 0.39995367921230074,
+     "r2_loglog_within": 0.173627448331664
+    }
+   },
+   "ref_s_lr": {
+    "pred": "ref_s_lr",
+    "target": "A_fine",
+    "scale": "block",
+    "per_unit": {
+     "lu16": {
+      "n": 41606,
+      "rho": 0.446598209696512,
+      "capture20": 0.4339002524347672,
+      "r2_loglog": 0.2168449429028626
+     }
+    },
+    "median": {
+     "rho": 0.446598209696512,
+     "r2_loglog": 0.2168449429028626,
+     "capture20": 0.4339002524347672
+    },
+    "n_units_scored": {
+     "rho": 1,
+     "r2_loglog": 1,
+     "capture20": 1
+    },
+    "pooled": {
+     "n": 41606,
+     "rho": 0.446598209696512,
+     "capture20": 0.4339002524347672,
+     "r2_loglog_within": 0.2168449429028626
+    }
+   },
+   "ref_shipstd128": {
+    "pred": "ref_shipstd128",
+    "target": "A_fine",
+    "scale": "block",
+    "per_unit": {
+     "lu16": {
+      "n": 41575,
+      "rho": 0.42148771492237164,
+      "capture20": 0.41503392255871424,
+      "r2_loglog": 0.18442157766855638
+     }
+    },
+    "median": {
+     "rho": 0.42148771492237164,
+     "r2_loglog": 0.18442157766855638,
+     "capture20": 0.41503392255871424
+    },
+    "n_units_scored": {
+     "rho": 1,
+     "r2_loglog": 1,
+     "capture20": 1
+    },
+    "pooled": {
+     "n": 41575,
+     "rho": 0.42148771492237164,
+     "capture20": 0.41503392255871424,
+     "r2_loglog_within": 0.18442157766855638
+    }
+   },
+   "ref_rsd128": {
+    "pred": "ref_rsd128",
+    "target": "A_fine",
+    "scale": "block",
+    "per_unit": {
+     "lu16": {
+      "n": 0,
+      "rho": NaN,
+      "capture20": NaN,
+      "r2_loglog": NaN
+     }
+    },
+    "median": {
+     "rho": NaN,
+     "r2_loglog": NaN,
+     "capture20": NaN
+    },
+    "n_units_scored": {
+     "rho": 0,
+     "r2_loglog": 0,
+     "capture20": 0
+    },
+    "pooled": {
+     "n": 0,
+     "rho": NaN,
+     "capture20": NaN,
+     "r2_loglog_within": NaN
+    }
+   },
+   "GBT_ship_A_fine": {
+    "pred": "GBT_ship_A_fine",
+    "target": "A_fine",
+    "scale": "block",
+    "per_unit": {
+     "lu16": {
+      "n": 41606,
+      "rho": 0.45782800237488086,
+      "capture20": 0.4444599311597355,
+      "r2_loglog": 0.17574655556628305
+     }
+    },
+    "median": {
+     "rho": 0.45782800237488086,
+     "r2_loglog": 0.17574655556628305,
+     "capture20": 0.4444599311597355
+    },
+    "n_units_scored": {
+     "rho": 1,
+     "r2_loglog": 1,
+     "capture20": 1
+    },
+    "pooled": {
+     "n": 41606,
+     "rho": 0.45782800237488086,
+     "capture20": 0.4444599311597355,
+     "r2_loglog_within": 0.17574655556628316
+    }
+   },
+   "GBT_noship_A_fine": {
+    "pred": "GBT_noship_A_fine",
+    "target": "A_fine",
+    "scale": "block",
+    "per_unit": {
+     "lu16": {
+      "n": 41606,
+      "rho": 0.43036362047070154,
+      "capture20": 0.32137379871983907,
+      "r2_loglog": 0.17108568425179105
+     }
+    },
+    "median": {
+     "rho": 0.43036362047070154,
+     "r2_loglog": 0.17108568425179105,
+     "capture20": 0.32137379871983907
+    },
+    "n_units_scored": {
+     "rho": 1,
+     "r2_loglog": 1,
+     "capture20": 1
+    },
+    "pooled": {
+     "n": 41606,
+     "rho": 0.43036362047070154,
+     "capture20": 0.32137379871983907,
+     "r2_loglog_within": 0.17108568425179105
+    }
+   }
+  }
+ },
+ "tile": {
+  "n": 2738,
+  "A_fine": {
+   "ref_C": {
+    "pred": "ref_C",
+    "target": "A_fine",
+    "scale": "tile",
+    "per_unit": {
+     "lu16": {
+      "n": 2738,
+      "rho": 0.4796186518885706,
+      "capture20": 0.4132792617328388,
+      "r2_loglog": 0.2425730164996739
+     }
+    },
+    "median": {
+     "rho": 0.4796186518885706,
+     "r2_loglog": 0.2425730164996739,
+     "capture20": 0.4132792617328388
+    },
+    "n_units_scored": {
+     "rho": 1,
+     "r2_loglog": 1,
+     "capture20": 1
+    },
+    "pooled": {
+     "n": 2738,
+     "rho": 0.4796186518885706,
+     "capture20": 0.4132792617328388,
+     "r2_loglog_within": 0.2425730164996739
+    }
+   },
+   "ref_s_lr": {
+    "pred": "ref_s_lr",
+    "target": "A_fine",
+    "scale": "tile",
+    "per_unit": {
+     "lu16": {
+      "n": 2738,
+      "rho": 0.5544703390763593,
+      "capture20": 0.44160704197793094,
+      "r2_loglog": 0.3315734524963234
+     }
+    },
+    "median": {
+     "rho": 0.5544703390763593,
+     "r2_loglog": 0.3315734524963234,
+     "capture20": 0.44160704197793094
+    },
+    "n_units_scored": {
+     "rho": 1,
+     "r2_loglog": 1,
+     "capture20": 1
+    },
+    "pooled": {
+     "n": 2738,
+     "rho": 0.5544703390763593,
+     "capture20": 0.44160704197793094,
+     "r2_loglog_within": 0.3315734524963234
+    }
+   },
+   "ref_shipstd128": {
+    "pred": "ref_shipstd128",
+    "target": "A_fine",
+    "scale": "tile",
+    "per_unit": {
+     "lu16": {
+      "n": 2734,
+      "rho": 0.5094583897155073,
+      "capture20": 0.41232698546211866,
+      "r2_loglog": 0.27695479736739403
+     }
+    },
+    "median": {
+     "rho": 0.5094583897155073,
+     "r2_loglog": 0.27695479736739403,
+     "capture20": 0.41232698546211866
+    },
+    "n_units_scored": {
+     "rho": 1,
+     "r2_loglog": 1,
+     "capture20": 1
+    },
+    "pooled": {
+     "n": 2734,
+     "rho": 0.5094583897155073,
+     "capture20": 0.41232698546211866,
+     "r2_loglog_within": 0.27695479736739403
+    }
+   },
+   "ref_rsd128": {
+    "pred": "ref_rsd128",
+    "target": "A_fine",
+    "scale": "tile",
+    "per_unit": {
+     "lu16": {
+      "n": 0,
+      "rho": NaN,
+      "capture20": NaN,
+      "r2_loglog": NaN
+     }
+    },
+    "median": {
+     "rho": NaN,
+     "r2_loglog": NaN,
+     "capture20": NaN
+    },
+    "n_units_scored": {
+     "rho": 0,
+     "r2_loglog": 0,
+     "capture20": 0
+    },
+    "pooled": {
+     "n": 0,
+     "rho": NaN,
+     "capture20": NaN,
+     "r2_loglog_within": NaN
+    }
+   },
+   "GBT_ship_A_fine": {
+    "pred": "GBT_ship_A_fine",
+    "target": "A_fine",
+    "scale": "tile",
+    "per_unit": {
+     "lu16": {
+      "n": 2738,
+      "rho": 0.5459000650285714,
+      "capture20": 0.4108529159980111,
+      "r2_loglog": 0.29043265552080477
+     }
+    },
+    "median": {
+     "rho": 0.5459000650285714,
+     "r2_loglog": 0.29043265552080477,
+     "capture20": 0.4108529159980111
+    },
+    "n_units_scored": {
+     "rho": 1,
+     "r2_loglog": 1,
+     "capture20": 1
+    },
+    "pooled": {
+     "n": 2738,
+     "rho": 0.5459000650285714,
+     "capture20": 0.4108529159980111,
+     "r2_loglog_within": 0.29043265552080477
+    }
+   },
+   "GBT_noship_A_fine": {
+    "pred": "GBT_noship_A_fine",
+    "target": "A_fine",
+    "scale": "tile",
+    "per_unit": {
+     "lu16": {
+      "n": 2738,
+      "rho": 0.5325286951856594,
+      "capture20": 0.38160993575555374,
+      "r2_loglog": 0.28256631813289756
+     }
+    },
+    "median": {
+     "rho": 0.5325286951856594,
+     "r2_loglog": 0.28256631813289756,
+     "capture20": 0.38160993575555374
+    },
+    "n_units_scored": {
+     "rho": 1,
+     "r2_loglog": 1,
+     "capture20": 1
+    },
+    "pooled": {
+     "n": 2738,
+     "rho": 0.5325286951856594,
+     "capture20": 0.38160993575555374,
+     "r2_loglog_within": 0.28256631813289756
+    }
+   }
+  }
+ }
+}

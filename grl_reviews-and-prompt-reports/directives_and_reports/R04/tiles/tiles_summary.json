@@ -1,0 +1,1091 @@
+{
+ "pairs": [
+  {
+   "pair": "RR1506__MGDS_29779",
+   "unit": "lu00",
+   "n_candidates": 5415,
+   "n_windows": 2599,
+   "rejected": {
+    "joint": 2816
+   },
+   "hr_res": 1.0001380165858795,
+   "f_lr": 0.04926788259043741,
+   "f_hi": 0.3941430607234993,
+   "k": 8,
+   "H": 12398,
+   "W": 7462,
+   "seconds": 74.98441743850708
+  },
+  {
+   "pair": "discol_so242_1",
+   "unit": "lu02",
+   "n_candidates": 476,
+   "n_windows": 302,
+   "rejected": {
+    "joint": 174
+   },
+   "hr_res": 2.1854900000000113,
+   "f_lr": 0.0575128947368424,
+   "f_hi": 0.2300515789473696,
+   "k": 4,
+   "H": 2419,
+   "W": 3773,
+   "seconds": 6.750574588775635
+  },
+  {
+   "pair": "AT37-13__MGDS_31199",
+   "unit": "lu04",
+   "n_candidates": 396,
+   "n_windows": 186,
+   "rejected": {
+    "joint": 210
+   },
+   "hr_res": 1.0018418046337723,
+   "f_lr": 0.043182836406628115,
+   "f_hi": 0.3454626912530249,
+   "k": 8,
+   "H": 2455,
+   "W": 2983,
+   "seconds": 4.181265354156494
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "unit": "lu05",
+   "n_candidates": 12800,
+   "n_windows": 6309,
+   "rejected": {
+    "joint": 6491
+   },
+   "hr_res": 0.9996415304352251,
+   "f_lr": 0.021826234288978716,
+   "f_hi": 0.34921974862365945,
+   "k": 16,
+   "H": 25730,
+   "W": 8410,
+   "seconds": 461.2713360786438
+  },
+  {
+   "pair": "TN399__MGDS_33068",
+   "unit": "lu05",
+   "n_candidates": 840,
+   "n_windows": 183,
+   "rejected": {
+    "joint": 657
+   },
+   "hr_res": 0.9996930271676449,
+   "f_lr": 0.022607259773126297,
+   "f_hi": 0.36171615637002075,
+   "k": 16,
+   "H": 3297,
+   "W": 4685,
+   "seconds": 5.448390960693359
+  },
+  {
+   "pair": "AT42-06__MGDS_5174",
+   "unit": "lu05",
+   "n_candidates": 35,
+   "n_windows": 16,
+   "rejected": {
+    "joint": 19
+   },
+   "hr_res": 4.987352095591033,
+   "f_lr": 0.11207532799080974,
+   "f_hi": 0.22415065598161948,
+   "k": 2,
+   "H": 876,
+   "W": 1083,
+   "seconds": 1.0873637199401855
+  },
+  {
+   "pair": "ccz_so268_1",
+   "unit": "lu06",
+   "n_candidates": 120,
+   "n_windows": 69,
+   "rejected": {
+    "joint": 51
+   },
+   "hr_res": 3.0,
+   "f_lr": 0.06,
+   "f_hi": 0.24,
+   "k": 4,
+   "H": 1534,
+   "W": 1682,
+   "seconds": 2.393314838409424
+  },
+  {
+   "pair": "EW9801__MGDS_31425",
+   "unit": "lu07",
+   "n_candidates": 176,
+   "n_windows": 129,
+   "rejected": {
+    "joint": 47
+   },
+   "hr_res": 2.066556123827675,
+   "f_lr": 0.04100309769499355,
+   "f_hi": 0.0820061953899871,
+   "k": 2,
+   "H": 2266,
+   "W": 1614,
+   "seconds": 2.9375154972076416
+  },
+  {
+   "pair": "KM0923__MGDS_31429",
+   "unit": "lu07",
+   "n_candidates": 1292,
+   "n_windows": 232,
+   "rejected": {
+    "joint": 1060
+   },
+   "hr_res": 2.0540720189716715,
+   "f_lr": 0.023626317218445728,
+   "f_hi": 0.37802107549513164,
+   "k": 16,
+   "H": 5064,
+   "W": 4489,
+   "seconds": 8.87046194076538
+  },
+  {
+   "pair": "FK181031__MGDS_24618",
+   "unit": "lu08",
+   "n_candidates": 1836,
+   "n_windows": 1254,
+   "rejected": {
+    "joint": 582
+   },
+   "hr_res": 1.0558801403341385,
+   "f_lr": 0.015973980943027814,
+   "f_hi": 0.25558369508844503,
+   "k": 16,
+   "H": 6680,
+   "W": 4847,
+   "seconds": 33.48680591583252
+  },
+  {
+   "pair": "tag_m127",
+   "unit": "lu09",
+   "n_candidates": 1406,
+   "n_windows": 778,
+   "rejected": {
+    "joint": 628
+   },
+   "hr_res": 1.8879699693721153,
+   "f_lr": 0.06293233231240385,
+   "f_hi": 0.2517293292496154,
+   "k": 4,
+   "H": 5067,
+   "W": 4985,
+   "seconds": 19.42974615097046
+  },
+  {
+   "pair": "NA090__MGDS_31212",
+   "unit": "lu10",
+   "n_candidates": 289,
+   "n_windows": 177,
+   "rejected": {
+    "joint": 112
+   },
+   "hr_res": 1.0538165366018608,
+   "f_lr": 0.03282917559507354,
+   "f_hi": 0.26263340476058833,
+   "k": 8,
+   "H": 2397,
+   "W": 2410,
+   "seconds": 4.618502855300903
+  },
+  {
+   "pair": "NA076__MGDS_32317",
+   "unit": "lu11",
+   "n_candidates": 540,
+   "n_windows": 207,
+   "rejected": {
+    "joint": 333
+   },
+   "hr_res": 1.0571641690710878,
+   "f_lr": 0.06955027428099263,
+   "f_hi": 0.2782010971239705,
+   "k": 4,
+   "H": 2733,
+   "W": 3705,
+   "seconds": 6.139968633651733
+  },
+  {
+   "pair": "cal_dig_morro_bay__20180426m2_Channel1000",
+   "unit": "lu12",
+   "n_candidates": 304,
+   "n_windows": 194,
+   "rejected": {
+    "joint": 110
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 2634,
+   "W": 2215,
+   "seconds": 4.390047073364258
+  },
+  {
+   "pair": "cal_dig_morro_bay__20180427m1_Channel700",
+   "unit": "lu12",
+   "n_candidates": 272,
+   "n_windows": 148,
+   "rejected": {
+    "joint": 124
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 2201,
+   "W": 2350,
+   "seconds": 3.3957481384277344
+  },
+  {
+   "pair": "cal_dig_morro_bay__20180427m3_PockmarkNorth",
+   "unit": "lu12",
+   "n_candidates": 144,
+   "n_windows": 86,
+   "rejected": {
+    "joint": 58
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 1738,
+   "W": 1674,
+   "seconds": 2.802095890045166
+  },
+  {
+   "pair": "cal_dig_morro_bay__20180428m1_Cable",
+   "unit": "lu12",
+   "n_candidates": 518,
+   "n_windows": 70,
+   "rejected": {
+    "joint": 448
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 1045,
+   "W": 9677,
+   "seconds": 2.9849939346313477
+  },
+  {
+   "pair": "cal_dig_morro_bay__201804_LuciaChica2m",
+   "unit": "lu12",
+   "n_candidates": 676,
+   "n_windows": 178,
+   "rejected": {
+    "joint": 498
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 3529,
+   "W": 3533,
+   "seconds": 4.85509181022644
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190314m4_LuciaChica970m",
+   "unit": "lu12",
+   "n_candidates": 130,
+   "n_windows": 69,
+   "rejected": {
+    "joint": 61
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 1535,
+   "W": 1876,
+   "seconds": 2.049135446548462
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190315m1_HeadlessCanyon",
+   "unit": "lu12",
+   "n_candidates": 234,
+   "n_windows": 156,
+   "rejected": {
+    "joint": 78
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 1330,
+   "W": 3578,
+   "seconds": 3.154484987258911
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190316m1_BankTop",
+   "unit": "lu12",
+   "n_candidates": 576,
+   "n_windows": 218,
+   "rejected": {
+    "joint": 358
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 2525,
+   "W": 4246,
+   "seconds": 6.35977840423584
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190317m1_1000mGully",
+   "unit": "lu12",
+   "n_candidates": 440,
+   "n_windows": 144,
+   "rejected": {
+    "joint": 296
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 3024,
+   "W": 2747,
+   "seconds": 3.9255905151367188
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190317m2_600mGully",
+   "unit": "lu12",
+   "n_candidates": 1452,
+   "n_windows": 187,
+   "rejected": {
+    "joint": 1265
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 4361,
+   "W": 5827,
+   "seconds": 7.608770847320557
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190318m2_Transect601060m",
+   "unit": "lu12",
+   "n_candidates": 7250,
+   "n_windows": 93,
+   "rejected": {
+    "joint": 7157
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 7595,
+   "W": 16152,
+   "seconds": 20.20958399772644
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190510m1_BankFlankHoles",
+   "unit": "lu12",
+   "n_candidates": 228,
+   "n_windows": 185,
+   "rejected": {
+    "joint": 43
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 1664,
+   "W": 2579,
+   "seconds": 4.229973077774048
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190510m2_BankFlankIncipCh",
+   "unit": "lu12",
+   "n_candidates": 253,
+   "n_windows": 167,
+   "rejected": {
+    "joint": 86
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 3149,
+   "W": 1600,
+   "seconds": 3.5702061653137207
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190511m1_6thHeadlessCany",
+   "unit": "lu12",
+   "n_candidates": 336,
+   "n_windows": 207,
+   "rejected": {
+    "joint": 129
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 2004,
+   "W": 3271,
+   "seconds": 3.965078115463257
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+   "unit": "lu12",
+   "n_candidates": 288,
+   "n_windows": 212,
+   "rejected": {
+    "joint": 76
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 1359,
+   "W": 4281,
+   "seconds": 4.600811243057251
+  },
+  {
+   "pair": "cal_dig_morro_bay__basin_flank",
+   "unit": "lu12",
+   "n_candidates": 252,
+   "n_windows": 57,
+   "rejected": {
+    "joint": 195
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 1924,
+   "W": 2516,
+   "seconds": 2.440070390701294
+  },
+  {
+   "pair": "cal_dig_morro_bay__luciachica_2007",
+   "unit": "lu12",
+   "n_candidates": 77,
+   "n_windows": 43,
+   "rejected": {
+    "joint": 34
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 1088,
+   "W": 1595,
+   "seconds": 5.507818698883057
+  },
+  {
+   "pair": "cal_dig_morro_bay__pockmark_south",
+   "unit": "lu12",
+   "n_candidates": 208,
+   "n_windows": 135,
+   "rejected": {
+    "joint": 73
+   },
+   "hr_res": 2.0,
+   "f_lr": 0.2,
+   "f_hi": 0.4,
+   "k": 2,
+   "H": 2295,
+   "W": 1887,
+   "seconds": 3.565366744995117
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "unit": "lu13",
+   "n_candidates": 11352,
+   "n_windows": 3257,
+   "rejected": {
+    "joint": 8095
+   },
+   "hr_res": 1.0,
+   "f_lr": 0.017421602787456445,
+   "f_hi": 0.2787456445993031,
+   "k": 16,
+   "H": 16680,
+   "W": 11491,
+   "seconds": 224.8424289226532
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "unit": "lu13",
+   "n_candidates": 11352,
+   "n_windows": 3219,
+   "rejected": {
+    "joint": 8133
+   },
+   "hr_res": 1.0,
+   "f_lr": 0.017280110592707794,
+   "f_hi": 0.2764817694833247,
+   "k": 16,
+   "H": 16680,
+   "W": 11491,
+   "seconds": 222.50563645362854
+  },
+  {
+   "pair": "AR26__MGDS_31838",
+   "unit": "lu14",
+   "n_candidates": 210,
+   "n_windows": 59,
+   "rejected": {
+    "joint": 151
+   },
+   "hr_res": 1.7659766063296711,
+   "f_lr": 0.060067231507811944,
+   "f_hi": 0.24026892603124778,
+   "k": 4,
+   "H": 1466,
+   "W": 2902,
+   "seconds": 2.1902289390563965
+  },
+  {
+   "pair": "TN299__MGDS_27339",
+   "unit": "lu15",
+   "n_candidates": 7920,
+   "n_windows": 901,
+   "rejected": {
+    "joint": 7019
+   },
+   "hr_res": 1.0,
+   "f_lr": 0.019493177387914232,
+   "f_hi": 0.3118908382066277,
+   "k": 16,
+   "H": 15589,
+   "W": 8577,
+   "seconds": 60.191372871398926
+  },
+  {
+   "pair": "TN299__MGDS_31253",
+   "unit": "lu15",
+   "n_candidates": 729,
+   "n_windows": 383,
+   "rejected": {
+    "joint": 346
+   },
+   "hr_res": 0.9996618924038077,
+   "f_lr": 0.02709110819522514,
+   "f_hi": 0.21672886556180113,
+   "k": 8,
+   "H": 3609,
+   "W": 3591,
+   "seconds": 9.54368281364441
+  },
+  {
+   "pair": "FK151121__MGDS_22383",
+   "unit": "nu00",
+   "n_candidates": 1419,
+   "n_windows": 738,
+   "rejected": {
+    "joint": 681
+   },
+   "hr_res": 1.00027363181973,
+   "f_lr": 0.015157957748442644,
+   "f_hi": 0.2425273239750823,
+   "k": 16,
+   "H": 5719,
+   "W": 4459,
+   "seconds": 16.82433032989502
+  },
+  {
+   "pair": "EX1402L2__MGDS_31073",
+   "unit": "vu02",
+   "n_candidates": 240,
+   "n_windows": 111,
+   "rejected": {
+    "joint": 129
+   },
+   "hr_res": 0.9997306513067747,
+   "f_lr": 0.06107090111831244,
+   "f_hi": 0.24428360447324976,
+   "k": 4,
+   "H": 2799,
+   "W": 1664,
+   "seconds": 2.9405946731567383
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "unit": "lu16",
+   "n_candidates": 11997,
+   "n_windows": 2738,
+   "rejected": {
+    "joint": 9259
+   },
+   "hr_res": 1.2303378630260844,
+   "f_lr": 0.015495439080933052,
+   "f_hi": 0.24792702529492883,
+   "k": 16,
+   "H": 16668,
+   "W": 12122,
+   "seconds": 198.990238904953
+  }
+ ],
+ "grid_checks": [
+  {
+   "pair": "RR1506__MGDS_29779",
+   "n_r04": 2599,
+   "prior": "R02",
+   "n_prior_total": 10366,
+   "n_prior_stride128": 2599,
+   "n_common": 2599,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "discol_so242_1",
+   "n_r04": 302,
+   "prior": "R03",
+   "n_prior_total": 1183,
+   "n_prior_stride128": 302,
+   "n_common": 302,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "AT37-13__MGDS_31199",
+   "n_r04": 186,
+   "prior": "R02",
+   "n_prior_total": 186,
+   "n_prior_stride128": 186,
+   "n_common": 186,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "TN399__MGDS_30373",
+   "n_r04": 6309,
+   "prior": "R02",
+   "n_prior_total": 25221,
+   "n_prior_stride128": 6309,
+   "n_common": 6309,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "TN399__MGDS_33068",
+   "n_r04": 183,
+   "prior": null
+  },
+  {
+   "pair": "AT42-06__MGDS_5174",
+   "n_r04": 16,
+   "prior": null
+  },
+  {
+   "pair": "ccz_so268_1",
+   "n_r04": 69,
+   "prior": "R03",
+   "n_prior_total": 277,
+   "n_prior_stride128": 69,
+   "n_common": 69,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "EW9801__MGDS_31425",
+   "n_r04": 129,
+   "prior": "R03",
+   "n_prior_total": 519,
+   "n_prior_stride128": 129,
+   "n_common": 129,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "KM0923__MGDS_31429",
+   "n_r04": 232,
+   "prior": null
+  },
+  {
+   "pair": "FK181031__MGDS_24618",
+   "n_r04": 1254,
+   "prior": "R02",
+   "n_prior_total": 5010,
+   "n_prior_stride128": 1254,
+   "n_common": 1254,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "tag_m127",
+   "n_r04": 778,
+   "prior": "R03",
+   "n_prior_total": 3120,
+   "n_prior_stride128": 778,
+   "n_common": 778,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "NA090__MGDS_31212",
+   "n_r04": 177,
+   "prior": "R02",
+   "n_prior_total": 177,
+   "n_prior_stride128": 177,
+   "n_common": 177,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "NA076__MGDS_32317",
+   "n_r04": 207,
+   "prior": "R03",
+   "n_prior_total": 809,
+   "n_prior_stride128": 207,
+   "n_common": 207,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__20180426m2_Channel1000",
+   "n_r04": 194,
+   "prior": "R03",
+   "n_prior_total": 764,
+   "n_prior_stride128": 194,
+   "n_common": 194,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__20180427m1_Channel700",
+   "n_r04": 148,
+   "prior": "R03",
+   "n_prior_total": 581,
+   "n_prior_stride128": 148,
+   "n_common": 148,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__20180427m3_PockmarkNorth",
+   "n_r04": 86,
+   "prior": "R03",
+   "n_prior_total": 358,
+   "n_prior_stride128": 86,
+   "n_common": 86,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__20180428m1_Cable",
+   "n_r04": 70,
+   "prior": "R03",
+   "n_prior_total": 280,
+   "n_prior_stride128": 70,
+   "n_common": 70,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__201804_LuciaChica2m",
+   "n_r04": 178,
+   "prior": "R03",
+   "n_prior_total": 711,
+   "n_prior_stride128": 178,
+   "n_common": 178,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190314m4_LuciaChica970m",
+   "n_r04": 69,
+   "prior": "R03",
+   "n_prior_total": 270,
+   "n_prior_stride128": 69,
+   "n_common": 69,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190315m1_HeadlessCanyon",
+   "n_r04": 156,
+   "prior": "R03",
+   "n_prior_total": 604,
+   "n_prior_stride128": 156,
+   "n_common": 156,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190316m1_BankTop",
+   "n_r04": 218,
+   "prior": "R03",
+   "n_prior_total": 877,
+   "n_prior_stride128": 218,
+   "n_common": 218,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190317m1_1000mGully",
+   "n_r04": 144,
+   "prior": "R03",
+   "n_prior_total": 587,
+   "n_prior_stride128": 144,
+   "n_common": 144,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190317m2_600mGully",
+   "n_r04": 187,
+   "prior": "R03",
+   "n_prior_total": 743,
+   "n_prior_stride128": 187,
+   "n_common": 187,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190318m2_Transect601060m",
+   "n_r04": 93,
+   "prior": "R03",
+   "n_prior_total": 374,
+   "n_prior_stride128": 93,
+   "n_common": 93,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190510m1_BankFlankHoles",
+   "n_r04": 185,
+   "prior": "R03",
+   "n_prior_total": 700,
+   "n_prior_stride128": 185,
+   "n_common": 185,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190510m2_BankFlankIncipCh",
+   "n_r04": 167,
+   "prior": "R03",
+   "n_prior_total": 666,
+   "n_prior_stride128": 167,
+   "n_common": 167,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190511m1_6thHeadlessCany",
+   "n_r04": 207,
+   "prior": "R03",
+   "n_prior_total": 816,
+   "n_prior_stride128": 207,
+   "n_common": 207,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+   "n_r04": 212,
+   "prior": "R03",
+   "n_prior_total": 826,
+   "n_prior_stride128": 212,
+   "n_common": 212,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__basin_flank",
+   "n_r04": 57,
+   "prior": "R03",
+   "n_prior_total": 228,
+   "n_prior_stride128": 57,
+   "n_common": 57,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__luciachica_2007",
+   "n_r04": 43,
+   "prior": "R03",
+   "n_prior_total": 174,
+   "n_prior_stride128": 43,
+   "n_common": 43,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "cal_dig_morro_bay__pockmark_south",
+   "n_r04": 135,
+   "prior": "R03",
+   "n_prior_total": 545,
+   "n_prior_stride128": 135,
+   "n_common": 135,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "n_r04": 3257,
+   "prior": "R02",
+   "n_prior_total": 13036,
+   "n_prior_stride128": 3257,
+   "n_common": 3257,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "NA080__MGDS_31289",
+   "n_r04": 3219,
+   "prior": null
+  },
+  {
+   "pair": "AR26__MGDS_31838",
+   "n_r04": 59,
+   "prior": "R03",
+   "n_prior_total": 232,
+   "n_prior_stride128": 59,
+   "n_common": 59,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "TN299__MGDS_27339",
+   "n_r04": 901,
+   "prior": "R02",
+   "n_prior_total": 3593,
+   "n_prior_stride128": 901,
+   "n_common": 901,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "TN299__MGDS_31253",
+   "n_r04": 383,
+   "prior": "R02",
+   "n_prior_total": 1539,
+   "n_prior_stride128": 383,
+   "n_common": 383,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  },
+  {
+   "pair": "FK151121__MGDS_22383",
+   "n_r04": 738,
+   "prior": null
+  },
+  {
+   "pair": "EX1402L2__MGDS_31073",
+   "n_r04": 111,
+   "prior": null
+  },
+  {
+   "pair": "EW0207__MGDS_32556",
+   "n_r04": 2738,
+   "prior": "R02",
+   "n_prior_total": 10917,
+   "n_prior_stride128": 2738,
+   "n_common": 2738,
+   "only_prior": [],
+   "only_r04": [],
+   "identical": true,
+   "n_only_prior": 0,
+   "n_only_r04": 0
+  }
+ ],
+ "units_version": "units-v1",
+ "e1m_threshold_m": 1.0
+}
