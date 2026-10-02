@@ -1,0 +1,134 @@
+{
+ "NA090": {
+  "label": "CONFIRMED (leave-one-unit-out)",
+  "evidence": {
+   "code_fold_rule": true,
+   "fold_dir_exists": true,
+   "perpatch_held_pairs": [
+    "NA090__MGDS_31212"
+   ],
+   "held_pairs_equal_unit": true,
+   "n_train": 14225,
+   "n_held": 177,
+   "mosaic_log_mentions": [],
+   "n_train_expected_if_LOUO": 14225,
+   "n_train_matches": true
+  }
+ },
+ "NA080": {
+  "label": "CONFIRMED (leave-one-unit-out)",
+  "evidence": {
+   "code_fold_rule": true,
+   "fold_dir_exists": true,
+   "perpatch_held_pairs": [
+    "NA080__MGDS_31290"
+   ],
+   "held_pairs_equal_unit": true,
+   "n_train": 11902,
+   "n_held": 200,
+   "mosaic_log_mentions": [],
+   "n_train_expected_if_LOUO": 11902,
+   "n_train_matches": true
+  }
+ },
+ "TN399": {
+  "label": "CONFIRMED (leave-one-unit-out)",
+  "evidence": {
+   "code_fold_rule": true,
+   "fold_dir_exists": true,
+   "perpatch_held_pairs": [
+    "TN399__MGDS_30373"
+   ],
+   "held_pairs_equal_unit": true,
+   "n_train": 11902,
+   "n_held": 200,
+   "mosaic_log_mentions": [],
+   "n_train_expected_if_LOUO": 11902,
+   "n_train_matches": true
+  }
+ },
+ "RR1506": {
+  "label": "CONFIRMED (leave-one-unit-out)",
+  "evidence": {
+   "code_fold_rule": true,
+   "fold_dir_exists": true,
+   "perpatch_held_pairs": [
+    "RR1506__MGDS_29779"
+   ],
+   "held_pairs_equal_unit": true,
+   "n_train": 11902,
+   "n_held": 200,
+   "mosaic_log_mentions": [],
+   "n_train_expected_if_LOUO": 11902,
+   "n_train_matches": true
+  }
+ },
+ "AT37-13": {
+  "label": "CONFIRMED (leave-one-unit-out)",
+  "evidence": {
+   "code_fold_rule": true,
+   "fold_dir_exists": true,
+   "perpatch_held_pairs": [
+    "AT37-13__MGDS_31199"
+   ],
+   "held_pairs_equal_unit": true,
+   "n_train": 14216,
+   "n_held": 186,
+   "mosaic_log_mentions": [],
+   "n_train_expected_if_LOUO": 14216,
+   "n_train_matches": true
+  }
+ },
+ "FK181031": {
+  "label": "CONFIRMED (leave-one-unit-out)",
+  "evidence": {
+   "code_fold_rule": true,
+   "fold_dir_exists": true,
+   "perpatch_held_pairs": [
+    "FK181031__MGDS_24618"
+   ],
+   "held_pairs_equal_unit": true,
+   "n_train": 11902,
+   "n_held": 200,
+   "mosaic_log_mentions": [],
+   "n_train_expected_if_LOUO": 11902,
+   "n_train_matches": true
+  }
+ },
+ "TN299": {
+  "label": "CONFIRMED (leave-one-unit-out)",
+  "evidence": {
+   "code_fold_rule": true,
+   "fold_dir_exists": true,
+   "perpatch_held_pairs": [
+    "TN299__MGDS_27339",
+    "TN299__MGDS_31253"
+   ],
+   "held_pairs_equal_unit": true,
+   "n_train": 10363,
+   "n_held": 400,
+   "mosaic_log_mentions": [],
+   "n_train_expected_if_LOUO": 10363,
+   "n_train_matches": true
+  }
+ },
+ "_n_train_by_fold": {
+  "NA090": 14225,
+  "NA080": 11902,
+  "TN399": 11902,
+  "RR1506": 11902,
+  "AT37-13": 14216,
+  "FK181031": 11902,
+  "TN299": 10363
+ },
+ "_capped_files_per_pair": {
+  "NA090__MGDS_31212": 177,
+  "NA080__MGDS_31290": 2500,
+  "TN399__MGDS_30373": 2500,
+  "RR1506__MGDS_29779": 2500,
+  "AT37-13__MGDS_31199": 186,
+  "FK181031__MGDS_24618": 2500,
+  "TN299__MGDS_27339": 2500,
+  "TN299__MGDS_31253": 1539
+ }
+}

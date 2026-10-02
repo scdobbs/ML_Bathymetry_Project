@@ -1,0 +1,13 @@
+{
+ "tile_floor": 0.5,
+ "tiles_v1": 26396,
+ "tiles_removed": 242,
+ "tiles_v1_1": 26154,
+ "min_n_joint_removed": 346,
+ "blocks_v1": 422336,
+ "blocks_removed": 3872,
+ "kept_blocks_removed": 1238,
+ "blocks_v1_1": 418464,
+ "kept_blocks_v1_1": 402261,
+ "pairs_below_10_tiles": []
+}

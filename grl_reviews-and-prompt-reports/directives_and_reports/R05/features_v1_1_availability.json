@@ -1,0 +1,630 @@
+{
+ "RR1506__MGDS_29779": {
+  "unit": "lu00",
+  "usable": true,
+  "n_rows": 42995,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.9999883707407838,
+   "rsd_p90": 0.9999883707407838,
+   "sd_med": 1.0,
+   "logcount_med": 1.0,
+   "xtrack_mean": 1.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 0.9999883707407838
+  },
+  "override_verified": {}
+ },
+ "discol_so242_1": {
+  "unit": "lu02",
+  "usable": false,
+  "n_rows": 5006,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "AT37-13__MGDS_31199": {
+  "unit": "lu04",
+  "usable": true,
+  "n_rows": 2925,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 1.0,
+   "rsd_p90": 1.0,
+   "sd_med": 1.0,
+   "logcount_med": 1.0,
+   "xtrack_mean": 1.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 1.0
+  },
+  "override_verified": {}
+ },
+ "TN399__MGDS_30373": {
+  "unit": "lu05",
+  "usable": true,
+  "n_rows": 103598,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.9925336396455531,
+   "rsd_p90": 0.9925336396455531,
+   "sd_med": 0.9997442035560532,
+   "logcount_med": 1.0,
+   "xtrack_mean": 1.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 0.9925336396455531
+  },
+  "override_verified": {}
+ },
+ "TN399__MGDS_33068": {
+  "unit": "lu05",
+  "usable": true,
+  "n_rows": 2570,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 1.0,
+   "rsd_p90": 1.0,
+   "sd_med": 1.0,
+   "logcount_med": 1.0,
+   "xtrack_mean": 1.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 1.0
+  },
+  "override_verified": {}
+ },
+ "AT42-06__MGDS_5174": {
+  "unit": "lu05",
+  "usable": true,
+  "n_rows": 242,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 1.0,
+   "rsd_p90": 1.0,
+   "sd_med": 1.0,
+   "logcount_med": 1.0,
+   "xtrack_mean": 1.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 1.0
+  },
+  "override_verified": {}
+ },
+ "ccz_so268_1": {
+  "unit": "lu06",
+  "usable": false,
+  "n_rows": 1114,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "EW9801__MGDS_31425": {
+  "unit": "lu07",
+  "usable": true,
+  "n_rows": 2013,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 1.0,
+   "rsd_p90": 1.0,
+   "sd_med": 1.0,
+   "logcount_med": 1.0,
+   "xtrack_mean": 1.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 1.0
+  },
+  "override_verified": {}
+ },
+ "KM0923__MGDS_31429": {
+  "unit": "lu07",
+  "usable": true,
+  "n_rows": 3095,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.9723747980613894,
+   "rsd_p90": 0.9723747980613894,
+   "sd_med": 1.0,
+   "logcount_med": 1.0,
+   "xtrack_mean": 1.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 0.9723747980613894
+  },
+  "override_verified": {}
+ },
+ "FK181031__MGDS_24618": {
+  "unit": "lu08",
+  "usable": true,
+  "n_rows": 20869,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 1.0,
+   "rsd_p90": 1.0,
+   "sd_med": 1.0,
+   "logcount_med": 1.0,
+   "xtrack_mean": 1.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 1.0
+  },
+  "override_verified": {}
+ },
+ "tag_m127": {
+  "unit": "lu09",
+  "usable": false,
+  "n_rows": 12878,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "NA090__MGDS_31212": {
+  "unit": "lu10",
+  "usable": true,
+  "n_rows": 2831,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 1.0,
+   "rsd_p90": 1.0,
+   "sd_med": 1.0,
+   "logcount_med": 1.0,
+   "xtrack_mean": 1.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 1.0
+  },
+  "override_verified": {}
+ },
+ "NA076__MGDS_32317": {
+  "unit": "lu11",
+  "usable": true,
+  "n_rows": 3379,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 1.0,
+   "rsd_p90": 1.0,
+   "sd_med": 1.0,
+   "logcount_med": 1.0,
+   "xtrack_mean": 1.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 1.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__20180426m2_Channel1000": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 3120,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__20180427m1_Channel700": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 2281,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__20180427m3_PockmarkNorth": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 1413,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__20180428m1_Cable": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 1065,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__201804_LuciaChica2m": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 2881,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__20190314m4_LuciaChica970m": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 1041,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__20190315m1_HeadlessCanyon": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 2231,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__20190316m1_BankTop": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 3490,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__20190317m1_1000mGully": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 2206,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__20190317m2_600mGully": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 2716,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__20190318m2_Transect601060m": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 1402,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__20190510m1_BankFlankHoles": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 2969,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__20190510m2_BankFlankIncipCh": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 2708,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__20190511m1_6thHeadlessCany": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 3311,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 3353,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__basin_flank": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 906,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__luciachica_2007": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 652,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "cal_dig_morro_bay__pockmark_south": {
+  "unit": "lu12",
+  "usable": false,
+  "n_rows": 2181,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ },
+ "NA080__MGDS_31290": {
+  "unit": "lu13",
+  "usable": true,
+  "n_rows": 53668,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 1.0,
+   "rsd_p90": 1.0,
+   "sd_med": 1.0,
+   "logcount_med": 1.0,
+   "xtrack_mean": 1.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 1.0
+  },
+  "override_verified": {}
+ },
+ "NA080__MGDS_31289": {
+  "unit": "lu13",
+  "usable": true,
+  "n_rows": 53008,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 1.0,
+   "rsd_p90": 1.0,
+   "sd_med": 1.0,
+   "logcount_med": 1.0,
+   "xtrack_mean": 1.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 1.0
+  },
+  "override_verified": {}
+ },
+ "AR26__MGDS_31838": {
+  "unit": "lu14",
+  "usable": true,
+  "n_rows": 690,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.9985507246376812,
+   "rsd_p90": 0.9985507246376812,
+   "sd_med": 1.0,
+   "logcount_med": 1.0,
+   "xtrack_mean": 1.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 0.9985507246376812
+  },
+  "override_verified": {}
+ },
+ "TN299__MGDS_27339": {
+  "unit": "lu15",
+  "usable": true,
+  "n_rows": 14449,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.9975776870371652,
+   "rsd_p90": 0.9975776870371652,
+   "sd_med": 0.9994463284656377,
+   "logcount_med": 0.9998615821164094,
+   "xtrack_mean": 0.9998615821164094,
+   "beam_mean": 0.9998615821164094,
+   "rsd_over_sd_med": 0.9975776870371652
+  },
+  "override_verified": {}
+ },
+ "TN299__MGDS_31253": {
+  "unit": "lu15",
+  "usable": true,
+  "n_rows": 6307,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 1.0,
+   "rsd_p90": 1.0,
+   "sd_med": 1.0,
+   "logcount_med": 1.0,
+   "xtrack_mean": 1.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 1.0
+  },
+  "override_verified": {}
+ },
+ "FK151121__MGDS_22383": {
+  "unit": "nu00",
+  "usable": true,
+  "n_rows": 12193,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 1.0,
+   "rsd_p90": 1.0,
+   "sd_med": 1.0,
+   "logcount_med": 1.0,
+   "xtrack_mean": 1.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 1.0
+  },
+  "override_verified": {}
+ },
+ "EX1402L2__MGDS_31073": {
+  "unit": "vu02",
+  "usable": true,
+  "n_rows": 1795,
+  "override": {
+   "ship_xtrack_frac": "all-NaN where count >= 1 (R04 H2)"
+  },
+  "frac_defined": {
+   "rsd_med": 1.0,
+   "rsd_p90": 1.0,
+   "sd_med": 1.0,
+   "logcount_med": 1.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 1.0,
+   "rsd_over_sd_med": 1.0
+  },
+  "override_verified": {
+   "ship_xtrack_frac": true
+  }
+ },
+ "EW0207__MGDS_32556": {
+  "unit": "lu16",
+  "usable": false,
+  "n_rows": 44344,
+  "override": {},
+  "frac_defined": {
+   "rsd_med": 0.0,
+   "rsd_p90": 0.0,
+   "sd_med": 0.0,
+   "logcount_med": 0.0,
+   "xtrack_mean": 0.0,
+   "beam_mean": 0.0,
+   "rsd_over_sd_med": 0.0
+  },
+  "override_verified": {}
+ }
+}
