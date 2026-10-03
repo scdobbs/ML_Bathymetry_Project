@@ -1,0 +1,120 @@
+{
+ "scripts_sha256": {
+  "build_inputs.sbatch": "04a86643da7330bd5c080a2cd568dbeb8824b3ebe9f8c6c4b6add58dbd23e92f",
+  "build_inputs_r06.py": "393c6dda7f29155a95af0cab2591a190042fa24c1164ede6adbbd3e4e66f2161",
+  "freeze_r06.py": "fb207a35f3e38a7addeace63e6fa8cb85a2fde54d76afcec3c854e8d05ce2dee",
+  "make_tasks.py": "22729a6a60b57e8c7bb83ca4c3f06547433d1931fb3f522ac1dec4c130d46bbb",
+  "pilot.sbatch": "980d36b8034d7ed66163fc608a6f9ac6670903ed25cb0b4159a5ece1c2cc15ee",
+  "pilot_extrapolate.py": "9657d4860317c1bf351db3e6afdd4cb988c06a2d49ef6c7d7aa98167657f33ee",
+  "preserve_r06.sbatch": "ab667e25eb165e3def0725516fe0596ac270bcc48ff4ca7d2cb3dd08171e787d",
+  "r06_common.py": "418b49fdc95ed295a75a01b934eed0cb57625b01127966be2addd30bd294910f",
+  "r06_model.py": "8083d5b1346c1104eb07c9b65d0d37a88cc7edde9189ba672f45251957a33ec3",
+  "score_r06.py": "76f3a23368afb80e49d3b6600c56c62a7efaf798e8da5f8412dfe42b47d58991",
+  "tasks.txt": "9e3d727c4687a1c77eab43df72d7fff8c0049183496e123ddd7d1e966bcaf229",
+  "test_score_synthetic.py": "94f604f2bd5df00f51486feacb79e7409f4922684a304ce48121a16907c8a0fa",
+  "train_array.sbatch": "32dd359dd33044372bd2dd3b8ce543f53c4b3e00dd8a9d08b4909b841d87d510",
+  "train_r06.py": "cc35be755ec1310e5b2376d0914a6e79061087906345b3c4152bc27dff4b5e58"
+ },
+ "training_code_sha256": "bf5a82b47fb95d01c66be3f718b3a239e319d1ef3b02fe35e8d51a3919316148",
+ "training_code_files": [
+  "r06_common.py",
+  "build_inputs_r06.py",
+  "r06_model.py",
+  "train_r06.py"
+ ],
+ "train_logs": 100,
+ "training_code_hashes_in_logs": {
+  "bf5a82b47fb95d01c66be3f718b3a239e319d1ef3b02fe35e8d51a3919316148": 100
+ },
+ "frozen_inputs": {
+  "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R04/scripts/targets_v1.py": {
+   "sha256": "51b6a0f0c5136bfeb91162543d571517f3eec911db7bae1d163441d9d57b039b",
+   "expected": "51b6a0f0c5136bfeb91162543d571517f3eec911db7bae1d163441d9d57b039b",
+   "ok": true
+  },
+  "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R04/scripts/r04_common.py": {
+   "sha256": "6dfe324a46120d3126eeace494781a48612c83fcc4f73610f9073879590adc3e",
+   "expected": "6dfe324a46120d3126eeace494781a48612c83fcc4f73610f9073879590adc3e",
+   "ok": true
+  },
+  "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R05/scripts/eval_v1_1.py": {
+   "sha256": "647e58909f5981022b86e4191bd4ec344d2851ec46d9f65424a0dc719a1a5307",
+   "expected": "647e58909f5981022b86e4191bd4ec344d2851ec46d9f65424a0dc719a1a5307",
+   "ok": true
+  },
+  "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R05/scripts/features_v1_1.py": {
+   "sha256": "a19be345458c9be229879a38f01ab6d44ea7b87cd6ab8b91b03510885b0ed840",
+   "expected": "a19be345458c9be229879a38f01ab6d44ea7b87cd6ab8b91b03510885b0ed840",
+   "ok": true
+  },
+  "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R05/scripts/r05_common.py": {
+   "sha256": "0a458b62a16d310571851f30a46b3cfc75c8717eb395a1241575cd501b5189fe",
+   "expected": "0a458b62a16d310571851f30a46b3cfc75c8717eb395a1241575cd501b5189fe",
+   "ok": true
+  },
+  "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R05/scripts/bar_v1_1.py": {
+   "sha256": "0699cd454df81b998c1f89c915ded89ef60f55b1f3392753e7f84275d5d73911",
+   "expected": "0699cd454df81b998c1f89c915ded89ef60f55b1f3392753e7f84275d5d73911",
+   "ok": true
+  },
+  "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R05/scripts/run_bar_v1_1.py": {
+   "sha256": "6492ac5ad2ed75183797429bf438d42d3ab4a7789aad68132e54628ac9b467ab",
+   "expected": "6492ac5ad2ed75183797429bf438d42d3ab4a7789aad68132e54628ac9b467ab",
+   "ok": true
+  },
+  "/scratch/users/scdobbs/grl_review/R05/tiles/tiles_v1_1.parquet": {
+   "sha256": "8ef139867613b6c9f2eeb2e13073ee5562ecda51b3cf6f5bb7d17fd73df023dc",
+   "expected": "8ef139867613b6c9f2eeb2e13073ee5562ecda51b3cf6f5bb7d17fd73df023dc",
+   "ok": true
+  },
+  "/scratch/users/scdobbs/grl_review/R05/tiles/blocks_v1_1.parquet": {
+   "sha256": "22fd6ee0ab5ecb2367d64126c3d3154eb3cb4e5dd3fa65962f3e85d4718183cc",
+   "expected": "22fd6ee0ab5ecb2367d64126c3d3154eb3cb4e5dd3fa65962f3e85d4718183cc",
+   "ok": true
+  },
+  "/scratch/users/scdobbs/grl_review/R05/bar/pred_tile.parquet": {
+   "sha256": "d659fe0ff479b153d51c7f22e6f45f3bcbd5f6b924cd55c16269b87f72e3f6db",
+   "expected": "d659fe0ff479b153d51c7f22e6f45f3bcbd5f6b924cd55c16269b87f72e3f6db",
+   "ok": true,
+   "source": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/R05/bar/SHA256SUMS"
+  },
+  "/scratch/users/scdobbs/grl_review/R05/bar/pred_block.parquet": {
+   "sha256": "16d6cb25a3edf2720711f8bf60ae843844edbcaff1f6ac74f6df0b054179fba3",
+   "expected": "16d6cb25a3edf2720711f8bf60ae843844edbcaff1f6ac74f6df0b054179fba3",
+   "ok": true,
+   "source": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/R05/bar/SHA256SUMS"
+  },
+  "/scratch/users/scdobbs/grl_review/R05/bar/pred_tile_EW0207.parquet": {
+   "sha256": "9ce14643dadd0d96b1e128e57007ecb35c4beebc65efaa7d735ad337828a6e2e",
+   "expected": "9ce14643dadd0d96b1e128e57007ecb35c4beebc65efaa7d735ad337828a6e2e",
+   "ok": true,
+   "source": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/R05/bar/SHA256SUMS"
+  },
+  "/scratch/users/scdobbs/grl_review/R05/bar/pred_block_EW0207.parquet": {
+   "sha256": "24643b4225b53c9f0f2f21d0cf242fbac779e3afd009bbc708ce6c9126b31ad4",
+   "expected": "24643b4225b53c9f0f2f21d0cf242fbac779e3afd009bbc708ce6c9126b31ad4",
+   "ok": true,
+   "source": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/R05/bar/SHA256SUMS"
+  },
+  "/scratch/users/scdobbs/grl_review/R05/bar/pair_rules.json": {
+   "sha256": "7c9c7a730e936eb535f6087cc5893d93a5f85902ae70bd7fd2e15d1f45eb0622",
+   "expected": "7c9c7a730e936eb535f6087cc5893d93a5f85902ae70bd7fd2e15d1f45eb0622",
+   "ok": true,
+   "source": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/R05/bar/SHA256SUMS"
+  },
+  "/scratch/users/scdobbs/grl_review/R04/features/features_v1.parquet": {
+   "sha256": "89ed34d5971285fd28888686fa3298311b4fdf31d0f01a425456d66e488f168c",
+   "expected": "89ed34d5971285fd28888686fa3298311b4fdf31d0f01a425456d66e488f168c",
+   "ok": true,
+   "source": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/R04/features/SHA256SUMS"
+  }
+ },
+ "phase0_freeze_commit": "866320b7e0917460b63060e86b4a8be8b409c64e",
+ "git_head_at_run": "a0947c803c8c22cdd99152c0094cdedbe4c6c26b",
+ "tag": "phase2-r1",
+ "inputs_leak_test": {
+  "n": 100,
+  "n_identical": 100,
+  "n_usable": 74
+ }
+}

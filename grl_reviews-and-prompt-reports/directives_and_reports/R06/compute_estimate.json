@@ -1,0 +1,50 @@
+{
+ "pilot": {
+  "variant": "V1",
+  "fold": "lu00",
+  "seed": 20261002,
+  "wall_train_s": 1405.1590297222137,
+  "wall_infer_s": 5.096219301223755,
+  "wall_total_s": 1415.436876296997,
+  "s_per_step": 0.17564487871527673,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "n_train_windows": 20847
+ },
+ "probes_s_per_step": {
+  "V0": 0.18262514352798462,
+  "V2": 0.2743693256378174,
+  "V3": 0.057014611959457395,
+  "V1": 0.17564487871527673
+ },
+ "per_variant": {
+  "V0": {
+   "s_per_step": 0.18262514352798462,
+   "trainings": 17,
+   "gpu_h_per_training": 0.40663400009616035,
+   "gpu_h": 6.9127780016347256
+  },
+  "V1": {
+   "s_per_step": 0.17564487871527673,
+   "trainings": 49,
+   "gpu_h_per_training": 0.391122300512365,
+   "gpu_h": 19.164992725105886
+  },
+  "V2": {
+   "s_per_step": 0.2743693256378174,
+   "trainings": 17,
+   "gpu_h_per_training": 0.6105099603402332,
+   "gpu_h": 10.378669325783964
+  },
+  "V3": {
+   "s_per_step": 0.057014611959457395,
+   "trainings": 17,
+   "gpu_h_per_training": 0.12749948549943318,
+   "gpu_h": 2.1674912534903643
+  }
+ },
+ "n_trainings": 100,
+ "gpu_h_estimate": 38.62393130601494,
+ "budget_gpu_h": 400.0,
+ "within_budget": true,
+ "note": "estimate on the pilot GPU; A100 nodes, if used, are expected to be ~1.5-2x slower per step"
+}
