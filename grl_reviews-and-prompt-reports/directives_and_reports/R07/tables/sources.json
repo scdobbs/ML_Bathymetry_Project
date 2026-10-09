@@ -1,0 +1,13 @@
+{
+ "pretraining_blocks": "cache/cache_manifest.json:counts",
+ "pretraining_bins": "cache/per_bin.csv (build_cache_r07.py)",
+ "heldout_cruises": "cache/heldout_cruises.json",
+ "cache_summary": "cache/cache_manifest.json:train,val,rsd_log10_standardisation",
+ "pilot": "pretrain/P-V1_pilot/eval.json, pretrain_log.json:pilot_rule",
+ "pretext_P-V1": "pretrain/P-V1/eval.json, curves.json, pretrain_log.json",
+ "pretext_P-V2": "pretrain/P-V2/eval.json, curves.json, pretrain_log.json",
+ "equivalence": "checks/equiv_windows.json, checks/scratch_equiv/result.json",
+ "compute_estimate": "compute_estimate.json",
+ "compute_used": "scores/compute_summary.json",
+ "ledger": "cache/ledger.csv, task_ledger.json (sacct)"
+}

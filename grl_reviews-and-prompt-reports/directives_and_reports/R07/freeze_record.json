@@ -1,0 +1,482 @@
+{
+ "scripts_sha256": {
+  "build_cache.sbatch": "525045cc23e6742dbf84ff1e96d51020559534a22a2bf6fda159fd89456a99ff",
+  "build_cache_r07.py": "d3d7288e19eb3df481238454e049f9f4b8c5d22e3be83a5a99c40319730d587a",
+  "cpu_step.sbatch": "3257a8af45f453cc78b7d9eb00100ea8d3d2a570e70702bf42d71f40b5b6f7de",
+  "equiv_test_r07.py": "fcf037c8aa3f2329e76dad34c49dda653471cfe88b801dcc3c7fb7fc25f739c6",
+  "estimate_r07.py": "d528371740103041197c249705fe0bdc621f74aebb4d4db974a7283896f00fb1",
+  "freeze_r07.py": "56e16f542915b1c664cc405e6502b81121b1c722694ad1ad4ac49ea4c6c9e2ba",
+  "make_tasks_r07.py": "900a7935512fe041c0f5376b05e57c57da2e7fde4698b1de4f29a9be37b4ee48",
+  "preserve_r07.sbatch": "5111effa43f19959067a3148f991dab26823262c1241f027f2354fde802a5547",
+  "pretrain.sbatch": "71a1acf80d3ce05e16bf95152fff1f327bd18b8dfd41e5244a2a3eed9947fba4",
+  "pretrain_r07.py": "dd45a6bc2309cc26e9062910d79ee1940f01e53da5f140e0ff8d4d3fda632dbd",
+  "r07_common.py": "ccb652f34cf5fbfa47e8aafb9d5d469a907dc79cf6a07bf94ad495791d5667a8",
+  "r07_pretext_model.py": "af3f2ff6495fdddbc4289c74e8519b411019ef753e0db4d7c3055e0e333a38d9",
+  "r07_windows.py": "d3d127659dbdf2d38386dd9af00a29b6428f18483e3198c24de5653b730c63aa",
+  "report_tables_r07.py": "4a5e98775026f6e00571ac0f931d3ceba25537f806cd0bb92d802998f0c28cd7",
+  "score_r07.py": "d7036999f315a2b480fc641a2de41ac250f11d55e49b899f3ba952791c6a7592",
+  "scratch_equiv.sbatch": "01a0f47ff438d1431a092ffe8f76337f4475473052e4d415dfedaab8228dea60",
+  "scratch_equiv_r07.py": "36258e364ef786a84e6aab40784a81675e21cb8350dccc4b57a74340fc5fde6c",
+  "stage_corpus.sbatch": "9a8daaf00a5268757e6712f552e8769cd6b89ebf8871d6e0b62be6175c83627b",
+  "task_ledger_r07.py": "b776036ef11692c74ca6729bda93c8fa50134a731f9f07588b284a87683af2a6",
+  "tasks_pretrained.txt": "3cea3561e4f990052a9388fedbd73ddf12d2323af199fa70d1e1e3097b8d737c",
+  "tasks_scratch_v2.txt": "d7f9a46c5572f239b035098654bc4610fd5157c50dfad6930a32539965564a62",
+  "test_score_synthetic_r07.py": "1d99b10ce9bcec050db1c562ad9095f016ddcf87e952b59c1e7d9be52e6a6341",
+  "train_array.sbatch": "0c47eb545c7a1d1e68bc3d0a5e9a2796bc8348636207157ddfe2fe76e05011e4",
+  "train_r07.py": "7592acdd6f79b1d76df3f591eb6a3b38a3476fbc780d9719af4d5eab99d92e98"
+ },
+ "code_sha256": "3d6dcae7a73f4dc62a7200a0fdfb7d3636052e292229f4b2d35caa3610d03a55",
+ "code_files": [
+  "r07_common.py",
+  "r07_windows.py",
+  "build_cache_r07.py",
+  "r07_pretext_model.py",
+  "pretrain_r07.py",
+  "train_r07.py",
+  "R06/scripts/r06_model.py"
+ ],
+ "train_logs": 136,
+ "code_hashes_in_train_logs": {
+  "3d6dcae7a73f4dc62a7200a0fdfb7d3636052e292229f4b2d35caa3610d03a55": 102,
+  "4526a59eeb6af3b3668e7807164a58e27d9a96672c64c603a4f6785e3f374ffd": 34
+ },
+ "code_hashes_in_pretrain_logs": {
+  "P-V1_pilot": "4526a59eeb6af3b3668e7807164a58e27d9a96672c64c603a4f6785e3f374ffd",
+  "P-V1": "3d6dcae7a73f4dc62a7200a0fdfb7d3636052e292229f4b2d35caa3610d03a55",
+  "P-V2": "4526a59eeb6af3b3668e7807164a58e27d9a96672c64c603a4f6785e3f374ffd"
+ },
+ "pretrained_bodies_sha256": {
+  "P-V1": "1824107d108ca331e8563d80ce99733dcb92023b849891d5aeaf690a2c96cee4",
+  "P-V2": "88cc913a956444a14167128938d7e54e7dd930d2458251988c4322d373a77ab4"
+ },
+ "frozen_r05": {
+  "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R04/scripts/targets_v1.py": {
+   "sha256": "51b6a0f0c5136bfeb91162543d571517f3eec911db7bae1d163441d9d57b039b",
+   "expected": "51b6a0f0c5136bfeb91162543d571517f3eec911db7bae1d163441d9d57b039b",
+   "ok": true
+  },
+  "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R04/scripts/r04_common.py": {
+   "sha256": "6dfe324a46120d3126eeace494781a48612c83fcc4f73610f9073879590adc3e",
+   "expected": "6dfe324a46120d3126eeace494781a48612c83fcc4f73610f9073879590adc3e",
+   "ok": true
+  },
+  "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R05/scripts/eval_v1_1.py": {
+   "sha256": "647e58909f5981022b86e4191bd4ec344d2851ec46d9f65424a0dc719a1a5307",
+   "expected": "647e58909f5981022b86e4191bd4ec344d2851ec46d9f65424a0dc719a1a5307",
+   "ok": true
+  },
+  "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R05/scripts/features_v1_1.py": {
+   "sha256": "a19be345458c9be229879a38f01ab6d44ea7b87cd6ab8b91b03510885b0ed840",
+   "expected": "a19be345458c9be229879a38f01ab6d44ea7b87cd6ab8b91b03510885b0ed840",
+   "ok": true
+  },
+  "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R05/scripts/r05_common.py": {
+   "sha256": "0a458b62a16d310571851f30a46b3cfc75c8717eb395a1241575cd501b5189fe",
+   "expected": "0a458b62a16d310571851f30a46b3cfc75c8717eb395a1241575cd501b5189fe",
+   "ok": true
+  },
+  "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R05/scripts/bar_v1_1.py": {
+   "sha256": "0699cd454df81b998c1f89c915ded89ef60f55b1f3392753e7f84275d5d73911",
+   "expected": "0699cd454df81b998c1f89c915ded89ef60f55b1f3392753e7f84275d5d73911",
+   "ok": true
+  },
+  "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R05/scripts/run_bar_v1_1.py": {
+   "sha256": "6492ac5ad2ed75183797429bf438d42d3ab4a7789aad68132e54628ac9b467ab",
+   "expected": "6492ac5ad2ed75183797429bf438d42d3ab4a7789aad68132e54628ac9b467ab",
+   "ok": true
+  },
+  "/scratch/users/scdobbs/grl_review/R05/tiles/tiles_v1_1.parquet": {
+   "sha256": "8ef139867613b6c9f2eeb2e13073ee5562ecda51b3cf6f5bb7d17fd73df023dc",
+   "expected": "8ef139867613b6c9f2eeb2e13073ee5562ecda51b3cf6f5bb7d17fd73df023dc",
+   "ok": true
+  },
+  "/scratch/users/scdobbs/grl_review/R05/tiles/blocks_v1_1.parquet": {
+   "sha256": "22fd6ee0ab5ecb2367d64126c3d3154eb3cb4e5dd3fa65962f3e85d4718183cc",
+   "expected": "22fd6ee0ab5ecb2367d64126c3d3154eb3cb4e5dd3fa65962f3e85d4718183cc",
+   "ok": true
+  },
+  "/scratch/users/scdobbs/grl_review/R05/bar/pred_tile.parquet": {
+   "sha256": "d659fe0ff479b153d51c7f22e6f45f3bcbd5f6b924cd55c16269b87f72e3f6db",
+   "expected": "d659fe0ff479b153d51c7f22e6f45f3bcbd5f6b924cd55c16269b87f72e3f6db",
+   "ok": true,
+   "source": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/R05/bar/SHA256SUMS"
+  },
+  "/scratch/users/scdobbs/grl_review/R05/bar/pred_block.parquet": {
+   "sha256": "16d6cb25a3edf2720711f8bf60ae843844edbcaff1f6ac74f6df0b054179fba3",
+   "expected": "16d6cb25a3edf2720711f8bf60ae843844edbcaff1f6ac74f6df0b054179fba3",
+   "ok": true,
+   "source": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/R05/bar/SHA256SUMS"
+  },
+  "/scratch/users/scdobbs/grl_review/R05/bar/pred_tile_EW0207.parquet": {
+   "sha256": "9ce14643dadd0d96b1e128e57007ecb35c4beebc65efaa7d735ad337828a6e2e",
+   "expected": "9ce14643dadd0d96b1e128e57007ecb35c4beebc65efaa7d735ad337828a6e2e",
+   "ok": true,
+   "source": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/R05/bar/SHA256SUMS"
+  },
+  "/scratch/users/scdobbs/grl_review/R05/bar/pred_block_EW0207.parquet": {
+   "sha256": "24643b4225b53c9f0f2f21d0cf242fbac779e3afd009bbc708ce6c9126b31ad4",
+   "expected": "24643b4225b53c9f0f2f21d0cf242fbac779e3afd009bbc708ce6c9126b31ad4",
+   "ok": true,
+   "source": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/R05/bar/SHA256SUMS"
+  },
+  "/scratch/users/scdobbs/grl_review/R05/bar/pair_rules.json": {
+   "sha256": "7c9c7a730e936eb535f6087cc5893d93a5f85902ae70bd7fd2e15d1f45eb0622",
+   "expected": "7c9c7a730e936eb535f6087cc5893d93a5f85902ae70bd7fd2e15d1f45eb0622",
+   "ok": true,
+   "source": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/R05/bar/SHA256SUMS"
+  },
+  "/scratch/users/scdobbs/grl_review/R04/features/features_v1.parquet": {
+   "sha256": "89ed34d5971285fd28888686fa3298311b4fdf31d0f01a425456d66e488f168c",
+   "expected": "89ed34d5971285fd28888686fa3298311b4fdf31d0f01a425456d66e488f168c",
+   "ok": true,
+   "source": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/R04/features/SHA256SUMS"
+  }
+ },
+ "r06_freeze": {
+  "scripts": {
+   "build_inputs.sbatch": {
+    "sha256": "04a86643da7330bd5c080a2cd568dbeb8824b3ebe9f8c6c4b6add58dbd23e92f",
+    "expected": "04a86643da7330bd5c080a2cd568dbeb8824b3ebe9f8c6c4b6add58dbd23e92f",
+    "ok": true
+   },
+   "build_inputs_r06.py": {
+    "sha256": "393c6dda7f29155a95af0cab2591a190042fa24c1164ede6adbbd3e4e66f2161",
+    "expected": "393c6dda7f29155a95af0cab2591a190042fa24c1164ede6adbbd3e4e66f2161",
+    "ok": true
+   },
+   "freeze_r06.py": {
+    "sha256": "fb207a35f3e38a7addeace63e6fa8cb85a2fde54d76afcec3c854e8d05ce2dee",
+    "expected": "fb207a35f3e38a7addeace63e6fa8cb85a2fde54d76afcec3c854e8d05ce2dee",
+    "ok": true
+   },
+   "make_tasks.py": {
+    "sha256": "22729a6a60b57e8c7bb83ca4c3f06547433d1931fb3f522ac1dec4c130d46bbb",
+    "expected": "22729a6a60b57e8c7bb83ca4c3f06547433d1931fb3f522ac1dec4c130d46bbb",
+    "ok": true
+   },
+   "pilot.sbatch": {
+    "sha256": "980d36b8034d7ed66163fc608a6f9ac6670903ed25cb0b4159a5ece1c2cc15ee",
+    "expected": "980d36b8034d7ed66163fc608a6f9ac6670903ed25cb0b4159a5ece1c2cc15ee",
+    "ok": true
+   },
+   "pilot_extrapolate.py": {
+    "sha256": "9657d4860317c1bf351db3e6afdd4cb988c06a2d49ef6c7d7aa98167657f33ee",
+    "expected": "9657d4860317c1bf351db3e6afdd4cb988c06a2d49ef6c7d7aa98167657f33ee",
+    "ok": true
+   },
+   "preserve_r06.sbatch": {
+    "sha256": "ab667e25eb165e3def0725516fe0596ac270bcc48ff4ca7d2cb3dd08171e787d",
+    "expected": "ab667e25eb165e3def0725516fe0596ac270bcc48ff4ca7d2cb3dd08171e787d",
+    "ok": true
+   },
+   "r06_common.py": {
+    "sha256": "418b49fdc95ed295a75a01b934eed0cb57625b01127966be2addd30bd294910f",
+    "expected": "418b49fdc95ed295a75a01b934eed0cb57625b01127966be2addd30bd294910f",
+    "ok": true
+   },
+   "r06_model.py": {
+    "sha256": "8083d5b1346c1104eb07c9b65d0d37a88cc7edde9189ba672f45251957a33ec3",
+    "expected": "8083d5b1346c1104eb07c9b65d0d37a88cc7edde9189ba672f45251957a33ec3",
+    "ok": true
+   },
+   "score_r06.py": {
+    "sha256": "76f3a23368afb80e49d3b6600c56c62a7efaf798e8da5f8412dfe42b47d58991",
+    "expected": "76f3a23368afb80e49d3b6600c56c62a7efaf798e8da5f8412dfe42b47d58991",
+    "ok": true
+   },
+   "tasks.txt": {
+    "sha256": "9e3d727c4687a1c77eab43df72d7fff8c0049183496e123ddd7d1e966bcaf229",
+    "expected": "9e3d727c4687a1c77eab43df72d7fff8c0049183496e123ddd7d1e966bcaf229",
+    "ok": true
+   },
+   "test_score_synthetic.py": {
+    "sha256": "94f604f2bd5df00f51486feacb79e7409f4922684a304ce48121a16907c8a0fa",
+    "expected": "94f604f2bd5df00f51486feacb79e7409f4922684a304ce48121a16907c8a0fa",
+    "ok": true
+   },
+   "train_array.sbatch": {
+    "sha256": "32dd359dd33044372bd2dd3b8ce543f53c4b3e00dd8a9d08b4909b841d87d510",
+    "expected": "32dd359dd33044372bd2dd3b8ce543f53c4b3e00dd8a9d08b4909b841d87d510",
+    "ok": true
+   },
+   "train_r06.py": {
+    "sha256": "cc35be755ec1310e5b2376d0914a6e79061087906345b3c4152bc27dff4b5e58",
+    "expected": "cc35be755ec1310e5b2376d0914a6e79061087906345b3c4152bc27dff4b5e58",
+    "ok": true
+   }
+  },
+  "training_code_sha256": "bf5a82b47fb95d01c66be3f718b3a239e319d1ef3b02fe35e8d51a3919316148",
+  "expected": "bf5a82b47fb95d01c66be3f718b3a239e319d1ef3b02fe35e8d51a3919316148"
+ },
+ "corpus": {
+  "/scratch/users/scdobbs/grl_review/R07/corpus/meta/pretrain_manifest_v1.parquet": {
+   "sha256": "12709204d3ed2fc1043d09740f754b45c8f624bab95eaa1421d1167b8226ca69",
+   "expected": "12709204d3ed2fc1043d09740f754b45c8f624bab95eaa1421d1167b8226ca69",
+   "ok": true
+  },
+  "/scratch/users/scdobbs/grl_review/R07/corpus/SHA256SUMS": {
+   "sha256": "bbcc6ff1e6e7ec9f7c840ce052b2b5c3932aaccf106c0fd617e4dc61ac72cb26",
+   "expected": "bbcc6ff1e6e7ec9f7c840ce052b2b5c3932aaccf106c0fd617e4dc61ac72cb26",
+   "ok": true
+  }
+ },
+ "cache_manifest": {
+  "created": "2026-10-07T12:32:59",
+  "corpus_manifest_sha256": "12709204d3ed2fc1043d09740f754b45c8f624bab95eaa1421d1167b8226ca69",
+  "counts": {
+   "corpus_blocks": 51322,
+   "corpus_cruises": 255,
+   "excluded_cell_below_10m": 30,
+   "excluded_cell_above_256m": 2067,
+   "reconstruction_task_blocks": 49225,
+   "spread_task_blocks": 45705,
+   "cruises_in_range": 255
+  },
+  "bin_edges_m": [
+   9.999999999999998,
+   14.997884186649115,
+   22.493653007613954,
+   33.73572027428659,
+   50.59644256269406,
+   75.88395858117299,
+   113.80988224249104,
+   170.69074331690558,
+   256.0
+  ],
+  "per_bin": [
+   {
+    "bin": 0,
+    "cell_lo_m": 9.999999999999998,
+    "cell_hi_m": 14.997884186649115,
+    "blocks": 205,
+    "blocks_train": 194,
+    "blocks_heldout": 11,
+    "blocks_usable": 205,
+    "cruises": 25,
+    "train_windows_built": 479750,
+    "train_windows_share": 0.12493489583333334,
+    "train_windows_usable": 479750
+   },
+   {
+    "bin": 1,
+    "cell_lo_m": 14.997884186649115,
+    "cell_hi_m": 22.493653007613954,
+    "blocks": 177,
+    "blocks_train": 138,
+    "blocks_heldout": 39,
+    "blocks_usable": 174,
+    "cruises": 52,
+    "train_windows_built": 479917,
+    "train_windows_share": 0.12497838541666667,
+    "train_windows_usable": 469613
+   },
+   {
+    "bin": 2,
+    "cell_lo_m": 22.493653007613954,
+    "cell_hi_m": 33.73572027428659,
+    "blocks": 765,
+    "blocks_train": 607,
+    "blocks_heldout": 158,
+    "blocks_usable": 741,
+    "cruises": 93,
+    "train_windows_built": 480736,
+    "train_windows_share": 0.12519166666666667,
+    "train_windows_usable": 470365
+   },
+   {
+    "bin": 3,
+    "cell_lo_m": 33.73572027428659,
+    "cell_hi_m": 50.59644256269406,
+    "blocks": 2720,
+    "blocks_train": 2388,
+    "blocks_heldout": 332,
+    "blocks_usable": 2649,
+    "cruises": 135,
+    "train_windows_built": 478842,
+    "train_windows_share": 0.1246984375,
+    "train_windows_usable": 466307
+   },
+   {
+    "bin": 4,
+    "cell_lo_m": 50.59644256269406,
+    "cell_hi_m": 75.88395858117299,
+    "blocks": 8975,
+    "blocks_train": 8211,
+    "blocks_heldout": 764,
+    "blocks_usable": 8225,
+    "cruises": 179,
+    "train_windows_built": 479801,
+    "train_windows_share": 0.12494817708333333,
+    "train_windows_usable": 437780
+   },
+   {
+    "bin": 5,
+    "cell_lo_m": 75.88395858117299,
+    "cell_hi_m": 113.80988224249104,
+    "blocks": 22333,
+    "blocks_train": 21355,
+    "blocks_heldout": 978,
+    "blocks_usable": 21075,
+    "cruises": 184,
+    "train_windows_built": 480316,
+    "train_windows_share": 0.12508229166666668,
+    "train_windows_usable": 453396
+   },
+   {
+    "bin": 6,
+    "cell_lo_m": 113.80988224249104,
+    "cell_hi_m": 170.69074331690558,
+    "blocks": 7343,
+    "blocks_train": 7325,
+    "blocks_heldout": 18,
+    "blocks_usable": 6536,
+    "cruises": 69,
+    "train_windows_built": 479322,
+    "train_windows_share": 0.1248234375,
+    "train_windows_usable": 426626
+   },
+   {
+    "bin": 7,
+    "cell_lo_m": 170.69074331690558,
+    "cell_hi_m": 256.0,
+    "blocks": 6707,
+    "blocks_train": 6185,
+    "blocks_heldout": 522,
+    "blocks_usable": 6100,
+    "cruises": 50,
+    "train_windows_built": 481316,
+    "train_windows_share": 0.12534270833333333,
+    "train_windows_usable": 435558
+   }
+  ],
+  "heldout": {
+   "n_cruises": 13,
+   "n_blocks": 2822,
+   "by_family": {
+    "Atlas Hydrosweep": 1,
+    "Kongsberg EM12x (deep)": 6,
+    "Kongsberg EM30x": 2,
+    "SeaBeam family": 4
+   }
+  },
+  "train": {
+   "n_drawn": 3840000,
+   "n_built": 3840000,
+   "n_dropped": 0,
+   "n_shards": 80,
+   "bins_drawn": [
+    479750,
+    479917,
+    480736,
+    478842,
+    479801,
+    480316,
+    479322,
+    481316
+   ],
+   "bins_built": [
+    479750,
+    479917,
+    480736,
+    478842,
+    479801,
+    480316,
+    479322,
+    481316
+   ],
+   "bytes": 21566338628
+  },
+  "val": {
+   "n_drawn": 16384,
+   "n_built": 16384,
+   "n_dropped": 0,
+   "n_shards": 1,
+   "bins_drawn": [
+    2153,
+    2049,
+    1994,
+    2049,
+    2025,
+    2014,
+    2058,
+    2042
+   ],
+   "bytes": 106640699
+  },
+  "rsd_log10_standardisation": {
+   "mean": 0.32642924785614014,
+   "sd": 0.5810012817382812,
+   "n_blocks": 33031308,
+   "p01": -1.2763078212738037,
+   "p99": 1.4598231315612793
+  },
+  "rsd_covered_blocks_train": 33031308,
+  "sampler": {
+   "bins": "8 equal-width log2 bins from log2 10 to log2 256; bin uniform, block uniform within bin, position uniform within block (integer px on the synthetic HR grid)",
+   "hr_res": "R06 development sampler over the 16 units-v1 units: unit uniform, pair uniform; the pair's tiles_v1.1 hr_res",
+   "validity": "window kept if >= 50% of its lr_px^2 LR cells are valid and >= 3 are valid (so >= 2 remain after masking 30%)",
+   "position_tries": 30,
+   "seeds": {
+    "pre_seed": 20261007,
+    "draw_train": [
+     20261007,
+     0
+    ],
+    "draw_val": [
+     20261007,
+     1
+    ],
+    "positions": "default_rng([PRE_SEED, split_tag, wid])"
+   }
+  },
+  "block_cover_min": 0.5,
+  "rsd_floor_m": 0.001,
+  "seconds": 11555.32329583168,
+  "workers": 32,
+  "host": "sh04-07n13.int",
+  "slurm_job": "46905122",
+  "code_hash": "4526a59eeb6af3b3668e7807164a58e27d9a96672c64c603a4f6785e3f374ffd"
+ },
+ "phase0_freeze_commit": "866320b7e0917460b63060e86b4a8be8b409c64e",
+ "phase2_r1_commit": "683a99fd4d2c4dadd9c9207849c2cbef573018f0",
+ "git_head_at_run": "206963c041b4d68b0b91f4faf47a141d519cb122",
+ "tag": "phase3-r1",
+ "scratch_equiv": {
+  "fold": "lu00",
+  "seed": 20261002,
+  "gpu_this_run": "NVIDIA H100 80GB HBM3",
+  "gpu_r06": "NVIDIA H100 80GB HBM3",
+  "host_this_run": "sh04-09n01.int",
+  "host_r06": "sh04-01n01.int",
+  "n_windows": 2591,
+  "predictions_identical": true,
+  "max_abs_diff_log10_blocks_and_tile_m": 0.0,
+  "max_abs_diff_blocks_log10": 0.0,
+  "max_abs_diff_tile_m": 0.0,
+  "weights_identical": true,
+  "weights_max_abs_diff": 0.0,
+  "final_loss_100_this": 0.07518084527924657,
+  "final_loss_100_r06": 0.07518084527924657,
+  "n_train_windows_this": 20847,
+  "n_train_windows_r06": 20847,
+  "s_per_step_this": 0.17647765362262727,
+  "s_per_step_r06": 0.17564487871527673,
+  "r06_files_verified_against_oak": {
+   "pred.parquet": "fc4ab7b83290456f06f73b53394d91cecc683dbc39905f5087ab187f2f1ea833",
+   "ckpt.pt": "ad06b9b8da8340df588037b0ec693142878c9a61e48e91d4caaa9b7a7ae889ac",
+   "train_log.json": "ad7bab179ad291875e1491c13844e063c83b8f890a2a36f1852de4d4c7652e4b"
+  },
+  "torch_this": "2.4.0a0",
+  "torch_r06": "2.4.0a0",
+  "verdict": "IDENTICAL"
+ },
+ "equiv_windows": {
+  "n": 200,
+  "n_identical_to_stored_r06_arrays": 200,
+  "n_identical_to_recomputed_r06_builder": 200,
+  "n_usable_windows": 139,
+  "n_pairs": 38,
+  "seconds": 166.54775166511536,
+  "verdict": "PASS"
+ }
+}
