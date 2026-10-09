@@ -1,0 +1,23 @@
+{
+ "provenance": "provenance/*.json (r08_common.start)",
+ "within_site_per_unit": "within_site/per_unit.csv (within_site_r08.py)",
+ "within_site_summary": "within_site/scores.json:median_ci,comparisons_within_minus (within_site_r08.py)",
+ "within_site_infeasible": "within_site/feasibility.json (within_site_r08.py)",
+ "importance_groups": "importance/groups.json (importance_r08.py)",
+ "importance_per_unit": "importance/permutation_importance.{csv,json} (importance_r08.py)",
+ "refit_check": "importance/refit_check.json (importance_r08.py)",
+ "dropgroup": "importance/dropgroup_scores.json (importance_r08.py)",
+ "field_metrics_per_pair": "fields/field_metrics.csv (fields_r08.py)",
+ "field_metrics_groups": "fields/field_metrics.csv (fields_r08.py)",
+ "level_per_unit": "level_geometry/level_per_unit.csv (level_geometry_r08.py)",
+ "level_per_pair": "level_geometry/level_per_pair.csv (level_geometry_r08.py)",
+ "level_correlations": "level_geometry/level_correlations.json (level_geometry_r08.py)",
+ "geometry_per_unit": "level_geometry/geometry_partial_rho_per_unit.csv, geometry_summary.json (level_geometry_r08.py)",
+ "geometry_summary": "level_geometry/geometry_summary.json:summary (level_geometry_r08.py)",
+ "wide_defined": "wide_window/defined_fraction.csv, pred_tile_wide.parquet, scores.json (wide_window_r08.py)",
+ "wide_per_unit": "wide_window/scores.json:scores_per_unit (wide_window_r08.py)",
+ "wide_median": "wide_window/scores.json:median_ci (wide_window_r08.py)",
+ "wide_comparisons": "wide_window/scores.json:comparisons (wide_window_r08.py)",
+ "wide_checks": "wide_window/leak_test.json, pairs_info.json (wide_window_r08.py)",
+ "ledger": "within_site/feasibility.json, importance/permutation_importance.csv, fields/field_metrics.csv, wide_window/defined_fraction.csv, leak_test.json"
+}

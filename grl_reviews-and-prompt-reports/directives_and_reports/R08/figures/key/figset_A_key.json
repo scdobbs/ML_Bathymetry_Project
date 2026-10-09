@@ -1,0 +1,200 @@
+{
+ "seed": 20261010,
+ "order": [
+  {
+   "code": "P01",
+   "pair": "EW0207__MGDS_32556",
+   "unit": "lu16"
+  },
+  {
+   "code": "P02",
+   "pair": "cal_dig_morro_bay__20180426m2_Channel1000",
+   "unit": "lu12"
+  },
+  {
+   "code": "P03",
+   "pair": "TN399__MGDS_33068",
+   "unit": "lu05"
+  },
+  {
+   "code": "P04",
+   "pair": "cal_dig_morro_bay__20190511m2_BankTopEofCanyon3",
+   "unit": "lu12"
+  },
+  {
+   "code": "P05",
+   "pair": "cal_dig_morro_bay__20180428m1_Cable",
+   "unit": "lu12"
+  },
+  {
+   "code": "P06",
+   "pair": "EW9801__MGDS_31425",
+   "unit": "lu07"
+  },
+  {
+   "code": "P07",
+   "pair": "tag_m127",
+   "unit": "lu09"
+  },
+  {
+   "code": "P08",
+   "pair": "cal_dig_morro_bay__20190317m2_600mGully",
+   "unit": "lu12"
+  },
+  {
+   "code": "P09",
+   "pair": "cal_dig_morro_bay__20190511m1_6thHeadlessCany",
+   "unit": "lu12"
+  },
+  {
+   "code": "P10",
+   "pair": "NA080__MGDS_31289",
+   "unit": "lu13"
+  },
+  {
+   "code": "P11",
+   "pair": "cal_dig_morro_bay__luciachica_2007",
+   "unit": "lu12"
+  },
+  {
+   "code": "P12",
+   "pair": "TN299__MGDS_27339",
+   "unit": "lu15"
+  },
+  {
+   "code": "P13",
+   "pair": "FK151121__MGDS_22383",
+   "unit": "nu00"
+  },
+  {
+   "code": "P14",
+   "pair": "cal_dig_morro_bay__basin_flank",
+   "unit": "lu12"
+  },
+  {
+   "code": "P15",
+   "pair": "NA076__MGDS_32317",
+   "unit": "lu11"
+  },
+  {
+   "code": "P16",
+   "pair": "FK181031__MGDS_24618",
+   "unit": "lu08"
+  },
+  {
+   "code": "P17",
+   "pair": "NA080__MGDS_31290",
+   "unit": "lu13"
+  },
+  {
+   "code": "P18",
+   "pair": "cal_dig_morro_bay__20190316m1_BankTop",
+   "unit": "lu12"
+  },
+  {
+   "code": "P19",
+   "pair": "discol_so242_1",
+   "unit": "lu02"
+  },
+  {
+   "code": "P20",
+   "pair": "cal_dig_morro_bay__20180427m1_Channel700",
+   "unit": "lu12"
+  },
+  {
+   "code": "P21",
+   "pair": "TN299__MGDS_31253",
+   "unit": "lu15"
+  },
+  {
+   "code": "P22",
+   "pair": "cal_dig_morro_bay__20190314m4_LuciaChica970m",
+   "unit": "lu12"
+  },
+  {
+   "code": "P23",
+   "pair": "cal_dig_morro_bay__20180427m3_PockmarkNorth",
+   "unit": "lu12"
+  },
+  {
+   "code": "P24",
+   "pair": "TN399__MGDS_30373",
+   "unit": "lu05"
+  },
+  {
+   "code": "P25",
+   "pair": "cal_dig_morro_bay__20190318m2_Transect601060m",
+   "unit": "lu12"
+  },
+  {
+   "code": "P26",
+   "pair": "AT42-06__MGDS_5174",
+   "unit": "lu05"
+  },
+  {
+   "code": "P27",
+   "pair": "ccz_so268_1",
+   "unit": "lu06"
+  },
+  {
+   "code": "P28",
+   "pair": "RR1506__MGDS_29779",
+   "unit": "lu00"
+  },
+  {
+   "code": "P29",
+   "pair": "cal_dig_morro_bay__pockmark_south",
+   "unit": "lu12"
+  },
+  {
+   "code": "P30",
+   "pair": "AR26__MGDS_31838",
+   "unit": "lu14"
+  },
+  {
+   "code": "P31",
+   "pair": "EX1402L2__MGDS_31073",
+   "unit": "vu02"
+  },
+  {
+   "code": "P32",
+   "pair": "cal_dig_morro_bay__20190510m2_BankFlankIncipCh",
+   "unit": "lu12"
+  },
+  {
+   "code": "P33",
+   "pair": "cal_dig_morro_bay__20190317m1_1000mGully",
+   "unit": "lu12"
+  },
+  {
+   "code": "P34",
+   "pair": "AT37-13__MGDS_31199",
+   "unit": "lu04"
+  },
+  {
+   "code": "P35",
+   "pair": "NA090__MGDS_31212",
+   "unit": "lu10"
+  },
+  {
+   "code": "P36",
+   "pair": "cal_dig_morro_bay__20190315m1_HeadlessCanyon",
+   "unit": "lu12"
+  },
+  {
+   "code": "P37",
+   "pair": "KM0923__MGDS_31429",
+   "unit": "lu07"
+  },
+  {
+   "code": "P38",
+   "pair": "cal_dig_morro_bay__201804_LuciaChica2m",
+   "unit": "lu12"
+  },
+  {
+   "code": "P39",
+   "pair": "cal_dig_morro_bay__20190510m1_BankFlankHoles",
+   "unit": "lu12"
+  }
+ ]
+}
