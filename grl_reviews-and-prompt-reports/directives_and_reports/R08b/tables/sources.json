@@ -1,0 +1,19 @@
+{
+ "blind_calls_joined": "R08_figset_A_calls_steve_2026-10-09.csv joined to R08/figures/key/figset_A_key.json",
+ "interior_per_pair": "interior/pairs.json (interior_r08b.py)",
+ "interior_per_unit": "interior/tiles_interior.parquet (interior_r08b.py)",
+ "eligibility_drops": "scores/eligibility.json:drops (score_r08b.py)",
+ "scores_ten": "scores/scores.json:median,interior_vs_all[ten] (score_r08b.py)",
+ "per_unit_ten": "scores/scores.json:per_unit (score_r08b.py), units of ten",
+ "scores_nine": "scores/scores.json:median,interior_vs_all[nine] (score_r08b.py)",
+ "per_unit_nine": "scores/scores.json:per_unit (score_r08b.py), units of nine",
+ "scores_six": "scores/scores.json:median,interior_vs_all[six] (score_r08b.py)",
+ "per_unit_six": "scores/scores.json:per_unit (score_r08b.py), units of six",
+ "scores_all16": "scores/scores.json:median,interior_vs_all[all16] (score_r08b.py)",
+ "per_unit_all16": "scores/scores.json:per_unit (score_r08b.py), units of all16",
+ "paired_comparisons": "scores/scores.json:paired (score_r08b.py)",
+ "within_site": "scores/scores.json:within_vs_gbt (score_r08b.py)",
+ "reading_guide": "scores/scores.json:reading_guide (score_r08b.py)",
+ "EW0207": "scores/scores.json:EW0207 (score_r08b.py)",
+ "ledger": "interior/tiles_interior.parquet, scores/eligibility.json, scores/scores.json"
+}

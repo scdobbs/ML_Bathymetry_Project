@@ -1,0 +1,40 @@
+code,call_text,relief,a_stripes,b_ribbing,c_halos,dominant
+P01,relief,yes,,,,relief
+P02,relief plus survey-line stripes NW–SE across the whole survey,yes,yes,,,relief
+P03,relief,yes,,,,relief
+P04,relief plus gridding ribbing across the whole survey,yes,,yes,,relief
+P05,relief plus edge halos along some edges (~30 %),yes,,,yes,relief
+P06,relief plus edge halos at interior no-data areas (~10 %),yes,,,yes,relief
+P07,relief,yes,,,,relief
+P08,relief plus survey-line stripes and edge halos,yes,yes,,yes,relief
+P09,relief plus gridding ribbing across the whole survey,yes,,yes,,relief
+P10,relief,yes,,,,relief
+P11,relief plus survey lines and halos at interior data gaps,yes,yes,,yes,relief
+P12,relief,yes,,,,relief
+P13,relief,yes,,,,relief
+P14,relief plus edge halos at survey ends and stripes NE–SW,yes,yes,,yes,relief
+P15,relief plus survey-line stripes and edge halos,yes,yes,,yes,relief
+P16,relief and survey-line stripes; relief starker than the stripes,yes,yes,,,relief
+P17,relief and subtle survey-line stripes,yes,yes,,,relief
+P18,relief plus gridding ribbing,yes,,yes,,relief
+P19,"very subtle relief, stripes NE–SW, one dark E–W artifact line",weak,yes,,,artifact
+P20,relief plus grid ribbing across the whole survey,yes,,yes,,relief
+P21,"relief strongest, also survey lines and edge halos",yes,yes,,yes,relief
+P22,relief plus grid ribbing and moderate edge halos,yes,,yes,yes,relief
+P23,relief plus survey-line tracks and edges,yes,yes,,yes,relief
+P24,relief,yes,,,,relief
+P25,relief plus survey-line tracks and edge halos,yes,yes,,yes,relief
+P26,relief,yes,,,,relief
+P27,"very subtle relief, strong edge halos NE and SW",weak,,,yes,artifact
+P28,relief and very subtle line tracks,yes,yes,,,relief
+P29,relief and line tracks,yes,yes,,,relief
+P30,"relief, very strong edge halos at data holes and survey ends",yes,,,yes,relief
+P31,"edge effects, relief and line surveys",yes,yes,,yes,relief
+P32,relief and grid ribbing,yes,,yes,,relief
+P33,line surveys and relief,yes,yes,,,relief
+P34,relief and edge halos at data holes,yes,,,yes,relief
+P35,relief and very subtle line surveys,yes,yes,,,relief
+P36,"relief, very strong edge halos at interior no-data and line surveys",yes,yes,,yes,relief
+P37,relief,yes,,,,relief
+P38,survey lines and relief,yes,yes,,,relief
+P39,survey lines and relief,yes,yes,,,relief
