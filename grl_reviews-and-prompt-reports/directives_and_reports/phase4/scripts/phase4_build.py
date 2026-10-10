@@ -19,16 +19,21 @@ import r04_common as C4, r05_common as C5, r06_common as R6, targets_v1 as T, ta
 import build_tiles_targets as BTT, build_features as BF, build_inputs_r06 as BI, bar_v1_1 as B
 
 def require_row(row, pid):
-    missing = [c for c in ("harmonized_path_hr", "harmonized_path_lr", "lr_native_res_m", "max_recoverable_k") if not (isinstance(row.get(c), str) and row.get(c)) and not (isinstance(row.get(c), (int, float)) and np.isfinite(row.get(c)))]
-    if missing: raise P4.Refusal(f"manifest row of {pid} lacks {missing}: Phase 4 step 1 (acquisition repo) must fill them first")
+    """§A4: a row without spacings or harmonized paths is refused; a row with them but no max_recoverable_k is NO_K (nothing is built)."""
+    st = P4.row_status(row)
+    if st == "refused": raise P4.Refusal(f"manifest row of {pid} lacks a spacing or a harmonized path: Phase 4 step 1 (acquisition repo) must fill them first")
+    return st
 
 def block_stats(tiles, flag):
     t = tiles[flag]; n = len(t); nb = int(len({(int(r0) // T.STRIDE // 4, int(c0) // T.STRIDE // 4) for r0, c0 in zip(t.r0, t.c0)})) if n else 0
     return n, nb
 
 def build_pair(m, pid, root, workers, log=print):
-    t0 = time.time(); row = C4.pair_row(m, pid); require_row(row, pid); unit = P4.unit_of(pid, m); C4.UNIT_OF.setdefault(pid, unit)
+    t0 = time.time(); row = C4.pair_row(m, pid); st = require_row(row, pid); unit = P4.unit_of(pid, m); C4.UNIT_OF.setdefault(pid, unit)
     out = f"{root}/build/{pid}"; os.makedirs(out, exist_ok=True); os.makedirs(f"{root}/fields", exist_ok=True)
+    if st == P4.NO_K:
+        stats = dict(pair=pid, unit=unit, status=P4.NO_K, lr_native=float(row["lr_native_res_m"]), note="no recoverable k in the manifest row: no fine band; nothing built, no figure page, outside C1 (pre-registration v2 B4 rule 0)", seconds=time.time() - t0)
+        json.dump(stats, open(f"{out}/pair_stats.json", "w"), indent=1, default=float); log(f"  {pid} ({unit}): {P4.NO_K}; nothing built", flush=True); return stats
     # 1. R04 windows / fields / targets_v1
     BTT.FIELDS = f"{root}/fields"; tiles1, blocks1, summ, chk = BTT.process_pair(m, pid, workers)
     # 2. R05 selection
@@ -59,7 +64,8 @@ def build_pair(m, pid, root, workers, log=print):
                  fallback=dict(n_tiles=n_f, n_blocks=b_f, amplitude_m=float(tint.loc[fb, "A_fine_int_D1"].median()) if n_f else np.nan), all=dict(n_tiles=int(len(tint)), amplitude_m=float(tint.A_fine.median())))
     for bmin in (P4.B_MIN_DEFAULT, 12, 16):
         v = "interior" if (n_i >= P4.MIN_TILES and b_i >= bmin) else ("fallback" if (n_f >= P4.MIN_TILES and b_f >= bmin) else "not_scorable"); views[f"view_B{bmin}"] = v; views[f"amplitude_B{bmin}_m"] = views[v]["amplitude_m"] if v != "not_scorable" else np.nan
-    stats = dict(pair=pid, unit=unit, hr_res=hr_res, lr_native=float(row["lr_native_res_m"]), k=int(row["max_recoverable_k"]), D1_px=D1, n_tiles_v1=int(len(tiles1)), n_tiles_v1_1=int(len(tiles)), n_blocks_kept=int(blocks.kept.sum()), n_feature_rows=int(len(feats)),
+    cells = 256 * hr_res / float(row["lr_native_res_m"]); dev_min = P4.dev_min_cells()
+    stats = dict(pair=pid, unit=unit, status="built", hr_res=hr_res, lr_native=float(row["lr_native_res_m"]), k=int(row["max_recoverable_k"]), D1_px=D1, cells_across=cells, dev_min_cells=dev_min, thinner_than_development=bool(cells < dev_min), n_tiles_v1=int(len(tiles1)), n_tiles_v1_1=int(len(tiles)), n_blocks_kept=int(blocks.kept.sum()), n_feature_rows=int(len(feats)),
                  r04_summary={k: v for k, v in summ.items() if k != "rejected"} | dict(rejected=summ["rejected"]), r04_grid_check=chk, r06_inputs=ichk, views=views, seconds=time.time() - t0)
     json.dump(stats, open(f"{out}/pair_stats.json", "w"), indent=1, default=float)
     log(f"  built {pid} ({unit}): tiles {len(tiles1)} -> {len(tiles)}; D1 {D1} px; interior {n_i} tiles / {b_i} blocks; fallback {n_f} / {b_f}; view(B8) {views['view_B8']}; amplitude {views['amplitude_B8_m']:.4f} m ({time.time()-t0:.0f} s)", flush=True)

@@ -23,7 +23,9 @@ MODES = ("rehearsal", "phase4")
 SEALED5 = tuple(C4.SEALED)                                         # KN182L03 (nu01a), RC2511 (nu01b), SUM1004 (nu03), AT42-03, TN159
 CONFIRMATORY = tuple(C4.CONFIRMATORY); LOCKBOX = tuple(C4.LOCKBOX)
 ADMITTED = {"rehearsal": tuple(C4.DEV_PAIRS) + (R8.EW_PAIR,), "phase4": SEALED5}
-ROOT = {"rehearsal": "/scratch/users/scdobbs/grl_review/R10/rehearsal", "phase4": f"{R8.OAK_ARCHIVE}/phase4"}
+ROOT = {"rehearsal": "/scratch/users/scdobbs/grl_review/R10b/rehearsal", "phase4": f"{R8.OAK_ARCHIVE}/phase4"}
+R10_OAK = f"{R8.OAK_ARCHIVE}/R10"                                   # R10 rehearsal outputs (EW0207 environment control, §A5)
+SUPPLEMENT = os.path.join(os.path.dirname(C4.MANIFEST), "pairs_phase4_sealed.parquet")   # phase4 mode: the five sealed rows, beside manifest v2.1 (§A3)
 LEDGER = f"{REPO}/grl_reviews-and-prompt-reports/CHANGE_LEDGER.md"
 PREREG_V1 = f"{DR}/R09/PREREG_phase4_v1.md"; PREREG_V1_SHA = "5c636f3d5b8906c562405768e292e056f8733c69054b67b458866dea8df54c1f"
 PREREG_V2 = f"{DR}/R10/PREREG_phase4_v2.md"; SIGNOFF = f"{DR}/R10/SIGNOFF_phase4_prereg_v2.md"
@@ -40,6 +42,10 @@ R07_CODE_SHA = "3d6dcae7a73f4dc62a7200a0fdfb7d3636052e292229f4b2d35caa3610d03a55
 B_MIN_DEFAULT = 8; MIN_TILES = 10; MIN_INT_PX = 2048; INTERIOR_FRAC = 0.95; N_BOOT = 2000; BOOT_SEED = 20261009; UNDEF_MAX_FRAC = 0.05; LOWAMP_M = 0.04
 FIG_SEED = {"rehearsal": 20261011, "phase4": 20261011}; FIG_CODE = {"rehearsal": "Q", "phase4": "Q"}
 CANDIDATES = ("s_lr", "GBT_ship", "P-V1")
+POOL_SEED = 20261013                                             # §A1 pooled row
+DEV_MIN_CELLS = 3.880437183601317                                # 256 x hr_res / lr_native, minimum over the 38 development pairs (FK151121); recomputed and asserted by dev_min_cells()
+CTRL_TOL = dict(gbt_m=1e-6, pv1_log10=1e-4)                       # §A5 EW0207 environment control
+NO_K = "not scorable (no k)"
 
 def sha256_file(p): return C4.sha256_file(p)
 def sha256_text(s): return hashlib.sha256(s.encode()).hexdigest()
@@ -90,14 +96,44 @@ def verify_frozen(mode, prereg_path=None, prereg_sha=None, log=print):
 
 def ledger_has_sha(sha, ledger=LEDGER): return os.path.exists(ledger) and sha in open(ledger).read()
 
-def enforce_locks(mode, script, pairs, calls_path=None, results_path=None, signoff=SIGNOFF, prereg_path=None, ledger=LEDGER, log=print):
-    """All locks of §A1 for one script. In rehearsal mode only the frozen-input verification (against v1) and the pair admission apply."""
+def load_supplement(m, supplement=SUPPLEMENT, ledger=LEDGER):
+    """phase4 mode (§A3): the five sealed rows come from the supplement beside manifest v2.1; it must exist, its sha256 must be in
+    CHANGE_LEDGER.md, it must hold exactly the five pre-registered ids with the v2.1 columns; development rows stay those of v2.1."""
+    import pandas as pd
+    if not os.path.exists(supplement): raise Refusal(f"LOCK supplement: {supplement} does not exist")
+    sha = sha256_file(supplement)
+    if not ledger_has_sha(sha, ledger): raise Refusal(f"LOCK supplement: sha256 {sha} is not recorded in {ledger}")
+    sup = pd.read_parquet(supplement)
+    if sorted(sup.pair_id.astype(str)) != sorted(SEALED5): raise Refusal(f"LOCK supplement: pair ids {sorted(sup.pair_id.astype(str))} != the five pre-registered sealed ids")
+    if list(sup.columns) != list(m.columns): raise Refusal(f"LOCK supplement: columns differ from manifest v2.1 ({sorted(set(sup.columns) ^ set(m.columns))})")
+    merged = pd.concat([m[~m.pair_id.isin(SEALED5)], sup], ignore_index=True); merged.attrs["sha256"] = m.attrs.get("sha256")
+    return merged, dict(path=supplement, sha256=sha, n_rows=int(len(sup)))
+
+def row_status(row):
+    """'refused' if a spacing or a harmonized path is missing; NO_K if max_recoverable_k is empty; else 'ok' (§A4)."""
+    def has(c): v = row.get(c); return (isinstance(v, str) and bool(v)) or (isinstance(v, (int, float)) and _isfinite(v))
+    if not all(has(c) for c in ("harmonized_path_hr", "harmonized_path_lr", "lr_native_res_m")): return "refused"
+    return "ok" if has("max_recoverable_k") else NO_K
+
+def _isfinite(v):
+    try: return v == v and v not in (float("inf"), float("-inf"))
+    except Exception: return False
+
+def dev_min_cells():
+    """256 x hr_res / lr_native over the 38 development pairs of tiles_v1.1; must equal DEV_MIN_CELLS."""
+    t = R8.load_tiles(); t = t[t.pair.isin(C4.DEV_PAIRS)]; g = t.groupby("pair").agg(hr=("hr_res", "first"), lr=("lr_native", "first")); v = float((256 * g.hr / g.lr).min())
+    assert abs(v - DEV_MIN_CELLS) < 1e-6, (v, DEV_MIN_CELLS); return v
+
+def enforce_locks(mode, script, pairs, calls_path=None, results_path=None, signoff=SIGNOFF, prereg_path=None, ledger=LEDGER, supplement=SUPPLEMENT, manifest=None, log=print):
+    """All locks of §A1 / §A3 for one script. In rehearsal mode only the frozen-input verification (against v1) and the pair admission apply.
+    Returns the record; in phase4 mode rec['manifest'] is the merged manifest (v2.1 development rows + the supplement's sealed rows)."""
     rec = dict(mode=mode, script=script)
     bad = [p for p in pairs if p not in ADMITTED[mode]]
     if bad: raise Refusal(f"LOCK pair list: {bad} not admitted in mode {mode}")
     if mode == "phase4":
         sha = read_signoff(signoff); rec["signoff_sha256"] = sha
         rec["verify"] = verify_frozen(mode, prereg_path=prereg_path or PREREG_V2, prereg_sha=sha, log=log)
+        m = manifest if manifest is not None else C4.load_manifest(); rec["manifest"], rec["supplement"] = load_supplement(m, supplement, ledger)
         if script in ("phase4_predict.py", "phase4_score.py"):
             if not calls_path or not os.path.exists(calls_path): raise Refusal(f"LOCK calls file: {calls_path} does not exist")
             ch = sha256_file(calls_path); rec["calls_sha256"] = ch
@@ -145,12 +181,13 @@ def argparser(desc):
     ap.add_argument("--workers", type=int, default=int(os.environ.get("SLURM_CPUS_PER_TASK", 4))); return ap
 
 def start(script, mode, pairs, calls_path=None, results_path=None, log=print):
-    """Guard first (R09, full), locks, pair admission, then (phase4) the allow-list. Returns (manifest, root, record)."""
+    """Guard first (R09, full), locks, pair admission, then (phase4) the allow-list. Returns (manifest, root, record).
+    Manifest: rehearsal = v2.1 only (C4.load_manifest, sha256-verified); phase4 = v2.1 development rows + the sealed-row supplement (§A3)."""
     m0 = C4.load_manifest(); R9.install_guard_r09(m0); n, probes, readers, rows = R9.guard_selftest_r09(m0)
     assert n == probes == 702, (n, probes)
-    rec = enforce_locks(mode, script, pairs, calls_path=calls_path, results_path=results_path, log=log)
+    rec = enforce_locks(mode, script, pairs, calls_path=calls_path, results_path=results_path, manifest=m0, log=log)
     root = ROOT[mode]; os.makedirs(f"{root}/provenance", exist_ok=True)
-    if mode == "phase4": rec["allowlist"] = apply_allowlist(pairs)
+    if mode == "phase4": rec["allowlist"] = apply_allowlist(pairs); m0 = rec.pop("manifest")
     rec.update(time=datetime.datetime.now().isoformat(timespec="seconds"), host=os.uname().nodename, slurm_job=os.environ.get("SLURM_JOB_ID"), git_head=R8.git_head(), pairs=list(pairs),
                guard_probes_blocked=n, guard_probes=probes, script_sha256={sc: sha256_file(os.path.join(HERE, sc)) for sc in SCRIPTS if os.path.exists(os.path.join(HERE, sc))})
     json.dump(rec, open(f"{root}/provenance/{script}_{rec['time'].replace(':', '')}_{os.getpid()}.json", "w"), indent=1, default=str)

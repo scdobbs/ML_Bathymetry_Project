@@ -1,0 +1,101 @@
+{
+ "phase4_scripts_sha256_after": {
+  "phase4_common.py": "389105c22218bd8df03c845690af35faa56acb7156dd161d7e78e8a3bf7b131d",
+  "phase4_build.py": "e2f18469a4eacc3c4cbd970e567b3ce9ddcfb4cd5c6cbc7f35352226fe723e4c",
+  "phase4_figures.py": "44e87590d247b67cf27f02ef0761af39a9a522af385c35b10bd0ce25b8551052",
+  "phase4_predict.py": "7267a9c85579565044088c931a60c6dd88d12cdacf68d92795bf6b323ed01315",
+  "phase4_score.py": "970c6fd3c2a918bb68886030dba5cf05162c4503f4b41b202a0912fe57f9a5a6"
+ },
+ "phase4_scripts_sha256_before": {
+  "phase4_build.py": "f6ec3bee726e0846199a22dce70654710500abafd59a228efaab3ed123c4f7c7",
+  "phase4_common.py": "0348070cf60f3cf5f4874887b8910b81225a6851cca181cd9e55dbac2587c72c",
+  "phase4_figures.py": "4db422d2f76b4cacf41ff26e2ab846c437ba31261a07252262e77c499d7ce84a",
+  "phase4_predict.py": "dc211e0409f633cdd696fb2b17ab3c842fed13b3a8c1f0b2eee9a89ba4631a94",
+  "phase4_score.py": "03d760d55582742b9154589a3f62afa747d7abf3304c037fadb80c3feb7a5a02"
+ },
+ "r10b_scripts_sha256": {
+  "assemble_report_r10b.py": "aa903bd77974d4915798009687cac7fbb32a4264a832099fdf6a60f500a967ef",
+  "compare_r10b.py": "3a200fc0ebb842b3f2062010be417ce6ab761340a8dbadb7be16bdc85943b033",
+  "cpu_step.sbatch": "d9cd9faac71154d1b7603997af56b6a4b6c075d98d4ad233bdfac0d658c224bc",
+  "freeze_r10b.py": "dcbb5f684eb687359e1028eebd86fee2bc9368bf2eec21696c95d151af3f05ed",
+  "preserve_r10b.sbatch": "9d4ce497a8d7efe696f82b37c671fde43c3c96d6d16b0dc04952e1387912e5e4",
+  "refusal_tests_r10b.py": "3993b6574c8debde73896f01da6a2f5fccbe94d80c5a66ef23fb5fcdc4539a2e",
+  "rehearsal_inputs_r10b.py": "36747617e46b1a236eaa9caa69d8f6f2ceb0c3ea9c6d22625f39f37c0dc941fa",
+  "render_prereg_v2_final_r10b.py": "7b2e24cc8eae23cdccee8460d6889e91985ccd03dfb4590ab7cf121f0d15acfa",
+  "report_tables_r10b.py": "3eb47b0e0ca92b8f351f0967e7ece94e8cbd9fd6b1d8bf535922abe3e3946036",
+  "sha_after_A.txt": "7bd1d115b90e861daeb9290b4fd818065814ada957c23e36468754300079e962",
+  "sha_before.txt": "d12ccb8f0af0f952a178f924ceb8dbd650bdaaa25b8650c79fc36a803153e0b1",
+  "triples_r10b.py": "cba70c123e8e02242973f686eeab01757907f83af36a44d09a4b65c66b9b711c"
+ },
+ "tables_sha256": {
+  "build_compare.md": "2004bc2d896be08e59928dd58c0dde37d2c1ba1bd1c86019536f5afd87d9a106",
+  "cells.md": "e7d9601413bbfecace51c1638b44df862eca5f17f3d1fa7626e0c411db472105",
+  "environment_control.md": "209c8f3fa97da4e3c89b871e274b1dafb29437d42a979af49e69a87fc7aa098c",
+  "ledger.md": "447d00c4ac0acdbe6a0c066e8b07996cc4d97f20aa733044ea0f96d9ebd1eaa8",
+  "pooled_cross.md": "e2d909d7ea772ca077da1a521805fd851d03797a6a30e50cdb87279134d19bbd",
+  "pooled_dev.md": "35f7978f6c9c958e2c462bc6bd164b19fbd1ea1958470ea3198e672a64bcb0e4",
+  "pooled_rehearsal.md": "52f3d2c3d08723179ab50f09e6982c98f7bab20b29b046aade0f176dc13177b2",
+  "refusal_tests.md": "d1d3c03afe47fc7a5f0801d9d121b6e784ff45ef195ceb160337a66bf03d76ab",
+  "score_compare.md": "a7957c9474c09d535db1c127faabcaaad4166bfadb480d539cc8efffb36cded5",
+  "script_hashes.md": "fc8f7743a3f1d2ef15886e069fc5938eaaf693fc0483931a6625fdf661234dd2",
+  "sources.json": "15b3b1a460bc1532c2480e263d4d7d75723207c3192c9c597bacae49316413e4",
+  "w64_recount.md": "18462416d2f4bf27b8c39b14f50fb405dd7f3b1e821ae3710dee315ed038d96d"
+ },
+ "prereg_v2": {
+  "PREREG_phase4_v2_DRAFT2.md": "2fe0302a78818d13df67d6e31fd4f28136b473c94a9c172fa6a1db12f5469cf7"
+ },
+ "prereg_v1": {
+  "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R09/PREREG_phase4_v1.md",
+  "sha256": "5c636f3d5b8906c562405768e292e056f8733c69054b67b458866dea8df54c1f"
+ },
+ "prereg_v2_draft_r10": {
+  "sha256": "fba5d188b93fde72d6b69f27371bdaf052adfcac8fdb9e1412c829ebd040318d"
+ },
+ "fixed_inputs": {
+  "prereg": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R09/PREREG_phase4_v1.md",
+   "sha256": "5c636f3d5b8906c562405768e292e056f8733c69054b67b458866dea8df54c1f",
+   "expected": "5c636f3d5b8906c562405768e292e056f8733c69054b67b458866dea8df54c1f"
+  },
+  "GBT_ship": {
+   "path": "/scratch/users/scdobbs/grl_review/R09/artifacts/gbt_ship_all16_A_fine_tile.joblib",
+   "sha256": "ef93467262cf59c63bee8d5ebf898b6d9911204c72219f9bb0e2455258ff3f1f",
+   "expected": "ef93467262cf59c63bee8d5ebf898b6d9911204c72219f9bb0e2455258ff3f1f"
+  },
+  "targets_v1_int": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R09/scripts/targets_v1_int.py",
+   "sha256": "e7f37cdf3cd9863901ef6395a8c949ce83473c044312fabb4b986cc6fbb8903c",
+   "expected": "e7f37cdf3cd9863901ef6395a8c949ce83473c044312fabb4b986cc6fbb8903c"
+  },
+  "fields_r08": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R08/scripts/fields_r08.py",
+   "sha256": "1eb0196bdf67e5372d21414306cc566038ae8d898682accabd61d5919cba5e80",
+   "expected": "1eb0196bdf67e5372d21414306cc566038ae8d898682accabd61d5919cba5e80"
+  },
+  "wide_window_r08": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R08/scripts/wide_window_r08.py",
+   "sha256": "14dfecb7ebc12220d8dca0c288fbedf0128e61fb916f292ba5a4f969f1324995",
+   "expected": "14dfecb7ebc12220d8dca0c288fbedf0128e61fb916f292ba5a4f969f1324995"
+  },
+  "P-V1_20261002": {
+   "path": "/scratch/users/scdobbs/grl_review/R07/models/P-V1/seed20261002/fold_ALL/ckpt.pt",
+   "sha256": "d3f4d92824f2d0ac2a062d07a759e459d82debe79f1a671270e7810957665b32",
+   "expected": "d3f4d92824f2d0ac2a062d07a759e459d82debe79f1a671270e7810957665b32"
+  },
+  "P-V1_20261003": {
+   "path": "/scratch/users/scdobbs/grl_review/R07/models/P-V1/seed20261003/fold_ALL/ckpt.pt",
+   "sha256": "a8c8cf7ebfc8de079f47c1c90b94f4a6f12ff8cb51818ec819c33c8a594c50a2",
+   "expected": "a8c8cf7ebfc8de079f47c1c90b94f4a6f12ff8cb51818ec819c33c8a594c50a2"
+  },
+  "P-V1_20261004": {
+   "path": "/scratch/users/scdobbs/grl_review/R07/models/P-V1/seed20261004/fold_ALL/ckpt.pt",
+   "sha256": "6f2d050108a35f5329b4df5bddbdd9b6b217568cc6f5006f47b70e2883ef6c3b",
+   "expected": "6f2d050108a35f5329b4df5bddbdd9b6b217568cc6f5006f47b70e2883ef6c3b"
+  },
+  "R07_code": {
+   "sha256": "3d6dcae7a73f4dc62a7200a0fdfb7d3636052e292229f4b2d35caa3610d03a55",
+   "expected": "3d6dcae7a73f4dc62a7200a0fdfb7d3636052e292229f4b2d35caa3610d03a55"
+  }
+ },
+ "git_head_at_run": "d7270bf455343be747c762f8498908b96e3888a8"
+}

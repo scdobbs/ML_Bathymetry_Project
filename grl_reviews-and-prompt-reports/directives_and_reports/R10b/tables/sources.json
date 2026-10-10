@@ -1,0 +1,13 @@
+{
+ "script_hashes": "R10b/scripts/sha_before.txt (R10 commit ca0d145) and the committed files",
+ "refusal_tests": "refusal_tests/refusal_tests.json (refusal_tests_r10b.py)",
+ "build_compare": "rehearsal/compare_r10b_B2.json (compare_r10b.py)",
+ "score_compare": "rehearsal/compare_r10b_B4.json (compare_r10b.py)",
+ "environment_control": "rehearsal/provenance/environment_control_*.json (phase4_predict.py)",
+ "pooled_dev": "rehearsal/triples.json (triples_r10b.py; phase4_score.pooled_row)",
+ "pooled_cross": "rehearsal/triples.json:cross_label_vs_lower_gt0 (triples_r10b.py)",
+ "pooled_rehearsal": "rehearsal/scores/results_D1.json:C1_pooled (phase4_score.py)",
+ "cells": "rehearsal/scores/per_pair_D1.csv, results_D1.json:dev_min_cells (phase4_score.py)",
+ "w64_recount": "R10/rehearsal/scores/per_pair_D1.csv (OAK) via render_prereg_v2_final_r10b.py",
+ "ledger": "rehearsal scores, triples.json, refusal_tests.json"
+}
