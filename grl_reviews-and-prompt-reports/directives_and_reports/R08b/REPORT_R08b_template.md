@@ -140,3 +140,5 @@ Six:
 Scripts under `R08b/scripts/` (`r08b_common.py`, `interior_r08b.py`, `score_r08b.py`, `report_tables_r08b.py`, `assemble_report_r08b.py`, `freeze_r08b.py`, `cpu_step.sbatch`, `preserve_r08b.sbatch`); sha256 of every script and table in `freeze_record.md` / `freeze_record.json`. OAK `grl_review_archive/R08b/`: `interior` (tile table, 78 per-pair lists, `pairs.json`), `scores`, `provenance`, `logs`, `tables`, `scripts`, each with `SHA256SUMS` verified at the destination (login-node run of `preserve_r08b.sbatch`, 2026-10-09 17:03; 6 directories, 118 files). `CHANGE_LEDGER.md` rows 23 (ruling) and 24 (R08b). No tag.
 
 Run order: `sbatch -c 8 --mem=64G --export=ALL,CMD="python interior_r08b.py" cpu_step.sbatch` → `sbatch -c 4 --export=ALL,CMD="python score_r08b.py" cpu_step.sbatch` → `report_tables_r08b.py`, `assemble_report_r08b.py`, `freeze_r08b.py` (login) → `sbatch preserve_r08b.sbatch`.
+
+R08b commit: `e402a6f` (parent acaf21c, the R08 hash note). The hash-note commit that follows it changes only this line.
