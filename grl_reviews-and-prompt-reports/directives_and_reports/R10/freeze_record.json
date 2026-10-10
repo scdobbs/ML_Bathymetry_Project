@@ -1,0 +1,97 @@
+{
+ "phase4_scripts_sha256": {
+  "phase4_common.py": "0348070cf60f3cf5f4874887b8910b81225a6851cca181cd9e55dbac2587c72c",
+  "phase4_build.py": "f6ec3bee726e0846199a22dce70654710500abafd59a228efaab3ed123c4f7c7",
+  "phase4_figures.py": "4db422d2f76b4cacf41ff26e2ab846c437ba31261a07252262e77c499d7ce84a",
+  "phase4_predict.py": "dc211e0409f633cdd696fb2b17ab3c842fed13b3a8c1f0b2eee9a89ba4631a94",
+  "phase4_score.py": "03d760d55582742b9154589a3f62afa747d7abf3304c037fadb80c3feb7a5a02"
+ },
+ "r10_scripts_sha256": {
+  "assemble_report_r10.py": "1e7e1ab28c892d2ee50e8181d96ebee2b3376fc557a521882881364fc6a3e100",
+  "calibration_r10.py": "01a02feb7f42e16bf9d45d2b59ce9ca9b44945080105d6de55b0cd1cb6bff018",
+  "cells_r10.py": "67e44c3ce2149dd96936a95ca042b8b12abcb17a6572c9fb960955e863eb0d61",
+  "cpu_step.sbatch": "ddfa66d8c9089fcf9a70915403d5861d4b3592322822bda2709cbf82832c27e5",
+  "freeze_r10.py": "5d90856cc2f7735dccd36b36114cd59921ebb1d6d7843c0b207abfa73b1ec39a",
+  "logsearch_r10.py": "ffe554423bd0710a09dd46ace190c22a8630133b1d5d5288dc42e9782fa60511",
+  "preserve_r10.sbatch": "7ea7d9077aae49a5fc54e8e789033b98a950aac3d94a3fec3fe2ddeeeb22ae76",
+  "refusal_tests_r10.py": "8e08881a23896a12d7ceefdcc012fbe57396b15f4be5ba012e62131d24b0f6a0",
+  "rehearsal_chain_r10.sh": "7a585f61f5c82909c724686dd52fda07678339ce24cf967da9531616e77a2992",
+  "rehearsal_checks_r10.py": "63f4a12a856c2fa9554deb2400e7a8e430e34e009e3da7abd817c0a0f1fe029d",
+  "rehearsal_compare_r10.py": "a87a675a2513d899a9121b4cef2c958ecda9b48941ec5b8789ccb79f981a28bb",
+  "rehearsal_inputs_r10.py": "17a7abc96cffc551d7d36b7f6410a9b5507a880aacecf2c84a36e995f202a926",
+  "render_prereg_v2_r10.py": "4eced634c6e46b495e2ae157cea738900e53918cfe1858172913decb42b974b1",
+  "report_tables_r10.py": "1d9f8c931bfb4d52cab03c131c0858ce6866bd347d3084a4c5b8e7d9a315ec64"
+ },
+ "tables_sha256": {
+  "artifact_rule.md": "a1e22279919e3d551bdb1d74bddb0b0ea9e08a67c7d3b446c8884a35a5656194",
+  "build_compare.md": "4dc097c95a568f3e56073d3502b45e4ef0710ea5deff821ba8829a7d698dddeb",
+  "c1_pass_rate.md": "b7298ec6a1d87a0cc0e1b717c01844d2e6db7442f3b26882b65f21949fb0f87c",
+  "calibration.md": "fed268cca0cff4f74a6fc6932f7c153800d3b2b41ade1c5cfc28948cff9e608a",
+  "cells.md": "0e5d8bccf43d468952b617d32c7e4b6b49d757c6ad232748b7fc74e072f0fe2c",
+  "figure_compare.md": "44096d5e508f5c188bb5ef87b3c716864e84e7dc7c4571f908e78dc425a9619a",
+  "ledger.md": "f6f574a3f75c73ae8527b272c13c1254230e7ef50ee77a506d3e327ea71354c2",
+  "logsearch_matches.md": "19a672aafda25ab41f16ac8f0fe4c771ec3bdbb8382dd0ab06a7104cb385c8ab",
+  "logsearch_roots.md": "8ff214b4b45cd0f0813ec9197ff029886cc38c18cf1bcc8c427f6dbfbb64db06",
+  "mode_branches.md": "943126aeb4e8ebad8c6b5e2d5527646741330668d454b33a2149f988e1e6d742",
+  "per_pair_D1.md": "3c2a1640171603ca12229464fa2a3cd2b775c254ee89ef6a24f53aad24b98cfe",
+  "per_pair_D125.md": "90f656130e1d3eb46a2dff1c2f69942bf5c907e39a670911fa59b73d9790d7f1",
+  "predict_compare.md": "304320e36cc281f41fec0fd7b407002baeb444af75d2172ba45366ce2c3015b5",
+  "r08b_consistency.md": "19ec72c5993b47b493706e71e17ec59ef41e430c0f62fc5dadf4d60370ca1af6",
+  "refusal_tests.md": "18474da13913f8d397a1db6fc74bbee92711b673735d745794c5f932d9456856",
+  "sources.json": "80a794ed49b45ad29b2d7e066cfbc0efb786bbd5ecbef37d91dbae899967775f"
+ },
+ "prereg_v2": {
+  "PREREG_phase4_v2_DRAFT.md": "fba5d188b93fde72d6b69f27371bdaf052adfcac8fdb9e1412c829ebd040318d"
+ },
+ "prereg_v1": {
+  "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R09/PREREG_phase4_v1.md",
+  "sha256": "5c636f3d5b8906c562405768e292e056f8733c69054b67b458866dea8df54c1f"
+ },
+ "fixed_inputs": {
+  "prereg": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R09/PREREG_phase4_v1.md",
+   "sha256": "5c636f3d5b8906c562405768e292e056f8733c69054b67b458866dea8df54c1f",
+   "expected": "5c636f3d5b8906c562405768e292e056f8733c69054b67b458866dea8df54c1f"
+  },
+  "GBT_ship": {
+   "path": "/scratch/users/scdobbs/grl_review/R09/artifacts/gbt_ship_all16_A_fine_tile.joblib",
+   "sha256": "ef93467262cf59c63bee8d5ebf898b6d9911204c72219f9bb0e2455258ff3f1f",
+   "expected": "ef93467262cf59c63bee8d5ebf898b6d9911204c72219f9bb0e2455258ff3f1f"
+  },
+  "targets_v1_int": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R09/scripts/targets_v1_int.py",
+   "sha256": "e7f37cdf3cd9863901ef6395a8c949ce83473c044312fabb4b986cc6fbb8903c",
+   "expected": "e7f37cdf3cd9863901ef6395a8c949ce83473c044312fabb4b986cc6fbb8903c"
+  },
+  "fields_r08": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R08/scripts/fields_r08.py",
+   "sha256": "1eb0196bdf67e5372d21414306cc566038ae8d898682accabd61d5919cba5e80",
+   "expected": "1eb0196bdf67e5372d21414306cc566038ae8d898682accabd61d5919cba5e80"
+  },
+  "wide_window_r08": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R08/scripts/wide_window_r08.py",
+   "sha256": "14dfecb7ebc12220d8dca0c288fbedf0128e61fb916f292ba5a4f969f1324995",
+   "expected": "14dfecb7ebc12220d8dca0c288fbedf0128e61fb916f292ba5a4f969f1324995"
+  },
+  "P-V1_20261002": {
+   "path": "/scratch/users/scdobbs/grl_review/R07/models/P-V1/seed20261002/fold_ALL/ckpt.pt",
+   "sha256": "d3f4d92824f2d0ac2a062d07a759e459d82debe79f1a671270e7810957665b32",
+   "expected": "d3f4d92824f2d0ac2a062d07a759e459d82debe79f1a671270e7810957665b32"
+  },
+  "P-V1_20261003": {
+   "path": "/scratch/users/scdobbs/grl_review/R07/models/P-V1/seed20261003/fold_ALL/ckpt.pt",
+   "sha256": "a8c8cf7ebfc8de079f47c1c90b94f4a6f12ff8cb51818ec819c33c8a594c50a2",
+   "expected": "a8c8cf7ebfc8de079f47c1c90b94f4a6f12ff8cb51818ec819c33c8a594c50a2"
+  },
+  "P-V1_20261004": {
+   "path": "/scratch/users/scdobbs/grl_review/R07/models/P-V1/seed20261004/fold_ALL/ckpt.pt",
+   "sha256": "6f2d050108a35f5329b4df5bddbdd9b6b217568cc6f5006f47b70e2883ef6c3b",
+   "expected": "6f2d050108a35f5329b4df5bddbdd9b6b217568cc6f5006f47b70e2883ef6c3b"
+  },
+  "R07_code": {
+   "sha256": "3d6dcae7a73f4dc62a7200a0fdfb7d3636052e292229f4b2d35caa3610d03a55",
+   "expected": "3d6dcae7a73f4dc62a7200a0fdfb7d3636052e292229f4b2d35caa3610d03a55"
+  }
+ },
+ "git_head_at_run": "e20eb5992f6d922883bab1392a7b7f057a64206c"
+}

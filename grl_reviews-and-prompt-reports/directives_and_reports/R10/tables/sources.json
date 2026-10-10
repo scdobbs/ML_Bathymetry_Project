@@ -1,0 +1,17 @@
+{
+ "build_compare": "rehearsal/build/compare_build.json (rehearsal_compare_r10.py)",
+ "figure_compare": "rehearsal/checks_A3_A4.json:A3 (rehearsal_checks_r10.py)",
+ "predict_compare": "rehearsal/checks_A3_A4.json:A4 (rehearsal_checks_r10.py)",
+ "refusal_tests": "refusal_tests/refusal_tests.json (refusal_tests_r10.py)",
+ "per_pair_D1": "rehearsal/scores/per_pair_D1.csv (phase4_score.py, rehearsal)",
+ "per_pair_D125": "rehearsal/scores/per_pair_D125.csv (phase4_score.py, rehearsal)",
+ "r08b_consistency": "rehearsal/scores/per_pair_D1.csv vs R08b/scores/scores.json:per_unit.D1",
+ "c1_pass_rate": "rehearsal/scores/per_pair_{D1,D125}.csv (phase4_score.py)",
+ "calibration": "rehearsal/calibration/calibration.json (calibration_r10.py)",
+ "artifact_rule": "rehearsal/scores/per_pair_D1.csv (phase4_score.py)",
+ "cells": "rehearsal/cells/cells.json (cells_r10.py)",
+ "logsearch_roots": "logsearch/logsearch.json (logsearch_r10.py)",
+ "logsearch_matches": "logsearch/matches.csv (logsearch_r10.py)",
+ "mode_branches": "phase4/scripts/*.py (grep for mode branches)",
+ "ledger": "rehearsal scores, calibration, cells, logsearch"
+}
