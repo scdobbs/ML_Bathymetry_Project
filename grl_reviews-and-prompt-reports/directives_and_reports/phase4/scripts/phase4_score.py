@@ -16,7 +16,11 @@ Pooled row (§A1, secondary summary of C1): mean over units of s_lr's rho with a
 default_rng(20261013) per statement, units in ascending pair-id order; a resample with any undefined unit rho is dropped and counted,
 > 5 % -> not estimable), on the C1 set, on the C1 set plus the low-amplitude units, and on the scorable lockbox pairs.
 C1 per role: confirmed / partially confirmed / not confirmed / not testable, stated with and without the low-amplitude pairs;
-C2 differences per pair with the sign-test caveat; C3 = the lockbox role. Writes <out>/results_<tag>.json and per_pair_<tag>.csv."""
+C2 differences per pair with the sign-test caveat; C3 = the lockbox role. Writes <out>/results_<tag>.json and per_pair_<tag>.csv.
+k provenance (R11 §A3): every pair row carries k and k_sweep_status from its manifest / supplement row and, from the acquisition
+step's run record (phase4 mode: the record accepted by the §A2.2 lock; rehearsal: --acq_record), the per-k verdicts, the source of
+k (sweep | June record) and whether the record's k agrees. --rows (rehearsal only) replaces the listed pairs' manifest rows by the
+rows of a harness supplement (R11 §A2.3); it is refused in phase4 mode."""
 from __future__ import annotations
 import json, os, sys, time
 import numpy as np, pandas as pd
@@ -105,9 +109,14 @@ def pooled_statements(rows):
 
 if __name__ == "__main__":
     ap = P4.argparser("Phase 4 scoring"); ap.add_argument("--inputs", required=True); ap.add_argument("--calls", required=True, help="joined calls table (pair, relief, criteria, dominant, ab_whole_survey)")
-    ap.add_argument("--stats", default=None, help="JSON {pair: pair_stats} from the build (amplitude assert; no-k status)"); ap.add_argument("--bmin", type=int, default=P4.B_MIN_DEFAULT); ap.add_argument("--tag", default="D1"); ap.add_argument("--out", default=None); a = ap.parse_args()
+    ap.add_argument("--stats", default=None, help="JSON {pair: pair_stats} from the build (amplitude assert; no-k status)"); ap.add_argument("--bmin", type=int, default=P4.B_MIN_DEFAULT); ap.add_argument("--tag", default="D1"); ap.add_argument("--out", default=None)
+    ap.add_argument("--acq_record", default=None, help="rehearsal only: an acquisition step1 run record (per_pair: per-k verdicts, k_source) for the k provenance columns"); ap.add_argument("--rows", default=None, help="rehearsal only: parquet whose rows replace the listed pairs' manifest rows (harness supplement)"); a = ap.parse_args()
     pairs = P4.split_pairs(a.pairs); out = a.out or f"{P4.ROOT[a.mode]}/scores"; results = f"{out}/results_{a.tag}.json"
     m, root, rec = P4.start("phase4_score.py", a.mode, pairs, calls_path=a.calls, results_path=results if a.mode == "phase4" else None); t0 = time.time(); os.makedirs(out, exist_ok=True); dev_min = P4.dev_min_cells()
+    if a.mode == "phase4" and (a.acq_record or a.rows): raise P4.Refusal("--acq_record and --rows are rehearsal-only (phase4 mode takes the acquisition run record from the §A2.2 lock and the rows from the supplement)")
+    acq = rec.get("acq_run_record") if a.mode == "phase4" else (dict(path=a.acq_record, sha256=P4.sha256_file(a.acq_record), per_pair=json.load(open(a.acq_record)).get("per_pair") or {}) if a.acq_record else None)
+    if a.rows: m, _ = P4.harness_rows(m, a.rows, pairs)
+    KP = {pid: P4.k_provenance(pid, P4.C4.pair_row(m, pid), acq) for pid in pairs}
     T = pd.read_parquet(a.inputs); T = T[T.pair.isin(pairs)]; calls = pd.read_csv(a.calls).fillna(""); cmap = {r["pair"]: r for r in calls.to_dict("records")}
     stats = json.load(open(a.stats)) if a.stats else {}; cands = [c for c in P4.CANDIDATES if c in T.columns]; assert "s_lr_W64" not in T.columns, "s_lr_W64 is not scored at Phase 4 (ruling H1, R10b)"
     rows = []
@@ -115,9 +124,10 @@ if __name__ == "__main__":
         st = stats.get(pid); tp = T[T.pair == pid]
         if (st and st.get("status") == P4.NO_K) or len(tp) == 0: rows.append(dict(pair=pid, unit=P4.unit_of(pid, m), role=(tp.role.iloc[0] if len(tp) else st.get("role", "?")), bmin=a.bmin, view="not_scorable", status=P4.NO_K, note="no recoverable k (B4 rule 0)", n_tiles_all=0, n_scored=0)); continue
         rows.append(score_pair(tp, cmap.get(pid, {}), a.bmin, cands, st, dev_min))
+    for r in rows: k = KP[r["pair"]]; r.update(k=k["k"], k_sweep_status=k["k_sweep_status"], k_source=k["k_source_class"], k_source_text=k["k_source"], per_k_verdicts=k["per_k_text"], k_agrees_with_acq_record=k["k_agrees_with_acq_record"])
     PR = pd.DataFrame([{k: v for k, v in r.items() if k != "_view"} for r in rows]); PR.to_csv(f"{out}/per_pair_{a.tag}.csv", index=False)
     roles = sorted(set(PR.role)); C1 = {role: c1_statement([r for r in rows if r["role"] == role]) for role in roles}; POOL = {role: pooled_statements([r for r in rows if r["role"] == role]) for role in roles}
     C2 = {role: {k: dict(values={r["pair"]: r[k] for r in rows if r["role"] == role and r["status"].startswith("in C1")}, caveat="no superiority claim: with at most 3 units, even 3 of 3 gives a one-sided sign test of p = 0.125") for k in ("d_GBT_minus_s_lr", "d_PV1_minus_s_lr", "d_PV1_minus_GBT")} for role in roles}
-    res = dict(mode=a.mode, tag=a.tag, bmin=a.bmin, candidates=cands, dev_min_cells=dev_min, inputs=a.inputs, inputs_sha256=P4.sha256_file(a.inputs), calls=a.calls, calls_sha256=P4.sha256_file(a.calls), rules=dict(min_tiles=P4.MIN_TILES, n_boot=P4.N_BOOT, seed=P4.BOOT_SEED, pool_seed=P4.POOL_SEED, undefined_max_frac=P4.UNDEF_MAX_FRAC, lowamp_m=P4.LOWAMP_M),
+    res = dict(mode=a.mode, tag=a.tag, bmin=a.bmin, candidates=cands, dev_min_cells=dev_min, inputs=a.inputs, k_provenance=KP, acq_run_record=({k: v for k, v in acq.items() if k != "per_pair"} if acq else None), harness_rows=(dict(path=a.rows, sha256=P4.sha256_file(a.rows)) if a.rows else None), inputs_sha256=P4.sha256_file(a.inputs), calls=a.calls, calls_sha256=P4.sha256_file(a.calls), rules=dict(min_tiles=P4.MIN_TILES, n_boot=P4.N_BOOT, seed=P4.BOOT_SEED, pool_seed=P4.POOL_SEED, undefined_max_frac=P4.UNDEF_MAX_FRAC, lowamp_m=P4.LOWAMP_M),
                per_pair=[{k: v for k, v in r.items() if k != "_view"} for r in rows], C1=C1, C1_pooled=POOL, C2=C2, C3="lockbox role: C1, the C1 summary and C2 reported separately with the history label" if "lockbox" in roles else None, seconds=time.time() - t0)
     json.dump(res, open(results, "w"), indent=1, default=float); print(f"scored {len(rows)} pairs -> {results}; C1 per role: " + "; ".join(f"{k}: {v['reading']} (set {v['c1_set_size']})" for k, v in C1.items()) + "; pooled: " + "; ".join(f"{k} C1 set mean {v['C1_set']['mean_rho']:+.3f} [{v['C1_set']['ci95'][0]:+.3f}, {v['C1_set']['ci95'][1]:+.3f}]" for k, v in POOL.items() if v["C1_set"]), flush=True)

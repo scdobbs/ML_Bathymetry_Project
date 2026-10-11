@@ -1,0 +1,16 @@
+{
+ "script_hashes": "R11/scripts/sha_before.txt (R10b commit 0574ff6) and the committed files",
+ "script_hashes_full": "the committed files after Part A",
+ "a1_compare": "rehearsal/compare/compare_r11_A1.json (compare_r11.py A1)",
+ "a1_predict": "rehearsal/compare/compare_r11_A1pred.json (compare_r11.py A1pred; predictions not scored)",
+ "a2_schema": "rehearsal/harness/harness_record.json (harness_r11.py; supplement_rehearsal_full.parquet sha256 297e0a0e\u2026 verified against acq_r06_rehearsal/SHA256SUMS)",
+ "a2_harness": "rehearsal/compare/compare_r11_A2.json (compare_r11.py A2)",
+ "a3_k": "rehearsal/harness/scores/per_pair_harness.csv, results_harness.json (phase4_score.py --rows --acq_record)",
+ "b1_cells": "rehearsal/coarse_slr/coarse_slr.json:B1 (ACQ-R02 harmonize hr_res_m and grid cell_m via acq_r06_rehearsal/records/sealed_records.json, verified)",
+ "b_coarse": "rehearsal/coarse_slr/per_pair.csv, coarse_slr.json (coarse_slr_r11.py; phase4_score.score_pair / pooled_row)",
+ "d1_parser": "rehearsal/prereg_v2_render.json (render_prereg_v2_r11.py; phase4_common.parse_prereg_hashes)",
+ "refusal_tests": "refusal_tests/refusal_tests.json (refusal_tests_r11.py)",
+ "d3_score": "rehearsal/compare/compare_r11_D3.json (compare_r11.py D3; reference R10b per_pair on OAK)",
+ "environment_control": "rehearsal/provenance/environment_control_*.json (phase4_predict.py)",
+ "ledger": "coarse_slr/per_pair.csv, compare_r11_A2.json, refusal_tests.json"
+}

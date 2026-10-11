@@ -1,0 +1,116 @@
+{
+ "phase4_scripts_sha256_after": {
+  "phase4_common.py": "ef70653f7398c059c5dd9fcd68b30fa67fac1b4a6d34f53ee12e5e27497e04e1",
+  "phase4_build.py": "98370164406f1c75a8c76ea342432644d896d89bc5e6548c68b0ff65ec0b46d5",
+  "phase4_figures.py": "44e87590d247b67cf27f02ef0761af39a9a522af385c35b10bd0ce25b8551052",
+  "phase4_predict.py": "7267a9c85579565044088c931a60c6dd88d12cdacf68d92795bf6b323ed01315",
+  "phase4_score.py": "9aefb6ff7f67eef2a066478949786fa597af920a048fe34b3d3c8d0545a1382f"
+ },
+ "phase4_scripts_sha256_before": {
+  "phase4_build.py": "e2f18469a4eacc3c4cbd970e567b3ce9ddcfb4cd5c6cbc7f35352226fe723e4c",
+  "phase4_common.py": "389105c22218bd8df03c845690af35faa56acb7156dd161d7e78e8a3bf7b131d",
+  "phase4_figures.py": "44e87590d247b67cf27f02ef0761af39a9a522af385c35b10bd0ce25b8551052",
+  "phase4_predict.py": "7267a9c85579565044088c931a60c6dd88d12cdacf68d92795bf6b323ed01315",
+  "phase4_score.py": "970c6fd3c2a918bb68886030dba5cf05162c4503f4b41b202a0912fe57f9a5a6"
+ },
+ "r11_scripts_sha256": {
+  "assemble_harness_stats.py": "c3f085f75e740ac17cab791d6bedeba1f32b2dabf199506350bcb69d54e1e4fa",
+  "assemble_report_r11.py": "3ab17dbca1fa1f84b02d03c8267ceed7f6f89ccd70787a92a14c92cd6eef73c1",
+  "coarse_slr_r11.py": "be7b71a74dadca175c6b56b3d2da637b4c8dcec92e56fbbdf152283852491044",
+  "compare_r11.py": "52cb72f712d2d03bb6e87d89f361d60efe1561a0f6610d1b697c1f378c0c16e6",
+  "cpu_step.sbatch": "30d58da2dd7b051732f7beeb3be3a6ba9f188099f135112a86802b57eccb2aa3",
+  "freeze_r11.py": "bcad58f5af61a7740436731083763a8463e29f8c5344614b77b2a9f296424b11",
+  "harness_r11.py": "fbddc982fe24d4ad4cba43e2a627bc5b09df78aeab4dc2c88287f4604bd538a9",
+  "preserve_r11.sbatch": "b7ec58a535ed99d0d1bad01caf694b219899f093f81a62fb28360d31e9866106",
+  "refusal_tests_r11.py": "4aea3534ae364f8e6db2c7dfb251efc22abd6743e0991f73465c71fe34e46a01",
+  "render_prereg_v2_r11.py": "0a28d56cebf0f4f270c57f6ea54a3dcefd59d8be4c71f18c1c3b01121c3ead37",
+  "report_tables_r11.py": "e46c2a4f751bdec484a8c52c22e6be9e573a8ffa852791ec1c4ef8803b7fab4e",
+  "sha_before.txt": "7bd1d115b90e861daeb9290b4fd818065814ada957c23e36468754300079e962"
+ },
+ "tables_sha256": {
+  "a1_compare.md": "f24c6350ff6c504a12fe9a90891b56efbc32bfc284aff67006c39e63b99317d9",
+  "a1_predict.md": "cd51e0da6dea8b1d60469eda63891d01e04870be719b18c2b97b77b99774474e",
+  "a2_harness.md": "f23acb52846940132b1134c3a2d2f76f8545c60a2292b3e03810973117f9c4d7",
+  "a2_schema.md": "edf8aea74125444d229669e886bff31a1e11b2dacfa20ac64ae36d27ec42d0a6",
+  "a3_k.md": "4f15371c8a7f965c4abfab1d656bff1ac44034e2dcdf65e83084157b6bb295fe",
+  "b1_cells.md": "ed2b30ec7f2f38e6f1620c950e8232b3d2458f61e3092bcd1b25a8244771c35c",
+  "b_coarse.md": "ee77ae8f678b568902da80f5db71552c35f8f2361fcc1d810ae6a491b5d7db0b",
+  "d1_parser.md": "0fb1a592784a483225f9b4f91a2607f0f668c1648aeefe517d3a024b7f5c9821",
+  "d3_score.md": "d0b60bfdfca75cb23170ed864c3a318ee6bfde4e58f0f2d94bdeaa61f6fe732e",
+  "environment_control.md": "a851a457825187923bcbc8b553f6adb211bbb08940b83876b71ebde8b5f97909",
+  "ledger.md": "5377129a927b24b1ee6a5d4eb27af7d7ec7af5550bb945e75c18d718a188bd75",
+  "refusal_tests.md": "629c780e1767d35f62a09aaf62aeb6dd9eb593d95e31925c658537b09c45f766",
+  "script_hashes.md": "e2295d2b3dd7cdb4e84de51d20e450f348eb6f11959560d97d3b12cf6f02d03a",
+  "script_hashes_full.md": "4716efe2621b0beca27fb6a1aa073f09161fe12774c0bd8518242632a123260b",
+  "sources.json": "91d293f87da78412f180625d2cb1256217e6c22e6cbd9d73bc68921f10a6873f"
+ },
+ "documents": {
+  "PREREG_phase4_v2.md": "9795db3b22d6c54f7a85618dbaccafa054e88487b33236a7b2083ecb8c605979",
+  "SIGNOFF_phase4_prereg_v2_TEMPLATE.md": "eaedf17c11d3988405a54f76c4e493ed1143679b6c9e125f1f8427efc4ea1dab"
+ },
+ "prereg_v1": {
+  "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R09/PREREG_phase4_v1.md",
+  "sha256": "5c636f3d5b8906c562405768e292e056f8733c69054b67b458866dea8df54c1f"
+ },
+ "prereg_v2_draft2": {
+  "sha256": "2fe0302a78818d13df67d6e31fd4f28136b473c94a9c172fa6a1db12f5469cf7"
+ },
+ "acquisition": {
+  "freeze_record": {
+   "path": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/ACQ-R06b/freeze_record.json",
+   "sha256": "331c94f01d7d1a2e52fb969c5fb1872aae2cd2ed249a3757b99e9d217b3ac0cb",
+   "expected": "331c94f01d7d1a2e52fb969c5fb1872aae2cd2ed249a3757b99e9d217b3ac0cb"
+  },
+  "sealed_step1": {
+   "sha256": "bd773cb77eaff1786efe48c8d92210d69a90f885545cd00a07af9b35cd8753c1",
+   "expected": "bd773cb77eaff1786efe48c8d92210d69a90f885545cd00a07af9b35cd8753c1"
+  }
+ },
+ "fixed_inputs": {
+  "prereg": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R09/PREREG_phase4_v1.md",
+   "sha256": "5c636f3d5b8906c562405768e292e056f8733c69054b67b458866dea8df54c1f",
+   "expected": "5c636f3d5b8906c562405768e292e056f8733c69054b67b458866dea8df54c1f"
+  },
+  "GBT_ship": {
+   "path": "/scratch/users/scdobbs/grl_review/R09/artifacts/gbt_ship_all16_A_fine_tile.joblib",
+   "sha256": "ef93467262cf59c63bee8d5ebf898b6d9911204c72219f9bb0e2455258ff3f1f",
+   "expected": "ef93467262cf59c63bee8d5ebf898b6d9911204c72219f9bb0e2455258ff3f1f"
+  },
+  "targets_v1_int": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R09/scripts/targets_v1_int.py",
+   "sha256": "e7f37cdf3cd9863901ef6395a8c949ce83473c044312fabb4b986cc6fbb8903c",
+   "expected": "e7f37cdf3cd9863901ef6395a8c949ce83473c044312fabb4b986cc6fbb8903c"
+  },
+  "fields_r08": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R08/scripts/fields_r08.py",
+   "sha256": "1eb0196bdf67e5372d21414306cc566038ae8d898682accabd61d5919cba5e80",
+   "expected": "1eb0196bdf67e5372d21414306cc566038ae8d898682accabd61d5919cba5e80"
+  },
+  "wide_window_r08": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R08/scripts/wide_window_r08.py",
+   "sha256": "14dfecb7ebc12220d8dca0c288fbedf0128e61fb916f292ba5a4f969f1324995",
+   "expected": "14dfecb7ebc12220d8dca0c288fbedf0128e61fb916f292ba5a4f969f1324995"
+  },
+  "P-V1_20261002": {
+   "path": "/scratch/users/scdobbs/grl_review/R07/models/P-V1/seed20261002/fold_ALL/ckpt.pt",
+   "sha256": "d3f4d92824f2d0ac2a062d07a759e459d82debe79f1a671270e7810957665b32",
+   "expected": "d3f4d92824f2d0ac2a062d07a759e459d82debe79f1a671270e7810957665b32"
+  },
+  "P-V1_20261003": {
+   "path": "/scratch/users/scdobbs/grl_review/R07/models/P-V1/seed20261003/fold_ALL/ckpt.pt",
+   "sha256": "a8c8cf7ebfc8de079f47c1c90b94f4a6f12ff8cb51818ec819c33c8a594c50a2",
+   "expected": "a8c8cf7ebfc8de079f47c1c90b94f4a6f12ff8cb51818ec819c33c8a594c50a2"
+  },
+  "P-V1_20261004": {
+   "path": "/scratch/users/scdobbs/grl_review/R07/models/P-V1/seed20261004/fold_ALL/ckpt.pt",
+   "sha256": "6f2d050108a35f5329b4df5bddbdd9b6b217568cc6f5006f47b70e2883ef6c3b",
+   "expected": "6f2d050108a35f5329b4df5bddbdd9b6b217568cc6f5006f47b70e2883ef6c3b"
+  },
+  "R07_code": {
+   "sha256": "3d6dcae7a73f4dc62a7200a0fdfb7d3636052e292229f4b2d35caa3610d03a55",
+   "expected": "3d6dcae7a73f4dc62a7200a0fdfb7d3636052e292229f4b2d35caa3610d03a55"
+  }
+ },
+ "git_head_at_run": "e2d6558ddcd3815ba94ff759824230ad11f70b70"
+}
