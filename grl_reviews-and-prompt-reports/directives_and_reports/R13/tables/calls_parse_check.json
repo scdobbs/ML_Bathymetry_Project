@@ -1,0 +1,46 @@
+{
+ "Q01": {
+  "relief": "yes",
+  "criteria_string": "a;c",
+  "criteria_parsed_as": "the whole string; the script never splits it, it only tests crit not in ('', 'none') -> flagged",
+  "dominant": "artifact",
+  "dominant_accepted": true,
+  "ab_whole_survey": "no",
+  "ab_accepted": true,
+  "status_rule_before_amplitude": "artifact-dominated",
+  "note_len": 261
+ },
+ "Q02": {
+  "relief": "yes",
+  "criteria_string": "c",
+  "criteria_parsed_as": "the whole string; the script never splits it, it only tests crit not in ('', 'none') -> flagged",
+  "dominant": "relief",
+  "dominant_accepted": true,
+  "ab_whole_survey": "na",
+  "ab_accepted": true,
+  "status_rule_before_amplitude": "in C1 (flagged)",
+  "note_len": 213
+ },
+ "Q03": {
+  "relief": "weak",
+  "criteria_string": "a",
+  "criteria_parsed_as": "the whole string; the script never splits it, it only tests crit not in ('', 'none') -> flagged",
+  "dominant": "relief",
+  "dominant_accepted": true,
+  "ab_whole_survey": "yes",
+  "ab_accepted": true,
+  "status_rule_before_amplitude": "low-amplitude artifact-affected IF amplitude < 0.04 m, else in C1 (flagged)",
+  "note_len": 226
+ },
+ "Q04": {
+  "relief": "yes",
+  "criteria_string": "a",
+  "criteria_parsed_as": "the whole string; the script never splits it, it only tests crit not in ('', 'none') -> flagged",
+  "dominant": "relief",
+  "dominant_accepted": true,
+  "ab_whole_survey": "no",
+  "ab_accepted": true,
+  "status_rule_before_amplitude": "in C1 (flagged)",
+  "note_len": 281
+ }
+}
