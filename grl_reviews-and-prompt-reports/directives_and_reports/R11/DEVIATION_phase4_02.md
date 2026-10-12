@@ -1,0 +1,6 @@
+# DEVIATION_phase4_02: the acquisition run-record lock reads a citation record
+1. REPORT_R12 H1: the pinned lock phase4_common.load_acq_run_record (B6 ef70653f...) requires the freeze-record citation at locks.lock2_freeze_record; the ACQ-R07b completion record (fb1e07b2...) carries it under locks.lock2_frozen_code and at top level, so the lock refused it.
+2. Ruling (a): the acquisition repo wrote one new record, step1_run_phase4_citation.json (sha256 6e51efd61f36f92066ff91de2749cdd7ce85192c6f8d20611c1a3de45ffa431e), by a new script (src/phase4/write_citation_record.py, 9545896b...). It is a verbatim copy of the completion record plus the citation under the expected key and four labelling keys, and it cites the completion record and the stopped ACQ-R07 record (ACQ-R07c).
+3. The lock therefore now accepts a citation record written by a new script, not a record written by the frozen step-1 or completion code, as pre-registration section A2.2 assumed.
+4. No rule, criterion, candidate, threshold, value, pinned script or pinned hash changed; nothing was recomputed; no sealed file was opened; phase4_common.py, the pre-registration and every B6 hash stand.
+Signed for Steve by the executor of directive R12b, on his written instruction in R12b section 2.1. Date: 2026-10-12
