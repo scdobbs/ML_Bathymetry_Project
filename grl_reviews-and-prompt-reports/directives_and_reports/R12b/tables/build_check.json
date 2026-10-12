@@ -1,0 +1,93 @@
+{
+ "root": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase4",
+ "pairs": {
+  "AT42-03__MGDS_32007": {
+   "status": "MISSING pair_stats.json"
+  },
+  "TN159__MGDS_21981": {
+   "status": "MISSING pair_stats.json"
+  },
+  "KN182L03__MGDS_30193": {
+   "pair": "KN182L03__MGDS_30193",
+   "unit": "nu01a",
+   "status": "not scorable (no k)",
+   "lr_native": 128.42,
+   "ship_products_usable": false,
+   "product_features": "not built",
+   "seconds": 0.004827260971069336,
+   "interior_n_tiles": null,
+   "interior_n_blocks": null,
+   "fallback_n_tiles": null,
+   "fallback_n_blocks": null,
+   "view_B8": null,
+   "files": [
+    "pair_stats.json"
+   ],
+   "fields_dir": false,
+   "inputs_dir": false,
+   "expected_status": "not scorable (no k)",
+   "expected_product_features": null,
+   "ok": true
+  },
+  "RC2511__MGDS_32239": {
+   "status": "MISSING pair_stats.json"
+  },
+  "SUM1004__MGDS_33090": {
+   "status": "MISSING pair_stats.json"
+  }
+ },
+ "must_hold": {
+  "1_locks_passed_citation_record": true,
+  "2_KN182L03_no_k_only_pair_stats": true,
+  "3_product_features": false,
+  "4_finite_target_everywhere": false,
+  "all": false
+ },
+ "start_record": {
+  "guard": [
+   702,
+   702
+  ],
+  "acq_run_record": "6e51efd61f36f92066ff91de2749cdd7ce85192c6f8d20611c1a3de45ffa431e",
+  "allowlist_n": 15
+ },
+ "provenance": {
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase4/provenance/phase4_build.py_2026-10-12T125655_31161.json",
+  "host": "sh03-09n36.int",
+  "slurm_job": "47541164",
+  "git_head": "f322e410289c52f4f08ab94fb5b567b8bcd86ae8",
+  "guard": [
+   702,
+   702
+  ],
+  "signoff_sha256": "9795db3b22d6c54f7a85618dbaccafa054e88487b33236a7b2083ecb8c605979",
+  "supplement": {
+   "path": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/manifest/pairs_phase4_sealed.parquet",
+   "sha256": "6968e04554ddeef3c335587d602cb5fab2185db32b46cbd152475a919eb59206",
+   "n_rows": 5
+  },
+  "acq_run_record": {
+   "path": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/ACQ-R06b/step1_run_phase4_citation.json",
+   "sha256": "6e51efd61f36f92066ff91de2749cdd7ce85192c6f8d20611c1a3de45ffa431e",
+   "status": "complete",
+   "mode": "phase4",
+   "freeze_record_sha256": "331c94f01d7d1a2e52fb969c5fb1872aae2cd2ed249a3757b99e9d217b3ac0cb",
+   "supplement_sha256": "6968e04554ddeef3c335587d602cb5fab2185db32b46cbd152475a919eb59206"
+  },
+  "allowlist_n": 15,
+  "prereg_sha256": "9795db3b22d6c54f7a85618dbaccafa054e88487b33236a7b2083ecb8c605979",
+  "script_sha256": {
+   "phase4_common.py": "ef70653f7398c059c5dd9fcd68b30fa67fac1b4a6d34f53ee12e5e27497e04e1",
+   "phase4_build.py": "98370164406f1c75a8c76ea342432644d896d89bc5e6548c68b0ff65ec0b46d5",
+   "phase4_figures.py": "44e87590d247b67cf27f02ef0761af39a9a522af385c35b10bd0ce25b8551052",
+   "phase4_predict.py": "7267a9c85579565044088c931a60c6dd88d12cdacf68d92795bf6b323ed01315",
+   "phase4_score.py": "9aefb6ff7f67eef2a066478949786fa597af920a048fe34b3d3c8d0545a1382f"
+  }
+ },
+ "log_redacted": [
+  "=== Mon Oct 12 12:56:38 PDT 2026 sh03-09n36.int job=47541164 cpus=16 git=f322e41 ===",
+  "CMD: python phase4_build.py --mode phase4 --pairs \"KN182L03__MGDS_30193 RC2511__MGDS_32239 SUM1004__MGDS_33090 AT42-03__MGDS_32007 TN159__MGDS_21981\"",
+  "[phase4_common.start] phase4_build.py mode=phase4: guard 702/702 probes blocked; locks passed; pairs ['KN182L03__MGDS_30193', 'RC2511__MGDS_32239', 'SUM1004__MGDS_33090', 'AT42-03__MGDS_32007', 'TN159__MGDS_21981']; root /oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase4",
+  "=== done Mon Oct 12 12:56:55 PDT 2026 rc=1 ==="
+ ]
+}
