@@ -7,7 +7,7 @@ This draft is kept under a `_DRAFT` name so that the lock cannot pass on an unsi
 
 | field | value |
 |---|---|
-| pre-registration | `directives_and_reports/R12c/PREREG_phase4_v2_1.md` (revision v2.1 of `R11/PREREG_phase4_v2.md`, sha256 `9795db3b22d6c54f7a85618dbaccafa054e88487b33236a7b2083ecb8c605979`, tag `phase4-prereg-v2`, which stays untouched) |
+| pre-registration | `directives_and_reports/R12c/PREREG_phase4_v2_1.md` (revision v2.1 of `R11/PREREG_phase4_v2.md`, sha256 `9795db3b…`, tag `phase4-prereg-v2`, which stays untouched) |
 | pre-registration sha256 | `d6af268bc8211fe9b4ae17439a47e6fdcbe7e5949d8ab387a7be080b2c748334` |
 | `phase4_common.py` sha256 (the only script changed; B6 row of v2.1) | `99407ec6ce43f2f4005130d67c9025f229df4de20c9560ee79b4bf713e805111` |
 | the other four Phase 4 scripts | unchanged from v2 B6 (`phase4_build.py` `98370164…`, `phase4_figures.py` `44e87590…`, `phase4_predict.py` `7267a9c8…`, `phase4_score.py` `9aefb6ff…`) |
