@@ -1,0 +1,135 @@
+{
+ "guard": [
+  702,
+  702
+ ],
+ "n_tokens_before": 37,
+ "phase4_common_sha256": "99407ec6ce43f2f4005130d67c9025f229df4de20c9560ee79b4bf713e805111",
+ "before_allowlist": {
+  "KN182L03__MGDS_30193": {
+   "hr": true,
+   "lr": true
+  },
+  "RC2511__MGDS_32239": {
+   "hr": true,
+   "lr": true
+  },
+  "SUM1004__MGDS_33090": {
+   "hr": true,
+   "lr": true
+  },
+  "AT42-03__MGDS_32007": {
+   "hr": true,
+   "lr": true
+  },
+  "TN159__MGDS_21981": {
+   "hr": true,
+   "lr": true
+  }
+ },
+ "before_allowlist_fabricated": {
+  "harmonized_confirmatory fake id": true,
+  "harmonized_confirmatory no id": true,
+  "qc_plots fake": false,
+  "raw_lr fake": false,
+  "staging_phase1 fake": false
+ },
+ "allowlist": [
+  "AT42-03",
+  "AT42-03__MGDS_32007",
+  "KN182L03",
+  "KN182L03__MGDS_30193",
+  "MGDS_21981",
+  "MGDS_30193",
+  "MGDS_32007",
+  "MGDS_32239",
+  "MGDS_33090",
+  "RC2511",
+  "RC2511__MGDS_32239",
+  "SUM1004",
+  "SUM1004__MGDS_33090",
+  "TN159",
+  "TN159__MGDS_21981"
+ ],
+ "tokens_remaining": [
+  "harmonized_confirmatory"
+ ],
+ "after_allowlist": {
+  "KN182L03__MGDS_30193": {
+   "hr": {
+    "is_sealed": false,
+    "r04_refuses": false
+   },
+   "lr": {
+    "is_sealed": false,
+    "r04_refuses": false
+   }
+  },
+  "RC2511__MGDS_32239": {
+   "hr": {
+    "is_sealed": false,
+    "r04_refuses": false
+   },
+   "lr": {
+    "is_sealed": false,
+    "r04_refuses": false
+   }
+  },
+  "SUM1004__MGDS_33090": {
+   "hr": {
+    "is_sealed": false,
+    "r04_refuses": false
+   },
+   "lr": {
+    "is_sealed": false,
+    "r04_refuses": false
+   }
+  },
+  "AT42-03__MGDS_32007": {
+   "hr": {
+    "is_sealed": false,
+    "r04_refuses": false
+   },
+   "lr": {
+    "is_sealed": false,
+    "r04_refuses": false
+   }
+  },
+  "TN159__MGDS_21981": {
+   "hr": {
+    "is_sealed": false,
+    "r04_refuses": false
+   },
+   "lr": {
+    "is_sealed": false,
+    "r04_refuses": false
+   }
+  }
+ },
+ "after_allowlist_fabricated": {
+  "harmonized_confirmatory fake id": true,
+  "harmonized_confirmatory no id": true,
+  "qc_plots fake": false,
+  "raw_lr fake": false,
+  "staging_phase1 fake": false
+ },
+ "only_RC2511_admitted": {
+  "qc_plots real (AT42-03)": true,
+  "raw_lr real (TN159)": true,
+  "staging_phase1 real (MGDS_32007)": true,
+  "harmonized real (AT42-03 hr)": true,
+  "harmonized_confirmatory real (SUM1004 hr, not admitted)": true,
+  "harmonized_confirmatory real (RC2511 hr, admitted)": false
+ },
+ "guard_after_reset": [
+  702,
+  702
+ ],
+ "expectations": {
+  "before": true,
+  "after_sealed_false": true,
+  "fake_conf_true": true,
+  "real_families_true": true
+ },
+ "passed": true
+}

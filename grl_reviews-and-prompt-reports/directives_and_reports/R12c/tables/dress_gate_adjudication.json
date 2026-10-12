@@ -1,0 +1,15 @@
+{
+ "m1": {
+  "checker_flag": false,
+  "reason": "6 RuntimeWarning lines in the figures step",
+  "evidence": "all six are `fields_r08.py:106: RuntimeWarning: All-NaN slice encountered` from the set-B page's np.nanmin over the all-NaN prediction table phase4_figures passes on purpose (set B is never delivered); the same six lines are in R10's and R10b's figure runs (r10_chain_47245841.err, r10b_build_47250876.err); no PermissionError, no traceback; the other categories are the known ResourceWarning / fork DeprecationWarning / torch.load FutureWarning",
+  "verdict": "holds"
+ },
+ "m3": {
+  "checker_flag": false,
+  "reason": "pattern 'provenance (w)' of phase4_build.py had 0 hits in the opened-path log",
+  "evidence": "phase4_common.start writes the provenance record BEFORE the harness installs the recorder (the recorder is installed after the real start returns); rehearsal/provenance/ holds phase4_build.py_2026-10-12T135805_3466.json and the three other scripts' records; the pattern was exercised",
+  "verdict": "holds"
+ },
+ "gate": "Part C passed: must-holds 1-6 hold (1 and 3 with the evidence above; 2 from the probe records; 4 repro_r10.json; 5 refusal_tests.json 39/39; 6 environment_control)"
+}

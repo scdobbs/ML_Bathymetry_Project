@@ -1,0 +1,1043 @@
+{
+ "root": "/scratch/users/scdobbs/grl_review/R12c/rehearsal",
+ "logs": {
+  "dress_build_47546691.log": {
+   "found": true,
+   "n_lines": 366,
+   "warning_categories": {
+    "ResourceWarning": 42,
+    "DeprecationWarning": 144
+   },
+   "permission_errors": [],
+   "tracebacks": 0,
+   "rc": "0"
+  },
+  "dress_figures_47546691.log": {
+   "found": true,
+   "n_lines": 92,
+   "warning_categories": {
+    "ResourceWarning": 44,
+    "DeprecationWarning": 4,
+    "RuntimeWarning": 6
+   },
+   "permission_errors": [],
+   "tracebacks": 0,
+   "rc": "0"
+  },
+  "dress_predict_47546691.log": {
+   "found": true,
+   "n_lines": 88,
+   "warning_categories": {
+    "ResourceWarning": 48,
+    "FutureWarning": 3
+   },
+   "permission_errors": [],
+   "tracebacks": 0,
+   "rc": "0"
+  },
+  "dress_score_47546691.log": {
+   "found": true,
+   "n_lines": 63,
+   "warning_categories": {
+    "ResourceWarning": 38
+   },
+   "permission_errors": [],
+   "tracebacks": 0,
+   "rc": "0"
+  }
+ },
+ "probes": {
+  "probes_phase4_build.py_1791838685.json": {
+   "script": "phase4_build.py",
+   "mock_pairs": [
+    "FK151121__MGDS_22383",
+    "TN399__MGDS_33068",
+    "KM0923__MGDS_31429"
+   ],
+   "allowlist": [
+    "FK151121",
+    "FK151121__MGDS_22383",
+    "KM0923",
+    "KM0923__MGDS_31429",
+    "MGDS_22383",
+    "MGDS_31429",
+    "MGDS_33068",
+    "TN399",
+    "TN399__MGDS_33068"
+   ],
+   "tokens_remaining": [
+    "AT42-03",
+    "AT42-03__MGDS_32007",
+    "KN182L03",
+    "KN182L03__MGDS_30193",
+    "MGDS_21981",
+    "MGDS_30193",
+    "MGDS_32007",
+    "MGDS_32239",
+    "MGDS_33090",
+    "RC2511",
+    "RC2511__MGDS_32239",
+    "SUM1004",
+    "SUM1004__MGDS_33090",
+    "TN159",
+    "TN159__MGDS_21981",
+    "harmonized/AT42-03__MGDS_32007",
+    "harmonized/AT42-03__MGDS_32007/hr.tif",
+    "harmonized/AT42-03__MGDS_32007/hr_valid.tif",
+    "harmonized/AT42-03__MGDS_32007/joint_valid.tif",
+    "harmonized/AT42-03__MGDS_32007/lr.tif",
+    "harmonized/AT42-03__MGDS_32007/lr_valid.tif",
+    "harmonized/TN159__MGDS_21981",
+    "harmonized/TN159__MGDS_21981/hr.tif",
+    "harmonized/TN159__MGDS_21981/hr_valid.tif",
+    "harmonized/TN159__MGDS_21981/joint_valid.tif",
+    "harmonized/TN159__MGDS_21981/lr.tif",
+    "harmonized/TN159__MGDS_21981/lr_valid.tif",
+    "harmonized_confirmatory",
+    "harmonized_confirmatory/nu01a/KN182L03__MGDS_30193",
+    "harmonized_confirmatory/nu01b/RC2511__MGDS_32239",
+    "harmonized_confirmatory/nu03/SUM1004__MGDS_33090",
+    "qc_plots/reaudit_real23/advancing__AT42-03__MGDS_32007.png",
+    "qc_plots/reaudit_real23/real_nonadvancing_qgis__TN159__MGDS_21981.png",
+    "raw_lr/AT42-03",
+    "raw_lr/TN159",
+    "staging_phase1/MGDS_21981",
+    "staging_phase1/MGDS_32007"
+   ],
+   "probes_before_allowlist_all_refused": true,
+   "probes_after_allowlist_all_allowed": true,
+   "guard": [
+    702,
+    702
+   ],
+   "fake_refused": true,
+   "real_sealed_refused": true,
+   "n_tokens_added": 27
+  },
+  "probes_phase4_figures.py_1791838792.json": {
+   "script": "phase4_figures.py",
+   "mock_pairs": [
+    "FK151121__MGDS_22383",
+    "KM0923__MGDS_31429",
+    "TN399__MGDS_33068"
+   ],
+   "allowlist": [
+    "FK151121",
+    "FK151121__MGDS_22383",
+    "KM0923",
+    "KM0923__MGDS_31429",
+    "MGDS_22383",
+    "MGDS_31429",
+    "MGDS_33068",
+    "TN399",
+    "TN399__MGDS_33068"
+   ],
+   "tokens_remaining": [
+    "AT42-03",
+    "AT42-03__MGDS_32007",
+    "KN182L03",
+    "KN182L03__MGDS_30193",
+    "MGDS_21981",
+    "MGDS_30193",
+    "MGDS_32007",
+    "MGDS_32239",
+    "MGDS_33090",
+    "RC2511",
+    "RC2511__MGDS_32239",
+    "SUM1004",
+    "SUM1004__MGDS_33090",
+    "TN159",
+    "TN159__MGDS_21981",
+    "harmonized/AT42-03__MGDS_32007",
+    "harmonized/AT42-03__MGDS_32007/hr.tif",
+    "harmonized/AT42-03__MGDS_32007/hr_valid.tif",
+    "harmonized/AT42-03__MGDS_32007/joint_valid.tif",
+    "harmonized/AT42-03__MGDS_32007/lr.tif",
+    "harmonized/AT42-03__MGDS_32007/lr_valid.tif",
+    "harmonized/TN159__MGDS_21981",
+    "harmonized/TN159__MGDS_21981/hr.tif",
+    "harmonized/TN159__MGDS_21981/hr_valid.tif",
+    "harmonized/TN159__MGDS_21981/joint_valid.tif",
+    "harmonized/TN159__MGDS_21981/lr.tif",
+    "harmonized/TN159__MGDS_21981/lr_valid.tif",
+    "harmonized_confirmatory",
+    "harmonized_confirmatory/nu01a/KN182L03__MGDS_30193",
+    "harmonized_confirmatory/nu01b/RC2511__MGDS_32239",
+    "harmonized_confirmatory/nu03/SUM1004__MGDS_33090",
+    "qc_plots/reaudit_real23/advancing__AT42-03__MGDS_32007.png",
+    "qc_plots/reaudit_real23/real_nonadvancing_qgis__TN159__MGDS_21981.png",
+    "raw_lr/AT42-03",
+    "raw_lr/TN159",
+    "staging_phase1/MGDS_21981",
+    "staging_phase1/MGDS_32007"
+   ],
+   "probes_before_allowlist_all_refused": true,
+   "probes_after_allowlist_all_allowed": true,
+   "guard": [
+    702,
+    702
+   ],
+   "fake_refused": true,
+   "real_sealed_refused": true,
+   "n_tokens_added": 27
+  },
+  "probes_phase4_predict.py_1791838805.json": {
+   "script": "phase4_predict.py",
+   "mock_pairs": [
+    "FK151121__MGDS_22383",
+    "TN399__MGDS_33068",
+    "KM0923__MGDS_31429"
+   ],
+   "allowlist": [
+    "FK151121",
+    "FK151121__MGDS_22383",
+    "KM0923",
+    "KM0923__MGDS_31429",
+    "MGDS_22383",
+    "MGDS_31429",
+    "MGDS_33068",
+    "TN399",
+    "TN399__MGDS_33068"
+   ],
+   "tokens_remaining": [
+    "AT42-03",
+    "AT42-03__MGDS_32007",
+    "KN182L03",
+    "KN182L03__MGDS_30193",
+    "MGDS_21981",
+    "MGDS_30193",
+    "MGDS_32007",
+    "MGDS_32239",
+    "MGDS_33090",
+    "RC2511",
+    "RC2511__MGDS_32239",
+    "SUM1004",
+    "SUM1004__MGDS_33090",
+    "TN159",
+    "TN159__MGDS_21981",
+    "harmonized/AT42-03__MGDS_32007",
+    "harmonized/AT42-03__MGDS_32007/hr.tif",
+    "harmonized/AT42-03__MGDS_32007/hr_valid.tif",
+    "harmonized/AT42-03__MGDS_32007/joint_valid.tif",
+    "harmonized/AT42-03__MGDS_32007/lr.tif",
+    "harmonized/AT42-03__MGDS_32007/lr_valid.tif",
+    "harmonized/TN159__MGDS_21981",
+    "harmonized/TN159__MGDS_21981/hr.tif",
+    "harmonized/TN159__MGDS_21981/hr_valid.tif",
+    "harmonized/TN159__MGDS_21981/joint_valid.tif",
+    "harmonized/TN159__MGDS_21981/lr.tif",
+    "harmonized/TN159__MGDS_21981/lr_valid.tif",
+    "harmonized_confirmatory",
+    "harmonized_confirmatory/nu01a/KN182L03__MGDS_30193",
+    "harmonized_confirmatory/nu01b/RC2511__MGDS_32239",
+    "harmonized_confirmatory/nu03/SUM1004__MGDS_33090",
+    "qc_plots/reaudit_real23/advancing__AT42-03__MGDS_32007.png",
+    "qc_plots/reaudit_real23/real_nonadvancing_qgis__TN159__MGDS_21981.png",
+    "raw_lr/AT42-03",
+    "raw_lr/TN159",
+    "staging_phase1/MGDS_21981",
+    "staging_phase1/MGDS_32007"
+   ],
+   "probes_before_allowlist_all_refused": true,
+   "probes_after_allowlist_all_allowed": true,
+   "guard": [
+    702,
+    702
+   ],
+   "fake_refused": true,
+   "real_sealed_refused": true,
+   "n_tokens_added": 27
+  },
+  "probes_phase4_score.py_1791839686.json": {
+   "script": "phase4_score.py",
+   "mock_pairs": [
+    "FK151121__MGDS_22383",
+    "TN399__MGDS_33068",
+    "KM0923__MGDS_31429"
+   ],
+   "allowlist": [
+    "FK151121",
+    "FK151121__MGDS_22383",
+    "KM0923",
+    "KM0923__MGDS_31429",
+    "MGDS_22383",
+    "MGDS_31429",
+    "MGDS_33068",
+    "TN399",
+    "TN399__MGDS_33068"
+   ],
+   "tokens_remaining": [
+    "AT42-03",
+    "AT42-03__MGDS_32007",
+    "KN182L03",
+    "KN182L03__MGDS_30193",
+    "MGDS_21981",
+    "MGDS_30193",
+    "MGDS_32007",
+    "MGDS_32239",
+    "MGDS_33090",
+    "RC2511",
+    "RC2511__MGDS_32239",
+    "SUM1004",
+    "SUM1004__MGDS_33090",
+    "TN159",
+    "TN159__MGDS_21981",
+    "harmonized/AT42-03__MGDS_32007",
+    "harmonized/AT42-03__MGDS_32007/hr.tif",
+    "harmonized/AT42-03__MGDS_32007/hr_valid.tif",
+    "harmonized/AT42-03__MGDS_32007/joint_valid.tif",
+    "harmonized/AT42-03__MGDS_32007/lr.tif",
+    "harmonized/AT42-03__MGDS_32007/lr_valid.tif",
+    "harmonized/TN159__MGDS_21981",
+    "harmonized/TN159__MGDS_21981/hr.tif",
+    "harmonized/TN159__MGDS_21981/hr_valid.tif",
+    "harmonized/TN159__MGDS_21981/joint_valid.tif",
+    "harmonized/TN159__MGDS_21981/lr.tif",
+    "harmonized/TN159__MGDS_21981/lr_valid.tif",
+    "harmonized_confirmatory",
+    "harmonized_confirmatory/nu01a/KN182L03__MGDS_30193",
+    "harmonized_confirmatory/nu01b/RC2511__MGDS_32239",
+    "harmonized_confirmatory/nu03/SUM1004__MGDS_33090",
+    "qc_plots/reaudit_real23/advancing__AT42-03__MGDS_32007.png",
+    "qc_plots/reaudit_real23/real_nonadvancing_qgis__TN159__MGDS_21981.png",
+    "raw_lr/AT42-03",
+    "raw_lr/TN159",
+    "staging_phase1/MGDS_21981",
+    "staging_phase1/MGDS_32007"
+   ],
+   "probes_before_allowlist_all_refused": true,
+   "probes_after_allowlist_all_allowed": true,
+   "guard": [
+    702,
+    702
+   ],
+   "fake_refused": true,
+   "real_sealed_refused": true,
+   "n_tokens_added": 27
+  }
+ },
+ "paths": {
+  "phase4_build.py": {
+   "FK151121__MGDS_22383": {
+    "hr.tif": {
+     "n": 9,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "lr.tif": {
+     "n": 3,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "hr_valid.tif": {
+     "n": 3,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "lr_valid.tif": {
+     "n": 3,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "joint_valid.tif": {
+     "n": 3,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "products ship_products_v2_1/*.tif": {
+     "n": 10,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/tiles_v1.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/tiles_v1_1.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/blocks_v1_1.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/features.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/tiles_int.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/pair_stats.json (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/F_hr.tif (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/F_res.tif (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/bicubic_m.tif (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/joint_v1.tif (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/x.npy (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/lrv.npy (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/meta.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    }
+   },
+   "TN399__MGDS_33068": {
+    "hr.tif": {
+     "n": 9,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "lr.tif": {
+     "n": 3,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "hr_valid.tif": {
+     "n": 3,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "lr_valid.tif": {
+     "n": 3,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "joint_valid.tif": {
+     "n": 3,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "products ship_products_v2_1/*.tif": {
+     "n": 0,
+     "expected": "0 (masked pair)",
+     "ok": true
+    },
+    "build/tiles_v1.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/tiles_v1_1.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/blocks_v1_1.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/features.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/tiles_int.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/pair_stats.json (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/F_hr.tif (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/F_res.tif (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/bicubic_m.tif (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/joint_v1.tif (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/x.npy (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/lrv.npy (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/meta.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    }
+   },
+   "KM0923__MGDS_31429": {
+    "hr.tif": {
+     "n": 9,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "lr.tif": {
+     "n": 3,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "hr_valid.tif": {
+     "n": 3,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "lr_valid.tif": {
+     "n": 3,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "joint_valid.tif": {
+     "n": 3,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "products ship_products_v2_1/*.tif": {
+     "n": 10,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/tiles_v1.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/tiles_v1_1.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/blocks_v1_1.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/features.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/tiles_int.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/pair_stats.json (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/F_hr.tif (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/F_res.tif (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/bicubic_m.tif (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/joint_v1.tif (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/x.npy (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/lrv.npy (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/meta.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    }
+   },
+   "(common)": {
+    "provenance (w)": {
+     "n": 0,
+     "expected": ">= 1",
+     "ok": false
+    },
+    "build_summary (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    }
+   }
+  },
+  "phase4_figures.py": {
+   "FK151121__MGDS_22383": {
+    "build/pair_stats.json": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/tiles_v1_1.parquet": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/F_hr.tif": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/joint_v1.tif": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "hr.tif (HR hillshade)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "hr_valid.tif": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "figures/work/pages/B_*.png (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    }
+   },
+   "TN399__MGDS_33068": {
+    "build/pair_stats.json": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/tiles_v1_1.parquet": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/F_hr.tif": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/joint_v1.tif": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "hr.tif (HR hillshade)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "hr_valid.tif": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "figures/work/pages/B_*.png (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    }
+   },
+   "KM0923__MGDS_31429": {
+    "build/pair_stats.json": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/tiles_v1_1.parquet": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/F_hr.tif": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "fields/joint_v1.tif": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "hr.tif (HR hillshade)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "hr_valid.tif": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "figures/work/pages/B_*.png (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    }
+   },
+   "(common)": {
+    "figures/work/pages/A_Q*.png (w)": {
+     "n": 3,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "figures/key/figset_A_key.json (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "figures/figset_A_blind.pdf (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "figures/work/pages_record.json (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    }
+   }
+  },
+  "phase4_predict.py": {
+   "FK151121__MGDS_22383": {
+    "build/tiles_v1_1.parquet": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/features.parquet": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/x.npy": {
+     "n": 4,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/lrv.npy": {
+     "n": 4,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/meta.parquet": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "predictions/<pid>.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    }
+   },
+   "TN399__MGDS_33068": {
+    "build/tiles_v1_1.parquet": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/features.parquet": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/x.npy": {
+     "n": 4,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/lrv.npy": {
+     "n": 4,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/meta.parquet": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "predictions/<pid>.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    }
+   },
+   "KM0923__MGDS_31429": {
+    "build/tiles_v1_1.parquet": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "build/features.parquet": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/x.npy": {
+     "n": 4,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/lrv.npy": {
+     "n": 4,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "inputs/meta.parquet": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "predictions/<pid>.parquet (w)": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    }
+   },
+   "(common)": {
+    "R10 OAK EW0207 inputs / build / predictions (control)": {
+     "n": 22,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "GBT artifact joblib": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "P-V1 ckpt.pt (3 seeds)": {
+     "n": 3,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "predictions/predict_record (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    }
+   }
+  },
+  "phase4_score.py": {
+   "(common)": {
+    "score_inputs/inputs_D1.parquet": {
+     "n": 3,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "score_inputs/calls_mock.csv": {
+     "n": 2,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "score_inputs/stats.json": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "mock supplement (--rows)": {
+     "n": 4,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "scores/results_D1.json (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    },
+    "scores/per_pair_D1.csv (w)": {
+     "n": 1,
+     "expected": ">= 1",
+     "ok": true
+    }
+   }
+  }
+ },
+ "outputs": {
+  "figures": {
+   "n_pages": 3,
+   "text_objects_per_page": [
+    0,
+    0,
+    0
+   ],
+   "codes": [
+    "Q01",
+    "Q02",
+    "Q03"
+   ],
+   "no_page": []
+  },
+  "FK151121__MGDS_22383": {
+   "status": "built",
+   "product_features": "used",
+   "n_tiles": 732,
+   "D1": 66,
+   "view_B8": "interior",
+   "interior": 523,
+   "int_blocks": 50,
+   "predictions": {
+    "n": 732,
+    "finite": {
+     "s_lr": 732,
+     "GBT_ship": 732,
+     "P-V1": 732
+    }
+   }
+  },
+  "TN399__MGDS_33068": {
+   "status": "built",
+   "product_features": "masked",
+   "n_tiles": 178,
+   "D1": 45,
+   "view_B8": "fallback",
+   "interior": 1,
+   "int_blocks": 1,
+   "predictions": {
+    "n": 178,
+    "finite": {
+     "s_lr": 178,
+     "GBT_ship": 178,
+     "P-V1": 178
+    }
+   }
+  },
+  "KM0923__MGDS_31429": {
+   "status": "built",
+   "product_features": "used",
+   "n_tiles": 223,
+   "D1": 43,
+   "view_B8": "interior",
+   "interior": 24,
+   "int_blocks": 8,
+   "predictions": {
+    "n": 223,
+    "finite": {
+     "s_lr": 223,
+     "GBT_ship": 223,
+     "P-V1": 223
+    }
+   }
+  },
+  "score": {
+   "per_pair_status": {
+    "FK151121__MGDS_22383": {
+     "view": "interior",
+     "status": "in C1",
+     "n_scored": 523,
+     "ci_estimable": true
+    },
+    "TN399__MGDS_33068": {
+     "view": "fallback",
+     "status": "in C1",
+     "n_scored": 167,
+     "ci_estimable": true
+    },
+    "KM0923__MGDS_31429": {
+     "view": "interior",
+     "status": "in C1",
+     "n_scored": 24,
+     "ci_estimable": true
+    }
+   },
+   "C1": {
+    "confirmatory": "partially confirmed (1 of 2)",
+    "lockbox": "not confirmed (0 of 1)"
+   }
+  }
+ },
+ "paths_all_ok": false,
+ "n_opened_lines": {
+  "build": 191,
+  "figures": 36,
+  "predict": 84,
+  "score": 14
+ },
+ "sealed_real_paths_opened": [],
+ "environment_control": [
+  {
+   "job": "47546691",
+   "node": "sh03-09n34.int",
+   "cpu": "AMD EPYC 7543 32-Core Processor",
+   "s_lr_identical": true,
+   "gbt_max_abs_diff_m": 2.220446049250313e-16,
+   "pv1_seedavg_max_abs_diff_log10": 1.7881393432617188e-07,
+   "passed": true
+  }
+ ],
+ "warnings_unknown": {
+  "dress_build_47546691.log": [],
+  "dress_figures_47546691.log": [
+   "RuntimeWarning"
+  ],
+  "dress_predict_47546691.log": [],
+  "dress_score_47546691.log": []
+ },
+ "must_hold": {
+  "m1_completed_no_refusal": false,
+  "m2_fake_probe_refused": true,
+  "m3_paths_all_exercised": false,
+  "m6_control": true,
+  "no_real_sealed_path_opened": true,
+  "all": false
+ }
+}

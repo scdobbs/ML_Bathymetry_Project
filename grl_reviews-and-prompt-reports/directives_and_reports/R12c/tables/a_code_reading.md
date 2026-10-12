@@ -1,0 +1,40 @@
+<!-- R12c Part A: code reading at commit 18ca46f (before the Part B edit); file:line -->
+### A.1 The R09 guard (`R09/scripts/r09_common.py`)
+
+| item | file:line | what it does |
+|---|---|---|
+| `sealed_tokens(m)` | `r09_common.py:36–43` | for each of the five `C4.SEALED` pairs: the pair id, its cruise and MGDS parts (`pid.partition("__")`), and every non-empty path column of the row (`harmonized_path_hr`, `harmonized_path_lr`, `hr_valid`, `lr_valid`, `joint_valid`, `harmonized_path`, `raw_path_hr`, `raw_path_lr`, `qc_artifact_path`, `hr_local_path`, each `rstrip("/")`); then **line 43 adds the bare string `harmonized_confirmatory` unconditionally**; returns the sorted set (37 tokens with the current rows: 15 ids / parts, 21 row paths, the bare directory) |
+| `_is_sealed(s)` | `:44–45` | `any(t in s for t in SEALED_TOKENS)`: a path is sealed if ANY token is a substring of it (module-global list, looked up at call time) |
+| `_check_r09(path)` | `:46–49` | `str(os.fspath(path))`; if `_is_sealed` → `PermissionError("R09 GUARD (sealed pair token): refusing …")`; else falls through to `C4._check_r04(path)` (the R04 guard: a `C4.SEALED` pair id in the string) |
+| `install_guard_r09(m)` | `:53–72` | once: `SEALED_TOKENS = sealed_tokens(m)`; `R7.install_guard_ext()`; saves `C4._check_r04 = C4._check` and sets `C4._check = _check_r09` (r04_common's guarded `open` / `rasterio.open` / `numpy.load` / parquet readers look `_check` up at call time); wraps `io.open`, `os.listdir` (entries filtered by `_is_sealed`), `os.scandir` (filtered iterator), `os.stat`, `os.lstat` |
+| `sealed_paths(m)` | `:88–101` | the self-test probes: per sealed pair the set path columns joined to `C4.DATA`, plus `<harmonized_path>/{hr,lr,hr_valid,lr_valid,joint_valid}.tif`, `ship_products_v2_1`, `context_v1/ctx_lr.tif`, plus `<DATA>/harmonized/<pid>` and the bare id → 54 paths (12 per lockbox pair, 10 per confirmatory pair) |
+| `guard_selftest_r09(m)` | `:104–121` | 13 readers (`open`, `io.open`, `rasterio.open`, `numpy.load`, `pandas.read_parquet`, `pyarrow.read_table`, `os.listdir`, `os.scandir`, `os.stat`, `os.lstat`, `glob.glob`, `Path.open`, `os.walk`) × 54 paths = 702 probes; every one must raise a `PermissionError` whose text contains `GUARD` |
+| probes involving `harmonized_confirmatory` | from `sealed_paths` | the three confirmatory pairs' `harmonized_path` directory and its 7 derived files/dirs = 8 paths per pair, 24 paths, **312 of the 702 probes**; each of those paths also contains the full pair id, so after the v2.1 rule they are admitted only once the locks have passed and the pair is in the allow-list |
+
+### A.2 `phase4_common.apply_allowlist` and `start` (before the Part B edit)
+
+| item | file:line | what it did |
+|---|---|---|
+| `start(script, mode, pairs, …)` | `phase4_common.py:236–249` | `C4.load_manifest()` → `R9.install_guard_r09(m0)` → `guard_selftest_r09` asserted 702 / 702 → `enforce_locks(...)` (phase4: sign-off, pre-registration + B2/B6 hashes, supplement, acquisition run record, calls, single-run) → **only then** `if mode == "phase4": rec["allowlist"] = apply_allowlist(pairs)` → provenance record |
+| `apply_allowlist(pairs)` | `:201–224` | tokens admitted = each pair id, its cruise and its MGDS part (15 for the five pairs); `R9.SEALED_TOKENS[:] = [t for t in R9.SEALED_TOKENS if not allowed(t)]` drops every token that CONTAINS an admitted token (the row paths, `harmonized/<pid>` …) — **the bare `harmonized_confirmatory` contains none and survived**; `C4._check_r04` and `C3._check` wrapped to pass any path containing an admitted token |
+| consequence | `r09_common.py:44–49` | `_check_r09` is not touched by the allow-list; with `harmonized_confirmatory` still in the list, `_is_sealed` refused every confirmatory path (REPORT_R12b H1, string test: the remaining token list after the allow-list was exactly `['harmonized_confirmatory']`) |
+
+### A.3 How the locks locate the pre-registration and the sign-off
+
+| item | file:line | value before the edit | v2.1 |
+|---|---|---|---|
+| `PREREG_V2` | `phase4_common.py:28` | `f"{DR}/R11/PREREG_phase4_v2.md"` (constant; `verify_frozen(mode="phase4")` uses it when no `prereg_path` argument is given; `enforce_locks` passes `prereg_path or PREREG_V2`) | `f"{DR}/R12c/PREREG_phase4_v2_1.md"` |
+| `SIGNOFF` | `phase4_common.py:28` | `f"{DR}/R11/SIGNOFF_phase4_prereg_v2.md"` (constant; `read_signoff(path=SIGNOFF)` takes the first 64-hex string in the file; `enforce_locks(signoff=SIGNOFF)`) | `f"{DR}/R12c/SIGNOFF_phase4_prereg_v2_1.md"` |
+| `PREREG_V1`, `PREREG_V1_SHA` | `:27` | rehearsal mode verifies v1 (`5c636f3d…`) | unchanged |
+| the expected pre-registration sha256 in phase4 mode | `enforce_locks` `:184–185` | `read_signoff(signoff)` → the sign-off's sha256 is the expected digest of the pre-registration file; the B2 / B6 hashes are parsed from that file's text (`parse_prereg_hashes`, `:52–63`) | unchanged |
+| other scripts | `phase4_build/figures/predict/score.py` | none names the pre-registration or the sign-off; they import `phase4_common` and call `P4.start` | **a v2.1 file is usable by changing `phase4_common.py` alone** (two constants: the pre-registration file name and the sign-off file name; the directive's B1 names one, §2 of the report flags the second) |
+
+### A.4 Paths each script opens or writes in phase4 mode, and the sealed tokens that could match them after the allow-list
+
+| script | reads | writes | sealed tokens that can match after the (v2) allow-list |
+|---|---|---|---|
+| `phase4_build.py` | manifest row paths via `extract_clean_patches.pair_setup` → `colocated_utils.resolve_pair_paths` (`:44–72`): `<DATA>/<harmonized_path_hr>` (`hr.tif`), `<harmonized_path_lr>` (`lr.tif`), `hr_valid.tif`, `lr_valid.tif`, `joint_valid.tif`; when `ship_products_usable`: `<dir of lr.tif>/ship_products_v2_1/{ship_count,ship_sd,ship_rsd,ship_xtrack_frac,ship_beam_angle}.tif` (`features_v1.pair_context` `:131–134`; `build_inputs_r06.load_products` `:36–47` via `r04_common.products_dir` `:144–146`); the frozen artifacts (`verify_frozen`); the manifest and the supplement | `<ROOT>/build/<pid>/{tiles_v1,tiles_v1_1,blocks_v1_1,features,tiles_int}.parquet`, `pair_stats.json`; `<ROOT>/fields/<pid>/{F_hr,F_res,bicubic_m,joint_v1}.tif`; `<ROOT>/inputs/<pid>/{x.npy,lrv.npy,meta.parquet}` (+ `prod.npy`, `prodm.npy` when usable); `<ROOT>/provenance/*.json`; `<ROOT>/build/build_summary_*.json` | confirmatory input paths: the full pair id (admitted) **and the bare `harmonized_confirmatory`** (refused under v2); lockbox input paths: `harmonized/<pid>/…` (dropped: contains the id); output paths: the pair id only (admitted) |
+| `phase4_figures.py` | `<ROOT>/build/<pid>/pair_stats.json`, `tiles_v1_1.parquet`; `<ROOT>/fields/<pid>/F_hr.tif`, `joint_v1.tif`; `<DATA>/<harmonized_path_hr>` and `hr_valid` via `resolve_pair_paths` (`fields_r08.one_pair` `:87–92`) | `<ROOT>/figures/work/pages/A_Q??.png`, `B_<unit>_<pid>.png`; `figures/key/figset_A_key.json`; `figures/figset_A_blind.pdf`; `figures/work/pages_record.json`; provenance | as for the build: the HR raster and mask of a confirmatory pair carry `harmonized_confirmatory` |
+| `phase4_predict.py` | the R10 OAK EW0207 inputs / build / predictions (control); `<ROOT>/build/<pid>/{tiles_v1_1,features}.parquet`; `<ROOT>/inputs/<pid>/{x.npy,lrv.npy,meta.parquet}`; the GBT joblib; the three P-V1 `ckpt.pt`; the calls file | `<ROOT>/predictions/<pid>.parquet`, `predict_record_*.json`; provenance | the pair id only (admitted); no raw sealed path |
+| `phase4_score.py` | `--inputs` parquet, `--calls` csv, `--stats` json, the ledger (calls lock) | `<out>/results_<tag>.json`, `per_pair_<tag>.csv`; provenance | the pair id only (admitted) |
+| not opened by any Phase 4 script | `context_v1/ctx_lr.tif` (G4 withdrawn), `raw_lr/<cruise>`, `staging_phase1/<MGDS>`, `qc_plots/…` | | the latter three families are sealed only as the exact row paths and are dropped by the allow-list (they contain a cruise or MGDS part); none is ever opened |

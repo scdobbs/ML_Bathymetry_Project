@@ -1,0 +1,35 @@
+--- R11/scripts/refusal_tests_r11.py
++++ R12c/scripts/refusal_tests_r12c.py
+@@ -1 +1,2 @@
+-"""R11 §D2 — the 26 R10b refusal tests re-run against the final scripts with the REAL PREREG_phase4_v2.md in place of the dummy
++"""R12c must-hold 5 — DERIVED from R11/scripts/refusal_tests_r11.py by derive_refusal_tests_r12c.py (diff in R12c/tables/refusal_tests_derivation.diff): R12c output dir; test 28 harness pinned to the R11 root; 27f (real acquisition directory accepted); 30a-e (B2). The R11 docstring follows.
++R11 §D2 — the 26 R10b refusal tests re-run against the final scripts with the REAL PREREG_phase4_v2.md in place of the dummy
+@@ -18 +19 @@
+-OUT = "/scratch/users/scdobbs/grl_review/R11/refusal_tests"; os.makedirs(OUT, exist_ok=True); V2 = P4.PREREG_V2
++OUT = "/scratch/users/scdobbs/grl_review/R12c/refusal_tests"; os.makedirs(OUT, exist_ok=True); V2 = P4.PREREG_V2
+@@ -27 +28 @@
+-    tmp = tempfile.mkdtemp(prefix="r11_refusal_", dir=OUT); sealed = [P4.CONFIRMATORY[0]]
++    tmp = tempfile.mkdtemp(prefix="r12c_refusal_", dir=OUT); sealed = [P4.CONFIRMATORY[0]]
+@@ -80,0 +82,4 @@
++    try:
++        r27 = P4.enforce_locks("phase4", "phase4_build.py", sealed, **{**L, "supplement": P4.SUPPLEMENT, "ledger": P4.LEDGER, "acq_records_dir": P4.ACQ_RECORDS_DIR}); ok27 = (r27["acq_run_record"]["sha256"] == "6e51efd61f36f92066ff91de2749cdd7ce85192c6f8d20611c1a3de45ffa431e" and P4._allowed == ())
++        T.append(dict(test="27f phase4_build.py: the REAL supplement, ledger and ACQ-R06b directory (ACQ-R07c citation record) -> every lock passes, allow-list not applied", passed=bool(ok27), exception=f"accepted {os.path.basename(r27['acq_run_record']['path'])} {r27['acq_run_record']['sha256'][:12]}"))
++    except Exception as e: T.append(dict(test="27f real acquisition directory", passed=False, exception=f"{type(e).__name__}: {e}"[:300]))
+@@ -84 +89 @@
+-        hs = pd.read_parquet(f"{P4.ROOT['rehearsal']}/harness/harness_supplement.parquet"); h = hs[hs.pair_id == "TN399__MGDS_33068"].copy(); h["ship_products_usable"] = False; h["ship_products_usable_reason"] = "refusal test 28: flag set false (harness)"
++        hs = pd.read_parquet("/scratch/users/scdobbs/grl_review/R11/rehearsal/harness/harness_supplement.parquet"); h = hs[hs.pair_id == "TN399__MGDS_33068"].copy(); h["ship_products_usable"] = False; h["ship_products_usable_reason"] = "refusal test 28: flag set false (harness)"
+@@ -88,0 +94,14 @@
++    # ---- R12c B2: the allow-list rule of revision v2.1 (string-only; nothing opened), then the guard state restored
++    try:
++        _r04, _c3, _ok = P4.C4._check_r04, P4.C3._check, True; sup5 = pd.read_parquet(P4.SUPPLEMENT); hp = {r.pair_id: os.path.join(P4.C4.DATA, r.harmonized_path_hr) for r in sup5.itertuples()}
++        pre = {p: P4.R9._is_sealed(q) for p, q in hp.items()}; P4.apply_allowlist(P4.SEALED5); post = {p: P4.R9._is_sealed(q) for p, q in hp.items()}; rem = list(P4.R9.SEALED_TOKENS)
++        fake1 = P4.R9._is_sealed(os.path.join(P4.C4.DATA, "harmonized_confirmatory/nu99/FAKE__MGDS_00000/hr.tif")); fake2 = P4.R9._is_sealed(os.path.join(P4.C4.DATA, "harmonized_confirmatory/hr.tif"))
++        T.append(dict(test="30a B2: the five sealed HR paths sealed BEFORE the allow-list", passed=all(pre.values()), exception=str(pre)[:300]))
++        T.append(dict(test="30b B2: the five sealed HR paths admitted AFTER apply_allowlist(SEALED5)", passed=not any(post.values()), exception=str(post)[:300]))
++        T.append(dict(test="30c B2: harmonized_confirmatory/nu99/FAKE__MGDS_00000/hr.tif refused after the allow-list", passed=bool(fake1), exception=f"is_sealed={fake1}; tokens remaining {rem}"))
++        T.append(dict(test="30d B2: harmonized_confirmatory/hr.tif (no pair id) refused after the allow-list", passed=bool(fake2), exception=f"is_sealed={fake2}"))
++        P4.R9._is_sealed = P4._R09_IS_SEALED; P4.R9.SEALED_TOKENS[:] = P4.R9.sealed_tokens(m0); P4._allowed = (); P4.C4._check_r04 = _r04; P4.C3._check = _c3
++        P4.apply_allowlist(["RC2511__MGDS_32239"]); fam = {"qc_plots AT42-03": os.path.join(P4.C4.DATA, "qc_plots/reaudit_real23/advancing__AT42-03__MGDS_32007.png"), "raw_lr TN159": os.path.join(P4.C4.DATA, "raw_lr/TN159"), "staging_phase1 MGDS_32007": os.path.join(P4.C4.DATA, "staging_phase1/MGDS_32007"), "SUM1004 hr (not admitted)": hp["SUM1004__MGDS_33090"]}
++        f30 = {k: P4.R9._is_sealed(v) for k, v in fam.items()}; T.append(dict(test="30e B2: the other token families (real tokens of non-admitted pairs) still refused when only RC2511 is admitted; RC2511 admitted", passed=(all(f30.values()) and not P4.R9._is_sealed(hp["RC2511__MGDS_32239"])), exception=str(f30)[:300]))
++        P4.R9._is_sealed = P4._R09_IS_SEALED; P4.R9.SEALED_TOKENS[:] = P4.R9.sealed_tokens(m0); P4._allowed = (); P4.C4._check_r04 = _r04; P4.C3._check = _c3
++    except Exception as e: T.append(dict(test="30 B2 cases", passed=False, exception=f"{type(e).__name__}: {e}"[:300]))

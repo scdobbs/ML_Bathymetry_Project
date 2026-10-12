@@ -30,7 +30,7 @@ R10_OAK = f"{R8.OAK_ARCHIVE}/R10"                                   # R10 rehear
 SUPPLEMENT = os.path.join(os.path.dirname(C4.MANIFEST), "pairs_phase4_sealed.parquet")   # phase4 mode: the five sealed rows, beside manifest v2.1 (§A3)
 LEDGER = f"{REPO}/grl_reviews-and-prompt-reports/CHANGE_LEDGER.md"
 PREREG_V1 = f"{DR}/R09/PREREG_phase4_v1.md"; PREREG_V1_SHA = "5c636f3d5b8906c562405768e292e056f8733c69054b67b458866dea8df54c1f"
-PREREG_V2 = f"{DR}/R11/PREREG_phase4_v2.md"; SIGNOFF = f"{DR}/R11/SIGNOFF_phase4_prereg_v2.md"      # the sign-off file both repos' Phase 4 locks read (R11 §D5)
+PREREG_V2 = f"{DR}/R12c/PREREG_phase4_v2_1.md"; SIGNOFF = f"{DR}/R12c/SIGNOFF_phase4_prereg_v2_1.md"      # revision v2.1 (R12c Part D; v2 = R11/PREREG_phase4_v2.md stays at its tag) and the sign-off file the Phase 4 locks read
 # ---- acquisition repo hand-off (R11 §A2.2): the frozen acquisition step (tag phase4-acq-freeze) and where its Phase 4 run record is written
 ACQ_REPO = os.path.dirname(os.path.dirname(C4.MANIFEST)); ACQ_RECORDS_DIR = f"{ACQ_REPO}/reports_post_grl_review/ACQ-R06b"   # sealed_step1.write_run_record: <ACQ-R06b>/step1_run_phase4_<tag>.json
 ACQ_FREEZE_RECORD = f"{ACQ_RECORDS_DIR}/freeze_record.json"; ACQ_FREEZE_SHA = "331c94f01d7d1a2e52fb969c5fb1872aae2cd2ed249a3757b99e9d217b3ac0cb"
@@ -198,16 +198,26 @@ def enforce_locks(mode, script, pairs, calls_path=None, results_path=None, signo
     return rec
 
 # ---------------- guard ----------------
-_allowed = ()
+_allowed = (); _R09_IS_SEALED = R9._is_sealed                      # the R09 judgement as installed (kept so that repeated calls never wrap twice)
 def apply_allowlist(pairs):
-    """phase4 mode only, after every lock passed: admit the listed sealed pairs' tokens through the R09 / R04 / R03 checks."""
+    """phase4 mode only, after every lock passed: admit the listed sealed pairs' tokens through the R09 / R04 / R03 checks.
+    Revision v2.1 (R12c §B1; REPORT_R12b H1): r09_common.sealed_tokens also holds the bare directory token `harmonized_confirmatory`,
+    which names no pair and so survived the token filter below and refused every confirmatory path. Rule, applied only here:
+      1. a path that contains an admitted FULL pair id is allowed;
+      2. a path that contains `harmonized_confirmatory` and no admitted full pair id stays refused (the bare token is kept);
+      3. every other sealed token behaves as before (tokens naming an admitted pair, cruise or MGDS id are dropped);
+      4. nothing changes before the locks (the guard self-test still blocks 702 / 702 before this function runs)."""
     global _allowed
     toks = set()
     for pid in pairs:
         toks.add(pid); cruise, _, mgds = pid.partition("__"); toks.add(cruise); toks.add(mgds)
-    _allowed = tuple(sorted(toks))
+    _allowed = tuple(sorted(toks)); full_ids = tuple(sorted(pairs))
     def allowed(s): return any(t in s for t in _allowed)
     R9.SEALED_TOKENS[:] = [t for t in R9.SEALED_TOKENS if not allowed(t)]
+    def is_sealed_allow(s):                                        # rules 1 and 2: r09_common._check_r09 / listdir / scandir look _is_sealed up at call time
+        if any(pid in s for pid in full_ids): return False
+        return _R09_IS_SEALED(s)
+    R9._is_sealed = is_sealed_allow
     r04 = C4._check_r04
     def check_r04_allow(path):
         s = str(os.fspath(path)) if not isinstance(path, int) else ""
