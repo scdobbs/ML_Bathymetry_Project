@@ -1,0 +1,5 @@
+code,relief,criteria,dominant,ab_whole_survey,note
+Q01,yes,a;c,artifact,no,"Edge halos are the strongest pattern, followed by relief. Several blank spots where survey lines do not intersect carry bright edge halos along their edges, running NE-SW, with smaller stripes NW-SE. Relief is present but less prominent than the edge artifacts."
+Q02,yes,c,relief,na,"Relief dominates except next to edges, where edge halos dominate. Bright edge halos where there are no-data pixels and along the map boundary. A few small artifacts from poor data acquisition, but these are small."
+Q03,weak,a,relief,yes,"Relief visible but very subtle. Very subtle NE-SW survey-line stripes present through the whole survey area. Survey lines are clear in the hillshade; in the other panel they are hard to make out and relief appears to dominate."
+Q04,yes,a,relief,no,"Survey-line stripes visible in the hillshade, most visible in the NE quadrant; relief dominates. Tile stitching in the fine-band map is more obvious than on any other page: square boundaries where tiles were computed and stitched are visible. Unsure whether this affects the model."
