@@ -1,0 +1,359 @@
+{
+ "1_signoff": {
+  "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R12c/SIGNOFF_phase4_prereg_v2_1.md",
+  "sha256": "712766d41278161f7b1ad5632b82c9a7bb4794d12e6f6d5189741b9f05e70029",
+  "holds_v2_sha": true,
+  "last_commit": "0c48442da0662d9226515d5e93986472ce639ed8",
+  "clean": true
+ },
+ "1_prereg_v2": {
+  "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R12c/PREREG_phase4_v2_1.md",
+  "sha256_on_disk": "d6af268bc8211fe9b4ae17439a47e6fdcbe7e5949d8ab387a7be080b2c748334",
+  "sha256_at_tag": "d6af268bc8211fe9b4ae17439a47e6fdcbe7e5949d8ab387a7be080b2c748334",
+  "tag_commit": "0c48442da0662d9226515d5e93986472ce639ed8",
+  "expected": "d6af268bc8211fe9b4ae17439a47e6fdcbe7e5949d8ab387a7be080b2c748334",
+  "clean": true
+ },
+ "1_passed": true,
+ "2_deviation": {
+  "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R11/DEVIATION_phase4_01.md",
+  "sha256": "962fd19cd9b3b13dc14ba1e1d37a7860515fb8b7168b33732cbaafe77eb95894",
+  "expected": "962fd19cd9b3b13dc14ba1e1d37a7860515fb8b7168b33732cbaafe77eb95894",
+  "last_commit": "84fd9a189f1505dd30f6a92a6045b8ff9767a2d8",
+  "expected_commit": "84fd9a189f1505dd30f6a92a6045b8ff9767a2d8",
+  "clean": true
+ },
+ "2_deviation_02": {
+  "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R11/DEVIATION_phase4_02.md",
+  "sha256": "03dd3aa286e0075417a19af622765740fac34e49b47f7dab1558533f0c94f0de",
+  "expected": "03dd3aa286e0075417a19af622765740fac34e49b47f7dab1558533f0c94f0de",
+  "last_commit": "faedeb08418e955f27e5b75ab8f90eaee7ddc30e",
+  "clean": true,
+  "signed": true
+ },
+ "2_deviation_03": {
+  "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R12c/DEVIATION_phase4_03.md",
+  "sha256": "dfccdadcaef1fcdaa0c0d063ff1f1b59df373fef9357765a70e24b869b0333af",
+  "expected": "dfccdadcaef1fcdaa0c0d063ff1f1b59df373fef9357765a70e24b869b0333af",
+  "last_commit": "0c48442da0662d9226515d5e93986472ce639ed8",
+  "clean": true,
+  "signed": true
+ },
+ "2_passed": true,
+ "3_scripts": {
+  "phase4_common.py": {
+   "on_disk": "99407ec6ce43f2f4005130d67c9025f229df4de20c9560ee79b4bf713e805111",
+   "b6": "99407ec6ce43f2f4005130d67c9025f229df4de20c9560ee79b4bf713e805111",
+   "equal": true,
+   "clean": true
+  },
+  "phase4_build.py": {
+   "on_disk": "98370164406f1c75a8c76ea342432644d896d89bc5e6548c68b0ff65ec0b46d5",
+   "b6": "98370164406f1c75a8c76ea342432644d896d89bc5e6548c68b0ff65ec0b46d5",
+   "equal": true,
+   "clean": true
+  },
+  "phase4_figures.py": {
+   "on_disk": "44e87590d247b67cf27f02ef0761af39a9a522af385c35b10bd0ce25b8551052",
+   "b6": "44e87590d247b67cf27f02ef0761af39a9a522af385c35b10bd0ce25b8551052",
+   "equal": true,
+   "clean": true
+  },
+  "phase4_predict.py": {
+   "on_disk": "7267a9c85579565044088c931a60c6dd88d12cdacf68d92795bf6b323ed01315",
+   "b6": "7267a9c85579565044088c931a60c6dd88d12cdacf68d92795bf6b323ed01315",
+   "equal": true,
+   "clean": true
+  },
+  "phase4_score.py": {
+   "on_disk": "9aefb6ff7f67eef2a066478949786fa597af920a048fe34b3d3c8d0545a1382f",
+   "b6": "9aefb6ff7f67eef2a066478949786fa597af920a048fe34b3d3c8d0545a1382f",
+   "equal": true,
+   "clean": true
+  }
+ },
+ "3_passed": true,
+ "4_supplement": {
+  "path": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/manifest/pairs_phase4_sealed.parquet",
+  "sha256": "6968e04554ddeef3c335587d602cb5fab2185db32b46cbd152475a919eb59206",
+  "expected": "6968e04554ddeef3c335587d602cb5fab2185db32b46cbd152475a919eb59206",
+  "in_ledger": true
+ },
+ "4_completion_record": {
+  "path": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/ACQ-R06b/step1_run_phase4_completion.json",
+  "sha256": "fb1e07b24681e8b7b15dec3b232ea78266c6c7cd82ae64518e82b76ae99dcc07",
+  "expected": "fb1e07b24681e8b7b15dec3b232ea78266c6c7cd82ae64518e82b76ae99dcc07",
+  "in_ledger": true
+ },
+ "4_passed": true,
+ "5_guard": {
+  "blocked": 702,
+  "probes": 702,
+  "readers": [
+   "Path.open",
+   "glob.glob",
+   "io.open",
+   "numpy.load",
+   "open",
+   "os.listdir",
+   "os.lstat",
+   "os.scandir",
+   "os.stat",
+   "os.walk",
+   "pandas.read_parquet",
+   "pyarrow.read_table",
+   "rasterio.open"
+  ],
+  "rows": [
+   {
+    "pair": "AT42-03__MGDS_32007",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/AT42-03__MGDS_32007"
+   },
+   {
+    "pair": "AT42-03__MGDS_32007",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/AT42-03__MGDS_32007/context_v1/ctx_lr.tif"
+   },
+   {
+    "pair": "AT42-03__MGDS_32007",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/AT42-03__MGDS_32007/hr.tif"
+   },
+   {
+    "pair": "AT42-03__MGDS_32007",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/AT42-03__MGDS_32007/hr_valid.tif"
+   },
+   {
+    "pair": "AT42-03__MGDS_32007",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/AT42-03__MGDS_32007/joint_valid.tif"
+   },
+   {
+    "pair": "AT42-03__MGDS_32007",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/AT42-03__MGDS_32007/lr.tif"
+   },
+   {
+    "pair": "AT42-03__MGDS_32007",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/AT42-03__MGDS_32007/lr_valid.tif"
+   },
+   {
+    "pair": "AT42-03__MGDS_32007",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/AT42-03__MGDS_32007/ship_products_v2_1"
+   },
+   {
+    "pair": "AT42-03__MGDS_32007",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/qc_plots/reaudit_real23/advancing__AT42-03__MGDS_32007.png"
+   },
+   {
+    "pair": "AT42-03__MGDS_32007",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/raw_lr/AT42-03"
+   },
+   {
+    "pair": "AT42-03__MGDS_32007",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/staging_phase1/MGDS_32007"
+   },
+   {
+    "pair": "AT42-03__MGDS_32007",
+    "path": "AT42-03__MGDS_32007"
+   },
+   {
+    "pair": "TN159__MGDS_21981",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN159__MGDS_21981"
+   },
+   {
+    "pair": "TN159__MGDS_21981",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN159__MGDS_21981/context_v1/ctx_lr.tif"
+   },
+   {
+    "pair": "TN159__MGDS_21981",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN159__MGDS_21981/hr.tif"
+   },
+   {
+    "pair": "TN159__MGDS_21981",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN159__MGDS_21981/hr_valid.tif"
+   },
+   {
+    "pair": "TN159__MGDS_21981",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN159__MGDS_21981/joint_valid.tif"
+   },
+   {
+    "pair": "TN159__MGDS_21981",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN159__MGDS_21981/lr.tif"
+   },
+   {
+    "pair": "TN159__MGDS_21981",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN159__MGDS_21981/lr_valid.tif"
+   },
+   {
+    "pair": "TN159__MGDS_21981",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/TN159__MGDS_21981/ship_products_v2_1"
+   },
+   {
+    "pair": "TN159__MGDS_21981",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/qc_plots/reaudit_real23/real_nonadvancing_qgis__TN159__MGDS_21981.png"
+   },
+   {
+    "pair": "TN159__MGDS_21981",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/raw_lr/TN159"
+   },
+   {
+    "pair": "TN159__MGDS_21981",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/staging_phase1/MGDS_21981"
+   },
+   {
+    "pair": "TN159__MGDS_21981",
+    "path": "TN159__MGDS_21981"
+   },
+   {
+    "pair": "KN182L03__MGDS_30193",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/KN182L03__MGDS_30193"
+   },
+   {
+    "pair": "KN182L03__MGDS_30193",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01a/KN182L03__MGDS_30193"
+   },
+   {
+    "pair": "KN182L03__MGDS_30193",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01a/KN182L03__MGDS_30193/context_v1/ctx_lr.tif"
+   },
+   {
+    "pair": "KN182L03__MGDS_30193",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01a/KN182L03__MGDS_30193/hr.tif"
+   },
+   {
+    "pair": "KN182L03__MGDS_30193",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01a/KN182L03__MGDS_30193/hr_valid.tif"
+   },
+   {
+    "pair": "KN182L03__MGDS_30193",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01a/KN182L03__MGDS_30193/joint_valid.tif"
+   },
+   {
+    "pair": "KN182L03__MGDS_30193",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01a/KN182L03__MGDS_30193/lr.tif"
+   },
+   {
+    "pair": "KN182L03__MGDS_30193",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01a/KN182L03__MGDS_30193/lr_valid.tif"
+   },
+   {
+    "pair": "KN182L03__MGDS_30193",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01a/KN182L03__MGDS_30193/ship_products_v2_1"
+   },
+   {
+    "pair": "KN182L03__MGDS_30193",
+    "path": "KN182L03__MGDS_30193"
+   },
+   {
+    "pair": "RC2511__MGDS_32239",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/RC2511__MGDS_32239"
+   },
+   {
+    "pair": "RC2511__MGDS_32239",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01b/RC2511__MGDS_32239"
+   },
+   {
+    "pair": "RC2511__MGDS_32239",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01b/RC2511__MGDS_32239/context_v1/ctx_lr.tif"
+   },
+   {
+    "pair": "RC2511__MGDS_32239",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01b/RC2511__MGDS_32239/hr.tif"
+   },
+   {
+    "pair": "RC2511__MGDS_32239",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01b/RC2511__MGDS_32239/hr_valid.tif"
+   },
+   {
+    "pair": "RC2511__MGDS_32239",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01b/RC2511__MGDS_32239/joint_valid.tif"
+   },
+   {
+    "pair": "RC2511__MGDS_32239",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01b/RC2511__MGDS_32239/lr.tif"
+   },
+   {
+    "pair": "RC2511__MGDS_32239",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01b/RC2511__MGDS_32239/lr_valid.tif"
+   },
+   {
+    "pair": "RC2511__MGDS_32239",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu01b/RC2511__MGDS_32239/ship_products_v2_1"
+   },
+   {
+    "pair": "RC2511__MGDS_32239",
+    "path": "RC2511__MGDS_32239"
+   },
+   {
+    "pair": "SUM1004__MGDS_33090",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized/SUM1004__MGDS_33090"
+   },
+   {
+    "pair": "SUM1004__MGDS_33090",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu03/SUM1004__MGDS_33090"
+   },
+   {
+    "pair": "SUM1004__MGDS_33090",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu03/SUM1004__MGDS_33090/context_v1/ctx_lr.tif"
+   },
+   {
+    "pair": "SUM1004__MGDS_33090",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu03/SUM1004__MGDS_33090/hr.tif"
+   },
+   {
+    "pair": "SUM1004__MGDS_33090",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu03/SUM1004__MGDS_33090/hr_valid.tif"
+   },
+   {
+    "pair": "SUM1004__MGDS_33090",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu03/SUM1004__MGDS_33090/joint_valid.tif"
+   },
+   {
+    "pair": "SUM1004__MGDS_33090",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu03/SUM1004__MGDS_33090/lr.tif"
+   },
+   {
+    "pair": "SUM1004__MGDS_33090",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu03/SUM1004__MGDS_33090/lr_valid.tif"
+   },
+   {
+    "pair": "SUM1004__MGDS_33090",
+    "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/harmonized_confirmatory/nu03/SUM1004__MGDS_33090/ship_products_v2_1"
+   },
+   {
+    "pair": "SUM1004__MGDS_33090",
+    "path": "SUM1004__MGDS_33090"
+   }
+  ]
+ },
+ "5_passed": true,
+ "acq_lock": {
+  "accepted": true,
+  "path": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/ACQ-R06b/step1_run_phase4_citation.json",
+  "sha256": "6e51efd61f36f92066ff91de2749cdd7ce85192c6f8d20611c1a3de45ffa431e",
+  "completion_record_fields": {
+   "status": "complete",
+   "mode": "phase4",
+   "supplement_sha256": "6968e04554ddeef3c335587d602cb5fab2185db32b46cbd152475a919eb59206",
+   "top_level_freeze_record_sha256": "331c94f01d7d1a2e52fb969c5fb1872aae2cd2ed249a3757b99e9d217b3ac0cb",
+   "lock_keys": [
+    "lock1_signoff",
+    "lock2_frozen_code",
+    "lock3_completion_code",
+    "lock4_prior_run",
+    "lock5_deviation_note",
+    "lock6_pair_list",
+    "lock7_single_completion",
+    "lock8_lockbox_metadata",
+    "lock2_after_run",
+    "lock3_after_run"
+   ],
+   "locks_lock2_freeze_record": null,
+   "locks_lock2_frozen_code": {
+    "freeze_record": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/ACQ-R06b/freeze_record.json",
+    "freeze_record_sha256": "331c94f01d7d1a2e52fb969c5fb1872aae2cd2ed249a3757b99e9d217b3ac0cb",
+    "n_files": 21
+   },
+   "lock_read_by_phase4_common": "locks.lock2_freeze_record.freeze_record_sha256 (phase4_common.load_acq_run_record)"
+  }
+ },
+ "all_passed": true,
+ "git_head": "0c48442da0662d9226515d5e93986472ce639ed8"
+}

@@ -18,6 +18,6 @@ PAIRS="KN182L03__MGDS_30193 RC2511__MGDS_32239 SUM1004__MGDS_33090 AT42-03__MGDS
 echo "=== $(date) $(hostname) job=${SLURM_JOB_ID} git=$(git rev-parse --short HEAD) ==="; grep -m1 "model name" /proc/cpuinfo
 echo "CMD: python phase4_figures.py --mode phase4 --pairs \"$PAIRS\""
 python phase4_figures.py --mode phase4 --pairs "$PAIRS" || { echo "figures FAILED"; exit 2; }
-cd ../R12c/scripts && python -B check_pages_r12c.py || { echo "page check FAILED"; exit 3; }
+cd ../../R12c/scripts && python -B check_pages_r12c.py || { echo "page check FAILED"; exit 3; }
 ( cd "$P4" && find . -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 -P 4 -n 32 sha256sum | sort -k2 > SHA256SUMS && sha256sum -c SHA256SUMS --quiet && echo "SHA256SUMS VERIFIED: $(wc -l < SHA256SUMS) files" ) || { echo "SHA256SUMS FAILED"; exit 4; }
 echo "=== done $(date) rc=0 ==="

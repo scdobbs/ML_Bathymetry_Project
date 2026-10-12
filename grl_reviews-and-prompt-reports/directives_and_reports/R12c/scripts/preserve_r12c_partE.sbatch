@@ -1,0 +1,26 @@
+#!/bin/bash
+#SBATCH --job-name=r12c_preserveE
+#SBATCH -p serc
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=4G
+#SBATCH --time=00:30:00
+#SBATCH --output=/scratch/users/scdobbs/grl_review/R12c/logs/preserveE_%j.out
+#SBATCH --error=/scratch/users/scdobbs/grl_review/R12c/logs/preserveE_%j.err
+# R12c Part E preservation — the Part E logs, tables, scripts and documents to OAK grl_review_archive/R12c/{logs_partE,tables_partE,scripts_partE,documents_partE}/,
+# sha256 verified at the destination. Additive only (the Parts A-D copies stay). The Phase 4 outputs themselves are in grl_review_archive/phase4/ (SHA256SUMS written there).
+# DO-NOT-OPEN: logs_partE/ holds the phase4 build job's .out, which prints each built pair's amplitude statistic.
+set -euo pipefail
+ARCH=/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/R12c; SRC=/scratch/users/scdobbs/grl_review/R12c
+REP=/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R12c
+echo "=== $(date) $(hostname) ==="
+copy_one () {
+  local src=$1 dst=$2
+  if [ -f "$dst/SHA256SUMS" ]; then echo "SKIP (already verified): $dst"; return 0; fi
+  mkdir -p "$dst"; ( cd "$src" && find . -type f -print0 | sort -z | xargs -0 -n 32 sha256sum ) | sort -k2 > "$dst.SHA256SUMS.tmp"
+  rsync -rlt --chmod=Dg+s "$src/" "$dst/"; mv "$dst.SHA256SUMS.tmp" "$dst/SHA256SUMS"
+  ( cd "$dst" && sha256sum -c SHA256SUMS --quiet ) && echo "VERIFIED $(wc -l < "$dst/SHA256SUMS") files  $dst"
+}
+copy_one "$SRC/logs" "$ARCH/logs_partE"; copy_one "$SRC/checks" "$ARCH/checks_partE"; copy_one "$REP/tables" "$ARCH/tables_partE"; copy_one "$REP/scripts" "$ARCH/scripts_partE"
+mkdir -p "$ARCH/documents_partE"; for f in REPORT_R12c_partE_2026-10-12.md REPORT_R12c_2026-10-12.md SIGNOFF_phase4_prereg_v2_1.md DEVIATION_phase4_03.md phase4_calls_TEMPLATE.csv figset_A_blind.pdf; do [ -f "$REP/$f" ] && cp "$REP/$f" "$ARCH/documents_partE/"; done
+( cd "$ARCH/documents_partE" && sha256sum * | grep -v SHA256SUMS > SHA256SUMS && sha256sum -c SHA256SUMS --quiet && echo "VERIFIED documents_partE" )
+echo "=== done $(date) ==="
