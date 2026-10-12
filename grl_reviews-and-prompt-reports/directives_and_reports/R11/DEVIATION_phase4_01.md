@@ -19,8 +19,8 @@
 1. The step-1 results of the four finished pairs were kept exactly as the frozen step wrote them, and were not
    recomputed.
 2. The two lockbox directories were changed to group `oak_hilley` and mode 2770. No file inside them was touched.
-3. A completion script (`src/phase4/sealed_step1_complete.py`, sha256 6c49a66a9fdf9b2156a13b10b315a71975e12791f909c5d6118e2a4f5dd255f0; completion freeze record sha256 9b84a378000c49b1cc191f33e6641e237d02e5eb6a2c87477307aafaa89d9b57; tag
-   `phase4-acq-complete`), rehearsed in ACQ-R07b, did three things:
+3. A completion script (`src/phase4/sealed_step1_complete.py`, sha256 860e5d598ae222db9c82f27da688dc093455adf10bef9b2502d56cb18a30e706; completion freeze record sha256 b581e538115dd4859cd6175a131fb4214c800d3b9a5ba6c0321d234530a58182; tag
+   `phase4-acq-complete-v2`), rehearsed in ACQ-R07b, did three things:
    - it read the four pairs from their records, after verifying every file hash;
    - it ran the frozen per-pair code on TN159;
    - it wrote the five-row supplement with the frozen row writer.
@@ -35,4 +35,6 @@ value of any confirmatory pair. The order of operations in B3 from step 2 on.
 in REPORT_ACQ-R07: spacings, k and per-k verdicts, product status and flags, and cells across the window. No
 amplitude, tile, figure, prediction or score existed.
 
-Signed: ______Stephen Cole Dobbs________________   Date: __10/11/2026________
+This version replaces v1 (CNN commit be23809c), which was signed before a defect in the completion script’s lock 5 was found and fixed. No phase4 run occurred between the two versions.
+
+Signed: Steve (by Claude Code at Steve's instruction, 2026-10-11) Date: 2026-10-11
