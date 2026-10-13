@@ -100,3 +100,5 @@ Commit (explicit paths): `R15/scripts/`, `R15/tables/`, `R15/REPORT_R15_template
 ### 8.4 Pairs of the multi-pair units (H2 b)
 
 <!-- TABLE: r_pairs_multi.md -->
+
+**§8 record (CONFIRMED):** commit `c3f5a24` (scripts, §8 tables, figure, report, ledger row 45). Preservation job 47668522 wrote new OAK destinations under `grl_review_archive/R15/`, leaving the earlier copies untouched: `out_ruling/` (6 files), `provenance_ruling/` (8), `tables_ruling/` (9), `scripts_ruling/` (6), `figures/` (2) and `documents/`, each `SHA256SUMS` verified. `logs_ruling/` (all R15 logs) was copied and verified from the login node after the job ended.

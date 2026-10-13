@@ -21,6 +21,9 @@ copy_one () {
 }
 copy_one "$REP/inputs" "$ARCH/inputs"; copy_one "$SRC/out" "$ARCH/out"; copy_one "$SRC/provenance" "$ARCH/provenance"
 copy_one "$REP/tables" "$ARCH/tables"; copy_one "$REP/scripts" "$ARCH/scripts"
+# §8 (rulings of 2026-10-13): new destinations, so earlier verified copies stay untouched
+copy_one "$SRC/out_ruling" "$ARCH/out_ruling"; copy_one "$SRC/provenance" "$ARCH/provenance_ruling"; copy_one "$REP/tables" "$ARCH/tables_ruling"
+copy_one "$REP/scripts" "$ARCH/scripts_ruling"; copy_one "$REP/figures" "$ARCH/figures"
 mkdir -p "$ARCH/documents"; cp "$REP/REPORT_R15_2026-10-13.md" "$REP/REPORT_R15_template.md" "$ARCH/documents/"
 ( cd "$ARCH/documents" && sha256sum REPORT_R15_* > SHA256SUMS && sha256sum -c SHA256SUMS --quiet && echo "VERIFIED documents" )
 grep -q "^07421ead49aa5908ed16d74cc4d01f0839ff82b0ffad83d24ba5b8b73b73d2f6  ./goff/abyssal_hill_rms_prediction_v2.0.grd$" "$ARCH/inputs/SHA256SUMS" && echo "Goff grid sha256 matches the recorded value"
