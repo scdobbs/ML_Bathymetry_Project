@@ -62,3 +62,5 @@ Ratios (§3.4) are withheld under H1. "fine band" = the union over the unit's pa
 ## 7. Preservation and record (§5)
 
 Commit (explicit paths): `R15/scripts/`, `R15/tables/`, `R15/REPORT_R15_template.md`, this report, `R15/inputs/goff/grl60637-sup-0001-2020gl088162-si.docx`, `R15/.gitignore` (ignores the Goff grid and `inputs/proxies/`: the age grid, its README and the census are not committed), `CHANGE_LEDGER.md` row 44. OAK `grl_review_archive/R15/`: `inputs/` (with the grid, the age grid and the census), `out/`, `provenance/`, `logs/`, `tables/`, `scripts/`, `documents/`, each with `SHA256SUMS` verified at the destination.
+
+**Record (CONFIRMED):** commit `92e1bd6` (scripts, tables, SI document, report, ledger row 44). Preservation job 47663793: OAK `grl_review_archive/R15/` `inputs/` (5 files, including the Goff grid with sha256 `07421ead…d2f6` matched at the destination), `out/` (5), `provenance/` (4), `tables/` (5), `scripts/` (6), `documents/`, each `SHA256SUMS` verified. `logs/` (8 files) were copied and verified from the login node after the job ended.
