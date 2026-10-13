@@ -12,6 +12,7 @@
 from __future__ import annotations
 import json, math, os, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot   # font manager scans system font dirs BEFORE the guard wraps os.scandir (its os.walk needs a plain iterator)
 import r15_common as R
 import numpy as np, pandas as pd
 C4, R8 = R.C4, R.R8
@@ -107,6 +108,31 @@ def unit_location(m, pids):
     spread = max([haversine_deg(a["centroid_lon"], a["centroid_lat"], lon0, lat0) for a in per_pair.values()]) * 111.195
     return dict(lon=lon0, lat=lat0, area_km2=float(U.area / 1e6), proj=P, union=U, per_pair=per_pair, max_pair_centroid_to_unit_centroid_km=float(spread))
 
+def pair_sample(m, pid, gx, gy, gz, ax_, ay, az, K):
+    """Ruling H2(b) (Steve, 2026-10-13): Goff (a) / (b), crustal age and seamount proxies at ONE pair's footprint centroid
+    (its own footprint, unit-centred LAEA re-centred on the pair), and the pair's class under the §2.3 rule and its sensitivity."""
+    loc = unit_location(m, [pid])
+    ga, _ = bilinear(gx, gy, gz, loc["lon"], loc["lat"]); nb = neighbourhood(gx, gy, gz, loc["lon"], loc["lat"])
+    age, _ = bilinear(ax_, ay, az, loc["lon"], loc["lat"]); sm = seamounts(K, loc)
+    fails = []
+    if not np.isfinite(age): fails.append("off oceanic crust (age NaN)")
+    elif age < R.AGE_MIN_MYR: fails.append(f"crustal age {age:.2f} < 1 Myr")
+    fails_s = list(fails)
+    if sm["within"]: fails.append(f"seamount within 2r ({', '.join(s['id'] for s in sm['within'])})")
+    if sm["within_sensitivity"]: fails_s.append(f"seamount within 2 x major ({', '.join(s['id'] for s in sm['within_sensitivity'])})")
+    has = nb["n_valid"] > 0
+    cls = "no value" if not has else ("computed" if not fails else "possibly interpolated")
+    cls_s = "no value" if not has else ("computed" if not fails_s else "possibly interpolated")
+    return dict(pair=pid, centroid_lon=loc["lon"], centroid_lat=loc["lat"], area_km2=loc["area_km2"], goff_a=ga, goff_b=nb["median"], goff_b_n_valid=nb["n_valid"], goff_b_n_nodes=nb["n_nodes"], goff_b_n_negative=nb["n_negative"],
+                crustal_age_myr=age, smt_nearest_id=(sm["nearest"] or {}).get("id"), smt_nearest_dist_km=(sm["nearest"] or {}).get("dist_km", np.nan), smt_nearest_radius_km=(sm["nearest"] or {}).get("radius_km", np.nan),
+                smt_within_2r=len(sm["within"]), smt_within_2major=len(sm["within_sensitivity"]), domain_class=cls, class_reason="; ".join(fails), domain_class_sensitivity=cls_s, class_reason_sensitivity="; ".join(fails_s), seamounts=sm)
+
+def aggregate_pairs(PP, key="domain_class"):
+    """Unit class = worst class among the pairs that have a value (possibly interpolated > computed); no such pair -> no value."""
+    v = [p for p in PP if p["goff_b_n_valid"] > 0]
+    if not v: return "no value", v
+    return ("possibly interpolated" if any(p[key] == "possibly interpolated" for p in v) else "computed"), v
+
 def unit_depth(m, pids):
     import rasterio
     from rasterio.enums import Resampling
@@ -179,84 +205,124 @@ def figure(T, path):
         ax.scatter(r.goff_b, r.A_fine_median_m, s=58, marker=mk, facecolor=face, edgecolor=COL[grp], linewidth=1.6, zorder=3, label=lab if first else None)
         ax.annotate(r.unit if r.unit != R.EW_UNIT else "EW0207", (r.goff_b, r.A_fine_median_m), textcoords="offset points", xytext=(6, 3), fontsize=7.5, color="#333333")
     ax.set_xscale("log"); ax.set_yscale("log")
-    ax.set_xlabel("Goff (2020) predicted abyssal hill RMS height, median of nodes within 0.5° (m)"); ax.set_ylabel("unit-median fine relief A_fine (m)")
+    from matplotlib.ticker import FixedLocator, NullFormatter, FormatStrFormatter
+    ax.xaxis.set_major_locator(FixedLocator([40, 60, 100, 150, 200, 300])); ax.xaxis.set_major_formatter(FormatStrFormatter("%g")); ax.xaxis.set_minor_formatter(NullFormatter())
+    ax.set_xlabel("Goff (2020) predicted abyssal hill RMS height (m)\n(median of nodes within 0.5° of each pair centroid; unit = median over pairs with a value)" if RULING else "Goff (2020) predicted abyssal hill RMS height, median of nodes within 0.5° (m)", fontsize=9)
+    ax.set_ylabel("unit-median fine relief A_fine (m)")
     ax.grid(True, which="major", color="#e6e6e6", linewidth=0.6); ax.set_axisbelow(True)
     for s in ("top", "right"): ax.spines[s].set_visible(False)
     miss = [u for u in T.unit if u not in set(P.unit)]
-    ax.legend(frameon=False, fontsize=7.5, loc="best", title="filled = computed; open = possibly interpolated", title_fontsize=7.5)
-    if miss: ax.text(0.01, -0.16, "not plotted (no positive Goff value in the 0.5° neighbourhood): " + ", ".join("EW0207" if u == R.EW_UNIT else u for u in miss), transform=ax.transAxes, fontsize=7, color="#555555")
+    order = [f"{g}, {c}" for g in ("real-relief", "artifact-affected", "EW0207 (separate)") for c in ("computed", "possibly interpolated")]
+    h, l = ax.get_legend_handles_labels(); hl = sorted(zip(h, l), key=lambda t: order.index(t[1]))
+    ax.legend([a for a, _ in hl], [b for _, b in hl], frameon=False, fontsize=7.5, loc="lower right", title="filled = computed; open = possibly interpolated", title_fontsize=7.5)
+    if miss: ax.text(0.01, -0.22, "not plotted (no positive Goff value in the 0.5° neighbourhood): " + ", ".join("EW0207" if u == R.EW_UNIT else u for u in miss), transform=ax.transAxes, fontsize=7, color="#555555")
     fig.tight_layout(); fig.savefig(path + ".pdf"); fig.savefig(path + ".png", dpi=170); plt.close(fig)
 
 # ------------------------------------------------------------------ main
-if __name__ == "__main__":
-    t0 = time.time(); m, prov = R.start("goff_r15")
-    # §3 must-hold FIRST (item 2.3 on all 16 units against R08 §4)
-    U, band, vsrc = unit_values()
-    U16 = U.loc[R.UNITS16]; mh = R.spearman_boot(U16.s_lr_median_m, U16.A_fine_median_m)
+RULING = "--ruling" in sys.argv          # Steve's rulings of 2026-10-13 (H1 a, H2 b, H3 keep); without the flag: the pre-ruling run as first reported
+OUT = f"{R.ROOT}/out_ruling" if RULING else R.OUT
+
+def must_hold_pre(U16):
+    """Pre-ruling must-hold (directive seed 20261014, tolerance 0.01) and its diagnostic, as first reported (§1-§7 of the report)."""
+    mh = R.spearman_boot(U16.s_lr_median_m, U16.A_fine_median_m)
     dev = [abs(mh["rho"] - R.R08_RHO), abs(mh["ci95"][0] - R.R08_CI[0]), abs(mh["ci95"][1] - R.R08_CI[1])]
     must = dict(rho=mh["rho"], ci95=mh["ci95"], n=mh["n"], r08_rho=R.R08_RHO, r08_ci95=list(R.R08_CI), abs_dev=dev, tol=R.MUST_HOLD_TOL, passed=bool(max(dev) <= R.MUST_HOLD_TOL), seed=R.SEED)
-    # diagnostic of a failure (evidence for the HOLD; changes nothing): the same statistic with the R08 seed, and the spread of the CI bounds over 100 seeds
-    r08seed = R8.spearman_boot(U16.s_lr_median_m, U16.A_fine_median_m, seed=R8.SEED, n_boot=R.N_BOOT)
-    lo, hi = [], []
+    r08seed = R8.spearman_boot(U16.s_lr_median_m, U16.A_fine_median_m, seed=R8.SEED, n_boot=R.N_BOOT); lo, hi = [], []
     for sd in range(20261000, 20261100):
         b = R8.spearman_boot(U16.s_lr_median_m, U16.A_fine_median_m, seed=sd, n_boot=R.N_BOOT); lo.append(b["ci95"][0]); hi.append(b["ci95"][1])
-    must["diagnostic"] = dict(with_r08_seed=dict(seed=R8.SEED, **r08seed), seeds="20261000..20261099 (100 seeds, 2,000 resamples each)", ci_lo=dict(min=min(lo), p5=float(np.percentile(lo, 5)), median=float(np.median(lo)), p95=float(np.percentile(lo, 95)), max=max(lo)),
-                              ci_hi=dict(min=min(hi), p5=float(np.percentile(hi, 5)), median=float(np.median(hi)), p95=float(np.percentile(hi, 95)), max=max(hi)),
+    q = lambda v: dict(min=min(v), p5=float(np.percentile(v, 5)), median=float(np.median(v)), p95=float(np.percentile(v, 95)), max=max(v))
+    must["diagnostic"] = dict(with_r08_seed=dict(seed=R8.SEED, **r08seed), seeds="20261000..20261099 (100 seeds, 2,000 resamples each)", ci_lo=q(lo), ci_hi=q(hi),
                               frac_seeds_within_tol=float(np.mean([(abs(a - R.R08_CI[0]) <= R.MUST_HOLD_TOL) and (abs(b - R.R08_CI[1]) <= R.MUST_HOLD_TOL) for a, b in zip(lo, hi)])))
-    R.dump(must, f"{R.OUT}/must_hold.json"); print(f"must-hold: rho {mh['rho']:+.3f} [{mh['ci95'][0]:+.3f}, {mh['ci95'][1]:+.3f}] vs R08 +0.697 [+0.305, +0.866]; max dev {max(dev):.4f} -> {'PASS' if must['passed'] else 'FAIL'}; "
-          f"R08 seed: {r08seed['rho']:+.3f} [{r08seed['ci95'][0]:+.3f}, {r08seed['ci95'][1]:+.3f}]; 100-seed CI lo {min(lo):+.3f}..{max(lo):+.3f}, hi {min(hi):+.3f}..{max(hi):+.3f}; within tol {must['diagnostic']['frac_seeds_within_tol']:.2f}", flush=True)
-    if not must["passed"]: print("STOP (R15 §3 must hold): item 2.3 on all 16 units does not reproduce R08 §4 within 0.01 -> HOLD; §1-§2 are completed, §3 correlations and the figure are NOT computed", flush=True)
+    print(f"must-hold: rho {mh['rho']:+.3f} [{mh['ci95'][0]:+.3f}, {mh['ci95'][1]:+.3f}] vs R08 +0.697 [+0.305, +0.866]; max dev {max(dev):.4f} -> {'PASS' if must['passed'] else 'FAIL'}", flush=True)
+    return must
+
+def must_hold_ruling(U16):
+    """Ruling H1 (a): R08's seed 20261009; must reproduce OAK R08 level_correlations.json exactly. The 20261014 value is reported beside it."""
+    r08 = json.load(open(R.oak_verify(R.OAK_R08_LEVEL, "level_correlations.json")))["correlations"]["level_raw_vs_s_lr"]
+    mh = R8.spearman_boot(U16.s_lr_median_m, U16.A_fine_median_m, seed=R8.SEED, n_boot=R.N_BOOT)
+    dev = [abs(mh["rho"] - r08["rho"]), abs(mh["ci95"][0] - r08["ci95"][0]), abs(mh["ci95"][1] - r08["ci95"][1])]
+    must = dict(rho=mh["rho"], ci95=mh["ci95"], n=mh["n"], r08=r08, abs_dev=dev, tol="exact (<= 1e-12)", passed=bool(max(dev) <= 1e-12 and mh["n"] == r08["n"] == 16), seed=R8.SEED,
+                ruling="H1 (a), Steve 2026-10-13", seed_20261014_row=R.spearman_boot(U16.s_lr_median_m, U16.A_fine_median_m))
+    print(f"must-hold (ruling H1 a, seed {R8.SEED}): rho {mh['rho']:+.6f} [{mh['ci95'][0]:+.6f}, {mh['ci95'][1]:+.6f}] vs R08 {r08['rho']:+.6f} [{r08['ci95'][0]:+.6f}, {r08['ci95'][1]:+.6f}]; max dev {max(dev):.1e} -> {'PASS' if must['passed'] else 'FAIL'}", flush=True)
+    return must
+
+if __name__ == "__main__":
+    t0 = time.time(); m, prov = R.start("goff_r15_ruling" if RULING else "goff_r15"); os.makedirs(OUT, exist_ok=True)
+    U, band, vsrc = unit_values(); U16 = U.loc[R.UNITS16]
+    must = must_hold_ruling(U16) if RULING else must_hold_pre(U16); R.dump(must, f"{OUT}/must_hold.json")
+    if RULING and not must["passed"]: raise SystemExit("STOP (R15 §3 must hold, ruling H1 a): R08 §4 not reproduced exactly")
     # §1.1 grid facts
     gf, gx, gy, gz = grid_facts(); af, ax_, ay, az = load_age(); K = load_kw()
     R.dump(dict(goff=gf, age=af, kw=dict(file=os.path.basename(R.KW), sha256=R.KW_SHA, url=R.KW_URL, version="KWSMTS v0.1 (Kim & Wessel 2011, GJI 186, 615-631)", n=len(K), n_note="24,643 rows = sum of the 24 plate-segment headers; the file header comment states 24,646",
-                                         radius_rule="radius = major axis / 2 (columns 4 / 5 are the major / minor axes of the basal ellipse, km)", major_km_range=[float(K.major_km.min()), float(K.major_km.max())])), f"{R.OUT}/grid_facts.json")
+                                         radius_rule="radius = major axis / 2 (columns 4 / 5 are the major / minor axes of the basal ellipse, km)", major_km_range=[float(K.major_km.min()), float(K.major_km.max())])), f"{OUT}/grid_facts.json")
     assert 2 * K.major_km.max() / 111.195 < R.SMT_SEARCH_DEG, "seamount pre-filter too narrow"
-    # §2 per unit
-    rows, recs = [], {}
+    # §2 per unit (location, area and depth from the union of the unit's footprints in both modes)
+    rows, recs, prow = [], {}, []
     for u in R.UNITS16 + [R.EW_UNIT]:
         pids = (C4.UNITS[u] if u in C4.UNITS else C4.EW0207[u])
         loc = unit_location(m, pids); dep = unit_depth(m, pids)
-        ga, ga_nodes = bilinear(gx, gy, gz, loc["lon"], loc["lat"]); nb = neighbourhood(gx, gy, gz, loc["lon"], loc["lat"])
-        age, age_nodes = bilinear(ax_, ay, az, loc["lon"], loc["lat"]); sm = seamounts(K, loc)
-        fails = []
-        if not np.isfinite(age): fails.append("off oceanic crust (age NaN)")
-        elif age < R.AGE_MIN_MYR: fails.append(f"crustal age {age:.2f} < 1 Myr")
-        if sm["within"]: fails.append(f"seamount within 2r ({', '.join(s['id'] for s in sm['within'])})")
-        cls = "no value" if nb["n_valid"] == 0 else ("computed" if not fails else "possibly interpolated")
-        fails_s = [f for f in fails if not f.startswith("seamount")] + ([f"seamount within 2 x major ({', '.join(s['id'] for s in sm['within_sensitivity'])})"] if sm["within_sensitivity"] else [])
-        cls_s = "no value" if nb["n_valid"] == 0 else ("computed" if not fails_s else "possibly interpolated")
-        # per-pair Goff (b) for multi-pair units (evidence for a HOLD on the union centroid; not used in §3)
-        pp = {p: dict(goff_b=neighbourhood(gx, gy, gz, v["centroid_lon"], v["centroid_lat"])["median"], n_valid=neighbourhood(gx, gy, gz, v["centroid_lon"], v["centroid_lat"])["n_valid"], **{k: v[k] for k in ("centroid_lon", "centroid_lat", "area_km2")}) for p, v in loc["per_pair"].items()}
         grp = "EW0207 (separate)" if u == R.EW_UNIT else ("real-relief" if u in R.TEN else "artifact-affected")
         uv = U.loc[u]
-        r = dict(unit=u, group=grp, n_pairs=len(pids), setting=" / ".join(dict.fromkeys(str(C4.pair_row(m, p)["terrain_class"]) for p in pids)), site=" / ".join(dict.fromkeys(str(C4.pair_row(m, p)["site_name"]) for p in pids)), centroid_lon=loc["lon"], centroid_lat=loc["lat"], area_km2=loc["area_km2"],
-                 max_pair_offset_km=loc["max_pair_centroid_to_unit_centroid_km"], depth_m=dep["depth_m"], crustal_age_myr=age, oceanic_crust=bool(np.isfinite(age)),
-                 smt_nearest_id=(sm["nearest"] or {}).get("id"), smt_nearest_dist_km=(sm["nearest"] or {}).get("dist_km", np.nan), smt_nearest_radius_km=(sm["nearest"] or {}).get("radius_km", np.nan),
-                 smt_within_2r=len(sm["within"]), smt_within_2major=len(sm["within_sensitivity"]), domain_class=cls, class_reason="; ".join(fails) if fails else "", domain_class_sensitivity=cls_s,
-                 goff_a=ga, goff_b=nb["median"], goff_b_n_valid=nb["n_valid"], goff_b_n_nodes=nb["n_nodes"], goff_b_min=nb["min"], goff_b_max=nb["max"], goff_b_n_negative=nb["n_negative"],
-                 A_fine_median_m=float(uv.A_fine_median_m), s_lr_median_m=float(uv.s_lr_median_m), A_fine_int_median_m=float(uv.A_fine_int_median_m) if uv.n_int_tiles else np.nan,
-                 s_lr_int_median_m=float(uv.s_lr_int_median_m) if uv.n_int_tiles else np.nan, n_int_tiles=int(uv.n_int_tiles), lam_short_m=band[u]["lam_short_m"], lam_long_m=band[u]["lam_long_m"])
+        base = dict(unit=u, group=grp, n_pairs=len(pids), setting=" / ".join(dict.fromkeys(str(C4.pair_row(m, p)["terrain_class"]) for p in pids)), site=" / ".join(dict.fromkeys(str(C4.pair_row(m, p)["site_name"]) for p in pids)),
+                    centroid_lon=loc["lon"], centroid_lat=loc["lat"], area_km2=loc["area_km2"], max_pair_offset_km=loc["max_pair_centroid_to_unit_centroid_km"], depth_m=dep["depth_m"],
+                    A_fine_median_m=float(uv.A_fine_median_m), s_lr_median_m=float(uv.s_lr_median_m), A_fine_int_median_m=float(uv.A_fine_int_median_m) if uv.n_int_tiles else np.nan,
+                    s_lr_int_median_m=float(uv.s_lr_int_median_m) if uv.n_int_tiles else np.nan, n_int_tiles=int(uv.n_int_tiles), lam_short_m=band[u]["lam_short_m"], lam_long_m=band[u]["lam_long_m"])
+        if RULING:
+            # H2 (b): sample every pair; unit class = worst class among the pairs that have a value; unit Goff = median of those pairs' values
+            PP = [pair_sample(m, p, gx, gy, gz, ax_, ay, az, K) for p in pids]
+            for p in PP: prow.append(dict(unit=u, **{k: v for k, v in p.items() if k != "seamounts"}))
+            cls, val = aggregate_pairs(PP); cls_s, _ = aggregate_pairs(PP, "domain_class_sensitivity")
+            ga = [p["goff_a"] for p in val if np.isfinite(p["goff_a"])]; ages = [p["crustal_age_myr"] for p in PP]
+            near = min(PP, key=lambda p: (p["smt_nearest_dist_km"] if np.isfinite(p["smt_nearest_dist_km"]) else np.inf))
+            r = dict(base, crustal_age_myr=(ages[0] if len(PP) == 1 else np.nan), crustal_age_pairs=";".join(f"{a:.2f}" for a in ages), oceanic_crust_pairs=f"{sum(np.isfinite(a) for a in ages)} of {len(PP)}",
+                     smt_nearest_id=near["smt_nearest_id"], smt_nearest_dist_km=near["smt_nearest_dist_km"], smt_nearest_radius_km=near["smt_nearest_radius_km"],
+                     domain_class=cls, class_reason=" | ".join(f"{p['pair']}: {p['class_reason']}" for p in val if p["class_reason"]) if len(PP) > 1 else (PP[0]["class_reason"]), domain_class_sensitivity=cls_s,
+                     n_pairs_with_value=len(val), goff_a=(float(np.median(ga)) if ga else np.nan), goff_b=(float(np.median([p["goff_b"] for p in val])) if val else np.nan),
+                     goff_b_n_valid=int(sum(p["goff_b_n_valid"] for p in val)), goff_b_n_nodes=int(sum(p["goff_b_n_nodes"] for p in PP)), goff_b_n_negative=int(sum(p["goff_b_n_negative"] for p in PP)))
+            recs[u] = dict(location={k: v for k, v in loc.items() if k != "union"}, depth=dep, pairs=PP, band=band[u])
+        else:
+            ga, ga_nodes = bilinear(gx, gy, gz, loc["lon"], loc["lat"]); nb = neighbourhood(gx, gy, gz, loc["lon"], loc["lat"])
+            age, age_nodes = bilinear(ax_, ay, az, loc["lon"], loc["lat"]); sm = seamounts(K, loc)
+            fails = []
+            if not np.isfinite(age): fails.append("off oceanic crust (age NaN)")
+            elif age < R.AGE_MIN_MYR: fails.append(f"crustal age {age:.2f} < 1 Myr")
+            if sm["within"]: fails.append(f"seamount within 2r ({', '.join(s['id'] for s in sm['within'])})")
+            cls = "no value" if nb["n_valid"] == 0 else ("computed" if not fails else "possibly interpolated")
+            fails_s = [f for f in fails if not f.startswith("seamount")] + ([f"seamount within 2 x major ({', '.join(s['id'] for s in sm['within_sensitivity'])})"] if sm["within_sensitivity"] else [])
+            cls_s = "no value" if nb["n_valid"] == 0 else ("computed" if not fails_s else "possibly interpolated")
+            pp = {p: dict(goff_b=neighbourhood(gx, gy, gz, v["centroid_lon"], v["centroid_lat"])["median"], n_valid=neighbourhood(gx, gy, gz, v["centroid_lon"], v["centroid_lat"])["n_valid"], **{k: v[k] for k in ("centroid_lon", "centroid_lat", "area_km2")}) for p, v in loc["per_pair"].items()}
+            r = dict(base, crustal_age_myr=age, oceanic_crust=bool(np.isfinite(age)), smt_nearest_id=(sm["nearest"] or {}).get("id"), smt_nearest_dist_km=(sm["nearest"] or {}).get("dist_km", np.nan), smt_nearest_radius_km=(sm["nearest"] or {}).get("radius_km", np.nan),
+                     smt_within_2r=len(sm["within"]), smt_within_2major=len(sm["within_sensitivity"]), domain_class=cls, class_reason="; ".join(fails) if fails else "", domain_class_sensitivity=cls_s,
+                     goff_a=ga, goff_b=nb["median"], goff_b_n_valid=nb["n_valid"], goff_b_n_nodes=nb["n_nodes"], goff_b_min=nb["min"], goff_b_max=nb["max"], goff_b_n_negative=nb["n_negative"])
+            recs[u] = dict(location={k: v for k, v in loc.items() if k != "union"}, depth=dep, goff_bilinear_nodes=ga_nodes, goff_neighbourhood=nb, age_bilinear_nodes=age_nodes, seamounts=sm, per_pair_goff=pp, band=band[u])
         r["ratio_goff_over_fine"] = r["goff_b"] / r["A_fine_median_m"] if np.isfinite(r["goff_b"]) else np.nan
-        rows.append(r); recs[u] = dict(location={k: v for k, v in loc.items() if k not in ("union",)}, depth=dep, goff_bilinear_nodes=ga_nodes, goff_neighbourhood=nb, age_bilinear_nodes=age_nodes, seamounts=sm, per_pair_goff=pp, band=band[u])
-        print(f"{u}: ({loc['lon']:.3f}, {loc['lat']:.3f}) depth {dep['depth_m']:.0f} age {age:.2f} smt<=2r {len(sm['within'])} class {cls} goff a {ga:.1f} b {nb['median']:.1f} (n {nb['n_valid']}/{nb['n_nodes']}, neg {nb['n_negative']})", flush=True)
-    T = pd.DataFrame(rows); T.to_csv(f"{R.OUT}/units.csv", index=False); R.dump(recs, f"{R.OUT}/units_record.json")
+        rows.append(r); print(f"{u}: class {r['domain_class']} (sens {r['domain_class_sensitivity']}) goff a {r['goff_a']:.1f} b {r['goff_b']:.1f} fine {r['A_fine_median_m']:.4f}", flush=True)
+    T = pd.DataFrame(rows); T.to_csv(f"{OUT}/units.csv", index=False); R.dump(recs, f"{OUT}/units_record.json")
+    if RULING:
+        PT = pd.DataFrame(prow); PT.to_csv(f"{OUT}/pairs.csv", index=False)
+        # check: single-pair units must give the pre-ruling values exactly (pair footprint = unit union)
+        T0 = pd.read_csv(f"{R.OUT}/units.csv").set_index("unit"); singles = [u for u in T.unit if T.set_index("unit").loc[u, "n_pairs"] == 1]
+        for c in ("goff_a", "goff_b", "goff_b_n_valid", "domain_class", "domain_class_sensitivity"):
+            a = T.set_index("unit").loc[singles, c]; b = T0.loc[singles, c]
+            ok = (a.astype(str) == b.astype(str)) | (pd.isna(a) & pd.isna(b)) if a.dtype == object else np.isclose(a.astype(float), b.astype(float), rtol=0, atol=1e-9, equal_nan=True)
+            assert bool(np.all(ok)), (c, list(a), list(b))
+        print(f"check: {len(singles)} single-pair units reproduce the pre-ruling Goff values and classes exactly", flush=True)
     D = T[T.unit.isin(R.UNITS16)]
     sets = dict(primary_n=int((D.domain_class == "computed").sum()), secondary_n=int(D.domain_class.isin(["computed", "possibly interpolated"]).sum()), classes=dict(zip(D.unit, D.domain_class)))
     if not must["passed"]:
-        R.dump(dict(must_hold=must, set_sizes=sets, note="§3 not computed: must-hold failed (HOLD)"), f"{R.OUT}/stats.json"); print(f"set sizes {sets['primary_n']} / {sets['secondary_n']}; stopped before §3 ({time.time() - t0:.0f} s)"); sys.exit(0)
-    # §3 comparison (16 development units; EW0207 never pooled)
+        R.dump(dict(must_hold=must, set_sizes=sets, note="§3 not computed: must-hold failed (HOLD)"), f"{OUT}/stats.json"); print(f"set sizes {sets['primary_n']} / {sets['secondary_n']}; stopped before §3 ({time.time() - t0:.0f} s)"); sys.exit(0)
+    # §3 comparison (16 development units; EW0207 never pooled); new statistics with seed 20261014 (R.SEED)
     prim = D[D.domain_class == "computed"]; sec = D[D.domain_class.isin(["computed", "possibly interpolated"])]
-    S = dict(primary=set_stats(prim, "A_fine_median_m", "s_lr_median_m", "computed"), secondary=set_stats(sec, "A_fine_median_m", "s_lr_median_m", "computed + possibly interpolated"))
-    for nm, base in (("primary_ten_interior", prim), ("secondary_ten_interior", sec)):
-        sub = base[base.unit.isin(R.TEN) & (base.n_int_tiles > 0)]
+    S = dict(set_sizes=sets, primary=set_stats(prim, "A_fine_median_m", "s_lr_median_m", "computed"), secondary=set_stats(sec, "A_fine_median_m", "s_lr_median_m", "computed + possibly interpolated"))
+    for nm, b in (("primary_ten_interior", prim), ("secondary_ten_interior", sec)):
+        sub = b[b.unit.isin(R.TEN) & (b.n_int_tiles > 0)]
         S[nm] = set_stats(sub, "A_fine_int_median_m", "s_lr_int_median_m", f"{nm.split('_')[0]} set ∩ ten real-relief, R08b interior D1 medians (lu14 has no interior tile)")
         S[nm].pop("partial_goff_fine_given_s_lr", None)
-    # sensitivity: seamount radius = major axis (class only; reported, not used)
     S["sensitivity_classes"] = dict(primary_n=int((D.domain_class_sensitivity == "computed").sum()), secondary_n=int(D.domain_class_sensitivity.isin(["computed", "possibly interpolated"]).sum()),
-                                    changed=[u for u, a, b in zip(D.unit, D.domain_class, D.domain_class_sensitivity) if a != b])
+                                    primary_units=list(D[D.domain_class_sensitivity == "computed"].unit), changed=[u for u, a, b in zip(D.unit, D.domain_class, D.domain_class_sensitivity) if a != b])
     S["must_hold"] = must; S["seed"] = R.SEED; S["n_boot"] = R.N_BOOT; S["unit_value_sources"] = vsrc
-    R.dump(S, f"{R.OUT}/stats.json")
+    R.dump(S, f"{OUT}/stats.json")
     os.makedirs(R.FIGURES, exist_ok=True); figure(T, f"{R.FIGURES}/R15_fig_goff_vs_fine_relief")
     for k in ("primary", "secondary", "primary_ten_interior", "secondary_ten_interior"):
-        s = S[k]; print(f"{k}: n {s['n']} " + ("; ".join(f"{q} {s[q]['rho']:+.3f} [{s[q]['ci95'][0]:+.3f}, {s[q]['ci95'][1]:+.3f}]" for q in ("goff_vs_fine", "goff_vs_s_lr", "s_lr_vs_fine", "partial_goff_fine_given_s_lr") if q in s)), flush=True)
+        s_ = S[k]; print(f"{k}: n {s_['n']} {s_.get('note', '')} " + ("; ".join(f"{q} {s_[q]['rho']:+.3f} [{s_[q]['ci95'][0]:+.3f}, {s_[q]['ci95'][1]:+.3f}]" for q in ("goff_vs_fine", "goff_vs_s_lr", "s_lr_vs_fine", "partial_goff_fine_given_s_lr") if q in s_)), flush=True)
     print(f"done ({time.time() - t0:.0f} s)")

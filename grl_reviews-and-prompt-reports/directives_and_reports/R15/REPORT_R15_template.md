@@ -64,3 +64,39 @@ Ratios (§3.4) are withheld under H1. "fine band" = the union over the unit's pa
 Commit (explicit paths): `R15/scripts/`, `R15/tables/`, `R15/REPORT_R15_template.md`, this report, `R15/inputs/goff/grl60637-sup-0001-2020gl088162-si.docx`, `R15/.gitignore` (ignores the Goff grid and `inputs/proxies/`: the age grid, its README and the census are not committed), `CHANGE_LEDGER.md` row 44. OAK `grl_review_archive/R15/`: `inputs/` (with the grid, the age grid and the census), `out/`, `provenance/`, `logs/`, `tables/`, `scripts/`, `documents/`, each with `SHA256SUMS` verified at the destination.
 
 **Record (CONFIRMED):** commit `92e1bd6` (scripts, tables, SI document, report, ledger row 44). Preservation job 47663793: OAK `grl_review_archive/R15/` `inputs/` (5 files, including the Goff grid with sha256 `07421ead…d2f6` matched at the destination), `out/` (5), `provenance/` (4), `tables/` (5), `scripts/` (6), `documents/`, each `SHA256SUMS` verified. `logs/` (8 files) were copied and verified from the login node after the job ended.
+
+---
+
+## 8. §3 under Steve's rulings of 2026-10-13 (H1 a, H2 b, H3 keep)
+
+**Rulings applied (ledger row 45).** H1 (a): the §3 must-hold uses R08's seed 20261009 and must reproduce R08 §4 exactly; every new R15 statistic uses 20261014. H2 (b): every pair is sampled at its own footprint centroid (Goff (a) / (b), crustal age, seamounts). The unit class is the worst class among the pairs that have a value (possibly interpolated is worse than computed); a unit with no such pair has no value. The unit Goff value is the median of those pairs' values, applied to every multi-pair unit (lu05, lu07, lu12, lu13, lu15). H3: radius = major axis / 2, with the radius = major axis sensitivity row kept. Unit centroid, area and depth stay as in §3 of this report (union of the footprints).
+**Compute:** `goff_r15.py --ruling`, serc CPU: 47667055 (§3 statistics written; the figure step failed because matplotlib's font scan uses `os.walk` on the guarded `os.scandir`; fixed by importing matplotlib before the guard is installed, rc 1); 47667593 (complete, rc 0); 47668032 (final; figure axis ticks and legend order only, every number identical; rc 0, 60 s, 4 CPUs). The pre-ruling outputs in `out/` are unchanged; the ruling outputs are in `/scratch/users/scdobbs/grl_review/R15/out_ruling/` (`must_hold.json`, `units.csv`, `pairs.csv`, `units_record.json`, `stats.json`, `grid_facts.json`).
+
+**Results (8 bullets).**
+
+1. **Must-hold met exactly (CONFIRMED).** Seed 20261009 gives ρ = +0.697059 [+0.305168, +0.866076], identical to OAK R08 `level_correlations.json` (maximum difference 0). The same statistic with seed 20261014 is +0.697 [+0.328, +0.872] (reported, not gated).
+2. **Per-pair sampling reproduces the single-pair units exactly (CONFIRMED).** All 12 single-pair units (11 development units + EW0207) give the same Goff (a), Goff (b), node counts, classes and sensitivity classes as the pre-ruling run (asserted in the code).
+3. **Classes under H2 (b) (CONFIRMED as applied).** **lu15 → possibly interpolated**, Goff (b) 86.0 m (Gorda pair only; the Cascadia pair has no value). **lu12 → possibly interpolated**, Goff (b) 111.3 m: 4 of its 18 pairs (HeadlessCanyon, BankTop, 6thHeadlessCany, BankTopEofCanyon3) have 2 to 8 non-missing nodes in their 0.5° box, while the union centroid had none. All 18 lu12 pairs are off oceanic crust. lu05, lu07 and lu13 keep their classes. **Primary (computed): lu02, lu06, lu07, lu08 = 4, below the §3.1 floor: table only, no correlation.** Secondary: 10 units. H3 sensitivity: primary 3 (lu07 changes).
+4. **Secondary set, n = 10 (§3.2; seed 20261014).** Goff vs fine relief **ρ = −0.309 [−1.000, +0.590]**; Goff vs s_lr −0.236 [−0.800, +0.484]; s_lr vs fine relief on the same units **+0.636 [+0.013, +0.899]**; partial ρ of Goff with fine relief given s_lr **−0.212 [−1.000, +0.691]**.
+5. **§3.3, the ten real-relief units with R08b interior D1 medians.** Primary ∩ ten = lu07, lu08 (2): table only. Secondary ∩ ten = lu04, lu05, lu07, lu08, lu09, lu13, lu15 (7; lu14 has no interior tile and no Goff value): Goff vs interior fine relief **−0.786 [−1.000, +0.059]**; Goff vs interior s_lr −0.357 [−0.961, +0.750]; interior s_lr vs interior fine relief +0.643 [−0.216, +1.000].
+6. **The CI bounds at ±1.000 come from the resampling, not from the data (CONFIRMED by construction).** With 10 or 7 units, a resample often holds only a few distinct units, and its Spearman ρ can be exactly ±1. The partial-ρ bootstrap had no undefined resample; R08's `spearman_boot` drops resamples with a constant variable, and their count is not recorded. The intervals are wide because n is small; none of the five Goff intervals (bullets 4 and 5) excludes zero.
+7. **Magnitudes (§3.4; descriptive).** Goff (b) ranges from 43.2 m (lu07) to 255.9 m (lu09). Unit-median fine relief ranges from 0.0015 m (lu06) to 1.35 m (lu07). The ratio Goff / fine relief runs from **32 (lu07) to 46,921 (lu06)** on the 10 units with a value; EW0207 is 35. **Bandwidth:** Goff's RMS height is that of abyssal hills about 2 to 10 km wide. Our fine band is [lr_native / k, lr_native] per pair, **2.5 to 86.9 m** in wavelength across the development units (per unit in the table). The two bands do not overlap: Goff's band starts a factor of about 23 above our longest wavelength (2 km vs 87 m) and ends about 4,000 times above our shortest (10 km vs 2.5 m).
+8. **Reading (§4.4, two sentences).** Across the ten development units where Goff's prediction is defined, it does not track unit-median fine relief (ρ = −0.31 [−1.00, +0.59]; −0.79 [−1.00, +0.06] on the seven real-relief units with interior medians), while unit-median s_lr does on the same ten units (+0.64 [+0.01, +0.90]). Given s_lr, Goff adds nothing detectable (partial ρ −0.21 [−1.00, +0.69]); the computed-only set has four units, too few to test.
+
+**Figure (§3.5):** `R15/figures/R15_fig_goff_vs_fine_relief.pdf` and `.png`. Goff (b) on x, unit-median fine relief on y, both log. Filled = computed, open = possibly interpolated; blue = real-relief, orange = artifact-affected, grey = EW0207 (separate). The six no-value units are listed under the axis.
+
+### 8.1 Must-hold
+
+<!-- TABLE: r_must_hold.md -->
+
+### 8.2 Correlations (§3.2, §3.3), seed 20261014, 2,000 resamples over units
+
+<!-- TABLE: r_correlations.md -->
+
+### 8.3 Unit table under the rulings (§4.2, with the §3.4 ratio)
+
+<!-- TABLE: r_units.md -->
+
+### 8.4 Pairs of the multi-pair units (H2 b)
+
+<!-- TABLE: r_pairs_multi.md -->

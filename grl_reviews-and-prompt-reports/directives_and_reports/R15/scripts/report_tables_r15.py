@@ -76,4 +76,40 @@ if __name__ == "__main__":
             dd = math.degrees(math.acos(min(1, math.sin(math.radians(v['centroid_lat'])) * math.sin(math.radians(loc['lat'])) + math.cos(math.radians(v['centroid_lat'])) * math.cos(math.radians(loc['lat'])) * math.cos(math.radians(v['centroid_lon'] - loc['lon']))))) * 111.195
             L.append(f"| {u} | {p} | {v['centroid_lon']:.3f}, {v['centroid_lat']:.3f} | {dd:.1f} | {f(v['goff_b'])} [{v['n_valid']}] | {REC[u]['depth']['per_pair'][p]['median_elev_m']:,.0f} |")
     w("multi_pair_units.md", L, "units_record.json")
+    # ================= §8: the run under Steve's rulings of 2026-10-13 (out_ruling/)
+    OR = OUT + "_ruling"
+    if os.path.exists(f"{OR}/stats.json"):
+        MR = json.load(open(f"{OR}/must_hold.json")); SR = json.load(open(f"{OR}/stats.json")); TR = pd.read_csv(f"{OR}/units.csv"); PR = pd.read_csv(f"{OR}/pairs.csv")
+        r8, n14 = MR["r08"], MR["seed_20261014_row"]
+        L = ["| statistic (16 units, median s_lr vs median A_fine) | Spearman ρ [95 % CI] | |difference| |", "|---|---|---|",
+             f"| R08 §4, OAK `level_correlations.json` | {r8['rho']:+.6f} [{r8['ci95'][0]:+.6f}, {r8['ci95'][1]:+.6f}] | |",
+             f"| **R15 must-hold, seed 20261009 (ruling H1 a)** | {MR['rho']:+.6f} [{MR['ci95'][0]:+.6f}, {MR['ci95'][1]:+.6f}] | {max(MR['abs_dev']):.1e}: **exact** |",
+             f"| same statistic, seed 20261014 (reported) | {n14['rho']:+.3f} [{n14['ci95'][0]:+.3f}, {n14['ci95'][1]:+.3f}] | |"]
+        w("r_must_hold.md", L, "out_ruling/must_hold.json")
+        def cell(st, q):
+            return f"{st[q]['rho']:+.3f} [{st[q]['ci95'][0]:+.3f}, {st[q]['ci95'][1]:+.3f}]" if q in st else "—"
+        L = ["| set | n | units | Goff vs fine relief | Goff vs s_lr | s_lr vs fine relief (same units) | partial ρ Goff, fine \\| s_lr |", "|---|---|---|---|---|---|---|"]
+        for k, lab in (("primary", "primary: computed"), ("secondary", "secondary: computed + possibly interpolated"), ("primary_ten_interior", "§3.3 primary ∩ ten, interior D1 medians"), ("secondary_ten_interior", "§3.3 secondary ∩ ten, interior D1 medians")):
+            st = SR[k]; note = " (fewer than 5: table only)" if st["n"] < 5 else ""
+            L.append(f"| {lab} | {st['n']}{note} | {', '.join(st['units'])} | {cell(st, 'goff_vs_fine')} | {cell(st, 'goff_vs_s_lr')} | {cell(st, 's_lr_vs_fine')} | {cell(st, 'partial_goff_fine_given_s_lr') if not k.endswith('interior') else 'not requested'} |")
+        sc = SR["sensitivity_classes"]
+        L.append(f"| primary with radius = major axis (H3 sensitivity) | {sc['primary_n']} (table only) | {', '.join(sc['primary_units'])} | — | — | — | — |")
+        w("r_correlations.md", L, "out_ruling/stats.json")
+        L = ["| unit | group | domain class (reason; per pair where the unit has more than one) | pairs with a value / pairs | crustal age (Myr) per pair | nearest K&W seamount over pairs: distance (km) / radius (km) | Goff (a) (m) | Goff (b) (m) | median A_fine (m) | ratio Goff (b) / A_fine | median s_lr (m) | interior D1 A_fine / s_lr (m) | fine band (m) |",
+             "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+        for r in TR.itertuples():
+            name = "lu16 (EW0207, separate)" if r.unit == "lu16" else r.unit
+            cls = r.domain_class + (f" ({r.class_reason.replace(' | ', '; ')})" if isinstance(r.class_reason, str) and r.class_reason else "")
+            if r.domain_class_sensitivity != r.domain_class: cls += f"; with radius = major axis: {r.domain_class_sensitivity}"
+            ages = [float(a) for a in str(r.crustal_age_pairs).split(";")]
+            age = "; ".join("NaN" if not math.isfinite(a) else f"{a:.2f}" for a in ages) if len(ages) <= 3 else (f"all {len(ages)} NaN (off oceanic crust)" if not any(map(math.isfinite, ages)) else f"{min(a for a in ages if math.isfinite(a)):.2f}–{max(a for a in ages if math.isfinite(a)):.2f}")
+            smt = f"{r.smt_nearest_id}: {r.smt_nearest_dist_km:.1f} / {r.smt_nearest_radius_km:.2f}" if isinstance(r.smt_nearest_id, str) else "none within 6°"
+            intr = f"{f(r.A_fine_int_median_m, 4)} / {f(r.s_lr_int_median_m, 2)}" if r.n_int_tiles else "no interior tile"
+            L.append(f"| {name} | {r.group} | {cls} | {r.n_pairs_with_value} / {r.n_pairs} | {age} | {smt} | {f(r.goff_a)} | {f(r.goff_b)} | {r.A_fine_median_m:.4f} | {f(r.ratio_goff_over_fine, 0)} | {r.s_lr_median_m:.2f} | {intr} | {r.lam_short_m:.1f}–{r.lam_long_m:.1f} |")
+        w("r_units.md", L, "out_ruling/units.csv")
+        L = ["| unit | pair | centroid lon, lat | crustal age (Myr) | nearest seamount (km / radius km) | Goff (b) (m) [non-missing / 225] | class (reason) |", "|---|---|---|---|---|---|---|"]
+        for r in PR[PR.unit.isin(TR[TR.n_pairs > 1].unit)].itertuples():
+            smt = f"{r.smt_nearest_id}: {r.smt_nearest_dist_km:.1f} / {r.smt_nearest_radius_km:.2f}" if isinstance(r.smt_nearest_id, str) else "none"
+            L.append(f"| {r.unit} | {r.pair} | {r.centroid_lon:.3f}, {r.centroid_lat:.3f} | {f(r.crustal_age_myr, 2)} | {smt} | {f(r.goff_b)} [{r.goff_b_n_valid}] | {r.domain_class}{f' ({r.class_reason})' if isinstance(r.class_reason, str) and r.class_reason else ''} |")
+        w("r_pairs_multi.md", L, "out_ruling/pairs.csv")
     print("tables written:", sorted(os.listdir(TABLES)))
