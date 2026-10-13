@@ -1,0 +1,682 @@
+{
+ "copies": {
+  "NA080__MGDS_31289": {
+   "src": "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/NA080__MGDS_31289",
+   "dst": "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/NA080__MGDS_31289",
+   "n_files": 20,
+   "all_same_as_source": true,
+   "any_link": false,
+   "files": {
+    "hr_selection.json": {
+     "sha256": "a79a01ca052326a907db36748221e7d07b562fd4c3e8ac674b7365f83992416c",
+     "same_as_source": true,
+     "link": false
+    },
+    "footprint.geojson": {
+     "sha256": "1067810d7cdae8d1d1d1ca32a1ac15660e70e175253e49ce873d9fb30380d4b3",
+     "same_as_source": true,
+     "link": false
+    },
+    "site_record.json": {
+     "sha256": "8e64a2a47b90b1d81f12dfc578dd43e7b40716b66ef33b3ae9ce3b0e5387b0f0",
+     "same_as_source": true,
+     "link": false
+    },
+    "sweep_record.json": {
+     "sha256": "956a7961d924f37876c2546241a45e19b5d5876c9cedb705e7324a82f9fa4a72",
+     "same_as_source": true,
+     "link": false
+    },
+    "grid_record.json": {
+     "sha256": "81ccfdb528033ff6c86e487743c9e0d01252fae2476a4e9fce45a51dafed3838",
+     "same_as_source": true,
+     "link": false
+    },
+    "lr_valid.tif": {
+     "sha256": "53d0e6892a67f09269dc4cb918478fdbbaed6b07cbe576b80b1c37f983dc467a",
+     "same_as_source": true,
+     "link": false
+    },
+    "lr.tif": {
+     "sha256": "965fe7636e100a2d2816c7910bb3b871ec503c8b5245512652f6a2f5647f0a16",
+     "same_as_source": true,
+     "link": false
+    },
+    "hr_valid.tif": {
+     "sha256": "5cefd977673b0d4f30b3b9d0fb1a0b27328dcccc809975248d94aadb3a3a2b64",
+     "same_as_source": true,
+     "link": false
+    },
+    "hr.tif": {
+     "sha256": "9ea08ab8243b9d9162bd82d498bee8b5e4d1a91121e288d142fc5ae03692464a",
+     "same_as_source": true,
+     "link": false
+    },
+    "joint_valid.tif": {
+     "sha256": "2561bb66c69590bc40796b7c041ff16208b164f993e3dcc459be698bc8b52b05",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_rsd.tif": {
+     "sha256": "7419680dbc962e0f8129f60fb10adb6a6cfbdca2e4ed03c4a4def44e17bc7155",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/products_extra.json": {
+     "sha256": "5320546471289375b956dd12e90d345b6ff3abc0385809a4c9b1bb3ec729dc15",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_xtrack_frac.tif": {
+     "sha256": "06f11b53642719ebd3bc42a77370d28c5aa14da755b6e7bf62c431ef6ae836b6",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/qa_shift_surface.csv": {
+     "sha256": "77b53a8fa892442886edc2cfba6d7a980cf75e48749307b2e2279466a40611af",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_count.tif": {
+     "sha256": "cba883c75b74aea21303499bbe6f60edb056cd63bad26521c6917fcfcbe6f525",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_mean_regrid.tif": {
+     "sha256": "83b090977cdd4f6b9d54d373a3299cd2d1774e08993ceefe9109abc2ef203647",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/products.json": {
+     "sha256": "3ca07723640ba7149591d1a4c306e20f083f75ff84fd20ce7b2a118aac316f09",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_beam_angle.tif": {
+     "sha256": "37945f6a919087f746716b28c4ba6e16a6d97aaa1fa1f2bfc793ab80ab934be6",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_sd.tif": {
+     "sha256": "fec462fafbe343bddc5cc19b01b0148701def400c520013b8fd93f5e6755fc57",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_median_regrid.tif": {
+     "sha256": "fe5e95c68a1cf3972d92dc9b1d46b46eb526dde9410ebe5bc56c58e6d4d62115",
+     "same_as_source": true,
+     "link": false
+    }
+   }
+  },
+  "KM0923__MGDS_31429": {
+   "src": "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MGDS_31429",
+   "dst": "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MGDS_31429",
+   "n_files": 20,
+   "all_same_as_source": true,
+   "any_link": false,
+   "files": {
+    "hr_selection.json": {
+     "sha256": "f1fe3ed5c76d2d398de9c8428523ff8aebd4e9414e0955fc3804ceeb1a4ca175",
+     "same_as_source": true,
+     "link": false
+    },
+    "footprint.geojson": {
+     "sha256": "584d91632c8084a2074db4bfac4bb923cdd5e7514f0bd0d430d5a50d40a034af",
+     "same_as_source": true,
+     "link": false
+    },
+    "site_record.json": {
+     "sha256": "39683a3e73c1af9c672f7ea74f5cd9872ea3cbc52240786abf3ba7ac8e5c03d5",
+     "same_as_source": true,
+     "link": false
+    },
+    "sweep_record.json": {
+     "sha256": "1a5bccc0904dd148c0c7625c7858eddfe680f5735303d58cfbae1ce01859e1c3",
+     "same_as_source": true,
+     "link": false
+    },
+    "grid_record.json": {
+     "sha256": "9f9185faad6f046c880805ae2123b9a92226a149ec12e17c969d4fdda49a8d10",
+     "same_as_source": true,
+     "link": false
+    },
+    "lr_valid.tif": {
+     "sha256": "67542094cf5def103f16da229ef8adc2f9881fae80218da1cded02e8f619d78e",
+     "same_as_source": true,
+     "link": false
+    },
+    "lr.tif": {
+     "sha256": "68659e450ccae0f1740bf6ade17ad95321604ca90d7a2fb4d0975b7753263c0b",
+     "same_as_source": true,
+     "link": false
+    },
+    "hr_valid.tif": {
+     "sha256": "4898dcfc31c31f6aea47313bd3f5ed998759c4413c0319aae60f969cc8da0c4d",
+     "same_as_source": true,
+     "link": false
+    },
+    "hr.tif": {
+     "sha256": "4de2725a5275313220f3e4d994451bee5cb2744a164c6b4b3d7814061543b374",
+     "same_as_source": true,
+     "link": false
+    },
+    "joint_valid.tif": {
+     "sha256": "cfa197a7cd0d1f1a3e581bef486f1508ad4025620ce7e6c468829d8ae5874a7e",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_rsd.tif": {
+     "sha256": "d547137187ed9f9604cb2c66132553b26dc3e072aaeb1ec37145ea45a6e8552b",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/products_extra.json": {
+     "sha256": "67a4bfa7b9cbc347864c8cd16221f891c59e52f02125a6a8f06ea5c6ed2cf128",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_xtrack_frac.tif": {
+     "sha256": "b8aa1adc8ff4eeeea18f0fde69ac326e0b38ecaa51bd87b323331cb93d665f92",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/qa_shift_surface.csv": {
+     "sha256": "24958eb89312f7d2a8204bbf2c7172257c2df6fd77478dd8ea6fbb65405f7ffc",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_count.tif": {
+     "sha256": "cdee937cedd0decd07b0f9ea100a50a033339911c8cb378e7e684b08bf6b32b2",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_mean_regrid.tif": {
+     "sha256": "ffe04b875a75707b24195855086cedbd691d1045497b0218fe6433ae017c4ae9",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/products.json": {
+     "sha256": "261d1e26c46e01a8dd5f1738e2bd371e9ef89336ecb3e04b48c3d9ff4a39a196",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_beam_angle.tif": {
+     "sha256": "90e8f72153a73d16a04a30444510788a3a1c380f5a1084629bc8411036626ba5",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_sd.tif": {
+     "sha256": "fe335b74dee59c9160ac39eac59ed35153010291f0d6067e7287f5fbf1096e20",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_median_regrid.tif": {
+     "sha256": "bfabcea816ebc1a7f9129113f27c2bc7150e50ef47cd56c74d07323c812d6449",
+     "same_as_source": true,
+     "link": false
+    }
+   }
+  },
+  "FK151121__MGDS_22383": {
+   "src": "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09_fk151121_isolation/harmonized/FK151121__MGDS_22383",
+   "dst": "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/FK151121__MGDS_22383",
+   "n_files": 20,
+   "all_same_as_source": true,
+   "any_link": false,
+   "files": {
+    "hr_selection.json": {
+     "sha256": "f60fafff7b57890922ad393e4841e3e3ab77dc74bf96b13266625140b2e6c42f",
+     "same_as_source": true,
+     "link": false
+    },
+    "footprint.geojson": {
+     "sha256": "53c28bead1d576b58e4197dad3d0faf136f8b15ff563200a0cdc7efa33459bd6",
+     "same_as_source": true,
+     "link": false
+    },
+    "site_record.json": {
+     "sha256": "2b3f3c67c402b4f261448e2423f6125b33c576d9cd389bdc149abc56e5e73c90",
+     "same_as_source": true,
+     "link": false
+    },
+    "sweep_record.json": {
+     "sha256": "ebdc323fbc1082be22ff370a1c226e7eb4928c062f9eab4927de5f00082e2e6c",
+     "same_as_source": true,
+     "link": false
+    },
+    "grid_record.json": {
+     "sha256": "183ede748139ac75a19164fe29a972bbdba77beb857a2d94d69d1eb42207fc11",
+     "same_as_source": true,
+     "link": false
+    },
+    "lr_valid.tif": {
+     "sha256": "6f5fce6c7e7367733e35ba873afffe233dedda99cd5ea655d30ebdca5094945b",
+     "same_as_source": true,
+     "link": false
+    },
+    "lr.tif": {
+     "sha256": "f2f76c8a63be8b82d41a4eec1781f423e476a8ed75c449907ee22b1ca28b2d01",
+     "same_as_source": true,
+     "link": false
+    },
+    "hr_valid.tif": {
+     "sha256": "3e9c8a636e9b825472f8ba9d4fac1002b8d69e0f5e2ef05689f832e0795017b3",
+     "same_as_source": true,
+     "link": false
+    },
+    "hr.tif": {
+     "sha256": "e3d370275855d97cbac7c004a36cd05ffe3199facf27c80aa5c961480564a92b",
+     "same_as_source": true,
+     "link": false
+    },
+    "joint_valid.tif": {
+     "sha256": "8e8840c1bfa442b4808ebd149300010d55d1fb9d04c8bc3bc85571d1687c8f94",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_rsd.tif": {
+     "sha256": "ef2a8a44145ea3031d84ca4e0a9198623e3d32d4e3ff2b061740ecce35e69dfa",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/products_extra.json": {
+     "sha256": "612d76d2f3272f84d11ebf2fed89464b9c4d65017dad7b68709eded28b80dd2b",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_xtrack_frac.tif": {
+     "sha256": "774d4e41bb36507c076ad748256649e673a7bbbfa227ba313aed28f7f902ab11",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/qa_shift_surface.csv": {
+     "sha256": "ca91f761b4932a3a8dc1467c513ac82c884d5824fd747c53d13653c8a6651545",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_count.tif": {
+     "sha256": "14a8c6a7bfbc7fb4e4d8437d234ee32b48609975f741030c379251c69fbe0c11",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_mean_regrid.tif": {
+     "sha256": "8fb9e070824ce5875297c6e59e1f7b42a339d7ad0a0aaa78ed143e4dbdf14589",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/products.json": {
+     "sha256": "17b930584388f0e511b50810c6114ba12005aabf4f1facfa4ba16103961dbfb7",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_beam_angle.tif": {
+     "sha256": "f6dc10703572f0757094d0ebcfcf021c784e80d6f7ce0babb9dc23926e23aa82",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_sd.tif": {
+     "sha256": "b9cf8e036c246444bd03ac9ff69bda08ca11067080010b9acd14d0fa9829b18d",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_median_regrid.tif": {
+     "sha256": "a7cd610c2ab81ed1db2fe7934567057f0ff8e95958557e882ad4b06eff26bf71",
+     "same_as_source": true,
+     "link": false
+    }
+   }
+  },
+  "KM0923__MOCK_R09repeat": {
+   "src": "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MOCK_R09repeat",
+   "dst": "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MOCK_R09repeat",
+   "n_files": 20,
+   "all_same_as_source": true,
+   "any_link": false,
+   "files": {
+    "hr_selection.json": {
+     "sha256": "ba1d26d33a053587f2b54f35fb0e9ab1ff45cb4c7c0e6acabc63d19b15dd411e",
+     "same_as_source": true,
+     "link": false
+    },
+    "footprint.geojson": {
+     "sha256": "7b68a226945f5f1e6eccf3b15ebd1fff6bcc6491f0ce46409337a928c22752e3",
+     "same_as_source": true,
+     "link": false
+    },
+    "site_record.json": {
+     "sha256": "df4faa1bbff6103ea28f719bd0b6a75f301179b491c13b449d6d7a061e384f72",
+     "same_as_source": true,
+     "link": false
+    },
+    "sweep_record.json": {
+     "sha256": "db66a1e02ffc80cade3f6d029ab5b81673c57b12d280b226074fd4a3932de398",
+     "same_as_source": true,
+     "link": false
+    },
+    "grid_record.json": {
+     "sha256": "e357aae0a8bd5440eb781e98d71cae619ab4ab4382f94255d353e4cee47ce848",
+     "same_as_source": true,
+     "link": false
+    },
+    "lr_valid.tif": {
+     "sha256": "1cc2396dec2820aeba70e0eb962cf8cab6c2acd880161ca0948d095eed5d380e",
+     "same_as_source": true,
+     "link": false
+    },
+    "lr.tif": {
+     "sha256": "ab84976fc2527858c6c0e9e09891ec98a0cc771a88cd737c013f6ae60f57672c",
+     "same_as_source": true,
+     "link": false
+    },
+    "hr_valid.tif": {
+     "sha256": "988ffe5af9327363d8e9135fb7260e76f2485257fb867256b58c0ce1b5b78f5a",
+     "same_as_source": true,
+     "link": false
+    },
+    "hr.tif": {
+     "sha256": "3e889ef5ea25d2e6b7b1320fe6c615da691ac335c0a155ac5f79751ef8195c23",
+     "same_as_source": true,
+     "link": false
+    },
+    "joint_valid.tif": {
+     "sha256": "d4300d044dab54a8ed74003266391c3aa3401671a521b6494975e7c3a7acde19",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_rsd.tif": {
+     "sha256": "789bd28e85dbaca27b19f497f7bbeb59cd82824d91d0de3b2efc157bda5a8699",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/products_extra.json": {
+     "sha256": "05f727a8459fc792b0c7a30ff3696808836b3f99f4299525c8c97c6446f7b090",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_xtrack_frac.tif": {
+     "sha256": "5149ccbbd8560f2347ea4dcac5982a3487d175547cc7e8e2439f40b8db44d296",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/qa_shift_surface.csv": {
+     "sha256": "c350b70041d967e5eb1ef04ffa6407073576fb3d18f88e02c18147d1ea570b44",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_count.tif": {
+     "sha256": "9321a4dd7d8c8106b6787f996505d6fcf4552ace7975997f4382e56c715ff410",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_mean_regrid.tif": {
+     "sha256": "9da46b0f1e014fc3369f8a79b5693c7ca807faf6dddf7ca0fe52977efe5f1200",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/products.json": {
+     "sha256": "b738b4a061c07f151a02702cc02bb74452725c33887ecb18a27eda103fedd4c3",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_beam_angle.tif": {
+     "sha256": "10a09072fd4a425050695f2ffd0d4187a755223215945f3be30b1617086e90c5",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_sd.tif": {
+     "sha256": "4a512e1ca3f0cef20e27783547dcfd76ba0faec3f1d1334b8957a6a9a4d61f24",
+     "same_as_source": true,
+     "link": false
+    },
+    "ship_products_v2_1/ship_median_regrid.tif": {
+     "sha256": "f08214ea72038f2cfb8f836d796dd4a10d4e31bce658096b5f4c289afa16126c",
+     "same_as_source": true,
+     "link": false
+    }
+   }
+  },
+  "step1_run_rehearsal_r09.json": {
+   "src": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/ACQ-R09/rehearsal/step1_run_rehearsal_r09.json",
+   "dst": "/scratch/users/scdobbs/grl_review/R16/mock/reports_post_grl_review/PHASE5/step1_run_rehearsal_r09.json",
+   "sha256": "8c17ac50c9ef38c085c93781d5114993af7e4d3e69917e6d40f09cffde94923f",
+   "same_as_source": true
+  },
+  "freeze_record_phase5.json": {
+   "src": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5/freeze_record_phase5.json",
+   "dst": "/scratch/users/scdobbs/grl_review/R16/mock/reports_post_grl_review/PHASE5/freeze_record_phase5.json",
+   "sha256": "6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1",
+   "same_as_source": true
+  }
+ },
+ "rows": {
+  "FK151121__MGDS_22383": {
+   "lr_native_res_m": [
+    "66.09",
+    "65.99"
+   ],
+   "res_ratio": [
+    "66.09",
+    "65.99"
+   ],
+   "footprint_wkt": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/FK151121__MGDS_22383/footprin",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/FK151121__MGDS_22383/foo"
+   ],
+   "raw_path_hr": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/mock/sealed_candidates_v3/MGDS_22383",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/sealed_candidates_v3/MGDS_22383"
+   ],
+   "harmonized_path_hr": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/FK151121__MGDS_22383/hr.tif",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/FK151121__MGDS_22383/hr."
+   ],
+   "harmonized_path_lr": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/FK151121__MGDS_22383/lr.tif",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/FK151121__MGDS_22383/lr."
+   ],
+   "checksum_hr": [
+    "9e960ef1d8eacf48f1acd9fff37b0fe582a0d92e01bcdcb3b0d8e0208f03caaa",
+    "e3d370275855d97cbac7c004a36cd05ffe3199facf27c80aa5c961480564a92b"
+   ],
+   "checksum_lr": [
+    "f49c37ca34a9939f7740d3421cb6746fc9ed85559d8a940c57948655c2c99ce1",
+    "f2f76c8a63be8b82d41a4eec1781f423e476a8ed75c449907ee22b1ca28b2d01"
+   ],
+   "notes": [
+    "ACQ-R09 Phase 5 step 1 (rehearsal); HR 5 kept grid(s); k from stage_c2c_recalibrate.sweep (this run); products",
+    "ACQ-R09 Phase 5 step 1 (rehearsal); HR 5 kept grid(s); k from stage_c2c_recalibrate.sweep (this run); products"
+   ],
+   "horiz_offset_m": [
+    "7.8",
+    "9.05"
+   ],
+   "vert_offset_m": [
+    "-6.27",
+    "-6.22"
+   ],
+   "hr_valid": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/FK151121__MGDS_22383/hr_valid",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/FK151121__MGDS_22383/hr_"
+   ],
+   "lr_valid": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/FK151121__MGDS_22383/lr_valid",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/FK151121__MGDS_22383/lr_"
+   ],
+   "joint_valid": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/FK151121__MGDS_22383/joint_va",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/FK151121__MGDS_22383/joi"
+   ],
+   "checksum_hr_valid": [
+    "f8a81a905c62d13d55471ce7b00430de6f75f551782a9cf10dad1c579e1d4ae4",
+    "3e9c8a636e9b825472f8ba9d4fac1002b8d69e0f5e2ef05689f832e0795017b3"
+   ],
+   "checksum_lr_valid": [
+    "7f502100458234f52eb6ed7cf37181ccdf5392a6f1c679326f4a321647816a01",
+    "6f5fce6c7e7367733e35ba873afffe233dedda99cd5ea655d30ebdca5094945b"
+   ],
+   "checksum_joint_valid": [
+    "ac984895b115171c5e36933696892b1285d4b1dadd7f608282e474b6bd97cbe3",
+    "8e8840c1bfa442b4808ebd149300010d55d1fb9d04c8bc3bc85571d1687c8f94"
+   ],
+   "harmonized_path": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/FK151121__MGDS_22383",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/FK151121__MGDS_22383"
+   ],
+   "cells_across": [
+    "3.874566",
+    "3.880437"
+   ],
+   "eligible": [
+    "False",
+    "True"
+   ],
+   "eligibility_reason": [
+    "3.8746 ship cells across a 256-px window, outside 3.88-51.2",
+    ""
+   ]
+  },
+  "NA080__MGDS_31289": {
+   "footprint_wkt": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/NA080__MGDS_31289/footprint.g",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/NA080__MGDS_31289/footpr"
+   ],
+   "raw_path_hr": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/mock/sealed_candidates_v3/MGDS_31289",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/sealed_candidates_v3/MGDS_31289"
+   ],
+   "harmonized_path_hr": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/NA080__MGDS_31289/hr.tif",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/NA080__MGDS_31289/hr.tif"
+   ],
+   "harmonized_path_lr": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/NA080__MGDS_31289/lr.tif",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/NA080__MGDS_31289/lr.tif"
+   ],
+   "hr_valid": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/NA080__MGDS_31289/hr_valid.ti",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/NA080__MGDS_31289/hr_val"
+   ],
+   "lr_valid": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/NA080__MGDS_31289/lr_valid.ti",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/NA080__MGDS_31289/lr_val"
+   ],
+   "joint_valid": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/NA080__MGDS_31289/joint_valid",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/NA080__MGDS_31289/joint_"
+   ],
+   "harmonized_path": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/NA080__MGDS_31289",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/NA080__MGDS_31289"
+   ]
+  },
+  "KM0923__MGDS_31429": {
+   "footprint_wkt": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MGDS_31429/footprint.",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MGDS_31429/footp"
+   ],
+   "raw_path_hr": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/mock/sealed_candidates_v3/MGDS_31429",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/sealed_candidates_v3/MGDS_31429"
+   ],
+   "harmonized_path_hr": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MGDS_31429/hr.tif",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MGDS_31429/hr.ti"
+   ],
+   "harmonized_path_lr": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MGDS_31429/lr.tif",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MGDS_31429/lr.ti"
+   ],
+   "hr_valid": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MGDS_31429/hr_valid.t",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MGDS_31429/hr_va"
+   ],
+   "lr_valid": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MGDS_31429/lr_valid.t",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MGDS_31429/lr_va"
+   ],
+   "joint_valid": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MGDS_31429/joint_vali",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MGDS_31429/joint"
+   ],
+   "harmonized_path": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MGDS_31429",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MGDS_31429"
+   ]
+  },
+  "KM0923__MOCK_R09repeat": {
+   "footprint_wkt": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MOCK_R09repeat/footpr",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MOCK_R09repeat/f"
+   ],
+   "raw_path_hr": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/mock/sealed_candidates_v3/MOCK_R09repeat",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/sealed_candidates_v3/MOCK_R09repeat"
+   ],
+   "harmonized_path_hr": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MOCK_R09repeat/hr.tif",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MOCK_R09repeat/h"
+   ],
+   "harmonized_path_lr": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MOCK_R09repeat/lr.tif",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MOCK_R09repeat/l"
+   ],
+   "hr_valid": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MOCK_R09repeat/hr_val",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MOCK_R09repeat/h"
+   ],
+   "lr_valid": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MOCK_R09repeat/lr_val",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MOCK_R09repeat/l"
+   ],
+   "joint_valid": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MOCK_R09repeat/joint_",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MOCK_R09repeat/j"
+   ],
+   "harmonized_path": [
+    "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MOCK_R09repeat",
+    "/scratch/users/scdobbs/grl_review/R16/mock/auv_ship_colocated_bathy/phase5/harmonized/KM0923__MOCK_R09repeat"
+   ],
+   "coreg_pass": [
+    "True",
+    "False"
+   ],
+   "eligible": [
+    "True",
+    "False"
+   ],
+   "eligibility_reason": [
+    "",
+    "1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path)"
+   ]
+  }
+ },
+ "sources": {
+  "NA080__MGDS_31289": "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/NA080__MGDS_31289",
+  "KM0923__MGDS_31429": "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MGDS_31429",
+  "FK151121__MGDS_22383": "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09_fk151121_isolation/harmonized/FK151121__MGDS_22383",
+  "KM0923__MOCK_R09repeat": "/scratch/groups/hilley/auv_ship_colocated_bathy/ACQ-R09/rehearsal/r09/harmonized/KM0923__MOCK_R09repeat"
+ },
+ "rehearsal_supplement": {
+  "path": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/ACQ-R09/rehearsal/supplement_rehearsal_r09.parquet",
+  "sha256": "11d0868d73bb7db77c11c2a4aed620f12b4a41cb9bcfdb0929e345bab978bc88"
+ },
+ "schema_diff_vs_rehearsal_supplement": [],
+ "mock_supplement": {
+  "path": "/scratch/users/scdobbs/grl_review/R16/mock/manifest/pairs_phase5_sealed.parquet",
+  "sha256": "ada5739f7bd8e897866c53aa2bfe8b51a8ffc7da7fc720d193e576baf0c5305b",
+  "pairs": [
+   "FK151121__MGDS_22383",
+   "NA080__MGDS_31289",
+   "KM0923__MGDS_31429",
+   "KM0923__MOCK_R09repeat"
+  ],
+  "eligible": {
+   "FK151121__MGDS_22383": true,
+   "NA080__MGDS_31289": true,
+   "KM0923__MGDS_31429": true,
+   "KM0923__MOCK_R09repeat": false
+  }
+ },
+ "mock_ledger": "/scratch/users/scdobbs/grl_review/R16/mock/CHANGE_LEDGER_mock.md"
+}

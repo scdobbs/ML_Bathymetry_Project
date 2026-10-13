@@ -1,0 +1,329 @@
+{
+ "n_tests": 61,
+ "n_passed": 61,
+ "n_ported": 39,
+ "tests": [
+  {
+   "test": "1 phase5_build.py: no sign-off file",
+   "passed": true,
+   "exception": "Refusal: LOCK sign-off: /scratch/users/scdobbs/grl_review/R16/refusal_tests/r16_refusal_lfa_vcj9/absent.md does not exist"
+  },
+  {
+   "test": "2a phase5_build.py: wrong pre-registration sha256 (real v3, sign-off holding another sha256)",
+   "passed": true,
+   "exception": "Refusal: LOCK pre-registration: /home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16/PREREG_phase5_v3.md sha256 7e2f492a8cf50f9177c7745def4f04b39c0f878655a5ddbec3b7a3877ca2e012 != 1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  {
+   "test": "2b phase5_build.py: wrong artifact hash (copy of v3 with the GBT hash altered)",
+   "passed": true,
+   "exception": "Refusal: LOCK artifact / code: GBT_ship sha256 ef93467262cf59c63bee8d5ebf898b6d9911204c72219f9bb0e2455258ff3f1f != 2222222222222222222222222222222222222222222222222222222222222222"
+  },
+  {
+   "test": "1 phase5_figures.py: no sign-off file",
+   "passed": true,
+   "exception": "Refusal: LOCK sign-off: /scratch/users/scdobbs/grl_review/R16/refusal_tests/r16_refusal_lfa_vcj9/absent.md does not exist"
+  },
+  {
+   "test": "2a phase5_figures.py: wrong pre-registration sha256 (real v3, sign-off holding another sha256)",
+   "passed": true,
+   "exception": "Refusal: LOCK pre-registration: /home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16/PREREG_phase5_v3.md sha256 7e2f492a8cf50f9177c7745def4f04b39c0f878655a5ddbec3b7a3877ca2e012 != 1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  {
+   "test": "2b phase5_figures.py: wrong artifact hash (copy of v3 with the GBT hash altered)",
+   "passed": true,
+   "exception": "Refusal: LOCK artifact / code: GBT_ship sha256 ef93467262cf59c63bee8d5ebf898b6d9911204c72219f9bb0e2455258ff3f1f != 2222222222222222222222222222222222222222222222222222222222222222"
+  },
+  {
+   "test": "1 phase5_predict.py: no sign-off file",
+   "passed": true,
+   "exception": "Refusal: LOCK sign-off: /scratch/users/scdobbs/grl_review/R16/refusal_tests/r16_refusal_lfa_vcj9/absent.md does not exist"
+  },
+  {
+   "test": "2a phase5_predict.py: wrong pre-registration sha256 (real v3, sign-off holding another sha256)",
+   "passed": true,
+   "exception": "Refusal: LOCK pre-registration: /home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16/PREREG_phase5_v3.md sha256 7e2f492a8cf50f9177c7745def4f04b39c0f878655a5ddbec3b7a3877ca2e012 != 1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  {
+   "test": "2b phase5_predict.py: wrong artifact hash (copy of v3 with the GBT hash altered)",
+   "passed": true,
+   "exception": "Refusal: LOCK artifact / code: GBT_ship sha256 ef93467262cf59c63bee8d5ebf898b6d9911204c72219f9bb0e2455258ff3f1f != 2222222222222222222222222222222222222222222222222222222222222222"
+  },
+  {
+   "test": "1 phase5_score.py: no sign-off file",
+   "passed": true,
+   "exception": "Refusal: LOCK sign-off: /scratch/users/scdobbs/grl_review/R16/refusal_tests/r16_refusal_lfa_vcj9/absent.md does not exist"
+  },
+  {
+   "test": "2a phase5_score.py: wrong pre-registration sha256 (real v3, sign-off holding another sha256)",
+   "passed": true,
+   "exception": "Refusal: LOCK pre-registration: /home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16/PREREG_phase5_v3.md sha256 7e2f492a8cf50f9177c7745def4f04b39c0f878655a5ddbec3b7a3877ca2e012 != 1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  {
+   "test": "2b phase5_score.py: wrong artifact hash (copy of v3 with the GBT hash altered)",
+   "passed": true,
+   "exception": "Refusal: LOCK artifact / code: GBT_ship sha256 ef93467262cf59c63bee8d5ebf898b6d9911204c72219f9bb0e2455258ff3f1f != 2222222222222222222222222222222222222222222222222222222222222222"
+  },
+  {
+   "test": "3 phase5_predict.py: no calls file",
+   "passed": true,
+   "exception": "Refusal: LOCK calls file (phase5): /scratch/users/scdobbs/grl_review/R16/refusal_tests/r16_refusal_lfa_vcj9/absent_calls.csv does not exist"
+  },
+  {
+   "test": "4 phase5_score.py: calls sha256 not in the ledger (ledger holds the supplement sha256 only)",
+   "passed": true,
+   "exception": "Refusal: LOCK calls file (phase5): sha256 ad2059df5db74fc37a97f748ca3810104d40684c225fa4babf0f98e4e3f4deb6 is not recorded in /scratch/users/scdobbs/grl_review/R16/refusal_tests/r16_refusal_lfa_vcj9/ledger_nocalls.md"
+  },
+  {
+   "test": "5 phase5_score.py: results file already exists",
+   "passed": true,
+   "exception": "Refusal: LOCK single run (phase5): results file already exists: /scratch/users/scdobbs/grl_review/R16/refusal_tests/r16_refusal_lfa_vcj9/results_D1.json"
+  },
+  {
+   "test": "6 any script: pair not admitted (development pair in phase5 mode)",
+   "passed": true,
+   "exception": "Refusal: LOCK pair list: ['AR26__MGDS_31838'] not admitted in mode phase5"
+  },
+  {
+   "test": "7 positive control: real v3 + dummy sign-off holding its sha256 + dummy supplement / ledger / acquisition record -> every lock passes (10 script hashes, 6 eligible / 2 not testable); stopped on the safety net (no allow-list applied, every token in place)",
+   "passed": true,
+   "exception": "locks passed=True; safety net=True"
+  },
+  {
+   "test": "9 phase5_build.py: no supplement file",
+   "passed": true,
+   "exception": "Refusal: LOCK supplement (phase5): /scratch/users/scdobbs/grl_review/R16/refusal_tests/r16_refusal_lfa_vcj9/absent_sup.parquet does not exist"
+  },
+  {
+   "test": "10 supplement sha256 not in the ledger",
+   "passed": true,
+   "exception": "Refusal: LOCK supplement (phase5): sha256 3c92b33addf214c89ee85409a5d2e304a46352d5447758a723e894c7e414904b is not recorded in /scratch/users/scdobbs/grl_review/R16/refusal_tests/r16_refusal_lfa_vcj9/ledger_nosup.md"
+  },
+  {
+   "test": "11a supplement with a wrong pair id",
+   "passed": true,
+   "exception": "Refusal: LOCK supplement (phase5): pair ids ['AR26__MGDS_31838', 'AT26-24__MGDS_31954', 'Escanaba__MGDS_30368', 'KN161L04__MGDS_22436', 'KN173L02__MGDS_31675', 'MV1003__MGDS_31860', 'MV1209__MGDS_21415', 'Monterey__MGDS_24756'] != the 8 pre-registered site ids"
+  },
+  {
+   "test": "11b supplement with a missing pair id",
+   "passed": true,
+   "exception": "Refusal: LOCK supplement (phase5): pair ids ['Escanaba__MGDS_30368', 'KN161L04__MGDS_22436', 'KN173L02__MGDS_31675', 'MV1003__MGDS_31860', 'MV1209__MGDS_21415', 'Monterey__MGDS_24756', 'TN188__MGDS_18210'] != the 8 pre-registered site ids"
+  },
+  {
+   "test": "12 phase5_predict.py (phase4_predict.environment_control, imported): EW0207 reference predictions altered by 1e-3 in log10",
+   "passed": true,
+   "exception": "Refusal: LOCK environment control: EW0207 not reproduced: {\"s_lr_identical\": true, \"gbt_max_abs_diff_m\": 0.0, \"pv1_seedavg_max_abs_diff_log10\": 0.001000046730041504}"
+  },
+  {
+   "test": "13 build: KM0923 row with k emptied (rehearsal, scratch root)",
+   "passed": true,
+   "exception": "status=not scorable (no k); files built=['pair_stats.json']; fields=False; inputs=False"
+  },
+  {
+   "test": "13 figures: no page for the no-k pair (pair_stats status read by phase5_figures)",
+   "passed": true,
+   "exception": "skip=True"
+  },
+  {
+   "test": "13 score: no-k pair reported 'not scorable (no k)', outside C1 (secondary not testable; primary not testable)",
+   "passed": true,
+   "exception": "secondary: not testable (C1 set empty); primary: not testable (fewer than 3 sites in the C1 set: 0)"
+  },
+  {
+   "test": "14 guard after the ported lock tests: every Phase 4 and Phase 5 probe still blocked",
+   "passed": true,
+   "exception": "702/702; phase5 1196/1196"
+  },
+  {
+   "test": "27a phase5_build.py: no acquisition run record (empty records directory)",
+   "passed": true,
+   "exception": "Refusal: LOCK acquisition run record (phase5): no step1_run_phase5_*.json in /scratch/users/scdobbs/grl_review/R16/refusal_tests/r16_refusal_lfa_vcj9/acq_empty"
+  },
+  {
+   "test": "27b phase5_build.py: acquisition run record citing a different freeze record sha256",
+   "passed": true,
+   "exception": "Refusal: LOCK acquisition run record (phase5): no record in /scratch/users/scdobbs/grl_review/R16/refusal_tests/r16_refusal_lfa_vcj9/acq_badfz is complete in phase5 mode, cites freeze record 6769583198da\u2026 and supplement 3c92b33addf2\u2026: [{'path': '/scratch/users/scdobbs/grl_review/R16/refusal_tests/r1"
+  },
+  {
+   "test": "27c phase5_build.py: acquisition run record citing a different supplement sha256",
+   "passed": true,
+   "exception": "Refusal: LOCK acquisition run record (phase5): no record in /scratch/users/scdobbs/grl_review/R16/refusal_tests/r16_refusal_lfa_vcj9/acq_badsup is complete in phase5 mode, cites freeze record 6769583198da\u2026 and supplement 3c92b33addf2\u2026: [{'path': '/scratch/users/scdobbs/grl_review/R16/refusal_tests/r"
+  },
+  {
+   "test": "27d phase5_build.py: the acquisition repo's PHASE5 directory as it stands (freeze record only, no run record)",
+   "passed": true,
+   "exception": "Refusal: LOCK acquisition run record (phase5): no step1_run_phase5_*.json in /home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5"
+  },
+  {
+   "test": "27e phase5_build.py: freeze record on disk with another sha256",
+   "passed": true,
+   "exception": "Refusal: LOCK acquisition run record (phase5): freeze record /scratch/users/scdobbs/grl_review/R16/refusal_tests/r16_refusal_lfa_vcj9/PREREG_badart.md sha256 a787e71158ade9ff4796ae9aa2ecde2ca798558a68328d4a7bdb32614009767c != 6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1"
+  },
+  {
+   "test": "27f (3.2) the ACQ-R09 rehearsal record (step1_run_rehearsal_r09.json) accepted against the real freeze record and the supplement it cites (record_mode rehearsal)",
+   "passed": true,
+   "exception": "accepted step1_run_rehearsal_r09.json 8c17ac50c9ef; per_pair ['FK151121__MGDS_22383', 'KM0923__MGDS_31429', 'KM0923__MOCK_R09repeat', 'NA080__MGDS_31289']"
+  },
+  {
+   "test": "28 supplement row with ship_products_usable = false -> product features masked (TN399 harness row, phase5_build.build_pair)",
+   "passed": true,
+   "exception": "contract columns all NaN=True (2539 rows); product_features=masked; frozen table finite=True"
+  },
+  {
+   "test": "30a the eight real Phase 5 HR paths sealed BEFORE the allow-list",
+   "passed": true,
+   "exception": "{'TN188__MGDS_18210': True, 'Escanaba__MGDS_30368': True, 'Monterey__MGDS_24756': True, 'KN161L04__MGDS_22436': True, 'MV1209__MGDS_21415': True, 'KN173L02__MGDS_31675': True, 'MV1003__MGDS_31860': True, 'AT26-24__MGDS_31954': True}"
+  },
+  {
+   "test": "30b the eight real Phase 5 HR paths admitted AFTER apply_allowlist(SEALED8)",
+   "passed": true,
+   "exception": "{'TN188__MGDS_18210': False, 'Escanaba__MGDS_30368': False, 'Monterey__MGDS_24756': False, 'KN161L04__MGDS_22436': False, 'MV1209__MGDS_21415': False, 'KN173L02__MGDS_31675': False, 'MV1003__MGDS_31860': False, 'AT26-24__MGDS_31954': False}"
+  },
+  {
+   "test": "30c phase5/harmonized/FAKE__MGDS_00000/hr.tif refused after the allow-list",
+   "passed": true,
+   "exception": "is_sealed=True"
+  },
+  {
+   "test": "30d the bare roots (phase5/harmonized/hr.tif, phase5/harmonized, phase5, sealed_candidates_v3) refused after the allow-list",
+   "passed": true,
+   "exception": "{'/oak/stanford/groups/hilley/auv_ship_colocated_bathy/phase5/harmonized/hr.tif': True, '/oak/stanford/groups/hilley/auv_ship_colocated_bathy/phase5/harmonized': True, '/oak/stanford/groups/hilley/auv_ship_colocated_bathy/phase5': True, '/scratch/groups/hilley/auv_ship_colocated_bathy/sealed_candida"
+  },
+  {
+   "test": "30e only one site admitted: its acquisition and CNN-output paths allowed; its sealed_candidates_v3 / raw swath dirs, another site, MGDS_31811 and a Phase 4 path refused",
+   "passed": true,
+   "exception": "admitted ok=True; {'sealed_candidates_v3/<hr id> of the admitted site': True, 'raw_lr_swath/<cruise> of the admitted site': True, \"another site's HR\": True, 'MGDS_31811 (unused product)': True, 'Phase 4 RC2511 HR': True, 'CNN output of another site': True}"
+  },
+  {
+   "test": "31b (3.2) acquisition lock: a wrong freeze sha256 expected (rehearsal record directory)",
+   "passed": true,
+   "exception": "Refusal: LOCK acquisition run record (phase5): freeze record /home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5/freeze_record_phase5.json sha256 6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1 != 000000000000000000000000000000000000000"
+  },
+  {
+   "test": "31c (3.2) acquisition lock: a wrong supplement sha256 (rehearsal record directory)",
+   "passed": true,
+   "exception": "Refusal: LOCK acquisition run record (phase5): no record in /home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/ACQ-R09/rehearsal is complete in rehearsal mode, cites freeze record 6769583198da\u2026 and supplement 555555555555\u2026: [{'path': '/home/users/scdobbs/co-l"
+  },
+  {
+   "test": "31d (3.2) acquisition lock: the rehearsal record is refused in phase5 record mode (mode test)",
+   "passed": true,
+   "exception": "Refusal: LOCK acquisition run record (phase5): no step1_run_phase5_*.json in /home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/ACQ-R09/rehearsal"
+  },
+  {
+   "test": "32a (3.3) seven sites admitted: the eighth site's path and the bare real roots stay refused",
+   "passed": true,
+   "exception": "{'8th site (not admitted)': True, 'bare phase5 root': True, 'bare sealed_candidates_v3': True}"
+  },
+  {
+   "test": "32b (3.3) allow-list refuses an id that is not a site id (phase5)",
+   "passed": true,
+   "exception": "Refusal: LOCK allow-list (phase5): ['AR26__MGDS_31838'] are not site ids"
+  },
+  {
+   "test": "33a (3.4) load_supplement: eligible = False rows are 'not testable (<reason>)' and outside the admitted list",
+   "passed": true,
+   "exception": "{'MV1003__MGDS_31860': 'not testable (1 co-registration (R16 refusal-test dummy))', 'AT26-24__MGDS_31954': 'not testable (1 co-registration (R16 refusal-test dummy))'}"
+  },
+  {
+   "test": "33b (3.4) row_status of an eligible = False row = 'not testable (<eligibility_reason>)' (checked before paths / k)",
+   "passed": true,
+   "exception": "{'MV1003__MGDS_31860': 'not testable (1 co-registration (R16 refusal-test dummy))', 'AT26-24__MGDS_31954': 'not testable (1 co-registration (R16 refusal-test dummy))'}"
+  },
+  {
+   "test": "33c (3.4) phase5_build.build_pair on a not-testable row: status only, nothing written",
+   "passed": true,
+   "exception": "not testable (1 co-registration (R16 refusal-test dummy)); root33 entries []"
+  },
+  {
+   "test": "33d (3.4) after apply_allowlist(eligible) the not-testable site's paths stay refused",
+   "passed": true,
+   "exception": "is_sealed=True"
+  },
+  {
+   "test": "34a (3.5) C1 primary with 2 C1 sites -> not testable",
+   "passed": true,
+   "exception": "not testable (fewer than 3 sites in the C1 set: 2)"
+  },
+  {
+   "test": "34b (3.5) C1 primary with 3 sites and CI lower bound > 0 -> confirmed",
+   "passed": true,
+   "exception": "confirmed"
+  },
+  {
+   "test": "34c (3.5) C1 primary with 3 sites and CI lower bound <= 0 / CI not estimable -> not confirmed",
+   "passed": true,
+   "exception": "not confirmed; not confirmed"
+  },
+  {
+   "test": "34d (3.5) C2 resamples: the s_lr resamples of phase5_score.picks equal phase4_score.resample_rhos (same seed, same draws); differences computed per resample",
+   "passed": true,
+   "exception": "identical=True"
+  },
+  {
+   "test": "34e (3.5) C2 pooled resamples: per-unit s_lr draws of one default_rng(20261013) equal pooled_row's",
+   "passed": true,
+   "exception": "identical=True"
+  },
+  {
+   "test": "35a (3.6) join_calls: code -> pair through the key; every value of the file carried unchanged (phase4_score parsing)",
+   "passed": true,
+   "exception": "{'B__MGDS_2': {'code': 'Q02', 'relief': 'weak', 'criteria': 'a;c', 'dominant': 'artifact', 'ab_whole_survey': 'yes', 'note': 'stripes 1'}, 'A__MGDS_1': {'code': 'Q01', 'relief': 'yes', 'criteria': 'none', 'dominant': 'relief', 'ab_whole_survey': 'na', 'note': ''}}"
+  },
+  {
+   "test": "35b (3.6) join_calls refuses a code not in the key",
+   "passed": true,
+   "exception": "AssertionError: (['Q01', 'Q03'], ['Q01', 'Q02'])"
+  },
+  {
+   "test": "35c (3.6) join_calls refuses a missing column",
+   "passed": true,
+   "exception": "AssertionError: calls file columns ['code', 'relief', 'criteria', 'dominant', 'note'] != ['code', 'relief', 'criteria', 'dominant', 'ab_whole_survey', 'note']"
+  },
+  {
+   "test": "35d (3.6) join_calls refuses a duplicated code",
+   "passed": true,
+   "exception": "AssertionError: (['Q01', 'Q01'], ['Q01', 'Q02'])"
+  },
+  {
+   "test": "36 supplement whose eligible disagrees with items 1-3 (coreg_pass False, eligible True)",
+   "passed": true,
+   "exception": "Refusal: LOCK supplement (phase5): TN188__MGDS_18210 eligible = True but spec \u00a73.3 items 1-3 give False"
+  },
+  {
+   "test": "37a supplement with 63 of the 64 Phase 4 columns",
+   "passed": true,
+   "exception": "Refusal: LOCK supplement (phase5): the first 64 columns differ from manifest v2.1 / the Phase 4 supplement (['coreg_pass', 'notes'])"
+  },
+  {
+   "test": "37b supplement with a seventh extra column",
+   "passed": true,
+   "exception": "Refusal: LOCK supplement (phase5): extra columns ['coreg_pass', 'k_recoverable', 'cells_across', 'hr_res_in_range', 'eligible', 'eligibility_reason', 'extra_col'] != the six eligibility columns ['coreg_pass', 'k_recoverable', 'cells_across', 'hr_res_in_range', 'eligible', 'eligibility_reason']"
+  },
+  {
+   "test": "37c supplement with changed arrow types (pandas round trip: all-null string columns written as null)",
+   "passed": true,
+   "exception": "Refusal: LOCK supplement (phase5): arrow types differ from the Phase 4 supplement / contract: [('cruise_id', 'string', 'null'), ('vessel', 'string', 'null'), ('hr_platform', 'string', 'null'), ('hr_sonar', 'string', 'null'), ('lr_platform', 'string', 'null'), ('lr_doi', 'string', 'null')]"
+  },
+  {
+   "test": "29 guard after every test: every Phase 4 and Phase 5 probe still blocked, empty allow-list",
+   "passed": true,
+   "exception": "702/702; phase5 1196/1196; allow-list ()"
+  }
+ ],
+ "prereg_v3": {
+  "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16/PREREG_phase5_v3.md",
+  "sha256": "7e2f492a8cf50f9177c7745def4f04b39c0f878655a5ddbec3b7a3877ca2e012"
+ },
+ "guard": {
+  "r09": [
+   702,
+   702
+  ],
+  "phase5": [
+   1196,
+   1196
+  ]
+ },
+ "dummy_signoff_deleted": true,
+ "time": "2026-10-13T13:09:41",
+ "node": "sh04-07n23.int"
+}

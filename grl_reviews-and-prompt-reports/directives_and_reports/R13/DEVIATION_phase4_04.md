@@ -1,0 +1,6 @@
+# DEVIATION_phase4_04: the calls file joined to pairs before scoring (DRAFT, unsigned; directive R16 Part D)
+1. Defect: `phase4_score.py` (pinned in v2.1 B6 at `9aefb6ff…`; lines 111 and 120) reads its `--calls` table keyed by `pair`, and its calls lock hashes that file; Steve's committed calls file (`R13/phase4_calls.csv`, sha256 `ae791021…`, commit `79802aa`, ledger row 40) is keyed by Q-code, as B3 step 3 of v2.1 specifies. No pre-registered step joined the two.
+2. What was done: after Steve's file was committed, the executor built `grl_review_archive/phase4/score_inputs/phase4_calls_joined.csv` (`R13/scripts/assemble_inputs_r13.py`, under `phase4_common.start` in phase4 mode) from that file through `figures/key/figset_A_key.json` (sha256 `80d72f1a…`), adding a `pair` column; every value of Steve's file was asserted unchanged.
+3. Its sha256 `d172f981010aa829a01cb531e6b053fbdbb0403bc4169fb2e7ceddf02a5a5e68` was recorded as ledger row 41 (commit `03b54c5`) before scoring; `phase4_score.py --mode phase4` then ran once (job 47573575).
+4. No value, rule, criterion, candidate, threshold, seed or result changed; no Phase 4 file was edited. Phase 5 makes the join a pre-registered step inside `phase5_score.py` (PREREG_phase5_v3 B3 step 3).
+Signed: ______________________  Date: __________

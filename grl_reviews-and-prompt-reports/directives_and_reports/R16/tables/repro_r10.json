@@ -1,0 +1,242 @@
+{
+ "KM0923__MGDS_31429": {
+  "tile_keys_identical": true,
+  "n_tiles": [
+   223,
+   223
+  ],
+  "r0_identical": true,
+  "c0_identical": true,
+  "s_lr_identical": true,
+  "A_fine_identical": true,
+  "F_hr_identical": true,
+  "joint_v1_identical": true,
+  "features": {
+   "n_rows": 3050,
+   "n_rows_unmatched_in_frozen": 0,
+   "n_cols": 72,
+   "nan_pattern_identical": true,
+   "max_abs_diff": 4.76837158203125e-07,
+   "within_1e6": true,
+   "product_columns": {
+    "n": 14,
+    "nan_pattern_identical": true,
+    "frac_nan_build": 0.011311475409836066,
+    "frac_nan_frozen": 0.011311475409836066
+   },
+   "ship_usable_build": [
+    true
+   ],
+   "ship_usable_frozen": [
+    true
+   ]
+  },
+  "interior_D1": {
+   "identical": true,
+   "n_build": 24,
+   "n_frozen": 24
+  },
+  "A_fine_int_D1": {
+   "nan_pattern_identical": true,
+   "max_abs_diff": 0.0
+  },
+  "pair_stats": {
+   "status": "built",
+   "ship_products_usable": true,
+   "product_features": "used",
+   "contract_columns_frac_nan": 0.011311475409836066,
+   "cells_across": 6.048337207922106,
+   "k": 16
+  },
+  "views": {
+   "interior": {
+    "n_tiles": 24,
+    "n_blocks": 8,
+    "amplitude_m": 1.730945914472347
+   },
+   "fallback": {
+    "n_tiles": 137,
+    "n_blocks": 22,
+    "amplitude_m": 1.4550463429543847
+   },
+   "all": {
+    "n_tiles": 223,
+    "amplitude_m": 1.8257551220701105
+   },
+   "view_B8": "interior",
+   "amplitude_B8_m": 1.730945914472347,
+   "view_B12": "fallback",
+   "amplitude_B12_m": 1.4550463429543847,
+   "view_B16": "fallback",
+   "amplitude_B16_m": 1.4550463429543847
+  },
+  "manifest": {
+   "ship_products_usable": true,
+   "reason": "available, no v2.1 flags",
+   "flags": "",
+   "ruling_source": "rulings_ACQ-R03 labels"
+  },
+  "all_identical": true
+ },
+ "AR26__MGDS_31838": {
+  "tile_keys_identical": true,
+  "n_tiles": [
+   52,
+   52
+  ],
+  "r0_identical": true,
+  "c0_identical": true,
+  "s_lr_identical": true,
+  "A_fine_identical": true,
+  "F_hr_identical": true,
+  "joint_v1_identical": true,
+  "features": {
+   "n_rows": 654,
+   "n_rows_unmatched_in_frozen": 0,
+   "n_cols": 72,
+   "nan_pattern_identical": true,
+   "max_abs_diff": 5.960464477539063e-08,
+   "within_1e6": true,
+   "product_columns": {
+    "n": 14,
+    "nan_pattern_identical": true,
+    "frac_nan_build": 0.000655307994757536,
+    "frac_nan_frozen": 0.000655307994757536
+   },
+   "ship_usable_build": [
+    true
+   ],
+   "ship_usable_frozen": [
+    true
+   ]
+  },
+  "interior_D1": {
+   "identical": true,
+   "n_build": 0,
+   "n_frozen": 0
+  },
+  "A_fine_int_D1": {
+   "nan_pattern_identical": true,
+   "max_abs_diff": 0.0
+  },
+  "pair_stats": {
+   "status": "built",
+   "ship_products_usable": true,
+   "product_features": "used",
+   "contract_columns_frac_nan": 0.000655307994757536,
+   "cells_across": 15.377211265999858,
+   "k": 4
+  },
+  "views": {
+   "interior": {
+    "n_tiles": 0,
+    "n_blocks": 0,
+    "amplitude_m": NaN
+   },
+   "fallback": {
+    "n_tiles": 48,
+    "n_blocks": 9,
+    "amplitude_m": 0.6794659894600149
+   },
+   "all": {
+    "n_tiles": 52,
+    "amplitude_m": 1.3893438671380955
+   },
+   "view_B8": "fallback",
+   "amplitude_B8_m": 0.6794659894600149,
+   "view_B12": "not_scorable",
+   "amplitude_B12_m": NaN,
+   "view_B16": "not_scorable",
+   "amplitude_B16_m": NaN
+  },
+  "manifest": {
+   "ship_products_usable": true,
+   "reason": "available, no v2.1 flags",
+   "flags": "",
+   "ruling_source": ""
+  },
+  "all_identical": true
+ },
+ "EW0207__MGDS_32556": {
+  "tile_keys_identical": true,
+  "n_tiles": [
+   2716,
+   2716
+  ],
+  "r0_identical": true,
+  "c0_identical": true,
+  "s_lr_identical": true,
+  "A_fine_identical": true,
+  "F_hr_identical": true,
+  "joint_v1_identical": true,
+  "features": {
+   "n_rows": 44200,
+   "n_rows_unmatched_in_frozen": 0,
+   "n_cols": 72,
+   "nan_pattern_identical": true,
+   "max_abs_diff": 7.054879347379028e-09,
+   "within_1e6": true,
+   "product_columns": {
+    "n": 14,
+    "nan_pattern_identical": true,
+    "frac_nan_build": 1.0,
+    "frac_nan_frozen": 1.0
+   },
+   "ship_usable_build": [
+    false
+   ],
+   "ship_usable_frozen": [
+    false
+   ]
+  },
+  "interior_D1": {
+   "identical": true,
+   "n_build": 1621,
+   "n_frozen": 1621
+  },
+  "A_fine_int_D1": {
+   "nan_pattern_identical": true,
+   "max_abs_diff": 0.0
+  },
+  "pair_stats": {
+   "status": "built",
+   "ship_products_usable": false,
+   "product_features": "masked",
+   "contract_columns_frac_nan": 1.0,
+   "cells_across": 3.9668324047188612,
+   "k": 16
+  },
+  "views": {
+   "interior": {
+    "n_tiles": 1621,
+    "n_blocks": 168,
+    "amplitude_m": 1.334237037103574
+   },
+   "fallback": {
+    "n_tiles": 2412,
+    "n_blocks": 233,
+    "amplitude_m": 1.4435705490725173
+   },
+   "all": {
+    "n_tiles": 2716,
+    "amplitude_m": 1.5868868931177045
+   },
+   "view_B8": "interior",
+   "amplitude_B8_m": 1.334237037103574,
+   "view_B12": "interior",
+   "amplitude_B12_m": 1.334237037103574,
+   "view_B16": "interior",
+   "amplitude_B16_m": 1.334237037103574
+  },
+  "manifest": {
+   "ship_products_usable": false,
+   "reason": "flagged: vertical_offset (contract v2.1 \u00a76, no sign-off)",
+   "flags": "vertical_offset",
+   "ruling_source": ""
+  },
+  "all_identical": true
+ },
+ "_all_identical": true,
+ "_node": "sh03-09n10.int",
+ "_cpu": "AMD EPYC 7543 32-Core Processor"
+}
