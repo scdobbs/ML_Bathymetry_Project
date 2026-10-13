@@ -15,6 +15,12 @@ pooled_row (unit-stratified, seed 20261013) and c1_statement (the v2.1 per-site 
        block picks of default_rng(20261009); pooled: the picks of default_rng(20261013), units in ascending pair-id order;
        resamples with an undefined value excluded and counted, > 5 % -> not estimable). The s_lr resamples are asserted
        identical to the imported resample_rhos / pooled_row ones. No superiority claim.
+  R16b (ruling H1 (b)): the scoring inputs are assembled HERE (assemble_inputs), after start (locks, guard, allow-list), from the
+       build and prediction outputs under <root> only: per eligible site build/<pair>/pair_stats.json, tiles_v1_1.parquet,
+       tiles_int.parquet (A_fine_int and the interior flag at D1) and predictions/<pair>.parquet, whose sha256 must equal the one
+       the newest predict_record_*.json lists for it; tile ids must match. No external inputs table or statistics file is accepted
+       (--inputs / --stats are refused). The assembled table and statistics are written once to <out>/inputs_<tag>.parquet and
+       <out>/stats_<tag>.json with their sha256 in the results file. Not-testable sites are never read.
 Writes <out>/results_<tag>.json and per_pair_<tag>.csv; --rows / --acq_record are rehearsal-only, as in Phase 4."""
 from __future__ import annotations
 import json, os, sys, time
@@ -101,6 +107,39 @@ def c2_pooled(T, rows, pool_row, pool_R):
     assert abs(out["s_lr"]["point"] - pool_row["mean_rho"]) < 1e-12 and (not pool_row["estimable"] or out["s_lr"]["ci95"] == pool_row["ci95"]), "pooled s_lr differs from pooled_row"
     return out
 
+def refuse_external_inputs(inputs=None, stats=None):
+    """R16b: scoring reads only the inputs assembled by assemble_inputs below."""
+    if inputs or stats: raise P5.Refusal(f"LOCK inputs (phase5): external scoring inputs are refused (--inputs {inputs!r}, --stats {stats!r}); phase5_score.py assembles them from the build and prediction outputs")
+
+def assemble_inputs(root, pairs, not_testable, out, tag):
+    """R16b (logic of R13 / R16 assemble_inputs, pinned): the tile table (tile_id, pair, unit, role = phase5, r0, c0, hr_res, lr_native,
+    A_fine, A_fine_int (D1), interior (D1), s_lr, GBT_ship, P-V1) and {pair: pair_stats}, from <root> only. Refuses a missing build
+    or prediction file, a prediction whose sha256 differs from the newest predict record's entry, or tile ids that differ."""
+    import glob as _g
+    recs = sorted(_g.glob(f"{root}/predictions/predict_record_*.json")); listed = {}
+    for rp in recs:
+        for pid, o in (json.load(open(rp)).get("outputs") or {}).items():
+            if isinstance(o, dict) and o.get("sha256"): listed[pid] = (o["sha256"], rp)
+    rows, stats = [], {}
+    for pid in pairs:
+        if pid in not_testable: continue
+        sp = f"{root}/build/{pid}/pair_stats.json"
+        if not os.path.exists(sp): raise P5.Refusal(f"LOCK inputs (phase5): no build statistics for {pid} ({sp})")
+        st = json.load(open(sp)); stats[pid] = st
+        if st.get("status") != "built": continue
+        pp = f"{root}/predictions/{pid}.parquet"
+        if not os.path.exists(pp): raise P5.Refusal(f"LOCK inputs (phase5): no predictions for {pid} ({pp})")
+        h = P5.sha256_file(pp)
+        if pid not in listed or listed[pid][0] != h: raise P5.Refusal(f"LOCK inputs (phase5): predictions of {pid} sha256 {h[:12]}… not the file the prediction record lists ({listed.get(pid, ('none', None))[0][:12]}…)")
+        t = pd.read_parquet(f"{root}/build/{pid}/tiles_v1_1.parquet").set_index("tile_id"); ti = pd.read_parquet(f"{root}/build/{pid}/tiles_int.parquet").set_index("tile_id"); P = pd.read_parquet(pp).set_index("tile_id")
+        if set(P.index) != set(t.index) or set(ti.index) != set(t.index): raise P5.Refusal(f"LOCK inputs (phase5): tile ids of {pid} differ between build and predictions")
+        X = pd.DataFrame(dict(tile_id=t.index, pair=pid, unit=t.unit.values, role="phase5", r0=t.r0.values, c0=t.c0.values, hr_res=t.hr_res.values, lr_native=t.lr_native.values, A_fine=t.A_fine.values, A_fine_int=ti.A_fine_int_D1.reindex(t.index).values,
+                              interior=ti.interior_D1.reindex(t.index).values.astype(bool), s_lr=P.s_lr.reindex(t.index).values, GBT_ship=P.GBT_ship.reindex(t.index).values)); X["P-V1"] = P["P-V1"].reindex(t.index).values; rows.append(X)
+    T = pd.concat(rows, ignore_index=True) if rows else pd.DataFrame(columns=["tile_id", "pair", "unit", "role", "r0", "c0", "hr_res", "lr_native", "A_fine", "A_fine_int", "interior", "s_lr", "GBT_ship", "P-V1"])
+    ip, sp = f"{out}/inputs_{tag}.parquet", f"{out}/stats_{tag}.json"; T.to_parquet(ip); json.dump(stats, open(sp, "w"), indent=1, default=float)
+    return T, stats, dict(inputs=dict(path=ip, sha256=P5.sha256_file(ip), n_tiles=int(len(T)), pairs={p: int((T.pair == p).sum()) for p in T.pair.unique()}), stats=dict(path=sp, sha256=P5.sha256_file(sp), statuses={p: s.get("status") for p, s in stats.items()}),
+                          predictions={p: dict(sha256=v[0], record=v[1]) for p, v in listed.items() if p in stats})
+
 def c1_primary(pool_row, n_set):
     """§B6 / spec §3.4."""
     if n_set < MIN_C1_SITES: return dict(reading=f"not testable (fewer than {MIN_C1_SITES} sites in the C1 set: {n_set})", n_sites=n_set, pooled=pool_row)
@@ -108,19 +147,20 @@ def c1_primary(pool_row, n_set):
                 rule="confirmed if the 95 % CI lower bound of the pooled mean s_lr rho over the C1-set sites is above zero")
 
 if __name__ == "__main__":
-    ap = P5.argparser("Phase 5 scoring"); ap.add_argument("--inputs", required=True); ap.add_argument("--calls", required=True, help="Steve's committed calls file keyed by Q-code (joined to pairs here through the figures key)")
-    ap.add_argument("--stats", default=None, help="JSON {pair: pair_stats} from the build (amplitude assert; no-k status)"); ap.add_argument("--bmin", type=int, default=P4.B_MIN_DEFAULT); ap.add_argument("--tag", default="D1"); ap.add_argument("--out", default=None)
+    ap = P5.argparser("Phase 5 scoring"); ap.add_argument("--inputs", default=None, help="refused (R16b): inputs are assembled by this script"); ap.add_argument("--calls", required=True, help="Steve's committed calls file keyed by Q-code (joined to pairs here through the figures key)")
+    ap.add_argument("--stats", default=None, help="refused (R16b): build statistics are read by this script"); ap.add_argument("--bmin", type=int, default=P4.B_MIN_DEFAULT); ap.add_argument("--tag", default="D1"); ap.add_argument("--out", default=None)
     ap.add_argument("--acq_record", default=None, help="rehearsal only: an acquisition step1 run record (per_pair) for the k provenance columns"); ap.add_argument("--rows", default=None, help="rehearsal only: parquet whose rows replace the listed pairs' manifest rows (harness supplement)"); a = ap.parse_args()
     pairs = P5.split_pairs(a.pairs); out = a.out or f"{P5.ROOT[a.mode]}/scores"; results = f"{out}/results_{a.tag}.json"
     m, root, rec = P5.start("phase5_score.py", a.mode, pairs, calls_path=a.calls, results_path=results if a.mode == "phase5" else None); t0 = time.time(); os.makedirs(out, exist_ok=True); dev_min = P4.dev_min_cells()
+    refuse_external_inputs(a.inputs, a.stats)
     if a.mode == "phase5" and (a.acq_record or a.rows): raise P5.Refusal("--acq_record and --rows are rehearsal-only (phase5 mode takes the acquisition run record from its lock and the rows from the supplement)")
     acq = rec.get("acq_run_record") if a.mode == "phase5" else (dict(path=a.acq_record, sha256=P5.sha256_file(a.acq_record), per_pair=json.load(open(a.acq_record)).get("per_pair") or {}) if a.acq_record else None)
     if a.rows: m, _ = P5.harness_rows(m, a.rows, pairs)
     KP = {pid: P5.k_provenance(pid, P5.C4.pair_row(m, pid), acq) for pid in pairs}
     RS = {pid: P5.row_status(P5.C4.pair_row(m, pid)) for pid in pairs}; NT = {p: s for p, s in RS.items() if s.startswith(P5.NOT_TESTABLE)}
     cmap, calls_rec = join_calls(a.calls, f"{root}/figures/key/figset_A_key.json")
-    T = pd.read_parquet(a.inputs); T = T[T.pair.isin(pairs)]; assert not set(NT) & set(T.pair), "a not-testable site has scoring inputs"
-    stats = json.load(open(a.stats)) if a.stats else {}; cands = [c for c in P4.CANDIDATES if c in T.columns]; assert "s_lr_W64" not in T.columns, "s_lr_W64 is not scored (ruling H1, R10b)"
+    T, stats, inputs_rec = assemble_inputs(root, pairs, NT, out, a.tag); T = T[T.pair.isin(pairs)]; assert not set(NT) & set(T.pair), "a not-testable site has scoring inputs"
+    cands = [c for c in P4.CANDIDATES if c in T.columns]; assert "s_lr_W64" not in T.columns, "s_lr_W64 is not scored (ruling H1, R10b)"
     role0 = T.role.iloc[0] if len(T) else "phase5"; rows = []
     for pid in pairs:
         if pid in NT: rows.append(dict(pair=pid, unit=P5.unit_of(pid, m), role=role0, bmin=a.bmin, view="not_scorable", status=NT[pid], note="failed eligibility at step 1 (spec §3.3); outside C1", n_tiles_all=0, n_scored=0)); continue
@@ -134,8 +174,8 @@ if __name__ == "__main__":
     pool_row, pool_R = PS4.pooled_row([r["_view"] for r in inset]); pool_low = PS4.pooled_row([r["_view"] for r in rows if r["status"].startswith("in C1") or r["status"] == "low-amplitude artifact-affected"])[0]
     C1P = c1_primary(pool_row, len(inset)); C1S = PS4.c1_statement(rows); C2P = c2_pooled(T, rows, pool_row, pool_R) if inset else None
     PR = pd.DataFrame([{k: v for k, v in r.items() if k != "_view"} for r in rows]); PR.to_csv(f"{out}/per_pair_{a.tag}.csv", index=False)
-    res = dict(mode=a.mode, tag=a.tag, bmin=a.bmin, candidates=cands, dev_min_cells=dev_min, inputs=a.inputs, k_provenance=KP, acq_run_record=({k: v for k, v in acq.items() if k != "per_pair"} if acq else None), harness_rows=(dict(path=a.rows, sha256=P5.sha256_file(a.rows)) if a.rows else None),
-               inputs_sha256=P5.sha256_file(a.inputs), calls=a.calls, calls_sha256=P5.sha256_file(a.calls), calls_join=calls_rec, not_testable=NT,
+    res = dict(mode=a.mode, tag=a.tag, bmin=a.bmin, candidates=cands, dev_min_cells=dev_min, inputs=inputs_rec["inputs"]["path"], inputs_assembly=inputs_rec, k_provenance=KP, acq_run_record=({k: v for k, v in acq.items() if k != "per_pair"} if acq else None), harness_rows=(dict(path=a.rows, sha256=P5.sha256_file(a.rows)) if a.rows else None),
+               inputs_sha256=inputs_rec["inputs"]["sha256"], calls=a.calls, calls_sha256=P5.sha256_file(a.calls), calls_join=calls_rec, not_testable=NT,
                rules=dict(min_tiles=P4.MIN_TILES, n_boot=P4.N_BOOT, seed=P4.BOOT_SEED, pool_seed=P4.POOL_SEED, undefined_max_frac=P4.UNDEF_MAX_FRAC, lowamp_m=P4.LOWAMP_M, min_c1_sites=MIN_C1_SITES),
                per_pair=[{k: v for k, v in r.items() if k != "_view"} for r in rows], C1_primary=C1P, C1_per_site_secondary=C1S, C1_pooled_with_low_amplitude=pool_low,
                C2=dict(per_site=C2_site, pooled_C1_set=C2P, caveat="descriptive; no superiority claim (spec §3.5)"), seconds=time.time() - t0)

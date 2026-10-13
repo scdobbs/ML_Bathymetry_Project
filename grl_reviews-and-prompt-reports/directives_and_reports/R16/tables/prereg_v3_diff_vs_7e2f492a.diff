@@ -1,0 +1,8 @@
+95c95
+< 5. **Score once:** `phase5_score.py --mode phase5`. Report all results, whatever they are. No retuning, re-selection or re-scoring with changed rules afterwards.
+---
+> 5. **Score once:** `phase5_score.py --mode phase5`. It assembles its own scoring inputs (pinned, R16b): it reads only the build and prediction outputs under `grl_review_archive/phase5/` (per eligible site the build statistics, tiles_v1.1, the D₁ interior table, and the predictions, whose sha256 must equal the prediction record's), and it refuses any external inputs table or statistics file. Report all results, whatever they are. No retuning, re-selection or re-scoring with changed rules afterwards.
+161c161
+< | `phase5_score.py` | `a72aba6202f701423733b4cf6262d556ef4833b00731f1bb93e5a3c26bf67192` |
+---
+> | `phase5_score.py` | `7eb7c1cc3fc0acbfebf9b4f2c517c145b035699612f6e8ee31865c263787d2a5` |

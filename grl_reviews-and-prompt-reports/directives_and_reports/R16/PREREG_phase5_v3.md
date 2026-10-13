@@ -92,7 +92,7 @@ B2 applies unchanged at Phase 5 (spec §2): no retraining, refitting or tuning; 
 
    The calls file stays keyed by Q-code. It is committed and its sha256 recorded in `CHANGE_LEDGER.md` **before** any prediction is computed. The Q-code to pair join is part of this procedure: `phase5_score.py` joins the committed file to the pairs through the figure key, asserting every value unchanged, and writes no separate joined file (Phase 4 deviation note 04).
 4. **Predict:** `phase5_predict.py --mode phase5`, on CPU. The script first reproduces the EW0207 reference predictions (s_lr identical; GBT_ship within 1e-6 m; P-V1 within 1e-4 in log₁₀) and refuses to continue otherwise. Not-testable sites are not predicted.
-5. **Score once:** `phase5_score.py --mode phase5`. Report all results, whatever they are. No retuning, re-selection or re-scoring with changed rules afterwards.
+5. **Score once:** `phase5_score.py --mode phase5`. It assembles its own scoring inputs (pinned, R16b): it reads only the build and prediction outputs under `grl_review_archive/phase5/` (per eligible site the build statistics, tiles_v1.1, the D₁ interior table, and the predictions, whose sha256 must equal the prediction record's), and it refuses any external inputs table or statistics file. Report all results, whatever they are. No retuning, re-selection or re-scoring with changed rules afterwards.
 
 ## B4. Scoring rules
 
@@ -158,7 +158,7 @@ It also requires the acquisition freeze record sha256 `6769583198da63d874472ea5a
 | `phase5_build.py` | `973b775dda073fa3b4def8073fc7ce71b22a64df20d84a30e4c1b2b892d45633` |
 | `phase5_figures.py` | `47921a51699d370f90f7082590f03f6a69477d83c25978c154b3312535d811a0` |
 | `phase5_predict.py` | `96797b85309f360b971c15f49a4c02a3fdf4ce7d2e276af33c31e621ee8c6429` |
-| `phase5_score.py` | `a72aba6202f701423733b4cf6262d556ef4833b00731f1bb93e5a3c26bf67192` |
+| `phase5_score.py` | `7eb7c1cc3fc0acbfebf9b4f2c517c145b035699612f6e8ee31865c263787d2a5` |
 
 Imported unchanged (v2.1 B6, tag `phase4-prereg-v2.1`):
 

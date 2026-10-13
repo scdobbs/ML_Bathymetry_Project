@@ -1,0 +1,1263 @@
+{
+ "root": "/scratch/users/scdobbs/grl_review/R16/rehearsal_b",
+ "logs": {
+  "dress_b_build_47690627.log": {
+   "found": true,
+   "n_lines": 378,
+   "warning_categories": {
+    "ResourceWarning": 50,
+    "DeprecationWarning": 144
+   },
+   "runtime_warnings_not_fields_r08": [],
+   "permission_errors": [],
+   "tracebacks": 0,
+   "rc": "0"
+  },
+  "dress_b_figures_47690627.log": {
+   "found": true,
+   "n_lines": 100,
+   "warning_categories": {
+    "ResourceWarning": 50,
+    "DeprecationWarning": 4,
+    "RuntimeWarning": 6
+   },
+   "runtime_warnings_not_fields_r08": [],
+   "permission_errors": [],
+   "tracebacks": 0,
+   "rc": "0"
+  },
+  "dress_b_predict_47690627.log": {
+   "found": true,
+   "n_lines": 100,
+   "warning_categories": {
+    "ResourceWarning": 56,
+    "FutureWarning": 3
+   },
+   "runtime_warnings_not_fields_r08": [],
+   "permission_errors": [],
+   "tracebacks": 0,
+   "rc": "0"
+  },
+  "dress_b_score_47690627.log": {
+   "found": true,
+   "n_lines": 92,
+   "warning_categories": {
+    "ResourceWarning": 58
+   },
+   "runtime_warnings_not_fields_r08": [],
+   "permission_errors": [],
+   "tracebacks": 0,
+   "rc": "0"
+  },
+  "dress_b_score2_47690627.log": {
+   "found": true,
+   "n_lines": 92,
+   "warning_categories": {
+    "ResourceWarning": 58
+   },
+   "runtime_warnings_not_fields_r08": [],
+   "permission_errors": [],
+   "tracebacks": 0,
+   "rc": "0"
+  }
+ },
+ "probes": {
+  "probes_phase5_build.py_1791927981.json": {
+   "script": "phase5_build.py",
+   "eligible": [
+    "FK151121__MGDS_22383",
+    "NA080__MGDS_31289",
+    "KM0923__MGDS_31429"
+   ],
+   "not_testable": {
+    "KM0923__MOCK_R09repeat": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))"
+   },
+   "allowlist": [
+    "FK151121__MGDS_22383",
+    "KM0923__MGDS_31429",
+    "NA080__MGDS_31289"
+   ],
+   "probes_before_allowlist_all_refused": true,
+   "probes_after_allowlist_eligible_allowed_not_testable_refused": true,
+   "stay_refused_all": true,
+   "guard": [
+    702,
+    702,
+    1196,
+    1196
+   ],
+   "locks": {
+    "supplement": {
+     "sha256": "ada5739f7bd8e897866c53aa2bfe8b51a8ffc7da7fc720d193e576baf0c5305b",
+     "eligible": [
+      "FK151121__MGDS_22383",
+      "KM0923__MGDS_31429",
+      "NA080__MGDS_31289"
+     ],
+     "not_testable": {
+      "KM0923__MOCK_R09repeat": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))"
+     }
+    },
+    "acq_run_record": {
+     "path": "/scratch/users/scdobbs/grl_review/R16/mock/reports_post_grl_review/PHASE5/step1_run_rehearsal_r09.json",
+     "sha256": "8c17ac50c9ef38c085c93781d5114993af7e4d3e69917e6d40f09cffde94923f",
+     "status": "complete",
+     "mode": "rehearsal",
+     "freeze_record_sha256": "6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1",
+     "supplement_sha256": "11d0868d73bb7db77c11c2a4aed620f12b4a41cb9bcfdb0929e345bab978bc88",
+     "code_commit": "4d93c8ad8bdc90d70c45e7f8cbb87ec6a943bec1",
+     "candidates": [
+      {
+       "path": "/scratch/users/scdobbs/grl_review/R16/mock/reports_post_grl_review/PHASE5/step1_run_rehearsal_r09.json",
+       "status": "complete",
+       "mode": "rehearsal",
+       "freeze_record_sha256": "6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1",
+       "supplement_sha256": "11d0868d73bb7db77c11c2a4aed620f12b4a41cb9bcfdb0929e345bab978bc88",
+       "accepted": true
+      }
+     ]
+    }
+   },
+   "stay_labels": [
+    "FAKE id under the mock root",
+    "admitted site's sealed_candidates_v3 dir",
+    "bare mock harmonized root",
+    "bare mock phase5 root",
+    "bare mock sealed_candidates_v3",
+    "not-testable mock site",
+    "real Phase 4 sealed path",
+    "real phase5 harmonized root",
+    "real sealed_candidates_v3 root",
+    "real site AT26-24__MGDS_31954 hr.tif",
+    "real site Escanaba__MGDS_30368 hr.tif",
+    "real site KN161L04__MGDS_22436 hr.tif",
+    "real site KN173L02__MGDS_31675 hr.tif",
+    "real site MV1003__MGDS_31860 hr.tif",
+    "real site MV1209__MGDS_21415 hr.tif",
+    "real site Monterey__MGDS_24756 hr.tif",
+    "real site TN188__MGDS_18210 hr.tif"
+   ]
+  },
+  "probes_phase5_figures.py_1791928561.json": {
+   "script": "phase5_figures.py",
+   "eligible": [
+    "FK151121__MGDS_22383",
+    "KM0923__MGDS_31429",
+    "NA080__MGDS_31289"
+   ],
+   "not_testable": {
+    "KM0923__MOCK_R09repeat": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))"
+   },
+   "allowlist": [
+    "FK151121__MGDS_22383",
+    "KM0923__MGDS_31429",
+    "NA080__MGDS_31289"
+   ],
+   "probes_before_allowlist_all_refused": true,
+   "probes_after_allowlist_eligible_allowed_not_testable_refused": true,
+   "stay_refused_all": true,
+   "guard": [
+    702,
+    702,
+    1196,
+    1196
+   ],
+   "locks": {
+    "supplement": {
+     "sha256": "ada5739f7bd8e897866c53aa2bfe8b51a8ffc7da7fc720d193e576baf0c5305b",
+     "eligible": [
+      "FK151121__MGDS_22383",
+      "KM0923__MGDS_31429",
+      "NA080__MGDS_31289"
+     ],
+     "not_testable": {
+      "KM0923__MOCK_R09repeat": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))"
+     }
+    },
+    "acq_run_record": {
+     "path": "/scratch/users/scdobbs/grl_review/R16/mock/reports_post_grl_review/PHASE5/step1_run_rehearsal_r09.json",
+     "sha256": "8c17ac50c9ef38c085c93781d5114993af7e4d3e69917e6d40f09cffde94923f",
+     "status": "complete",
+     "mode": "rehearsal",
+     "freeze_record_sha256": "6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1",
+     "supplement_sha256": "11d0868d73bb7db77c11c2a4aed620f12b4a41cb9bcfdb0929e345bab978bc88",
+     "code_commit": "4d93c8ad8bdc90d70c45e7f8cbb87ec6a943bec1",
+     "candidates": [
+      {
+       "path": "/scratch/users/scdobbs/grl_review/R16/mock/reports_post_grl_review/PHASE5/step1_run_rehearsal_r09.json",
+       "status": "complete",
+       "mode": "rehearsal",
+       "freeze_record_sha256": "6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1",
+       "supplement_sha256": "11d0868d73bb7db77c11c2a4aed620f12b4a41cb9bcfdb0929e345bab978bc88",
+       "accepted": true
+      }
+     ]
+    }
+   },
+   "stay_labels": [
+    "FAKE id under the mock root",
+    "admitted site's sealed_candidates_v3 dir",
+    "bare mock harmonized root",
+    "bare mock phase5 root",
+    "bare mock sealed_candidates_v3",
+    "not-testable mock site",
+    "real Phase 4 sealed path",
+    "real phase5 harmonized root",
+    "real sealed_candidates_v3 root",
+    "real site AT26-24__MGDS_31954 hr.tif",
+    "real site Escanaba__MGDS_30368 hr.tif",
+    "real site KN161L04__MGDS_22436 hr.tif",
+    "real site KN173L02__MGDS_31675 hr.tif",
+    "real site MV1003__MGDS_31860 hr.tif",
+    "real site MV1209__MGDS_21415 hr.tif",
+    "real site Monterey__MGDS_24756 hr.tif",
+    "real site TN188__MGDS_18210 hr.tif"
+   ]
+  },
+  "probes_phase5_predict.py_1791928601.json": {
+   "script": "phase5_predict.py",
+   "eligible": [
+    "FK151121__MGDS_22383",
+    "NA080__MGDS_31289",
+    "KM0923__MGDS_31429"
+   ],
+   "not_testable": {
+    "KM0923__MOCK_R09repeat": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))"
+   },
+   "allowlist": [
+    "FK151121__MGDS_22383",
+    "KM0923__MGDS_31429",
+    "NA080__MGDS_31289"
+   ],
+   "probes_before_allowlist_all_refused": true,
+   "probes_after_allowlist_eligible_allowed_not_testable_refused": true,
+   "stay_refused_all": true,
+   "guard": [
+    702,
+    702,
+    1196,
+    1196
+   ],
+   "locks": {
+    "supplement": {
+     "sha256": "ada5739f7bd8e897866c53aa2bfe8b51a8ffc7da7fc720d193e576baf0c5305b",
+     "eligible": [
+      "FK151121__MGDS_22383",
+      "KM0923__MGDS_31429",
+      "NA080__MGDS_31289"
+     ],
+     "not_testable": {
+      "KM0923__MOCK_R09repeat": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))"
+     }
+    },
+    "acq_run_record": {
+     "path": "/scratch/users/scdobbs/grl_review/R16/mock/reports_post_grl_review/PHASE5/step1_run_rehearsal_r09.json",
+     "sha256": "8c17ac50c9ef38c085c93781d5114993af7e4d3e69917e6d40f09cffde94923f",
+     "status": "complete",
+     "mode": "rehearsal",
+     "freeze_record_sha256": "6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1",
+     "supplement_sha256": "11d0868d73bb7db77c11c2a4aed620f12b4a41cb9bcfdb0929e345bab978bc88",
+     "code_commit": "4d93c8ad8bdc90d70c45e7f8cbb87ec6a943bec1",
+     "candidates": [
+      {
+       "path": "/scratch/users/scdobbs/grl_review/R16/mock/reports_post_grl_review/PHASE5/step1_run_rehearsal_r09.json",
+       "status": "complete",
+       "mode": "rehearsal",
+       "freeze_record_sha256": "6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1",
+       "supplement_sha256": "11d0868d73bb7db77c11c2a4aed620f12b4a41cb9bcfdb0929e345bab978bc88",
+       "accepted": true
+      }
+     ]
+    },
+    "calls_sha256": "4d16e35ee018bd1716630f87d74a480159da9711bf6774d9e31dd51a7227b69d"
+   },
+   "stay_labels": [
+    "FAKE id under the mock root",
+    "admitted site's sealed_candidates_v3 dir",
+    "bare mock harmonized root",
+    "bare mock phase5 root",
+    "bare mock sealed_candidates_v3",
+    "not-testable mock site",
+    "real Phase 4 sealed path",
+    "real phase5 harmonized root",
+    "real sealed_candidates_v3 root",
+    "real site AT26-24__MGDS_31954 hr.tif",
+    "real site Escanaba__MGDS_30368 hr.tif",
+    "real site KN161L04__MGDS_22436 hr.tif",
+    "real site KN173L02__MGDS_31675 hr.tif",
+    "real site MV1003__MGDS_31860 hr.tif",
+    "real site MV1209__MGDS_21415 hr.tif",
+    "real site Monterey__MGDS_24756 hr.tif",
+    "real site TN188__MGDS_18210 hr.tif"
+   ]
+  },
+  "probes_phase5_score.py_1791930226.json": {
+   "script": "phase5_score.py",
+   "eligible": [
+    "FK151121__MGDS_22383",
+    "NA080__MGDS_31289",
+    "KM0923__MGDS_31429"
+   ],
+   "not_testable": {
+    "KM0923__MOCK_R09repeat": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))"
+   },
+   "allowlist": [
+    "FK151121__MGDS_22383",
+    "KM0923__MGDS_31429",
+    "NA080__MGDS_31289"
+   ],
+   "probes_before_allowlist_all_refused": true,
+   "probes_after_allowlist_eligible_allowed_not_testable_refused": true,
+   "stay_refused_all": true,
+   "guard": [
+    702,
+    702,
+    1196,
+    1196
+   ],
+   "locks": {
+    "supplement": {
+     "sha256": "ada5739f7bd8e897866c53aa2bfe8b51a8ffc7da7fc720d193e576baf0c5305b",
+     "eligible": [
+      "FK151121__MGDS_22383",
+      "KM0923__MGDS_31429",
+      "NA080__MGDS_31289"
+     ],
+     "not_testable": {
+      "KM0923__MOCK_R09repeat": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))"
+     }
+    },
+    "acq_run_record": {
+     "path": "/scratch/users/scdobbs/grl_review/R16/mock/reports_post_grl_review/PHASE5/step1_run_rehearsal_r09.json",
+     "sha256": "8c17ac50c9ef38c085c93781d5114993af7e4d3e69917e6d40f09cffde94923f",
+     "status": "complete",
+     "mode": "rehearsal",
+     "freeze_record_sha256": "6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1",
+     "supplement_sha256": "11d0868d73bb7db77c11c2a4aed620f12b4a41cb9bcfdb0929e345bab978bc88",
+     "code_commit": "4d93c8ad8bdc90d70c45e7f8cbb87ec6a943bec1",
+     "candidates": [
+      {
+       "path": "/scratch/users/scdobbs/grl_review/R16/mock/reports_post_grl_review/PHASE5/step1_run_rehearsal_r09.json",
+       "status": "complete",
+       "mode": "rehearsal",
+       "freeze_record_sha256": "6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1",
+       "supplement_sha256": "11d0868d73bb7db77c11c2a4aed620f12b4a41cb9bcfdb0929e345bab978bc88",
+       "accepted": true
+      }
+     ]
+    },
+    "calls_sha256": "4d16e35ee018bd1716630f87d74a480159da9711bf6774d9e31dd51a7227b69d",
+    "single_run": "passed"
+   },
+   "stay_labels": [
+    "FAKE id under the mock root",
+    "admitted site's sealed_candidates_v3 dir",
+    "bare mock harmonized root",
+    "bare mock phase5 root",
+    "bare mock sealed_candidates_v3",
+    "not-testable mock site",
+    "real Phase 4 sealed path",
+    "real phase5 harmonized root",
+    "real sealed_candidates_v3 root",
+    "real site AT26-24__MGDS_31954 hr.tif",
+    "real site Escanaba__MGDS_30368 hr.tif",
+    "real site KN161L04__MGDS_22436 hr.tif",
+    "real site KN173L02__MGDS_31675 hr.tif",
+    "real site MV1003__MGDS_31860 hr.tif",
+    "real site MV1209__MGDS_21415 hr.tif",
+    "real site Monterey__MGDS_24756 hr.tif",
+    "real site TN188__MGDS_18210 hr.tif"
+   ]
+  },
+  "probes_phase5_score.py_1791930265.json": {
+   "script": "phase5_score.py",
+   "eligible": [
+    "FK151121__MGDS_22383",
+    "NA080__MGDS_31289",
+    "KM0923__MGDS_31429"
+   ],
+   "not_testable": {
+    "KM0923__MOCK_R09repeat": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))"
+   },
+   "allowlist": [
+    "FK151121__MGDS_22383",
+    "KM0923__MGDS_31429",
+    "NA080__MGDS_31289"
+   ],
+   "probes_before_allowlist_all_refused": true,
+   "probes_after_allowlist_eligible_allowed_not_testable_refused": true,
+   "stay_refused_all": true,
+   "guard": [
+    702,
+    702,
+    1196,
+    1196
+   ],
+   "locks": {
+    "supplement": {
+     "sha256": "ada5739f7bd8e897866c53aa2bfe8b51a8ffc7da7fc720d193e576baf0c5305b",
+     "eligible": [
+      "FK151121__MGDS_22383",
+      "KM0923__MGDS_31429",
+      "NA080__MGDS_31289"
+     ],
+     "not_testable": {
+      "KM0923__MOCK_R09repeat": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))"
+     }
+    },
+    "acq_run_record": {
+     "path": "/scratch/users/scdobbs/grl_review/R16/mock/reports_post_grl_review/PHASE5/step1_run_rehearsal_r09.json",
+     "sha256": "8c17ac50c9ef38c085c93781d5114993af7e4d3e69917e6d40f09cffde94923f",
+     "status": "complete",
+     "mode": "rehearsal",
+     "freeze_record_sha256": "6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1",
+     "supplement_sha256": "11d0868d73bb7db77c11c2a4aed620f12b4a41cb9bcfdb0929e345bab978bc88",
+     "code_commit": "4d93c8ad8bdc90d70c45e7f8cbb87ec6a943bec1",
+     "candidates": [
+      {
+       "path": "/scratch/users/scdobbs/grl_review/R16/mock/reports_post_grl_review/PHASE5/step1_run_rehearsal_r09.json",
+       "status": "complete",
+       "mode": "rehearsal",
+       "freeze_record_sha256": "6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1",
+       "supplement_sha256": "11d0868d73bb7db77c11c2a4aed620f12b4a41cb9bcfdb0929e345bab978bc88",
+       "accepted": true
+      }
+     ]
+    },
+    "calls_sha256": "4e2d25f3d1ad6d355695de203447dc48a66026f5d53fef772505b1f14caa462f",
+    "single_run": "passed"
+   },
+   "stay_labels": [
+    "FAKE id under the mock root",
+    "admitted site's sealed_candidates_v3 dir",
+    "bare mock harmonized root",
+    "bare mock phase5 root",
+    "bare mock sealed_candidates_v3",
+    "not-testable mock site",
+    "real Phase 4 sealed path",
+    "real phase5 harmonized root",
+    "real sealed_candidates_v3 root",
+    "real site AT26-24__MGDS_31954 hr.tif",
+    "real site Escanaba__MGDS_30368 hr.tif",
+    "real site KN161L04__MGDS_22436 hr.tif",
+    "real site KN173L02__MGDS_31675 hr.tif",
+    "real site MV1003__MGDS_31860 hr.tif",
+    "real site MV1209__MGDS_21415 hr.tif",
+    "real site Monterey__MGDS_24756 hr.tif",
+    "real site TN188__MGDS_18210 hr.tif"
+   ]
+  }
+ },
+ "paths": {
+  "phase5_build.py": {
+   "FK151121__MGDS_22383": {
+    "hr.tif": {
+     "n": 9,
+     "ok": true
+    },
+    "lr.tif": {
+     "n": 3,
+     "ok": true
+    },
+    "hr_valid.tif": {
+     "n": 3,
+     "ok": true
+    },
+    "lr_valid.tif": {
+     "n": 3,
+     "ok": true
+    },
+    "joint_valid.tif": {
+     "n": 3,
+     "ok": true
+    },
+    "products ship_products_v2_1/*.tif": {
+     "n": 10,
+     "ok": true
+    },
+    "build/tiles_v1.parquet (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "build/tiles_v1_1.parquet (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "build/blocks_v1_1.parquet (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "build/features.parquet (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "build/tiles_int.parquet (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "build/pair_stats.json (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "fields/F_hr.tif (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "fields/F_res.tif (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "fields/bicubic_m.tif (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "fields/joint_v1.tif (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "inputs/x.npy (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "inputs/lrv.npy (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "inputs/meta.parquet (w)": {
+     "n": 2,
+     "ok": true
+    }
+   },
+   "NA080__MGDS_31289": {
+    "hr.tif": {
+     "n": 9,
+     "ok": true
+    },
+    "lr.tif": {
+     "n": 3,
+     "ok": true
+    },
+    "hr_valid.tif": {
+     "n": 3,
+     "ok": true
+    },
+    "lr_valid.tif": {
+     "n": 3,
+     "ok": true
+    },
+    "joint_valid.tif": {
+     "n": 3,
+     "ok": true
+    },
+    "products ship_products_v2_1/*.tif": {
+     "n": 10,
+     "ok": true
+    },
+    "build/tiles_v1.parquet (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "build/tiles_v1_1.parquet (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "build/blocks_v1_1.parquet (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "build/features.parquet (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "build/tiles_int.parquet (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "build/pair_stats.json (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "fields/F_hr.tif (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "fields/F_res.tif (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "fields/bicubic_m.tif (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "fields/joint_v1.tif (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "inputs/x.npy (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "inputs/lrv.npy (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "inputs/meta.parquet (w)": {
+     "n": 2,
+     "ok": true
+    }
+   },
+   "KM0923__MGDS_31429": {
+    "hr.tif": {
+     "n": 9,
+     "ok": true
+    },
+    "lr.tif": {
+     "n": 3,
+     "ok": true
+    },
+    "hr_valid.tif": {
+     "n": 3,
+     "ok": true
+    },
+    "lr_valid.tif": {
+     "n": 3,
+     "ok": true
+    },
+    "joint_valid.tif": {
+     "n": 3,
+     "ok": true
+    },
+    "products ship_products_v2_1/*.tif": {
+     "n": 10,
+     "ok": true
+    },
+    "build/tiles_v1.parquet (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "build/tiles_v1_1.parquet (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "build/blocks_v1_1.parquet (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "build/features.parquet (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "build/tiles_int.parquet (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "build/pair_stats.json (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "fields/F_hr.tif (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "fields/F_res.tif (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "fields/bicubic_m.tif (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "fields/joint_v1.tif (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "inputs/x.npy (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "inputs/lrv.npy (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "inputs/meta.parquet (w)": {
+     "n": 2,
+     "ok": true
+    }
+   },
+   "(common)": {
+    "build/eligibility_status.json (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "build/build_summary (w)": {
+     "n": 1,
+     "ok": true
+    }
+   }
+  },
+  "phase5_figures.py": {
+   "FK151121__MGDS_22383": {
+    "build/pair_stats.json": {
+     "n": 1,
+     "ok": true
+    },
+    "build/tiles_v1_1.parquet": {
+     "n": 2,
+     "ok": true
+    },
+    "fields/F_hr.tif": {
+     "n": 1,
+     "ok": true
+    },
+    "fields/joint_v1.tif": {
+     "n": 1,
+     "ok": true
+    },
+    "hr.tif (HR hillshade)": {
+     "n": 1,
+     "ok": true
+    },
+    "hr_valid.tif": {
+     "n": 1,
+     "ok": true
+    },
+    "figures/work/pages/B_*.png (w)": {
+     "n": 1,
+     "ok": true
+    }
+   },
+   "NA080__MGDS_31289": {
+    "build/pair_stats.json": {
+     "n": 1,
+     "ok": true
+    },
+    "build/tiles_v1_1.parquet": {
+     "n": 2,
+     "ok": true
+    },
+    "fields/F_hr.tif": {
+     "n": 1,
+     "ok": true
+    },
+    "fields/joint_v1.tif": {
+     "n": 1,
+     "ok": true
+    },
+    "hr.tif (HR hillshade)": {
+     "n": 1,
+     "ok": true
+    },
+    "hr_valid.tif": {
+     "n": 1,
+     "ok": true
+    },
+    "figures/work/pages/B_*.png (w)": {
+     "n": 1,
+     "ok": true
+    }
+   },
+   "KM0923__MGDS_31429": {
+    "build/pair_stats.json": {
+     "n": 1,
+     "ok": true
+    },
+    "build/tiles_v1_1.parquet": {
+     "n": 2,
+     "ok": true
+    },
+    "fields/F_hr.tif": {
+     "n": 1,
+     "ok": true
+    },
+    "fields/joint_v1.tif": {
+     "n": 1,
+     "ok": true
+    },
+    "hr.tif (HR hillshade)": {
+     "n": 1,
+     "ok": true
+    },
+    "hr_valid.tif": {
+     "n": 1,
+     "ok": true
+    },
+    "figures/work/pages/B_*.png (w)": {
+     "n": 1,
+     "ok": true
+    }
+   },
+   "(common)": {
+    "figures/work/pages/A_Q*.png (w)": {
+     "n": 3,
+     "ok": true
+    },
+    "figures/key/figset_A_key.json (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "figures/figset_A_blind.pdf (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "figures/work/pages_record.json (w)": {
+     "n": 1,
+     "ok": true
+    }
+   }
+  },
+  "phase5_predict.py": {
+   "FK151121__MGDS_22383": {
+    "build/pair_stats.json": {
+     "n": 1,
+     "ok": true
+    },
+    "build/tiles_v1_1.parquet": {
+     "n": 2,
+     "ok": true
+    },
+    "build/features.parquet": {
+     "n": 2,
+     "ok": true
+    },
+    "inputs/x.npy": {
+     "n": 4,
+     "ok": true
+    },
+    "inputs/lrv.npy": {
+     "n": 4,
+     "ok": true
+    },
+    "inputs/meta.parquet": {
+     "n": 2,
+     "ok": true
+    },
+    "predictions/<pid>.parquet (w)": {
+     "n": 2,
+     "ok": true
+    }
+   },
+   "NA080__MGDS_31289": {
+    "build/pair_stats.json": {
+     "n": 1,
+     "ok": true
+    },
+    "build/tiles_v1_1.parquet": {
+     "n": 2,
+     "ok": true
+    },
+    "build/features.parquet": {
+     "n": 2,
+     "ok": true
+    },
+    "inputs/x.npy": {
+     "n": 4,
+     "ok": true
+    },
+    "inputs/lrv.npy": {
+     "n": 4,
+     "ok": true
+    },
+    "inputs/meta.parquet": {
+     "n": 2,
+     "ok": true
+    },
+    "predictions/<pid>.parquet (w)": {
+     "n": 2,
+     "ok": true
+    }
+   },
+   "KM0923__MGDS_31429": {
+    "build/pair_stats.json": {
+     "n": 1,
+     "ok": true
+    },
+    "build/tiles_v1_1.parquet": {
+     "n": 2,
+     "ok": true
+    },
+    "build/features.parquet": {
+     "n": 2,
+     "ok": true
+    },
+    "inputs/x.npy": {
+     "n": 4,
+     "ok": true
+    },
+    "inputs/lrv.npy": {
+     "n": 4,
+     "ok": true
+    },
+    "inputs/meta.parquet": {
+     "n": 2,
+     "ok": true
+    },
+    "predictions/<pid>.parquet (w)": {
+     "n": 2,
+     "ok": true
+    }
+   },
+   "(common)": {
+    "R10 OAK EW0207 inputs / build / predictions (control)": {
+     "n": 22,
+     "ok": true
+    },
+    "GBT artifact joblib": {
+     "n": 1,
+     "ok": true
+    },
+    "P-V1 ckpt.pt (3 seeds)": {
+     "n": 3,
+     "ok": true
+    },
+    "predictions/predict_record (w)": {
+     "n": 1,
+     "ok": true
+    },
+    "provenance/environment_control (w)": {
+     "n": 1,
+     "ok": true
+    }
+   }
+  },
+  "phase5_score.py": {
+   "(common)": {
+    "build/<pair>/pair_stats.json (pinned assembly)": {
+     "n": 6,
+     "ok": true
+    },
+    "build/<pair>/tiles_v1_1.parquet (pinned assembly)": {
+     "n": 12,
+     "ok": true
+    },
+    "build/<pair>/tiles_int.parquet (pinned assembly)": {
+     "n": 12,
+     "ok": true
+    },
+    "predictions/<pair>.parquet (pinned assembly)": {
+     "n": 18,
+     "ok": true
+    },
+    "predictions/predict_record (pinned assembly)": {
+     "n": 2,
+     "ok": true
+    },
+    "scores/inputs_*.parquet (w)": {
+     "n": 4,
+     "ok": true
+    },
+    "scores/stats_*.json (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "calls/calls_mock*.csv (code-keyed)": {
+     "n": 6,
+     "ok": true
+    },
+    "figures/key/figset_A_key.json (join)": {
+     "n": 4,
+     "ok": true
+    },
+    "acq record (--acq_record)": {
+     "n": 4,
+     "ok": true
+    },
+    "scores/results_*.json (w)": {
+     "n": 2,
+     "ok": true
+    },
+    "scores/per_pair_*.csv (w)": {
+     "n": 2,
+     "ok": true
+    }
+   }
+  }
+ },
+ "outputs": {
+  "figures": {
+   "n_pages": 3,
+   "text_chars_per_page": [
+    0,
+    0,
+    0
+   ],
+   "codes": [
+    "Q01",
+    "Q02",
+    "Q03"
+   ],
+   "no_page": [
+    {
+     "pair": "KM0923__MOCK_R09repeat",
+     "status": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))"
+    }
+   ]
+  },
+  "FK151121__MGDS_22383": {
+   "status": "built",
+   "product_features": "used",
+   "n_tiles": 732,
+   "D1": 66,
+   "cells": 3.880437183601317,
+   "view_B8": "interior",
+   "k_source": "sweep",
+   "predictions": {
+    "n": 732,
+    "finite": {
+     "s_lr": 732,
+     "GBT_ship": 732,
+     "P-V1": 732
+    }
+   }
+  },
+  "NA080__MGDS_31289": {
+   "status": "built",
+   "product_features": "used",
+   "n_tiles": 3168,
+   "D1": 58,
+   "cells": 4.423708311733195,
+   "view_B8": "interior",
+   "k_source": "sweep",
+   "predictions": {
+    "n": 3168,
+    "finite": {
+     "s_lr": 3168,
+     "GBT_ship": 3168,
+     "P-V1": 3168
+    }
+   }
+  },
+  "KM0923__MGDS_31429": {
+   "status": "built",
+   "product_features": "used",
+   "n_tiles": 223,
+   "D1": 43,
+   "cells": 6.048337207922106,
+   "view_B8": "interior",
+   "k_source": "sweep",
+   "predictions": {
+    "n": 223,
+    "finite": {
+     "s_lr": 223,
+     "GBT_ship": 223,
+     "P-V1": 223
+    }
+   }
+  },
+  "score_D1": {
+   "per_pair_status": {
+    "FK151121__MGDS_22383": {
+     "view": "interior",
+     "status": "in C1",
+     "n_scored": 523,
+     "ci_estimable": true
+    },
+    "NA080__MGDS_31289": {
+     "view": "interior",
+     "status": "in C1 (flagged)",
+     "n_scored": 2414,
+     "ci_estimable": true
+    },
+    "KM0923__MGDS_31429": {
+     "view": "interior",
+     "status": "in C1",
+     "n_scored": 24,
+     "ci_estimable": true
+    },
+    "KM0923__MOCK_R09repeat": {
+     "view": "not_scorable",
+     "status": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))",
+     "n_scored": 0,
+     "ci_estimable": null
+    }
+   },
+   "C1_primary": "confirmed",
+   "C1_primary_n": 3,
+   "C1_secondary": "partially confirmed (2 of 3)",
+   "C1_secondary_set": [
+    "FK151121__MGDS_22383",
+    "NA080__MGDS_31289",
+    "KM0923__MGDS_31429"
+   ],
+   "C2_per_site_with_CIs": {
+    "FK151121__MGDS_22383": true,
+    "NA080__MGDS_31289": true,
+    "KM0923__MGDS_31429": true
+   },
+   "C2_pooled_with_CIs": true,
+   "C2_estimable": {
+    "FK151121__MGDS_22383": {
+     "GBT_ship": true,
+     "P-V1": true,
+     "d_GBT_minus_s_lr": true,
+     "d_PV1_minus_s_lr": true
+    },
+    "NA080__MGDS_31289": {
+     "GBT_ship": true,
+     "P-V1": true,
+     "d_GBT_minus_s_lr": true,
+     "d_PV1_minus_s_lr": true
+    },
+    "KM0923__MGDS_31429": {
+     "GBT_ship": true,
+     "P-V1": true,
+     "d_GBT_minus_s_lr": true,
+     "d_PV1_minus_s_lr": true
+    }
+   },
+   "calls_join_reproduces_mock_calls": true,
+   "not_testable": {
+    "KM0923__MOCK_R09repeat": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))"
+   }
+  },
+  "score_D1_artifact": {
+   "per_pair_status": {
+    "FK151121__MGDS_22383": {
+     "view": "interior",
+     "status": "in C1",
+     "n_scored": 523,
+     "ci_estimable": true
+    },
+    "NA080__MGDS_31289": {
+     "view": "interior",
+     "status": "artifact-dominated",
+     "n_scored": 2414,
+     "ci_estimable": true
+    },
+    "KM0923__MGDS_31429": {
+     "view": "interior",
+     "status": "in C1",
+     "n_scored": 24,
+     "ci_estimable": true
+    },
+    "KM0923__MOCK_R09repeat": {
+     "view": "not_scorable",
+     "status": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))",
+     "n_scored": 0,
+     "ci_estimable": null
+    }
+   },
+   "C1_primary": "not testable (fewer than 3 sites in the C1 set: 2)",
+   "C1_primary_n": 2,
+   "C1_secondary": "partially confirmed (1 of 2)",
+   "C1_secondary_set": [
+    "FK151121__MGDS_22383",
+    "KM0923__MGDS_31429"
+   ],
+   "C2_per_site_with_CIs": {
+    "FK151121__MGDS_22383": true,
+    "NA080__MGDS_31289": true,
+    "KM0923__MGDS_31429": true
+   },
+   "C2_pooled_with_CIs": true,
+   "C2_estimable": {
+    "FK151121__MGDS_22383": {
+     "GBT_ship": true,
+     "P-V1": true,
+     "d_GBT_minus_s_lr": true,
+     "d_PV1_minus_s_lr": true
+    },
+    "NA080__MGDS_31289": {
+     "GBT_ship": true,
+     "P-V1": true,
+     "d_GBT_minus_s_lr": true,
+     "d_PV1_minus_s_lr": true
+    },
+    "KM0923__MGDS_31429": {
+     "GBT_ship": true,
+     "P-V1": true,
+     "d_GBT_minus_s_lr": true,
+     "d_PV1_minus_s_lr": true
+    }
+   },
+   "calls_join_reproduces_mock_calls": true,
+   "not_testable": {
+    "KM0923__MOCK_R09repeat": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))"
+   }
+  }
+ },
+ "paths_summary": {
+  "n_patterns": 122,
+  "n_hit": 122,
+  "per_script": {
+   "phase5_build.py": [
+    59,
+    59
+   ],
+   "phase5_figures.py": [
+    25,
+    25
+   ],
+   "phase5_predict.py": [
+    26,
+    26
+   ],
+   "phase5_score.py": [
+    12,
+    12
+   ]
+  }
+ },
+ "provenance_written": {
+  "build": 1,
+  "figures": 1,
+  "predict": 1,
+  "score": 2
+ },
+ "n_opened_lines": {
+  "build": 203,
+  "figures": 36,
+  "predict": 84,
+  "score": 82
+ },
+ "not_testable_paths_opened": [],
+ "real_sealed_paths_opened": [],
+ "not_testable_row": {
+  "build_summary_status": [
+   "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))"
+  ],
+  "eligibility_status": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))",
+  "dirs_exist": {
+   "build": false,
+   "fields": false,
+   "inputs": false
+  },
+  "prediction_exists": false,
+  "key_no_page": [
+   {
+    "pair": "KM0923__MOCK_R09repeat",
+    "status": "not testable (1 co-registration (R16 mock: coreg_pass set False to exercise the not-testable path))"
+   }
+  ],
+  "in_key_order": false
+ },
+ "environment_control": [
+  {
+   "job": "47690627",
+   "node": "sh03-04n43.int",
+   "cpu": "AMD EPYC 7502 32-Core Processor",
+   "s_lr_identical": true,
+   "gbt_max_abs_diff_m": 2.220446049250313e-16,
+   "pv1_seedavg_max_abs_diff_log10": 1.7881393432617188e-07,
+   "passed": true
+  }
+ ],
+ "warnings_unknown": {
+  "dress_b_build_47690627.log": [],
+  "dress_b_figures_47690627.log": [],
+  "dress_b_predict_47690627.log": [],
+  "dress_b_score_47690627.log": [],
+  "dress_b_score2_47690627.log": []
+ },
+ "must_hold": {
+  "3.1 completed, no refusal / traceback / new warning": true,
+  "3.2 data locks on mock files in every run": true,
+  "3.3 allow-list (before refused / after admitted / others refused)": true,
+  "3.4 eligible = False row not testable, nothing built": true,
+  "3.5 pooled primary + per-site secondary + C2 CIs; < 3 sites -> not testable": true,
+  "3.6 calls join reproduces the mock calls": true,
+  "3.7 every path pattern exercised": true,
+  "3.8 EW0207 control passed": true,
+  "no real sealed path opened": true,
+  "all": true
+ }
+}

@@ -1,7 +1,7 @@
 {
  "draft": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16/SIGNOFF_phase5_prereg_v3_DRAFT.md",
- "draft_sha256": "8afd8a5ed29a8a72629150505cbafc9b9f71def2b5577177bd9cb5ffbc25c24d",
- "v3_sha256": "7e2f492a8cf50f9177c7745def4f04b39c0f878655a5ddbec3b7a3877ca2e012",
- "read_signoff_first_sha256": "7e2f492a8cf50f9177c7745def4f04b39c0f878655a5ddbec3b7a3877ca2e012",
+ "draft_sha256": "8a97de4be1bd33eb520796492cf09551ff30dc458686f14d78bd3dd4fb5b5881",
+ "v3_sha256": "3df236e008466919a2b5acf94fb258a6f42abe6235a1ee1b77c0785ca8939d58",
+ "read_signoff_first_sha256": "3df236e008466919a2b5acf94fb258a6f42abe6235a1ee1b77c0785ca8939d58",
  "read_signoff_equals_v3": true
 }

@@ -114,7 +114,7 @@ B3 = """## B3. Order of operations at Phase 5 (each step a separate directive or
 
    The calls file stays keyed by Q-code. It is committed and its sha256 recorded in `CHANGE_LEDGER.md` **before** any prediction is computed. The Q-code to pair join is part of this procedure: `phase5_score.py` joins the committed file to the pairs through the figure key, asserting every value unchanged, and writes no separate joined file (Phase 4 deviation note 04).
 4. **Predict:** `phase5_predict.py --mode phase5`, on CPU. The script first reproduces the EW0207 reference predictions (s_lr identical; GBT_ship within 1e-6 m; P-V1 within 1e-4 in log₁₀) and refuses to continue otherwise. Not-testable sites are not predicted.
-5. **Score once:** `phase5_score.py --mode phase5`. Report all results, whatever they are. No retuning, re-selection or re-scoring with changed rules afterwards.
+5. **Score once:** `phase5_score.py --mode phase5`. It assembles its own scoring inputs (pinned, R16b): it reads only the build and prediction outputs under `grl_review_archive/phase5/` (per eligible site the build statistics, tiles_v1.1, the D₁ interior table, and the predictions, whose sha256 must equal the prediction record's), and it refuses any external inputs table or statistics file. Report all results, whatever they are. No retuning, re-selection or re-scoring with changed rules afterwards.
 
 """
 

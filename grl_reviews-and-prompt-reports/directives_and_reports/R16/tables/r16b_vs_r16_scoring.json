@@ -1,0 +1,8 @@
+{
+ "inputs_identical": true,
+ "n_tiles": 4123,
+ "results_identical": {
+  "D1": true,
+  "D1_artifact": true
+ }
+}

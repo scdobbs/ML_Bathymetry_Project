@@ -10,6 +10,7 @@ copy of v3 with the GBT hash altered and a sign-off holding that copy's sha256):
   rehearsal record accepted; 28 a usable = false row -> product features masked; 30a-e the allow-list on the REAL Phase 5 names
   (string checks only); 29 guard after every test.
 Part 2: new tests for must-hold items 3.2 to 3.6 (31-35) and the supplement column / type / eligibility locks (36-37).
+Part 3 (R16b, ruling H1 (b)): scoring refuses inputs not produced by the pinned assembly inside phase5_score.py (38a-f).
 The dummy eight-row supplements are built from the ACQ-R09 rehearsal supplement's rows and arrow schema (70 columns) with the
 eight Phase 5 pair ids; nothing sealed is opened (every Phase 5 path in these tests is a string or is refused by the guard).
 Every dummy lives in a temporary directory deleted at the end; nothing is committed. Writes R16/tables/refusal_tests.json."""
@@ -172,10 +173,32 @@ if __name__ == "__main__":
     T.append(run("37a supplement with 63 of the 64 Phase 4 columns", lambda: P5.enforce_locks("phase5", "phase5_build.py", site, **{**L, "supplement": sup_63, "acq_records_dir": acq_63}), "LOCK supplement (phase5): the first"))
     T.append(run("37b supplement with a seventh extra column", lambda: P5.enforce_locks("phase5", "phase5_build.py", site, **{**L, "supplement": sup_extra, "acq_records_dir": acq_extra}), "LOCK supplement (phase5): extra columns"))
     T.append(run("37c supplement with changed arrow types (pandas round trip: all-null string columns written as null)", lambda: P5.enforce_locks("phase5", "phase5_build.py", site, **{**L, "supplement": sup_type, "acq_records_dir": acq_type}), "LOCK supplement (phase5): arrow types"))
+    # ---------------- Part 3 (R16b): the pinned scoring-input assembly ----------------
+    T.append(run("38a (R16b) phase5_score refuses an external inputs table (--inputs)", lambda: P5S.refuse_external_inputs(inputs=f"{tmp}/inputs_D1.parquet"), "LOCK inputs (phase5): external"))
+    T.append(run("38b (R16b) phase5_score refuses an external statistics file (--stats)", lambda: P5S.refuse_external_inputs(stats=f"{tmp}/stats.json"), "LOCK inputs (phase5): external"))
+    def fake_root(name, tamper=None):
+        rt = f"{tmp}/{name}"; pid = "KM0923__MGDS_31429"; os.makedirs(f"{rt}/build/{pid}"); os.makedirs(f"{rt}/predictions"); os.makedirs(f"{rt}/out"); ids = [f"t{i}" for i in range(12)]
+        pd.DataFrame(dict(tile_id=ids, unit="lu07", r0=np.arange(12) * 128, c0=0, hr_res=2.0, lr_native=86.9, A_fine=np.linspace(0.1, 1, 12))).to_parquet(f"{rt}/build/{pid}/tiles_v1_1.parquet")
+        pd.DataFrame(dict(tile_id=ids, A_fine_int_D1=np.linspace(0.1, 1, 12), interior_D1=True)).to_parquet(f"{rt}/build/{pid}/tiles_int.parquet")
+        json.dump(dict(pair=pid, status="built"), open(f"{rt}/build/{pid}/pair_stats.json", "w"))
+        pr = pd.DataFrame(dict(tile_id=ids if tamper != "ids" else ids[:-1] + ["tX"], s_lr=np.linspace(1, 2, 12), GBT_ship=0.5, **{"P-V1": 0.4})); pp = f"{rt}/predictions/{pid}.parquet"; pr.to_parquet(pp)
+        json.dump(dict(outputs={pid: dict(path=pp, sha256=P5.sha256_file(pp))}), open(f"{rt}/predictions/predict_record_1.json", "w"))
+        if tamper == "content": pr.assign(s_lr=pr.s_lr + 1).to_parquet(pp)
+        if tamper == "missing": os.remove(pp)
+        return rt, pid
+    try:
+        rt, pid = fake_root("asm_ok"); Ta, Sa, ra = P5S.assemble_inputs(rt, [pid], {}, f"{rt}/out", "D1")
+        cols = ["tile_id", "pair", "unit", "role", "r0", "c0", "hr_res", "lr_native", "A_fine", "A_fine_int", "interior", "s_lr", "GBT_ship", "P-V1"]
+        ok = list(Ta.columns) == cols and len(Ta) == 12 and set(Ta.role) == {"phase5"} and os.path.exists(ra["inputs"]["path"]) and Sa[pid]["status"] == "built"
+        T.append(dict(test="38c (R16b) assemble_inputs on build + recorded predictions: the 14-column table of R13 / R16 (role phase5), written to <out>/inputs_<tag>.parquet with its sha256", passed=bool(ok), exception=f"columns ok={list(Ta.columns) == cols}; n={len(Ta)}"))
+    except Exception as e: T.append(dict(test="38c assemble positive", passed=False, exception=f"{type(e).__name__}: {e}"[:300]))
+    for nm, tp, exp, why in (("38d", "content", "not the file the prediction record lists", "a prediction file whose sha256 differs from the prediction record (edited after predict)"),
+                             ("38e", "missing", "no predictions for", "a missing prediction file"), ("38f", "ids", "tile ids of", "predictions whose tile ids differ from the build")):
+        rt, pid = fake_root(f"asm_{tp}", tp); T.append(run(f"{nm} (R16b) assemble_inputs refuses {why}", lambda rt=rt, pid=pid: P5S.assemble_inputs(rt, [pid], {}, f"{rt}/out", "D1"), exp))
     n3, pr3, _, _ = P5.R9.guard_selftest_r09(m0); n53, p53 = P5.guard_selftest_p5(); T.append(dict(test="29 guard after every test: every Phase 4 and Phase 5 probe still blocked, empty allow-list", passed=(n3 == pr3 == 702 and n53 == p53 and P5._admitted == ()), exception=f"{n3}/{pr3}; phase5 {n53}/{p53}; allow-list {P5._admitted}"))
     shutil.rmtree(tmp); assert not os.path.exists(tmp)
-    rec = dict(n_tests=len(T), n_passed=sum(t["passed"] for t in T), n_ported=len([t for t in T if t["test"].split()[0][:2] not in ("31", "32", "33", "34", "35", "36", "37")]), tests=T, prereg_v3=dict(path=V3, sha256=v3_sha), guard=dict(r09=[n3, pr3], phase5=[n53, p53]),
+    rec = dict(n_tests=len(T), n_passed=sum(t["passed"] for t in T), n_ported=len([t for t in T if t["test"].split()[0][:2] not in ("31", "32", "33", "34", "35", "36", "37", "38")]), tests=T, prereg_v3=dict(path=V3, sha256=v3_sha), guard=dict(r09=[n3, pr3], phase5=[n53, p53]),
                dummy_signoff_deleted=not os.path.exists(good_signoff), time=time.strftime("%Y-%m-%dT%H:%M:%S"), node=os.uname().nodename)
-    os.makedirs(f"{R.DR}/R16/tables", exist_ok=True); json.dump(rec, open(f"{R.DR}/R16/tables/refusal_tests.json", "w"), indent=1, default=str)
+    os.makedirs(f"{R.DR}/R16/tables", exist_ok=True); json.dump(rec, open(f"{R.DR}/R16/tables/refusal_tests{'_r16b' if R.WHICH == 'mock_b' else ''}.json", "w"), indent=1, default=str)
     for t in T: print(("PASS" if t["passed"] else "FAIL"), t["test"], "|", (t["exception"] or "")[:110])
     print(f"{rec['n_passed']}/{rec['n_tests']} passed ({rec['n_ported']} ported from R12c)")

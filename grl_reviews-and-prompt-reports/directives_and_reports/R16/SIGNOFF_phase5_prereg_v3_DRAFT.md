@@ -4,10 +4,10 @@ The CNN repo's Phase 5 locks read the signed file. `phase5_common.read_signoff` 
 
 | field | value |
 |---|---|
-| pre-registration sha256 | `7e2f492a8cf50f9177c7745def4f04b39c0f878655a5ddbec3b7a3877ca2e012` |
+| pre-registration sha256 | `3df236e008466919a2b5acf94fb258a6f42abe6235a1ee1b77c0785ca8939d58` |
 | pre-registration | `directives_and_reports/R16/PREREG_phase5_v3.md` (version 3, rendered from `R12c/PREREG_phase4_v2_1.md`, sha256 `d6af268b…8334`, tag `phase4-prereg-v2.1`, which stays untouched) |
 | design spec | `directives_and_reports/phase_5/PHASE5_design_spec_2026-10-13.md` (sha256 `7a1194efbd6a787f13273a3ca4cd71688f09d22e7e55ec541fd59cf9c5bf3aa7`; ruled 2026-10-13) |
-| Phase 5 scripts (v3 B6) | `phase5_common.py` `767dec60…`, `phase5_build.py` `973b775d…`, `phase5_figures.py` `47921a51…`, `phase5_predict.py` `96797b85…`, `phase5_score.py` `a72aba62…` |
+| Phase 5 scripts (v3 B6) | `phase5_common.py` `767dec60…`, `phase5_build.py` `973b775d…`, `phase5_figures.py` `47921a51…`, `phase5_predict.py` `96797b85…`, `phase5_score.py` `7eb7c1cc…` |
 | Phase 4 scripts imported unchanged (v2.1 B6) | `phase4_common.py` `99407ec6…`, `phase4_build.py` `98370164…`, `phase4_figures.py` `44e87590…`, `phase4_predict.py` `7267a9c8…`, `phase4_score.py` `9aefb6ff…` |
 | CNN tag | `phase5-prereg-v3` (to be set on the commit holding v3 and the signed sign-off; R17) |
 | acquisition freeze tag | `phase5-acq-freeze` |

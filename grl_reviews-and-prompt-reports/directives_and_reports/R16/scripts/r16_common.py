@@ -14,7 +14,7 @@ if P5_DIR not in sys.path: sys.path.insert(0, P5_DIR)
 import phase5_common as P5
 P4 = P5.P4
 BASE = "/scratch/users/scdobbs/grl_review/R16"; LOGS = f"{BASE}/logs"; MOCK = f"{BASE}/mock"
-ROOTS = {"mock": f"{BASE}/rehearsal", "repro": f"{BASE}/rehearsal_repro"}; WHICH = os.environ.get("R16_ROOT", "mock"); ROOT = ROOTS[WHICH]
+ROOTS = {"mock": f"{BASE}/rehearsal", "repro": f"{BASE}/rehearsal_repro", "mock_b": f"{BASE}/rehearsal_b", "repro_b": f"{BASE}/rehearsal_repro_b"}; WHICH = os.environ.get("R16_ROOT", "mock"); ROOT = ROOTS[WHICH]   # mock_b: the R16b rerun (pinned input assembly)
 P5.ROOT["rehearsal"] = ROOT; P4.ROOT["rehearsal"] = ROOT
 MOCK_DATA = f"{MOCK}/auv_ship_colocated_bathy"; MOCK_HARM = f"{MOCK_DATA}/phase5/harmonized"; MOCK_CAND = f"{MOCK_DATA}/sealed_candidates_v3"
 MOCK_SUP = f"{MOCK}/manifest/pairs_phase5_sealed.parquet"; MOCK_LEDGER = f"{MOCK}/CHANGE_LEDGER_mock.md"; MOCK_PHASE5 = f"{MOCK}/reports_post_grl_review/PHASE5"
