@@ -1,0 +1,6 @@
+code,relief,criteria,dominant,ab_whole_survey,note
+Q01,yes,a,relief,yes,"Survey-line stripes run NW across the survey, with occasional data gaps along survey lines. Relief dominates."
+Q02,yes,a,relief,no,"Stripes in strips along no-data areas and smaller stripes in the eastern part of the page. The highest-amplitude changes are relief."
+Q03,yes,a,relief,yes,"Subtle track lines running NE across the survey. Subtle square, stitching-like patterns, which look like figure tile stitching rather than gridding ribbing. Relief still dominates."
+Q04,yes,a,relief,yes,"Small lines that appear to be survey-line artifacts. Relief dominates."
+Q05,yes,none,relief,na,"Clean survey."
