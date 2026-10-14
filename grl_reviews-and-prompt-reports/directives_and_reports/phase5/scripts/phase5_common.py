@@ -50,7 +50,7 @@ ACQ_STEP1_REL = "src/phase5/sealed_step1_p5.py"; ACQ_STEP1_SHA = "2c9ea8488e88a4
 ACQ_REHEARSAL_DIR = f"{ACQ_REPO}/reports_post_grl_review/ACQ-R09/rehearsal"           # rehearsal records (dress rehearsal only)
 SCRIPTS = ("phase5_common.py", "phase5_build.py", "phase5_figures.py", "phase5_predict.py", "phase5_score.py")
 PINNED_TAG = "phase5-prereg-v3.1"   # R17 plumbing: phase5_common.py = the file at this tag (v3.1 B6 sha256) + a diff written to provenance
-PINNED_DIFF_OK = ("phase5_common.py", "phase5_figures.py")   # R17: scripts checked as tagged file + recorded diff (figures: H1 exclusion, Steve's ruling of 2026-10-14)
+PINNED_DIFF_OK = ("phase5_common.py", "phase5_figures.py", "phase5_score.py")   # R17/R18: scripts checked as tagged file + recorded diff (figures, score: H1 exclusion, Steve's rulings of 2026-10-14; score: R18 declared S1/S2 rows)
 # ---- R17 H1 ruling (Steve, 2026-10-14): fixed exclusion list (kept tiles with target px inside ACQ-R13 boundary-zeroed lattice tiles)
 EXCLUSIONS = f"{DR}/R17/exclusions_phase5_r17.json"; EXCLUSIONS_SHA = "e0a620a03b3bba951ea63fa8aa06da8897fbbcdcb586070fb0e5e25b395bd095"
 def excluded_tiles():

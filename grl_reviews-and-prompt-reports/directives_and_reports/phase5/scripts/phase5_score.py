@@ -160,6 +160,8 @@ if __name__ == "__main__":
     RS = {pid: P5.row_status(P5.C4.pair_row(m, pid)) for pid in pairs}; NT = {p: s for p, s in RS.items() if s.startswith(P5.NOT_TESTABLE)}
     cmap, calls_rec = join_calls(a.calls, f"{root}/figures/key/figset_A_key.json")
     T, stats, inputs_rec = assemble_inputs(root, pairs, NT, out, a.tag); T = T[T.pair.isin(pairs)]; assert not set(NT) & set(T.pair), "a not-testable site has scoring inputs"
+    EX = P5.excluded_tiles(); EXREC = dict(path=P5.EXCLUSIONS, sha256=P5.EXCLUSIONS_SHA, n_listed=len(EX), n_dropped={p: int((T.tile_id.isin(EX) & (T.pair == p)).sum()) for p in T.pair.unique()})   # R17 H1 / R18 ruling 2: excluded from every row
+    T = T[~T.tile_id.isin(EX)].reset_index(drop=True); assert sum(EXREC["n_dropped"].values()) == len(EX), EXREC
     cands = [c for c in P4.CANDIDATES if c in T.columns]; assert "s_lr_W64" not in T.columns, "s_lr_W64 is not scored (ruling H1, R10b)"
     role0 = T.role.iloc[0] if len(T) else "phase5"; rows = []
     for pid in pairs:
@@ -173,11 +175,22 @@ if __name__ == "__main__":
     inset = [r for r in rows if r["status"].startswith("in C1")]
     pool_row, pool_R = PS4.pooled_row([r["_view"] for r in inset]); pool_low = PS4.pooled_row([r["_view"] for r in rows if r["status"].startswith("in C1") or r["status"] == "low-amplitude artifact-affected"])[0]
     C1P = c1_primary(pool_row, len(inset)); C1S = PS4.c1_statement(rows); C2P = c2_pooled(T, rows, pool_row, pool_R) if inset else None
+    # R18 §3, declared before any result (descriptive only; never the primary): S1 original eligibility (30 m bound), S2 rigid co-registration only.
+    # Same pooled_row (fresh default_rng(POOL_SEED), units in ascending pair-id order) on the C1-set sites of each subset.
+    def sub_pool(keep): u = [r["_view"] for r in inset if r["pair"] in keep]; return PS4.pooled_row(u)[0], len(u)
+    S1_SITES = ("KN173L02__MGDS_31675", "AT26-24__MGDS_31954"); S2_SITES = tuple(r["pair"] for r in inset if r["pair"] not in ("Escanaba__MGDS_30368", "MV1003__MGDS_31860"))
+    s1, n1 = sub_pool(S1_SITES); s2, n2 = sub_pool(S2_SITES)
+    SX = dict(S1_original_eligibility=dict(sites=list(S1_SITES), n_in_c1_set=n1, pooled=s1, label=("not testable under the original rule" if n1 < MIN_C1_SITES else ("confirmed" if s1 and s1.get("estimable") and s1["ci95"][0] > 0 else "not confirmed"))),
+              S2_rigid_only=dict(sites=list(S2_SITES), n_in_c1_set=n2, pooled=s2, label=(f"fewer than {MIN_C1_SITES} sites" if n2 < MIN_C1_SITES else ("CI lower bound > 0" if s2 and s2.get("estimable") and s2["ci95"][0] > 0 else "CI lower bound <= 0"))), caveat="declared in R18 before any result; descriptive only")
+    # R18 §4.6: a site whose ship products are unusable (product features masked) has GBT_ship and every row derived from it unavailable; values are kept, labelled
+    MASKED = sorted(p for p, s in stats.items() if s.get("product_features") == "masked")
+    UNAV = dict(sites=MASKED, label="unavailable (ship products unusable)", per_site_quantities=["GBT_ship", "d_GBT_minus_s_lr", "d_PV1_minus_GBT", "rho_all_GBT_ship", "rho_int_GBT_ship"],
+                pooled_C2_GBT_rows_unavailable=bool(set(MASKED) & {r["pair"] for r in inset}))
     PR = pd.DataFrame([{k: v for k, v in r.items() if k != "_view"} for r in rows]); PR.to_csv(f"{out}/per_pair_{a.tag}.csv", index=False)
     res = dict(mode=a.mode, tag=a.tag, bmin=a.bmin, candidates=cands, dev_min_cells=dev_min, inputs=inputs_rec["inputs"]["path"], inputs_assembly=inputs_rec, k_provenance=KP, acq_run_record=({k: v for k, v in acq.items() if k != "per_pair"} if acq else None), harness_rows=(dict(path=a.rows, sha256=P5.sha256_file(a.rows)) if a.rows else None),
                inputs_sha256=inputs_rec["inputs"]["sha256"], calls=a.calls, calls_sha256=P5.sha256_file(a.calls), calls_join=calls_rec, not_testable=NT,
                rules=dict(min_tiles=P4.MIN_TILES, n_boot=P4.N_BOOT, seed=P4.BOOT_SEED, pool_seed=P4.POOL_SEED, undefined_max_frac=P4.UNDEF_MAX_FRAC, lowamp_m=P4.LOWAMP_M, min_c1_sites=MIN_C1_SITES),
                per_pair=[{k: v for k, v in r.items() if k != "_view"} for r in rows], C1_primary=C1P, C1_per_site_secondary=C1S, C1_pooled_with_low_amplitude=pool_low,
-               C2=dict(per_site=C2_site, pooled_C1_set=C2P, caveat="descriptive; no superiority claim (spec §3.5)"), seconds=time.time() - t0)
+               C2=dict(per_site=C2_site, pooled_C1_set=C2P, caveat="descriptive; no superiority claim (spec §3.5)", unavailable=UNAV), exclusions=EXREC, supplementary_declared_R18=SX, seconds=time.time() - t0)
     json.dump(res, open(results, "w"), indent=1, default=float)
     pr = C1P["pooled"]; print(f"scored {len(rows)} sites ({len(NT)} not testable) -> {results}; C1 primary: {C1P['reading']} (C1 set {C1P['n_sites']})" + (f", pooled {pr['mean_rho']:+.3f} [{pr['ci95'][0]:+.3f}, {pr['ci95'][1]:+.3f}]" if pr else "") + f"; per-site secondary: {C1S['reading']}", flush=True)
