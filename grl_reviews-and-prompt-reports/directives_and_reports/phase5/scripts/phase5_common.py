@@ -36,7 +36,7 @@ SEALED8 = tuple(f"{c}__{h}" for c, h in SITE_TABLE)
 OTHER_CANDIDATE_IDS = ("MGDS_31811",)                            # Galápagos 2nd product, not used (spec §3.1); sealed, never admitted
 SITES = {"rehearsal": P4.ADMITTED["rehearsal"], "phase5": SEALED8}
 ROOT = {"rehearsal": "/scratch/users/scdobbs/grl_review/R16/rehearsal", "phase5": f"{R8.OAK_ARCHIVE}/phase5"}
-SUPPLEMENT = os.path.join(os.path.dirname(C4.MANIFEST), "pairs_phase5_sealed.parquet")
+SUPPLEMENT = os.path.join(os.path.dirname(C4.MANIFEST), "pairs_phase5_sealed_v4_1.parquet")   # R17 plumbing: the ACQ-R13 supplement (freeze v4.2)
 PHASE4_SUPPLEMENT = P4.SUPPLEMENT; PHASE4_SUPPLEMENT_SHA = "6968e04554ddeef3c335587d602cb5fab2185db32b46cbd152475a919eb59206"   # schema reference (arrow types of the 64 columns)
 ELIG_COLS = (("coreg_pass", "bool"), ("k_recoverable", "bool"), ("cells_across", "double"), ("hr_res_in_range", "bool"), ("eligible", "bool"), ("eligibility_reason", "string"))
 CELLS_MIN, CELLS_MAX, HR_MIN, HR_MAX = 3.88, 51.2, 0.985, 4.99   # spec §3.3 item 3 (bound kept as written, ruling ACQ-R09 H-1)
@@ -44,10 +44,12 @@ LEDGER = P4.LEDGER
 PREREG_V3 = f"{DR}/R16c/PREREG_phase5_v3_1.md"; SIGNOFF = f"{DR}/R16c/SIGNOFF_phase5_prereg_v3_1.md"
 # ---- (4) acquisition hand-off (RECORD_CONTRACT_phase5.md §1; tag phase5-acq-freeze)
 ACQ_REPO = P4.ACQ_REPO; ACQ_RECORDS_DIR = f"{ACQ_REPO}/reports_post_grl_review/PHASE5"
-ACQ_FREEZE_RECORD = f"{ACQ_RECORDS_DIR}/freeze_record_phase5_v2.json"; ACQ_FREEZE_SHA = "f5a30b87c05a90bb9155f37bbdf61de6d20fa55423d97662e59ff42b02809438"
-ACQ_STEP1_REL = "src/phase5/sealed_step1_p5.py"; ACQ_STEP1_SHA = "83af2875e53a28ef9b01c95a7b533ef7befd7a00625dfa6b0fe87178a2accc47"
+ACQ_FREEZE_RECORD = f"{ACQ_RECORDS_DIR}/freeze_record_phase5_v4_2.json"; ACQ_FREEZE_SHA = "168df0c68cf0e4493b62c78be6da2755020ce3bd53c9bd1f2ed02ad9270eadc3"   # R17 plumbing: freeze v4.2 (ACQ-R13)
+ACQ_FREEZE_SHA_PREREG = "f5a30b87c05a90bb9155f37bbdf61de6d20fa55423d97662e59ff42b02809438"   # the freeze sha256 v3.1 states (superseded by v4.2, Steve's rulings of 2026-10-14)
+ACQ_STEP1_REL = "src/phase5/sealed_step1_p5.py"; ACQ_STEP1_SHA = "2c9ea8488e88a411aed3b63319a879fcbfe70e4a6d6ec0c420ccdcc7f05273a7"   # R17 plumbing: entry script of freeze v4.2
 ACQ_REHEARSAL_DIR = f"{ACQ_REPO}/reports_post_grl_review/ACQ-R09/rehearsal"           # rehearsal records (dress rehearsal only)
 SCRIPTS = ("phase5_common.py", "phase5_build.py", "phase5_figures.py", "phase5_predict.py", "phase5_score.py")
+PINNED_TAG = "phase5-prereg-v3.1"   # R17 plumbing: phase5_common.py = the file at this tag (v3.1 B6 sha256) + a diff written to provenance
 # ---- guard (§B3): the Phase 5 sealed roots (real names) and tokens
 SEALED_CANDIDATES_V3 = "/scratch/groups/hilley/auv_ship_colocated_bathy/sealed_candidates_v3"; ACQ_OUT_ROOT = f"{C4.DATA}/phase5"
 ROOT_TOKENS = ("sealed_candidates_v3", "auv_ship_colocated_bathy/phase5")
@@ -130,9 +132,20 @@ def verify_frozen(mode, prereg_path=None, prereg_sha=None, log=print):
         e = stated.get(sc)
         if e is None: raise Refusal(f"LOCK pre-registration (phase5): no sha256 stated for {sc}")
         got = sha256_file(os.path.join(HERE, sc)); rec[sc] = dict(path=os.path.join(HERE, sc), sha256=got, expected=e)
+        if got != e and sc == "phase5_common.py": rec[sc]["plumbing"] = pinned_diff(sc, e); continue
         if got != e: raise Refusal(f"LOCK artifact / code (phase5): {sc} sha256 {got} != {e}")
-    if ACQ_FREEZE_SHA not in text: raise Refusal(f"LOCK pre-registration (phase5): the acquisition freeze record sha256 {ACQ_FREEZE_SHA[:12]}… is not stated")
-    rec["acq_freeze_sha256_stated"] = ACQ_FREEZE_SHA; return rec
+    if ACQ_FREEZE_SHA_PREREG not in text: raise Refusal(f"LOCK pre-registration (phase5): the acquisition freeze record sha256 {ACQ_FREEZE_SHA_PREREG[:12]}… is not stated")
+    rec["acq_freeze_sha256_stated"] = ACQ_FREEZE_SHA_PREREG; rec["acq_freeze_sha256_used"] = ACQ_FREEZE_SHA; return rec
+
+def pinned_diff(sc, expected):
+    """R17 plumbing (Steve's ruling 4, 2026-10-14): the file at tag PINNED_TAG must hash to the v3.1 B6 value (Refusal otherwise);
+    returns the changed lines against it for the provenance record."""
+    import subprocess, difflib
+    rel = os.path.relpath(os.path.join(HERE, sc), REPO)
+    old = subprocess.run(["git", "show", f"{PINNED_TAG}:{rel}"], cwd=REPO, capture_output=True, check=True).stdout
+    if hashlib.sha256(old).hexdigest() != expected: raise Refusal(f"LOCK artifact / code (phase5): {sc} at tag {PINNED_TAG} does not hash to {expected}")
+    d = [l for l in difflib.unified_diff(old.decode().splitlines(), open(os.path.join(HERE, sc)).read().splitlines(), lineterm="", n=0) if l[:1] in "+-" and l[:3] not in ("+++", "---")]
+    return dict(tag=PINNED_TAG, tagged_sha256=expected, changed_lines=d)
 
 def check_columns(sup, m):
     """§B1: the 64 Phase 4 supplement columns (= manifest v2.1 columns), same names, order and arrow types, then exactly the six
