@@ -1,0 +1,39 @@
+{
+ "pdf": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase5/figures/figset_A_blind.pdf",
+ "pdf_sha256": "7f811f3337d82e1944e2f61b61b22a1bb60064a8d31bbf124b341dbe6470b71b",
+ "n_pages": 5,
+ "text_objects_per_page": [
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "no_text_objects": true,
+ "codes_from_work_page_filenames": [
+  "Q01",
+  "Q02",
+  "Q03",
+  "Q04",
+  "Q05"
+ ],
+ "codes_expected": [
+  "Q01",
+  "Q02",
+  "Q03",
+  "Q04",
+  "Q05"
+ ],
+ "codes_match": true,
+ "key_exists": true,
+ "key_not_in_pdf_text": true,
+ "page_text_rule_as_coded": {
+  "70": "if label: ax.text(x0 + length_px / 2, y0 - 0.02 * (ax.get_ylim()[0] - ax.get_ylim()[1]), f\"{int(R8.SCALEBAR_M)} m\", ha=\"center\", va=\"bottom\", fontsize",
+  "100": "ax.set_xlim(ext[0], ext[1]); ax.set_ylim(ext[2], ext[3]); ax.set_axis_off(); scalebar(ax, c0 + 0.04 * w, r0 + 0.95 * h, bar_px, label=label)",
+  "102": "figA, axs = plt.subplots(1, 2, figsize=(10, 5.3), layout=\"constrained\"); panels(axs, label=True); figA.suptitle(D[\"code\"][pid], fontsize=11)"
+ },
+ "template": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R17/phase5_calls_TEMPLATE.csv",
+ "template_sha256": "b91a7a089c45d39d3a5c9c68beffed275c05ee266d2d152a8f1483b7b9d8857c",
+ "template_rows": 5,
+ "passed": true
+}
