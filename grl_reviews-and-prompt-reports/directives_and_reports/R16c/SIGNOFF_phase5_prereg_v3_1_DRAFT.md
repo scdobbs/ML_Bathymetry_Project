@@ -4,7 +4,7 @@ The CNN repo's Phase 5 locks read the signed file. `phase5_common.read_signoff` 
 
 | field | value |
 |---|---|
-| pre-registration sha256 | `e0b81508c93589f670bbaa577ad362ae00eca1670a0eee7cdfd6b1b1bda72aad` |
+| pre-registration sha256 | `75b72eb6fae3804c7dea61aa4171744a2fcd4fbdb7c3916f3fb98f2c06f2c7b6` |
 | pre-registration | `directives_and_reports/R16c/PREREG_phase5_v3_1.md` (version 3.1, amended from the signed `R16/PREREG_phase5_v3.md`, sha256 `3df236e0…9d58`, tag `phase5-prereg-v3`, which stays untouched; v3.1 supersedes it) |
 | design spec | `directives_and_reports/phase_5/PHASE5_design_spec_2026-10-13.md` (sha256 `7a1194efbd6a787f13273a3ca4cd71688f09d22e7e55ec541fd59cf9c5bf3aa7`; ruled 2026-10-13) |
 | Phase 5 scripts (v3.1 B6; only `phase5_common.py` changed from v3) | `phase5_common.py` `cdca2c9b…`, `phase5_build.py` `973b775d…`, `phase5_figures.py` `47921a51…`, `phase5_predict.py` `96797b85…`, `phase5_score.py` `7eb7c1cc…` |

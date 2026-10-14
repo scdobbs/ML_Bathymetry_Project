@@ -6,12 +6,15 @@ Replacement groups (directive R16c §3):
   3.2  the blindness note (v3 l.47): the vertical-datum check added to the automated steps, only its pass or fail recorded;
   3.3  every citation of freeze v1 6769583198da... -> freeze v2 f5a30b87... (full sha256), with tag phase5-acq-freeze-v2 and entry
        script 83af2875...; where the same citation names the freeze file, the code commit or the rehearsal, those follow
-       (freeze_record_phase5_v2.json; commit f88e21c, the 'commit' of freeze v2; ACQ-R11b) [listed for Steve: R16c HOLD H1];
+       (freeze_record_phase5_v2.json; commit f88e21c, the 'commit' of freeze v2; ACQ-R11b) [H1 item 1, accepted by Steve 2026-10-13];
+       EXCEPT 'Changes in v3', kept verbatim from v3 (H1 item 3, Steve's ruling 2026-10-13);
   3.4  the B6 row of phase5_common.py (767dec60... -> the new sha256);
   3.5  the 'Amendment v3.1' section (5 lines, appended);
   3.6  Prior exposure: the G values.
   B6 sign-off path (v3 l.145): R16/SIGNOFF_phase5_prereg_v3.md -> R16c/SIGNOFF_phase5_prereg_v3_1.md, the constant changed by
-       §1.3 (not in the §3 list; listed for Steve: R16c HOLD H1)."""
+       §1.3 (H1 item 2, accepted by Steve 2026-10-13).
+  Title / header (H1 item 4, Steve's ruling 2026-10-13): "version 3" -> "version 3.1"; "Version 3, rendered ... by directive R16" ->
+       "Version 3.1, rendered ... by directive R16c"."""
 import difflib, hashlib, json, os, re, sys
 DR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 V3 = f"{DR}/R16/PREREG_phase5_v3.md"; V3_SHA = "3df236e008466919a2b5acf94fb258a6f42abe6235a1ee1b77c0785ca8939d58"
@@ -23,6 +26,8 @@ def sha(p): return hashlib.sha256(open(p, "rb").read()).hexdigest()
 def build():
     p5c = sha(P5C)
     R = [  # (group, old, new)
+        ("title (H1 item 4 ruling)", "Phase 5 pre-registration, version 3 (a second pre-registered blind test)", "Phase 5 pre-registration, version 3.1 (a second pre-registered blind test)"),
+        ("header (H1 item 4 ruling)", "> **Version 3, rendered 2026-10-13 by directive R16 from", "> **Version 3.1, rendered 2026-10-13 by directive R16c from"),
         ("3.1 B1 item 1",
          "1. co-registration passes the development QA thresholds (ACQ-R03: offset ≤ 30 m, overlap ≥ 1 km², ≥ 1 256-px tile with ≥ 50 % joint-valid cells);",
          "1. co-registration passes the development QA thresholds (ACQ-R03: offset ≤ 30 m, overlap ≥ 1 km², ≥ 1 256-px tile with ≥ 50 % joint-valid cells) and the vertical-datum check (ACQ-R11b): on the ship grid's joint-valid cells, the 95th percentile of |r − median r|, where r is the area-averaged high-resolution field minus the ship field after the rigid shift, divided by |median ship depth| there, is ≤ T_G = 0.200712 (calibrated on development pairs only). Ship line-to-line inconsistency is not checked."),
@@ -36,7 +41,6 @@ def build():
         ("3.3 freeze citation, B6 run-record lock", f"- cite the freeze record sha256 `{F1}` in `locks.lock2_freeze_record`;", f"- cite the freeze record sha256 `{F2}` in `locks.lock2_freeze_record`;"),
         ("3.3 freeze citation, B6 freeze file and entry script", f"The `freeze_record_phase5.json` on disk must hash to that value and list `src/phase5/sealed_step1_p5.py` at `{S1}`.",
          f"The `freeze_record_phase5_v2.json` on disk must hash to that value and list `src/phase5/sealed_step1_p5.py` at `{S2}`."),
-        ("3.3 freeze citation, Changes in v3", f"the acquisition freeze record sha256 `{F1}` (tag `phase5-acq-freeze`);", f"the acquisition freeze record sha256 `{F2}` (tag `phase5-acq-freeze-v2`);"),
         ("3.4 B6 phase5_common.py row", f"| `phase5_common.py` | `{P5C_OLD}` |", f"| `phase5_common.py` | `{p5c}` |"),
         ("B6 sign-off path (constant of §1.3)", "Every Phase 5 script runs in `phase5` mode only if `R16/SIGNOFF_phase5_prereg_v3.md` exists", "Every Phase 5 script runs in `phase5` mode only if `R16c/SIGNOFF_phase5_prereg_v3_1.md` exists"),
         ("3.6 Prior exposure", "- The executor that ran ACQ-R08b saw only those numbers.\n",
@@ -53,13 +57,16 @@ def build():
     for g, a, b in R:
         n = t.count(a); assert n == 1, (g, n); t = t.replace(a, b); applied.append(dict(group=g, old=a, new=b))
     assert t.endswith("\n"); t = t + AMEND; applied.append(dict(group="3.5 Amendment v3.1 (appended)", old="", new=AMEND))
-    assert F1 not in t, "a v1 freeze citation is left"; assert F2 in t and S2 in t and S1 not in t
+    cv3 = t.split("## Changes in v3")[1].split("## Amendment v3.1")[0]
+    assert t.count(F1) == 1 and F1 in cv3, "a v1 freeze citation is left outside 'Changes in v3' (kept verbatim, H1 item 3 ruling)"; assert F2 in t and S2 in t and S1 not in t
     return t, applied, p5c
 def sections(text):
     out, cur = {}, "(preamble)"
     for l in text.splitlines():
-        if l.startswith("## ") or l.startswith("# "): cur = l.strip()
+        if l.startswith("## ") or l.startswith("# "): cur = "# (title) + header" if l.startswith("# ") else l.strip()   # the title line itself changes (H1 item 4): key the title section by position
         out.setdefault(cur, []).append(l)
+    for k in out:
+        while out[k] and not out[k][-1].strip(): out[k].pop()   # a blank separator line before the appended section is not a change of the section above
     return out
 if __name__ == "__main__":
     t, applied, p5c = build(); os.makedirs(os.path.dirname(V31), exist_ok=True)

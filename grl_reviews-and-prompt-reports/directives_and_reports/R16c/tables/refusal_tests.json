@@ -6,12 +6,12 @@
   {
    "test": "1 phase5_build.py: no sign-off file",
    "passed": true,
-   "exception": "Refusal: LOCK sign-off: /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/absent.md does not exist"
+   "exception": "Refusal: LOCK sign-off: /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/absent.md does not exist"
   },
   {
    "test": "2a phase5_build.py: wrong pre-registration sha256 (real v3, sign-off holding another sha256)",
    "passed": true,
-   "exception": "Refusal: LOCK pre-registration: /home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16c/PREREG_phase5_v3_1.md sha256 e0b81508c93589f670bbaa577ad362ae00eca1670a0eee7cdfd6b1b1bda72aad != 1111111111111111111111111111111111111111111111111111111111111111"
+   "exception": "Refusal: LOCK pre-registration: /home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16c/PREREG_phase5_v3_1.md sha256 75b72eb6fae3804c7dea61aa4171744a2fcd4fbdb7c3916f3fb98f2c06f2c7b6 != 1111111111111111111111111111111111111111111111111111111111111111"
   },
   {
    "test": "2b phase5_build.py: wrong artifact hash (copy of v3 with the GBT hash altered)",
@@ -21,12 +21,12 @@
   {
    "test": "1 phase5_figures.py: no sign-off file",
    "passed": true,
-   "exception": "Refusal: LOCK sign-off: /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/absent.md does not exist"
+   "exception": "Refusal: LOCK sign-off: /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/absent.md does not exist"
   },
   {
    "test": "2a phase5_figures.py: wrong pre-registration sha256 (real v3, sign-off holding another sha256)",
    "passed": true,
-   "exception": "Refusal: LOCK pre-registration: /home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16c/PREREG_phase5_v3_1.md sha256 e0b81508c93589f670bbaa577ad362ae00eca1670a0eee7cdfd6b1b1bda72aad != 1111111111111111111111111111111111111111111111111111111111111111"
+   "exception": "Refusal: LOCK pre-registration: /home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16c/PREREG_phase5_v3_1.md sha256 75b72eb6fae3804c7dea61aa4171744a2fcd4fbdb7c3916f3fb98f2c06f2c7b6 != 1111111111111111111111111111111111111111111111111111111111111111"
   },
   {
    "test": "2b phase5_figures.py: wrong artifact hash (copy of v3 with the GBT hash altered)",
@@ -36,12 +36,12 @@
   {
    "test": "1 phase5_predict.py: no sign-off file",
    "passed": true,
-   "exception": "Refusal: LOCK sign-off: /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/absent.md does not exist"
+   "exception": "Refusal: LOCK sign-off: /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/absent.md does not exist"
   },
   {
    "test": "2a phase5_predict.py: wrong pre-registration sha256 (real v3, sign-off holding another sha256)",
    "passed": true,
-   "exception": "Refusal: LOCK pre-registration: /home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16c/PREREG_phase5_v3_1.md sha256 e0b81508c93589f670bbaa577ad362ae00eca1670a0eee7cdfd6b1b1bda72aad != 1111111111111111111111111111111111111111111111111111111111111111"
+   "exception": "Refusal: LOCK pre-registration: /home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16c/PREREG_phase5_v3_1.md sha256 75b72eb6fae3804c7dea61aa4171744a2fcd4fbdb7c3916f3fb98f2c06f2c7b6 != 1111111111111111111111111111111111111111111111111111111111111111"
   },
   {
    "test": "2b phase5_predict.py: wrong artifact hash (copy of v3 with the GBT hash altered)",
@@ -51,12 +51,12 @@
   {
    "test": "1 phase5_score.py: no sign-off file",
    "passed": true,
-   "exception": "Refusal: LOCK sign-off: /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/absent.md does not exist"
+   "exception": "Refusal: LOCK sign-off: /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/absent.md does not exist"
   },
   {
    "test": "2a phase5_score.py: wrong pre-registration sha256 (real v3, sign-off holding another sha256)",
    "passed": true,
-   "exception": "Refusal: LOCK pre-registration: /home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16c/PREREG_phase5_v3_1.md sha256 e0b81508c93589f670bbaa577ad362ae00eca1670a0eee7cdfd6b1b1bda72aad != 1111111111111111111111111111111111111111111111111111111111111111"
+   "exception": "Refusal: LOCK pre-registration: /home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16c/PREREG_phase5_v3_1.md sha256 75b72eb6fae3804c7dea61aa4171744a2fcd4fbdb7c3916f3fb98f2c06f2c7b6 != 1111111111111111111111111111111111111111111111111111111111111111"
   },
   {
    "test": "2b phase5_score.py: wrong artifact hash (copy of v3 with the GBT hash altered)",
@@ -66,17 +66,17 @@
   {
    "test": "3 phase5_predict.py: no calls file",
    "passed": true,
-   "exception": "Refusal: LOCK calls file (phase5): /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/absent_calls.csv does not exist"
+   "exception": "Refusal: LOCK calls file (phase5): /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/absent_calls.csv does not exist"
   },
   {
    "test": "4 phase5_score.py: calls sha256 not in the ledger (ledger holds the supplement sha256 only)",
    "passed": true,
-   "exception": "Refusal: LOCK calls file (phase5): sha256 ad2059df5db74fc37a97f748ca3810104d40684c225fa4babf0f98e4e3f4deb6 is not recorded in /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/ledger_nocalls.md"
+   "exception": "Refusal: LOCK calls file (phase5): sha256 ad2059df5db74fc37a97f748ca3810104d40684c225fa4babf0f98e4e3f4deb6 is not recorded in /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/ledger_nocalls.md"
   },
   {
    "test": "5 phase5_score.py: results file already exists",
    "passed": true,
-   "exception": "Refusal: LOCK single run (phase5): results file already exists: /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/results_D1.json"
+   "exception": "Refusal: LOCK single run (phase5): results file already exists: /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/results_D1.json"
   },
   {
    "test": "6 any script: pair not admitted (development pair in phase5 mode)",
@@ -91,12 +91,12 @@
   {
    "test": "9 phase5_build.py: no supplement file",
    "passed": true,
-   "exception": "Refusal: LOCK supplement (phase5): /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/absent_sup.parquet does not exist"
+   "exception": "Refusal: LOCK supplement (phase5): /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/absent_sup.parquet does not exist"
   },
   {
    "test": "10 supplement sha256 not in the ledger",
    "passed": true,
-   "exception": "Refusal: LOCK supplement (phase5): sha256 3b243dc0f277985b56a7225962ae6ec095bb24c8f59640e58e703b40021a9803 is not recorded in /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/ledger_nosup.md"
+   "exception": "Refusal: LOCK supplement (phase5): sha256 3b243dc0f277985b56a7225962ae6ec095bb24c8f59640e58e703b40021a9803 is not recorded in /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/ledger_nosup.md"
   },
   {
    "test": "11a supplement with a wrong pair id",
@@ -136,17 +136,17 @@
   {
    "test": "27a phase5_build.py: no acquisition run record (empty records directory)",
    "passed": true,
-   "exception": "Refusal: LOCK acquisition run record (phase5): no step1_run_phase5_*.json in /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/acq_empty"
+   "exception": "Refusal: LOCK acquisition run record (phase5): no step1_run_phase5_*.json in /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/acq_empty"
   },
   {
    "test": "27b phase5_build.py: acquisition run record citing a different freeze record sha256",
    "passed": true,
-   "exception": "Refusal: LOCK acquisition run record (phase5): no record in /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/acq_badfz is complete in phase5 mode, cites freeze record f5a30b87c05a\u2026 and supplement 3b243dc0f277\u2026: [{'path': '/scratch/users/scdobbs/grl_review/R16c/refusal_tests"
+   "exception": "Refusal: LOCK acquisition run record (phase5): no record in /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/acq_badfz is complete in phase5 mode, cites freeze record f5a30b87c05a\u2026 and supplement 3b243dc0f277\u2026: [{'path': '/scratch/users/scdobbs/grl_review/R16c/refusal_tests"
   },
   {
    "test": "27c phase5_build.py: acquisition run record citing a different supplement sha256",
    "passed": true,
-   "exception": "Refusal: LOCK acquisition run record (phase5): no record in /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/acq_badsup is complete in phase5 mode, cites freeze record f5a30b87c05a\u2026 and supplement 3b243dc0f277\u2026: [{'path': '/scratch/users/scdobbs/grl_review/R16c/refusal_test"
+   "exception": "Refusal: LOCK acquisition run record (phase5): no record in /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/acq_badsup is complete in phase5 mode, cites freeze record f5a30b87c05a\u2026 and supplement 3b243dc0f277\u2026: [{'path': '/scratch/users/scdobbs/grl_review/R16c/refusal_test"
   },
   {
    "test": "27d phase5_build.py: the acquisition repo's PHASE5 directory as it stands (freeze record only, no run record)",
@@ -156,7 +156,7 @@
   {
    "test": "27e phase5_build.py: freeze record on disk with another sha256",
    "passed": true,
-   "exception": "Refusal: LOCK acquisition run record (phase5): freeze record /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/PREREG_badart.md sha256 f79bf3f8b1954213758f9220d5fee443c53e376de1ef0e2d0c0cd914a35aa694 != f5a30b87c05a90bb9155f37bbdf61de6d20fa55423d97662e59ff42b02809438"
+   "exception": "Refusal: LOCK acquisition run record (phase5): freeze record /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/PREREG_badart.md sha256 7e8f2021764ca81060217a74490567621e6c48823d59dd97dad112fad557d2ed != f5a30b87c05a90bb9155f37bbdf61de6d20fa55423d97662e59ff42b02809438"
   },
   {
    "test": "27f (3.2; R16c 3.1) the ACQ-R11b rehearsal record (step1_run_rehearsal_r11b.json) accepted against the real freeze record v2 and the supplement it cites (record_mode rehearsal)",
@@ -306,12 +306,12 @@
   {
    "test": "38a (R16b) phase5_score refuses an external inputs table (--inputs)",
    "passed": true,
-   "exception": "Refusal: LOCK inputs (phase5): external scoring inputs are refused (--inputs '/scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/inputs_D1.parquet', --stats None); phase5_score.py assembles them from the build and prediction outputs"
+   "exception": "Refusal: LOCK inputs (phase5): external scoring inputs are refused (--inputs '/scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/inputs_D1.parquet', --stats None); phase5_score.py assembles them from the build and prediction outputs"
   },
   {
    "test": "38b (R16b) phase5_score refuses an external statistics file (--stats)",
    "passed": true,
-   "exception": "Refusal: LOCK inputs (phase5): external scoring inputs are refused (--inputs None, --stats '/scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/stats.json'); phase5_score.py assembles them from the build and prediction outputs"
+   "exception": "Refusal: LOCK inputs (phase5): external scoring inputs are refused (--inputs None, --stats '/scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/stats.json'); phase5_score.py assembles them from the build and prediction outputs"
   },
   {
    "test": "38c (R16b) assemble_inputs on build + recorded predictions: the 14-column table of R13 / R16 (role phase5), written to <out>/inputs_<tag>.parquet with its sha256",
@@ -326,7 +326,7 @@
   {
    "test": "38e (R16b) assemble_inputs refuses a missing prediction file",
    "passed": true,
-   "exception": "Refusal: LOCK inputs (phase5): no predictions for KM0923__MGDS_31429 (/scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/asm_missing/predictions/KM0923__MGDS_31429.parquet)"
+   "exception": "Refusal: LOCK inputs (phase5): no predictions for KM0923__MGDS_31429 (/scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/asm_missing/predictions/KM0923__MGDS_31429.parquet)"
   },
   {
    "test": "38f (R16b) assemble_inputs refuses predictions whose tile ids differ from the build",
@@ -351,7 +351,7 @@
   {
    "test": "39d (R16c 3.1) a phase5 run record citing freeze v1 (with the right supplement) -> refused",
    "passed": true,
-   "exception": "Refusal: LOCK acquisition run record (phase5): no record in /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_mg_hs_gm/acq_v1 is complete in phase5 mode, cites freeze record f5a30b87c05a\u2026 and supplement 3b243dc0f277\u2026: [{'path': '/scratch/users/scdobbs/grl_review/R16c/refusal_tests/r1"
+   "exception": "Refusal: LOCK acquisition run record (phase5): no record in /scratch/users/scdobbs/grl_review/R16c/refusal_tests/r16c_refusal_jbe7cfq2/acq_v1 is complete in phase5 mode, cites freeze record f5a30b87c05a\u2026 and supplement 3b243dc0f277\u2026: [{'path': '/scratch/users/scdobbs/grl_review/R16c/refusal_tests/r1"
   },
   {
    "test": "39e (R16c 3.1; l.134) a copy of v3.1 citing freeze v1 instead of v2 (sign-off holding that copy's sha256) -> refused: the pinned freeze sha256 is not stated",
@@ -371,7 +371,7 @@
  ],
  "prereg_v3_1": {
   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16c/PREREG_phase5_v3_1.md",
-  "sha256": "e0b81508c93589f670bbaa577ad362ae00eca1670a0eee7cdfd6b1b1bda72aad"
+  "sha256": "75b72eb6fae3804c7dea61aa4171744a2fcd4fbdb7c3916f3fb98f2c06f2c7b6"
  },
  "phase5_common_sha256": "cdca2c9b699f8a06eb29bc095d3c3636304cabfb941c88a22fdae8b555df1b66",
  "acq_freeze": {
@@ -390,6 +390,6 @@
   ]
  },
  "dummy_signoff_deleted": true,
- "time": "2026-10-13T17:58:13",
- "node": "sh04-05n18.int"
+ "time": "2026-10-13T18:56:44",
+ "node": "sh04-09n21.int"
 }

@@ -1,5 +1,12 @@
 --- R16/PREREG_phase5_v3.md
 +++ R16c/PREREG_phase5_v3_1.md
+@@ -1,3 +1,3 @@
+-# PREREG_phase5_v3 — Phase 5 pre-registration, version 3 (a second pre-registered blind test)
+-
+-> **Version 3, rendered 2026-10-13 by directive R16 from `R12c/PREREG_phase4_v2_1.md` (sha256 `d6af268b…8334`, tag `phase4-prereg-v2.1`) with exactly the changes of `phase_5/PHASE5_design_spec_2026-10-13.md` (ruled by Steve on 2026-10-13) and the directive's notes. Phase 4 stays closed and is reported as it is: C1 not confirmed (0 of 2), pooled −0.20 [−0.34, −0.02] (REPORT_R13). "Phase 5" keeps its paths, locks, records and outputs separate from Phase 4. When v3 was rendered no Phase 5 candidate file had been opened by the CNN repo and the acquisition step had not run in phase5 mode; the only candidate information that exists is the ACQ-R08 / ACQ-R08b metadata (Prior exposure). Changes from v2.1 are listed in "Changes in v3".**
++# PREREG_phase5_v3 — Phase 5 pre-registration, version 3.1 (a second pre-registered blind test)
++
++> **Version 3.1, rendered 2026-10-13 by directive R16c from `R12c/PREREG_phase4_v2_1.md` (sha256 `d6af268b…8334`, tag `phase4-prereg-v2.1`) with exactly the changes of `phase_5/PHASE5_design_spec_2026-10-13.md` (ruled by Steve on 2026-10-13) and the directive's notes. Phase 4 stays closed and is reported as it is: C1 not confirmed (0 of 2), pooled −0.20 [−0.34, −0.02] (REPORT_R13). "Phase 5" keeps its paths, locks, records and outputs separate from Phase 4. When v3 was rendered no Phase 5 candidate file had been opened by the CNN repo and the acquisition step had not run in phase5 mode; the only candidate information that exists is the ACQ-R08 / ACQ-R08b metadata (Prior exposure). Changes from v2.1 are listed in "Changes in v3".**
 @@ -35 +35 @@
 -1. co-registration passes the development QA thresholds (ACQ-R03: offset ≤ 30 m, overlap ≥ 1 km², ≥ 1 256-px tile with ≥ 50 % joint-valid cells);
 +1. co-registration passes the development QA thresholds (ACQ-R03: offset ≤ 30 m, overlap ≥ 1 km², ≥ 1 256-px tile with ≥ 50 % joint-valid cells) and the vertical-datum check (ACQ-R11b): on the ship grid's joint-valid cells, the 95th percentile of |r − median r|, where r is the area-averaged high-resolution field minus the ship field after the rigid shift, divided by |median ship depth| there, is ≤ T_G = 0.200712 (calibrated on development pairs only). Ship line-to-line inconsistency is not checked.
@@ -26,9 +33,6 @@
 @@ -189 +190 @@
 -The `freeze_record_phase5.json` on disk must hash to that value and list `src/phase5/sealed_step1_p5.py` at `9f143e0c3f000163d9da48001cbd7578805c8c1042141f9994a972df73b1b582`. Otherwise the script refuses.
 +The `freeze_record_phase5_v2.json` on disk must hash to that value and list `src/phase5/sealed_step1_p5.py` at `83af2875e53a28ef9b01c95a7b533ef7befd7a00625dfa6b0fe87178a2accc47`. Otherwise the script refuses.
-@@ -238 +239 @@
--- **Locks** (B6): the sign-off `R16/SIGNOFF_phase5_prereg_v3.md`; the five Phase 5 scripts and the five imported Phase 4 scripts; the supplement `manifest/pairs_phase5_sealed.parquet` with 64 + 6 columns; the run record of `RECORD_CONTRACT_phase5.md` in `reports_post_grl_review/PHASE5/`; the acquisition freeze record sha256 `6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1` (tag `phase5-acq-freeze`); the Phase 5 guard extension and allow-list.
-+- **Locks** (B6): the sign-off `R16/SIGNOFF_phase5_prereg_v3.md`; the five Phase 5 scripts and the five imported Phase 4 scripts; the supplement `manifest/pairs_phase5_sealed.parquet` with 64 + 6 columns; the run record of `RECORD_CONTRACT_phase5.md` in `reports_post_grl_review/PHASE5/`; the acquisition freeze record sha256 `f5a30b87c05a90bb9155f37bbdf61de6d20fa55423d97662e59ff42b02809438` (tag `phase5-acq-freeze-v2`); the Phase 5 guard extension and allow-list.
 @@ -240,0 +242,8 @@
 +
 +## Amendment v3.1 (2026-10-13; directive R16c; rulings of Steve, 2026-10-13)
