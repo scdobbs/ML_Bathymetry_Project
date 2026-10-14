@@ -41,11 +41,11 @@ PHASE4_SUPPLEMENT = P4.SUPPLEMENT; PHASE4_SUPPLEMENT_SHA = "6968e04554ddeef3c335
 ELIG_COLS = (("coreg_pass", "bool"), ("k_recoverable", "bool"), ("cells_across", "double"), ("hr_res_in_range", "bool"), ("eligible", "bool"), ("eligibility_reason", "string"))
 CELLS_MIN, CELLS_MAX, HR_MIN, HR_MAX = 3.88, 51.2, 0.985, 4.99   # spec §3.3 item 3 (bound kept as written, ruling ACQ-R09 H-1)
 LEDGER = P4.LEDGER
-PREREG_V3 = f"{DR}/R16/PREREG_phase5_v3.md"; SIGNOFF = f"{DR}/R16/SIGNOFF_phase5_prereg_v3.md"
+PREREG_V3 = f"{DR}/R16c/PREREG_phase5_v3_1.md"; SIGNOFF = f"{DR}/R16c/SIGNOFF_phase5_prereg_v3_1.md"
 # ---- (4) acquisition hand-off (RECORD_CONTRACT_phase5.md §1; tag phase5-acq-freeze)
 ACQ_REPO = P4.ACQ_REPO; ACQ_RECORDS_DIR = f"{ACQ_REPO}/reports_post_grl_review/PHASE5"
-ACQ_FREEZE_RECORD = f"{ACQ_RECORDS_DIR}/freeze_record_phase5.json"; ACQ_FREEZE_SHA = "6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1"
-ACQ_STEP1_REL = "src/phase5/sealed_step1_p5.py"; ACQ_STEP1_SHA = "9f143e0c3f000163d9da48001cbd7578805c8c1042141f9994a972df73b1b582"
+ACQ_FREEZE_RECORD = f"{ACQ_RECORDS_DIR}/freeze_record_phase5_v2.json"; ACQ_FREEZE_SHA = "f5a30b87c05a90bb9155f37bbdf61de6d20fa55423d97662e59ff42b02809438"
+ACQ_STEP1_REL = "src/phase5/sealed_step1_p5.py"; ACQ_STEP1_SHA = "83af2875e53a28ef9b01c95a7b533ef7befd7a00625dfa6b0fe87178a2accc47"
 ACQ_REHEARSAL_DIR = f"{ACQ_REPO}/reports_post_grl_review/ACQ-R09/rehearsal"           # rehearsal records (dress rehearsal only)
 SCRIPTS = ("phase5_common.py", "phase5_build.py", "phase5_figures.py", "phase5_predict.py", "phase5_score.py")
 # ---- guard (§B3): the Phase 5 sealed roots (real names) and tokens

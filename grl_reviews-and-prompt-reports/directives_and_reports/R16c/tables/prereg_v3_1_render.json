@@ -1,0 +1,29 @@
+{
+ "v3": {
+  "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16/PREREG_phase5_v3.md",
+  "sha256": "3df236e008466919a2b5acf94fb258a6f42abe6235a1ee1b77c0785ca8939d58"
+ },
+ "v3_1": {
+  "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16c/PREREG_phase5_v3_1.md",
+  "sha256": "e0b81508c93589f670bbaa577ad362ae00eca1670a0eee7cdfd6b1b1bda72aad"
+ },
+ "phase5_common_sha256": "cdca2c9b699f8a06eb29bc095d3c3636304cabfb941c88a22fdae8b555df1b66",
+ "deterministic": true,
+ "replacements": [
+  "3.1 B1 item 1",
+  "3.2 blindness note",
+  "3.3 freeze citation, B3 step 1",
+  "3.3 freeze citation, B6 statement",
+  "3.3 freeze citation, B6 run-record lock",
+  "3.3 freeze citation, B6 freeze file and entry script",
+  "3.3 freeze citation, Changes in v3",
+  "3.4 B6 phase5_common.py row",
+  "B6 sign-off path (constant of \u00a71.3)",
+  "3.6 Prior exposure",
+  "3.5 Amendment v3.1 (appended)"
+ ],
+ "n_diff_lines": {
+  "minus": 9,
+  "plus": 18
+ }
+}

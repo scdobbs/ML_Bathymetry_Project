@@ -1,0 +1,103 @@
+{
+ "r16_root": "/scratch/users/scdobbs/grl_review/R16/rehearsal_b",
+ "r16c_root": "/scratch/users/scdobbs/grl_review/R16c/rehearsal",
+ "rasters": {
+  "FK151121__MGDS_22383": {
+   "n": 12,
+   "identical": true
+  },
+  "NA080__MGDS_31289": {
+   "n": 12,
+   "identical": true
+  },
+  "KM0923__MGDS_31429": {
+   "n": 12,
+   "identical": true
+  },
+  "KM0923__MOCK_R09repeat": {
+   "n": 12,
+   "identical": true
+  }
+ },
+ "build": {
+  "FK151121__MGDS_22383": {
+   "tiles_v1_1": {
+    "equal": true,
+    "n": 732
+   },
+   "tiles_int": {
+    "equal": true,
+    "n": 732
+   },
+   "features": {
+    "equal": true,
+    "n": 12150
+   }
+  },
+  "NA080__MGDS_31289": {
+   "tiles_v1_1": {
+    "equal": true,
+    "n": 3168
+   },
+   "tiles_int": {
+    "equal": true,
+    "n": 3168
+   },
+   "features": {
+    "equal": true,
+    "n": 52605
+   }
+  },
+  "KM0923__MGDS_31429": {
+   "tiles_v1_1": {
+    "equal": true,
+    "n": 223
+   },
+   "tiles_int": {
+    "equal": true,
+    "n": 223
+   },
+   "features": {
+    "equal": true,
+    "n": 3050
+   }
+  }
+ },
+ "predictions": {
+  "FK151121__MGDS_22383": {
+   "equal": true,
+   "n": 732
+  },
+  "NA080__MGDS_31289": {
+   "equal": true,
+   "n": 3168
+  },
+  "KM0923__MGDS_31429": {
+   "equal": true,
+   "n": 223
+  }
+ },
+ "scores": {
+  "D1": {
+   "inputs": {
+    "equal": true,
+    "n": 4123
+   },
+   "results_identical": true,
+   "differences": [],
+   "C1_primary": "confirmed",
+   "C1_secondary": "partially confirmed (2 of 3)"
+  },
+  "D1_artifact": {
+   "inputs": {
+    "equal": true,
+    "n": 4123
+   },
+   "results_identical": true,
+   "differences": [],
+   "C1_primary": "not testable (fewer than 3 sites in the C1 set: 2)",
+   "C1_secondary": "partially confirmed (1 of 2)"
+  }
+ },
+ "all_identical": true
+}

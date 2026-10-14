@@ -1,0 +1,40 @@
+--- R16/PREREG_phase5_v3.md
++++ R16c/PREREG_phase5_v3_1.md
+@@ -35 +35 @@
+-1. co-registration passes the development QA thresholds (ACQ-R03: offset ≤ 30 m, overlap ≥ 1 km², ≥ 1 256-px tile with ≥ 50 % joint-valid cells);
++1. co-registration passes the development QA thresholds (ACQ-R03: offset ≤ 30 m, overlap ≥ 1 km², ≥ 1 256-px tile with ≥ 50 % joint-valid cells) and the vertical-datum check (ACQ-R11b): on the ship grid's joint-valid cells, the 95th percentile of |r − median r|, where r is the area-averaged high-resolution field minus the ship field after the rigid shift, divided by |median ship depth| there, is ≤ T_G = 0.200712 (calibrated on development pairs only). Ship line-to-line inconsistency is not checked.
+@@ -47 +47 @@
+-- **No person views candidate data at step 1.** Co-registration passes or fails by the automated development thresholds only; no QC figure is produced, and the step-1 report carries only status, eligibility fields, spacings, cells across, k, product status and usability, file counts and record sha256 values (ACQ-R09 §2.10). The only viewing in Phase 5 is Steve's blind call on the Q-coded pages of step 2 (B3 step 3).
++- **No person views candidate data at step 1.** Co-registration passes or fails by the automated development thresholds and the vertical-datum check only (only its pass or fail is recorded); no QC figure is produced, and the step-1 report carries only status, eligibility fields, spacings, cells across, k, product status and usability, file counts and record sha256 values (ACQ-R09 §2.10). The only viewing in Phase 5 is Steve's blind call on the Q-coded pages of step 2 (B3 step 3).
+@@ -53,0 +54 @@
++- Steve has seen the development and known-bad G values of the vertical-datum check (ACQ-R11, ACQ-R11b), and no value from any Phase 5 site.
+@@ -69 +70 @@
+-1. **Acquisition repo (ACQ-R10):** the frozen `src/phase5/sealed_step1_p5.py --mode phase5` (tag `phase5-acq-freeze`; code commit `4d93c8a`; freeze record `reports_post_grl_review/PHASE5/freeze_record_phase5.json` sha256 `6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1`; script sha256 `9f143e0c3f000163d9da48001cbd7578805c8c1042141f9994a972df73b1b582`), rehearsed in ACQ-R09.
++1. **Acquisition repo (ACQ-R10):** the frozen `src/phase5/sealed_step1_p5.py --mode phase5` (tag `phase5-acq-freeze-v2`; code commit `f88e21c`; freeze record `reports_post_grl_review/PHASE5/freeze_record_phase5_v2.json` sha256 `f5a30b87c05a90bb9155f37bbdf61de6d20fa55423d97662e59ff42b02809438`; script sha256 `83af2875e53a28ef9b01c95a7b533ef7befd7a00625dfa6b0fe87178a2accc47`), rehearsed in ACQ-R09 and, against this freeze, in ACQ-R11b.
+@@ -145 +146 @@
+-Every Phase 5 script runs in `phase5` mode only if `R16/SIGNOFF_phase5_prereg_v3.md` exists and holds this document's sha256. Before running, it verifies the following against this document:
++Every Phase 5 script runs in `phase5` mode only if `R16c/SIGNOFF_phase5_prereg_v3_1.md` exists and holds this document's sha256. Before running, it verifies the following against this document:
+@@ -153 +154 @@
+-It also requires the acquisition freeze record sha256 `6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1` to be stated here.
++It also requires the acquisition freeze record sha256 `f5a30b87c05a90bb9155f37bbdf61de6d20fa55423d97662e59ff42b02809438` to be stated here.
+@@ -157 +158 @@
+-| `phase5_common.py` | `767dec60213ac9bd9a8ec05c82a4ec95656fdfc3aeb2cbd7c6f5f47074802ea6` |
++| `phase5_common.py` | `cdca2c9b699f8a06eb29bc095d3c3636304cabfb941c88a22fdae8b555df1b66` |
+@@ -186 +187 @@
+-- cite the freeze record sha256 `6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1` in `locks.lock2_freeze_record`;
++- cite the freeze record sha256 `f5a30b87c05a90bb9155f37bbdf61de6d20fa55423d97662e59ff42b02809438` in `locks.lock2_freeze_record`;
+@@ -189 +190 @@
+-The `freeze_record_phase5.json` on disk must hash to that value and list `src/phase5/sealed_step1_p5.py` at `9f143e0c3f000163d9da48001cbd7578805c8c1042141f9994a972df73b1b582`. Otherwise the script refuses.
++The `freeze_record_phase5_v2.json` on disk must hash to that value and list `src/phase5/sealed_step1_p5.py` at `83af2875e53a28ef9b01c95a7b533ef7befd7a00625dfa6b0fe87178a2accc47`. Otherwise the script refuses.
+@@ -238 +239 @@
+-- **Locks** (B6): the sign-off `R16/SIGNOFF_phase5_prereg_v3.md`; the five Phase 5 scripts and the five imported Phase 4 scripts; the supplement `manifest/pairs_phase5_sealed.parquet` with 64 + 6 columns; the run record of `RECORD_CONTRACT_phase5.md` in `reports_post_grl_review/PHASE5/`; the acquisition freeze record sha256 `6769583198da63d874472ea5a2ca62cb26c2f9f55003eb6e97838bfebab1d9d1` (tag `phase5-acq-freeze`); the Phase 5 guard extension and allow-list.
++- **Locks** (B6): the sign-off `R16/SIGNOFF_phase5_prereg_v3.md`; the five Phase 5 scripts and the five imported Phase 4 scripts; the supplement `manifest/pairs_phase5_sealed.parquet` with 64 + 6 columns; the run record of `RECORD_CONTRACT_phase5.md` in `reports_post_grl_review/PHASE5/`; the acquisition freeze record sha256 `f5a30b87c05a90bb9155f37bbdf61de6d20fa55423d97662e59ff42b02809438` (tag `phase5-acq-freeze-v2`); the Phase 5 guard extension and allow-list.
+@@ -240,0 +242,8 @@
++
++## Amendment v3.1 (2026-10-13; directive R16c; rulings of Steve, 2026-10-13)
++
++- **Why:** ACQ-R10 stopped because two development QA steps, the vertical-datum check and the ship line-to-line check, were human judgements.
++- **What changed:** the vertical-datum check is automated in the acquisition chain (B1 item 1, the blindness note; T_G = 0.200712 from development pairs only); the acquisition freeze is v2 (`freeze_record_phase5_v2.json` `f5a30b87c05a90bb9155f37bbdf61de6d20fa55423d97662e59ff42b02809438`, tag `phase5-acq-freeze-v2`, entry script `83af2875e53a28ef9b01c95a7b533ef7befd7a00625dfa6b0fe87178a2accc47`); in `phase5_common.py` only the freeze, entry-script, pre-registration and sign-off constants changed (B6).
++- **What did not change:** the criteria, thresholds, seeds, sites, models and product rules, the other four Phase 5 scripts and every Phase 4 file.
++- **Line check (fallback approved in advance):** ship line-to-line inconsistency is not checked, because the LR grid lattices it needs are not on disk for 36 of the 38 accepted development pairs (ACQ-R11b).
++- **Blindness:** no sealed file was opened and no Phase 5 swath was fetched before v3.1. v3.1 supersedes v3 (`3df236e008466919a2b5acf94fb258a6f42abe6235a1ee1b77c0785ca8939d58`, signed, tag `phase5-prereg-v3`), which stays as it is.
