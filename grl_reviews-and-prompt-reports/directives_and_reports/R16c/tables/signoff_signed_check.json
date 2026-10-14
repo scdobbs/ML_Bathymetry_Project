@@ -1,0 +1,17 @@
+{
+ "signoff": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16c/SIGNOFF_phase5_prereg_v3_1.md",
+ "signoff_sha256": "b8ba209c99148472bd7e0ca266cb051fe1d98e0880a08637cc689483543a3a89",
+ "read_signoff": "75b72eb6fae3804c7dea61aa4171744a2fcd4fbdb7c3916f3fb98f2c06f2c7b6",
+ "prereg": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R16c/PREREG_phase5_v3_1.md",
+ "prereg_sha256": "75b72eb6fae3804c7dea61aa4171744a2fcd4fbdb7c3916f3fb98f2c06f2c7b6",
+ "equal": true,
+ "phase5_scripts": {
+  "phase5_common.py": true,
+  "phase5_build.py": true,
+  "phase5_figures.py": true,
+  "phase5_predict.py": true,
+  "phase5_score.py": true
+ },
+ "acq_freeze_sha256_stated": "f5a30b87c05a90bb9155f37bbdf61de6d20fa55423d97662e59ff42b02809438",
+ "verify_frozen": "passed"
+}
