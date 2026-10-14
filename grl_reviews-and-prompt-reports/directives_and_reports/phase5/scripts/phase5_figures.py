@@ -7,7 +7,7 @@ Changes from Phase 4: phase5_common.start; a not-testable row (eligible = False,
 <root>/figures/work/ (never assembled, never delivered), as in Phase 4."""
 from __future__ import annotations
 import json, os, sys, time
-import numpy as np, pandas as pd
+import numpy as np, pandas as pd, rasterio
 from multiprocessing import Pool
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import phase5_common as P5
@@ -21,6 +21,16 @@ if __name__ == "__main__":
     skipped = [pid for pid in pairs if json.load(open(f"{root}/build/{pid}/pair_stats.json")).get("status") == P5.P4.NO_K]; pairs = [p for p in pairs if p not in skipped]   # no page for a no-k pair
     FR.R8.R04_FIELDS = f"{root}/fields"; FR.R8.OUT_FIELDS = f"{root}/figures/work"; os.makedirs(f"{root}/figures/key", exist_ok=True); os.makedirs(FR.R8.OUT_FIELDS, exist_ok=True)
     tiles = pd.concat([pd.read_parquet(f"{root}/build/{pid}/tiles_v1_1.parquet") for pid in pairs], ignore_index=True)
+    # R17 H1 ruling (Steve, 2026-10-14): the fixed exclusion list is dropped from the tiles and its tile footprints are masked in copies of the
+    # field mosaics (F_hr -> NaN, joint_v1 -> 0) under figures/work/fields_excl/; the build's fields are not modified
+    ex = P5.excluded_tiles(); xt = tiles[tiles.tile_id.isin(ex)]; tiles = tiles[~tiles.tile_id.isin(ex)].reset_index(drop=True); FX = f"{root}/figures/work/fields_excl"
+    for pid in pairs:
+        os.makedirs(f"{FX}/{pid}", exist_ok=True)
+        for f, fill in (("F_hr.tif", np.nan), ("joint_v1.tif", 0)):
+            with rasterio.open(f"{root}/fields/{pid}/{f}") as s: arr = s.read(1); prof = s.profile
+            for r in xt[xt.pair == pid].itertuples(): arr[int(r.tr0):int(r.tr0) + 128, int(r.tc0):int(r.tc0) + 128] = fill
+            with rasterio.open(f"{FX}/{pid}/{f}", "w", **prof) as d: d.write(arr, 1)
+    FR.R8.R04_FIELDS = FX; print(f"R17 exclusions: {len(xt)} of {len(ex)} listed tiles dropped and masked", flush=True)
     rng = np.random.default_rng(P5.P4.FIG_SEED["phase4"]); order = [pairs[i] for i in rng.permutation(len(pairs))]; code = {p: f"{P5.P4.FIG_CODE['phase4']}{i+1:02d}" for i, p in enumerate(order)}
     key = dict(mode=a.mode, seed=P5.P4.FIG_SEED["phase4"], order=[dict(code=code[p], pair=p, unit=C4.UNIT_OF[p]) for p in order], no_page=[dict(pair=p, status=P5.P4.NO_K) for p in skipped] + [dict(pair=p, status=s) for p, s in nt.items()]); json.dump(key, open(f"{root}/figures/key/figset_A_key.json", "w"), indent=1)
     FR.D.update(m=m, tiles=tiles, pred=pd.DataFrame(dict(tile_id=tiles.tile_id.values, GBT_ship_A_fine=np.nan)), code=code)

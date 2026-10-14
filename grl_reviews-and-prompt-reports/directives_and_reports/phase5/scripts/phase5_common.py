@@ -50,6 +50,13 @@ ACQ_STEP1_REL = "src/phase5/sealed_step1_p5.py"; ACQ_STEP1_SHA = "2c9ea8488e88a4
 ACQ_REHEARSAL_DIR = f"{ACQ_REPO}/reports_post_grl_review/ACQ-R09/rehearsal"           # rehearsal records (dress rehearsal only)
 SCRIPTS = ("phase5_common.py", "phase5_build.py", "phase5_figures.py", "phase5_predict.py", "phase5_score.py")
 PINNED_TAG = "phase5-prereg-v3.1"   # R17 plumbing: phase5_common.py = the file at this tag (v3.1 B6 sha256) + a diff written to provenance
+PINNED_DIFF_OK = ("phase5_common.py", "phase5_figures.py")   # R17: scripts checked as tagged file + recorded diff (figures: H1 exclusion, Steve's ruling of 2026-10-14)
+# ---- R17 H1 ruling (Steve, 2026-10-14): fixed exclusion list (kept tiles with target px inside ACQ-R13 boundary-zeroed lattice tiles)
+EXCLUSIONS = f"{DR}/R17/exclusions_phase5_r17.json"; EXCLUSIONS_SHA = "e0a620a03b3bba951ea63fa8aa06da8897fbbcdcb586070fb0e5e25b395bd095"
+def excluded_tiles():
+    """The fixed R17 exclusion list (tile ids), sha256-checked; applied in phase5_figures.py and in every R18 row."""
+    if sha256_file(EXCLUSIONS) != EXCLUSIONS_SHA: raise Refusal(f"LOCK exclusions (phase5): {EXCLUSIONS} sha256 != {EXCLUSIONS_SHA}")
+    return frozenset(t["tile_id"] for t in json.load(open(EXCLUSIONS))["tiles"])
 # ---- guard (§B3): the Phase 5 sealed roots (real names) and tokens
 SEALED_CANDIDATES_V3 = "/scratch/groups/hilley/auv_ship_colocated_bathy/sealed_candidates_v3"; ACQ_OUT_ROOT = f"{C4.DATA}/phase5"
 ROOT_TOKENS = ("sealed_candidates_v3", "auv_ship_colocated_bathy/phase5")
@@ -132,7 +139,7 @@ def verify_frozen(mode, prereg_path=None, prereg_sha=None, log=print):
         e = stated.get(sc)
         if e is None: raise Refusal(f"LOCK pre-registration (phase5): no sha256 stated for {sc}")
         got = sha256_file(os.path.join(HERE, sc)); rec[sc] = dict(path=os.path.join(HERE, sc), sha256=got, expected=e)
-        if got != e and sc == "phase5_common.py": rec[sc]["plumbing"] = pinned_diff(sc, e); continue
+        if got != e and sc in PINNED_DIFF_OK: rec[sc]["plumbing"] = pinned_diff(sc, e); continue
         if got != e: raise Refusal(f"LOCK artifact / code (phase5): {sc} sha256 {got} != {e}")
     if ACQ_FREEZE_SHA_PREREG not in text: raise Refusal(f"LOCK pre-registration (phase5): the acquisition freeze record sha256 {ACQ_FREEZE_SHA_PREREG[:12]}… is not stated")
     rec["acq_freeze_sha256_stated"] = ACQ_FREEZE_SHA_PREREG; rec["acq_freeze_sha256_used"] = ACQ_FREEZE_SHA; return rec
