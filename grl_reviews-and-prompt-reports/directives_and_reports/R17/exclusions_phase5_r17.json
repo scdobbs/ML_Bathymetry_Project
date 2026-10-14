@@ -1,0 +1,214 @@
+{
+ "rule": "R17 H1 ruling (Steve, 2026-10-14): a kept tile (tiles_v1_1) whose target-joint px fall inside an ACQ-R13 boundary-zeroed stride-256 lattice tile is excluded from the figures and from every R18 row",
+ "source": {
+  "root": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase5",
+  "acq_run_record": "947ede388682ea3969099beac01abb95f62cad7f3b3cd988eed631e71c00763e",
+  "supplement": "6fe0d59057842481b06513fd731951fe9177a6898fc55f8677004800616949f0"
+ },
+ "per_site": {
+  "AT26-24__MGDS_31954": {
+   "zeroed_lattice_tiles": 0,
+   "excluded_kept_tiles": 0,
+   "not_kept_v1_tiles_with_px_in_zeroed": 0
+  },
+  "Escanaba__MGDS_30368": {
+   "zeroed_lattice_tiles": 21,
+   "excluded_kept_tiles": 22,
+   "not_kept_v1_tiles_with_px_in_zeroed": 0
+  },
+  "KN161L04__MGDS_22436": {
+   "zeroed_lattice_tiles": 0,
+   "excluded_kept_tiles": 0,
+   "not_kept_v1_tiles_with_px_in_zeroed": 0
+  },
+  "KN173L02__MGDS_31675": {
+   "zeroed_lattice_tiles": 0,
+   "excluded_kept_tiles": 0,
+   "not_kept_v1_tiles_with_px_in_zeroed": 0
+  },
+  "MV1003__MGDS_31860": {
+   "zeroed_lattice_tiles": 5,
+   "excluded_kept_tiles": 0,
+   "not_kept_v1_tiles_with_px_in_zeroed": 0
+  }
+ },
+ "n_tiles": 22,
+ "tiles": [
+  {
+   "tile_id": "Escanaba__MGDS_30368_r011520_c003200",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 11520,
+   "c0": 3200,
+   "tr0": 11584,
+   "tc0": 3264
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r011648_c003200",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 11648,
+   "c0": 3200,
+   "tr0": 11712,
+   "tc0": 3264
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r011776_c003200",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 11776,
+   "c0": 3200,
+   "tr0": 11840,
+   "tc0": 3264
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r011904_c002944",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 11904,
+   "c0": 2944,
+   "tr0": 11968,
+   "tc0": 3008
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r011904_c003200",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 11904,
+   "c0": 3200,
+   "tr0": 11968,
+   "tc0": 3264
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r012032_c002944",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 12032,
+   "c0": 2944,
+   "tr0": 12096,
+   "tc0": 3008
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r012160_c002944",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 12160,
+   "c0": 2944,
+   "tr0": 12224,
+   "tc0": 3008
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r012288_c002944",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 12288,
+   "c0": 2944,
+   "tr0": 12352,
+   "tc0": 3008
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r013184_c002944",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 13184,
+   "c0": 2944,
+   "tr0": 13248,
+   "tc0": 3008
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r013312_c002944",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 13312,
+   "c0": 2944,
+   "tr0": 13376,
+   "tc0": 3008
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r019200_c002944",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 19200,
+   "c0": 2944,
+   "tr0": 19264,
+   "tc0": 3008
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r019200_c003200",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 19200,
+   "c0": 3200,
+   "tr0": 19264,
+   "tc0": 3264
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r019328_c002944",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 19328,
+   "c0": 2944,
+   "tr0": 19392,
+   "tc0": 3008
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r019328_c003200",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 19328,
+   "c0": 3200,
+   "tr0": 19392,
+   "tc0": 3264
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r019456_c002944",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 19456,
+   "c0": 2944,
+   "tr0": 19520,
+   "tc0": 3008
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r019456_c003200",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 19456,
+   "c0": 3200,
+   "tr0": 19520,
+   "tc0": 3264
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r019584_c002944",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 19584,
+   "c0": 2944,
+   "tr0": 19648,
+   "tc0": 3008
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r019584_c003200",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 19584,
+   "c0": 3200,
+   "tr0": 19648,
+   "tc0": 3264
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r019712_c002944",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 19712,
+   "c0": 2944,
+   "tr0": 19776,
+   "tc0": 3008
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r019712_c003200",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 19712,
+   "c0": 3200,
+   "tr0": 19776,
+   "tc0": 3264
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r019840_c002944",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 19840,
+   "c0": 2944,
+   "tr0": 19904,
+   "tc0": 3008
+  },
+  {
+   "tile_id": "Escanaba__MGDS_30368_r019840_c003200",
+   "pair": "Escanaba__MGDS_30368",
+   "r0": 19840,
+   "c0": 3200,
+   "tr0": 19904,
+   "tc0": 3264
+  }
+ ]
+}
