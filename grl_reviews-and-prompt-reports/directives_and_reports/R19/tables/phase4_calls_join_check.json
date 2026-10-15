@@ -1,0 +1,33 @@
+{
+ "steve_file": {
+  "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R13/phase4_calls.csv",
+  "sha256": "ae7910210b75d341539642213585652f72b2459d7787cce2bf8c1abc3a06a55f",
+  "ledger_row": 40
+ },
+ "joined_file": {
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase4/score_inputs/phase4_calls_joined.csv",
+  "sha256": "d172f981010aa829a01cb531e6b053fbdbb0403bc4169fb2e7ceddf02a5a5e68",
+  "ledger_row": 41
+ },
+ "key": {
+  "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase4/figures/key/figset_A_key.json",
+  "sha256": "80d72f1ac512c5b609632cee96417cb899ef968e049c485c544fb366651ce63a"
+ },
+ "codes": [
+  "Q01",
+  "Q02",
+  "Q03",
+  "Q04"
+ ],
+ "codes_equal": true,
+ "fields_compared": 24,
+ "differing_fields": [],
+ "pair_equals_key": true,
+ "code_to_pair": {
+  "Q01": "AT42-03__MGDS_32007",
+  "Q02": "TN159__MGDS_21981",
+  "Q03": "SUM1004__MGDS_33090",
+  "Q04": "RC2511__MGDS_32239"
+ },
+ "identical": true
+}
