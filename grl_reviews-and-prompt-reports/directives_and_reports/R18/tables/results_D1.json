@@ -1,0 +1,1093 @@
+{
+ "mode": "phase5",
+ "tag": "D1",
+ "bmin": 8,
+ "candidates": [
+  "s_lr",
+  "GBT_ship",
+  "P-V1"
+ ],
+ "dev_min_cells": 3.880437183601317,
+ "inputs": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase5/scores/inputs_D1.parquet",
+ "inputs_assembly": {
+  "inputs": {
+   "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase5/scores/inputs_D1.parquet",
+   "sha256": "a83add833d0ecfc33b82233a8dbf54870872a1004d6fcc711d7348af80bfb3ab",
+   "n_tiles": 2088,
+   "pairs": {
+    "Escanaba__MGDS_30368": 709,
+    "KN161L04__MGDS_22436": 608,
+    "KN173L02__MGDS_31675": 390,
+    "MV1003__MGDS_31860": 88,
+    "AT26-24__MGDS_31954": 293
+   }
+  },
+  "stats": {
+   "path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase5/scores/stats_D1.json",
+   "sha256": "91e84e06864e92a741df46b8dfa40152ed887917d9769cde2fc1749da4308f99",
+   "statuses": {
+    "Escanaba__MGDS_30368": "built",
+    "KN161L04__MGDS_22436": "built",
+    "KN173L02__MGDS_31675": "built",
+    "MV1003__MGDS_31860": "built",
+    "AT26-24__MGDS_31954": "built"
+   }
+  },
+  "predictions": {
+   "Escanaba__MGDS_30368": {
+    "sha256": "caf30b6bf9c21f8a58a85d17c66cb9e93bd875af8b78e871824fef1947186003",
+    "record": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase5/predictions/predict_record_1792023115.json"
+   },
+   "KN161L04__MGDS_22436": {
+    "sha256": "1f98c7f5be9b8d591d26b07f9307a7f05999d8ff987a9c6614e9c83066bed357",
+    "record": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase5/predictions/predict_record_1792023115.json"
+   },
+   "KN173L02__MGDS_31675": {
+    "sha256": "527e7177d68fc26b7720d368b0fed4be9e2feca82a84cee1a02c16fcd3c817f7",
+    "record": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase5/predictions/predict_record_1792023115.json"
+   },
+   "MV1003__MGDS_31860": {
+    "sha256": "7464392aa5e2cd6fe982bc32786ea01122baf8b44842a388e8ded2dee1b30ca5",
+    "record": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase5/predictions/predict_record_1792023115.json"
+   },
+   "AT26-24__MGDS_31954": {
+    "sha256": "d2f1ed946e57f2be0f2827b5434bbc35e8d06427bc76587257ad5932941827b6",
+    "record": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase5/predictions/predict_record_1792023115.json"
+   }
+  }
+ },
+ "k_provenance": {
+  "TN188__MGDS_18210": {
+   "k": 8,
+   "k_sweep_status": "ok",
+   "k_source": "stage_c2c_recalibrate.sweep (this run)",
+   "k_source_class": "sweep",
+   "per_k_verdicts": {
+    "2": "recoverable_signal",
+    "4": "recoverable_signal",
+    "8": "recoverable_signal",
+    "16": "no_spectrum",
+    "32": "no_spectrum"
+   },
+   "per_k_text": "2:recoverable_signal; 4:recoverable_signal; 8:recoverable_signal; 16:no_spectrum; 32:no_spectrum",
+   "k_in_acq_record": 8,
+   "k_agrees_with_acq_record": true,
+   "values_source": "C2a rule computed by this step (Phase 5)",
+   "acq_record": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5/step1_run_phase5_20261014T204117Z.json"
+  },
+  "Escanaba__MGDS_30368": {
+   "k": 16,
+   "k_sweep_status": "ok",
+   "k_source": "stage_c2c_recalibrate.sweep (this run)",
+   "k_source_class": "sweep",
+   "per_k_verdicts": {
+    "2": "recoverable_signal",
+    "4": "recoverable_signal",
+    "8": "recoverable_signal",
+    "16": "recoverable_signal",
+    "32": "no_spectrum"
+   },
+   "per_k_text": "2:recoverable_signal; 4:recoverable_signal; 8:recoverable_signal; 16:recoverable_signal; 32:no_spectrum",
+   "k_in_acq_record": 16,
+   "k_agrees_with_acq_record": true,
+   "values_source": "C2a rule computed by this step (Phase 5)",
+   "acq_record": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5/step1_run_phase5_20261014T204117Z.json"
+  },
+  "Monterey__MGDS_24756": {
+   "k": null,
+   "k_sweep_status": "no_curve",
+   "k_source": "stage_c2c_recalibrate.sweep (this run)",
+   "k_source_class": "sweep",
+   "per_k_verdicts": null,
+   "per_k_text": null,
+   "k_in_acq_record": null,
+   "k_agrees_with_acq_record": null,
+   "values_source": "C2a rule computed by this step (Phase 5)",
+   "acq_record": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5/step1_run_phase5_20261014T204117Z.json"
+  },
+  "KN161L04__MGDS_22436": {
+   "k": 16,
+   "k_sweep_status": "ok",
+   "k_source": "stage_c2c_recalibrate.sweep (this run)",
+   "k_source_class": "sweep",
+   "per_k_verdicts": {
+    "2": "recoverable_signal",
+    "4": "recoverable_signal",
+    "8": "recoverable_signal",
+    "16": "recoverable_signal",
+    "32": "no_spectrum"
+   },
+   "per_k_text": "2:recoverable_signal; 4:recoverable_signal; 8:recoverable_signal; 16:recoverable_signal; 32:no_spectrum",
+   "k_in_acq_record": 16,
+   "k_agrees_with_acq_record": true,
+   "values_source": "C2a rule computed by this step (Phase 5)",
+   "acq_record": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5/step1_run_phase5_20261014T204117Z.json"
+  },
+  "MV1209__MGDS_21415": {
+   "k": 2,
+   "k_sweep_status": "ok",
+   "k_source": "stage_c2c_recalibrate.sweep (this run)",
+   "k_source_class": "sweep",
+   "per_k_verdicts": {
+    "2": "recoverable_signal",
+    "4": "no_spectrum",
+    "8": "no_spectrum",
+    "16": "no_spectrum",
+    "32": "no_spectrum"
+   },
+   "per_k_text": "2:recoverable_signal; 4:no_spectrum; 8:no_spectrum; 16:no_spectrum; 32:no_spectrum",
+   "k_in_acq_record": 2,
+   "k_agrees_with_acq_record": true,
+   "values_source": "C2a rule computed by this step (Phase 5)",
+   "acq_record": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5/step1_run_phase5_20261014T204117Z.json"
+  },
+  "KN173L02__MGDS_31675": {
+   "k": 16,
+   "k_sweep_status": "ok",
+   "k_source": "stage_c2c_recalibrate.sweep (this run)",
+   "k_source_class": "sweep",
+   "per_k_verdicts": {
+    "2": "recoverable_signal",
+    "4": "recoverable_signal",
+    "8": "recoverable_signal",
+    "16": "recoverable_signal",
+    "32": "no_spectrum"
+   },
+   "per_k_text": "2:recoverable_signal; 4:recoverable_signal; 8:recoverable_signal; 16:recoverable_signal; 32:no_spectrum",
+   "k_in_acq_record": 16,
+   "k_agrees_with_acq_record": true,
+   "values_source": "C2a rule computed by this step (Phase 5)",
+   "acq_record": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5/step1_run_phase5_20261014T204117Z.json"
+  },
+  "MV1003__MGDS_31860": {
+   "k": 8,
+   "k_sweep_status": "ok",
+   "k_source": "stage_c2c_recalibrate.sweep (this run)",
+   "k_source_class": "sweep",
+   "per_k_verdicts": {
+    "2": "recoverable_signal",
+    "4": "recoverable_signal",
+    "8": "recoverable_signal",
+    "16": "marginal",
+    "32": "no_spectrum"
+   },
+   "per_k_text": "2:recoverable_signal; 4:recoverable_signal; 8:recoverable_signal; 16:marginal; 32:no_spectrum",
+   "k_in_acq_record": 8,
+   "k_agrees_with_acq_record": true,
+   "values_source": "C2a rule computed by this step (Phase 5)",
+   "acq_record": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5/step1_run_phase5_20261014T204117Z.json"
+  },
+  "AT26-24__MGDS_31954": {
+   "k": 8,
+   "k_sweep_status": "ok",
+   "k_source": "stage_c2c_recalibrate.sweep (this run)",
+   "k_source_class": "sweep",
+   "per_k_verdicts": {
+    "2": "recoverable_signal",
+    "4": "recoverable_signal",
+    "8": "recoverable_signal",
+    "16": "roughness_only",
+    "32": "no_spectrum"
+   },
+   "per_k_text": "2:recoverable_signal; 4:recoverable_signal; 8:recoverable_signal; 16:roughness_only; 32:no_spectrum",
+   "k_in_acq_record": 8,
+   "k_agrees_with_acq_record": true,
+   "values_source": "C2a rule computed by this step (Phase 5)",
+   "acq_record": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5/step1_run_phase5_20261014T204117Z.json"
+  }
+ },
+ "acq_run_record": {
+  "path": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5/step1_run_phase5_20261014T204117Z.json",
+  "sha256": "947ede388682ea3969099beac01abb95f62cad7f3b3cd988eed631e71c00763e",
+  "status": "complete",
+  "mode": "phase5",
+  "freeze_record_sha256": "168df0c68cf0e4493b62c78be6da2755020ce3bd53c9bd1f2ed02ad9270eadc3",
+  "supplement_sha256": "6fe0d59057842481b06513fd731951fe9177a6898fc55f8677004800616949f0",
+  "code_commit": "98a6e4cc6f3c85fa2d0164be6cc41046ffcb4295",
+  "candidates": [
+   {
+    "path": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5/step1_run_phase5_20261014T152705Z.json",
+    "status": "complete",
+    "mode": "phase5",
+    "freeze_record_sha256": "42cb8ebb65d104694c935b71627dd9f884b99a14c9474c02f87a7cc853daa85b",
+    "supplement_sha256": "255d85c879c8f3a09d2a1a53f20b928a7a0c192fcc3479cf00144d737fabf96d",
+    "accepted": false
+   },
+   {
+    "path": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5/step1_run_phase5_20261014T165859Z.json",
+    "status": "complete",
+    "mode": "phase5",
+    "freeze_record_sha256": "0ba49c69d16c0bc34994e76e4f8687583884d08da26dc3ba00f8ffaae19bd894",
+    "supplement_sha256": "f36e2757dfe0eea1f97a124cf07caeae57a17c737daf534de73addf04b07034a",
+    "accepted": false
+   },
+   {
+    "path": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5/step1_run_phase5_20261014T195328Z.json",
+    "status": "stopped",
+    "mode": "phase5",
+    "freeze_record_sha256": "90cca1f236e72d7f21f8ebe9b948cc2b81ef9eb0dbb34800dc41a35f14ab6337",
+    "supplement_sha256": null,
+    "accepted": false
+   },
+   {
+    "path": "/home/users/scdobbs/co-located-auv-ship-based-multibeam-acquisition/reports_post_grl_review/PHASE5/step1_run_phase5_20261014T204117Z.json",
+    "status": "complete",
+    "mode": "phase5",
+    "freeze_record_sha256": "168df0c68cf0e4493b62c78be6da2755020ce3bd53c9bd1f2ed02ad9270eadc3",
+    "supplement_sha256": "6fe0d59057842481b06513fd731951fe9177a6898fc55f8677004800616949f0",
+    "accepted": true
+   }
+  ]
+ },
+ "harness_rows": null,
+ "inputs_sha256": "a83add833d0ecfc33b82233a8dbf54870872a1004d6fcc711d7348af80bfb3ab",
+ "calls": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R18/phase5_calls.csv",
+ "calls_sha256": "9e7bcccbcab286fd3a6b6eb91f4b280647b60aa6252de92409ba60a537c54ced",
+ "calls_join": {
+  "code_to_pair": {
+   "Q01": "AT26-24__MGDS_31954",
+   "Q02": "MV1003__MGDS_31860",
+   "Q03": "KN161L04__MGDS_22436",
+   "Q04": "KN173L02__MGDS_31675",
+   "Q05": "Escanaba__MGDS_30368"
+  },
+  "key_path": "/oak/stanford/groups/hilley/auv_ship_colocated_bathy/grl_review_archive/phase5/figures/key/figset_A_key.json",
+  "key_sha256": "50e4fa47e7a876a0a33626cd3927e259b264cd6260f68a099e0e499a884a7176",
+  "n_calls": 5,
+  "values_unchanged": true
+ },
+ "not_testable": {
+  "TN188__MGDS_18210": "not testable (co-registration: drift case, a quadrant group fails the frozen QA (ACQ-R13))",
+  "Monterey__MGDS_24756": "not testable (the frozen sweep recovers no k (status no_curve))",
+  "MV1209__MGDS_21415": "not testable (vertical datum: HR-ship vertical consistency above the calibrated bound T_G)"
+ },
+ "rules": {
+  "min_tiles": 10,
+  "n_boot": 2000,
+  "seed": 20261009,
+  "pool_seed": 20261013,
+  "undefined_max_frac": 0.05,
+  "lowamp_m": 0.04,
+  "min_c1_sites": 3
+ },
+ "per_pair": [
+  {
+   "pair": "TN188__MGDS_18210",
+   "unit": "p5u01",
+   "role": "phase5",
+   "bmin": 8,
+   "view": "not_scorable",
+   "status": "not testable (co-registration: drift case, a quadrant group fails the frozen QA (ACQ-R13))",
+   "note": "failed eligibility at step 1 (spec \u00a73.3); outside C1",
+   "n_tiles_all": 0,
+   "n_scored": 0,
+   "k": 8,
+   "k_sweep_status": "ok",
+   "k_source": "sweep",
+   "k_source_text": "stage_c2c_recalibrate.sweep (this run)",
+   "per_k_verdicts": "2:recoverable_signal; 4:recoverable_signal; 8:recoverable_signal; 16:no_spectrum; 32:no_spectrum",
+   "k_agrees_with_acq_record": true
+  },
+  {
+   "pair": "Escanaba__MGDS_30368",
+   "unit": "p5u02",
+   "role": "phase5",
+   "bmin": 8,
+   "n_tiles_all": 687,
+   "hr_res": 1.2801031619832532,
+   "lr_native": 57.29,
+   "cells_across": 5.72013282366404,
+   "thinner_than_development": false,
+   "n_interior": 248,
+   "blocks_interior": 38,
+   "n_fallback": 571,
+   "blocks_fallback": 86,
+   "view": "interior",
+   "target": "A_fine",
+   "n_scored": 248,
+   "amplitude_m": 0.32514708140558835,
+   "amplitude_from_build": 0.32514708140558835,
+   "rho_s_lr": 0.5167486060859418,
+   "rho_all_s_lr": 0.5772180966101065,
+   "rho_int_s_lr": 0.537046780285061,
+   "rho_GBT_ship": 0.48899502935340683,
+   "rho_all_GBT_ship": 0.49058825244905957,
+   "rho_int_GBT_ship": 0.46275928882620737,
+   "rho_P-V1": 0.5482714454527001,
+   "rho_all_P-V1": 0.5313296719694711,
+   "rho_int_P-V1": 0.49699543704521115,
+   "ci_lo_s_lr": 0.3776816424758383,
+   "ci_hi_s_lr": 0.6388161934056502,
+   "ci_estimable": true,
+   "boot_undefined": 0,
+   "boot_frac_undefined": 0.0,
+   "c1_condition": true,
+   "d_GBT_minus_s_lr": -0.027753576732534924,
+   "d_PV1_minus_s_lr": 0.03152283936675837,
+   "d_PV1_minus_GBT": 0.059276416099293294,
+   "call_relief": "yes",
+   "call_criteria": "none",
+   "call_dominant": "relief",
+   "call_ab_whole_survey": "na",
+   "status": "in C1",
+   "k": 16,
+   "k_sweep_status": "ok",
+   "k_source": "sweep",
+   "k_source_text": "stage_c2c_recalibrate.sweep (this run)",
+   "per_k_verdicts": "2:recoverable_signal; 4:recoverable_signal; 8:recoverable_signal; 16:recoverable_signal; 32:no_spectrum",
+   "k_agrees_with_acq_record": true
+  },
+  {
+   "pair": "Monterey__MGDS_24756",
+   "unit": "p5u03",
+   "role": "phase5",
+   "bmin": 8,
+   "view": "not_scorable",
+   "status": "not testable (the frozen sweep recovers no k (status no_curve))",
+   "note": "failed eligibility at step 1 (spec \u00a73.3); outside C1",
+   "n_tiles_all": 0,
+   "n_scored": 0,
+   "k": null,
+   "k_sweep_status": "no_curve",
+   "k_source": "sweep",
+   "k_source_text": "stage_c2c_recalibrate.sweep (this run)",
+   "per_k_verdicts": null,
+   "k_agrees_with_acq_record": null
+  },
+  {
+   "pair": "KN161L04__MGDS_22436",
+   "unit": "p5u04",
+   "role": "phase5",
+   "bmin": 8,
+   "n_tiles_all": 608,
+   "hr_res": 2.0268051322408756,
+   "lr_native": 116.92,
+   "cells_across": 4.437753283045366,
+   "thinner_than_development": false,
+   "n_interior": 298,
+   "blocks_interior": 44,
+   "n_fallback": 510,
+   "blocks_fallback": 49,
+   "view": "interior",
+   "target": "A_fine",
+   "n_scored": 298,
+   "amplitude_m": 1.6920940526905675,
+   "amplitude_from_build": 1.6920940526905675,
+   "rho_s_lr": -0.2982982390627561,
+   "rho_all_s_lr": -0.10797992823335392,
+   "rho_int_s_lr": -0.26108244304261524,
+   "rho_GBT_ship": 0.17036631947632822,
+   "rho_all_GBT_ship": 0.27313109650226225,
+   "rho_int_GBT_ship": 0.20768539942822678,
+   "rho_P-V1": 0.09540376946271314,
+   "rho_all_P-V1": 0.2288211083295354,
+   "rho_int_P-V1": 0.09782080714515265,
+   "ci_lo_s_lr": -0.4975519450754319,
+   "ci_hi_s_lr": -0.03032576176525029,
+   "ci_estimable": true,
+   "boot_undefined": 0,
+   "boot_frac_undefined": 0.0,
+   "c1_condition": false,
+   "d_GBT_minus_s_lr": 0.4686645585390843,
+   "d_PV1_minus_s_lr": 0.3937020085254692,
+   "d_PV1_minus_GBT": -0.07496255001361507,
+   "call_relief": "yes",
+   "call_criteria": "a",
+   "call_dominant": "relief",
+   "call_ab_whole_survey": "yes",
+   "status": "in C1 (flagged)",
+   "k": 16,
+   "k_sweep_status": "ok",
+   "k_source": "sweep",
+   "k_source_text": "stage_c2c_recalibrate.sweep (this run)",
+   "per_k_verdicts": "2:recoverable_signal; 4:recoverable_signal; 8:recoverable_signal; 16:recoverable_signal; 32:no_spectrum",
+   "k_agrees_with_acq_record": true
+  },
+  {
+   "pair": "MV1209__MGDS_21415",
+   "unit": "p5u05",
+   "role": "phase5",
+   "bmin": 8,
+   "view": "not_scorable",
+   "status": "not testable (vertical datum: HR-ship vertical consistency above the calibrated bound T_G)",
+   "note": "failed eligibility at step 1 (spec \u00a73.3); outside C1",
+   "n_tiles_all": 0,
+   "n_scored": 0,
+   "k": 2,
+   "k_sweep_status": "ok",
+   "k_source": "sweep",
+   "k_source_text": "stage_c2c_recalibrate.sweep (this run)",
+   "per_k_verdicts": "2:recoverable_signal; 4:no_spectrum; 8:no_spectrum; 16:no_spectrum; 32:no_spectrum",
+   "k_agrees_with_acq_record": true
+  },
+  {
+   "pair": "KN173L02__MGDS_31675",
+   "unit": "p5u06",
+   "role": "phase5",
+   "bmin": 8,
+   "n_tiles_all": 390,
+   "hr_res": 1.0435089191519804,
+   "lr_native": 56.12,
+   "cells_across": 4.760126217086725,
+   "thinner_than_development": false,
+   "n_interior": 11,
+   "blocks_interior": 9,
+   "n_fallback": 206,
+   "blocks_fallback": 32,
+   "view": "interior",
+   "target": "A_fine",
+   "n_scored": 11,
+   "amplitude_m": 0.24242191795913046,
+   "amplitude_from_build": 0.24242191795913046,
+   "rho_s_lr": 0.7090909090909092,
+   "rho_all_s_lr": 0.7043658305546943,
+   "rho_int_s_lr": 0.6860765922982152,
+   "rho_GBT_ship": 0.43636363636363645,
+   "rho_all_GBT_ship": 0.3298237433412549,
+   "rho_int_GBT_ship": 0.29857680678959597,
+   "rho_P-V1": 0.9181818181818183,
+   "rho_all_P-V1": 0.44404327748070965,
+   "rho_int_P-V1": 0.44455723831193567,
+   "ci_lo_s_lr": 0.12921348314606743,
+   "ci_hi_s_lr": 0.9631462086300795,
+   "ci_estimable": true,
+   "boot_undefined": 0,
+   "boot_frac_undefined": 0.0,
+   "c1_condition": true,
+   "d_GBT_minus_s_lr": -0.27272727272727276,
+   "d_PV1_minus_s_lr": 0.2090909090909091,
+   "d_PV1_minus_GBT": 0.48181818181818187,
+   "call_relief": "yes",
+   "call_criteria": "a",
+   "call_dominant": "relief",
+   "call_ab_whole_survey": "yes",
+   "status": "in C1 (flagged)",
+   "k": 16,
+   "k_sweep_status": "ok",
+   "k_source": "sweep",
+   "k_source_text": "stage_c2c_recalibrate.sweep (this run)",
+   "per_k_verdicts": "2:recoverable_signal; 4:recoverable_signal; 8:recoverable_signal; 16:recoverable_signal; 32:no_spectrum",
+   "k_agrees_with_acq_record": true
+  },
+  {
+   "pair": "MV1003__MGDS_31860",
+   "unit": "p5u07",
+   "role": "phase5",
+   "bmin": 8,
+   "n_tiles_all": 88,
+   "hr_res": 1.3408555231788961,
+   "lr_native": 52.59,
+   "cells_across": 6.527077656090461,
+   "thinner_than_development": false,
+   "n_interior": 15,
+   "blocks_interior": 6,
+   "n_fallback": 55,
+   "blocks_fallback": 10,
+   "view": "fallback",
+   "target": "A_fine_int",
+   "n_scored": 55,
+   "amplitude_m": 1.0430871447889305,
+   "amplitude_from_build": 1.0430871447889305,
+   "rho_s_lr": 0.4633477633477635,
+   "rho_all_s_lr": 0.6842661406783842,
+   "rho_int_s_lr": NaN,
+   "rho_GBT_ship": 0.3548340548340549,
+   "rho_all_GBT_ship": 0.5539783734281991,
+   "rho_int_GBT_ship": NaN,
+   "rho_P-V1": 0.6721500721500723,
+   "rho_all_P-V1": 0.7006445704624706,
+   "rho_int_P-V1": NaN,
+   "ci_lo_s_lr": 0.08637192245232311,
+   "ci_hi_s_lr": 0.7565991188881352,
+   "ci_estimable": true,
+   "boot_undefined": 0,
+   "boot_frac_undefined": 0.0,
+   "c1_condition": true,
+   "d_GBT_minus_s_lr": -0.10851370851370862,
+   "d_PV1_minus_s_lr": 0.20880230880230877,
+   "d_PV1_minus_GBT": 0.3173160173160174,
+   "call_relief": "yes",
+   "call_criteria": "a",
+   "call_dominant": "relief",
+   "call_ab_whole_survey": "no",
+   "status": "in C1 (flagged)",
+   "k": 8,
+   "k_sweep_status": "ok",
+   "k_source": "sweep",
+   "k_source_text": "stage_c2c_recalibrate.sweep (this run)",
+   "per_k_verdicts": "2:recoverable_signal; 4:recoverable_signal; 8:recoverable_signal; 16:marginal; 32:no_spectrum",
+   "k_agrees_with_acq_record": true
+  },
+  {
+   "pair": "AT26-24__MGDS_31954",
+   "unit": "p5u08",
+   "role": "phase5",
+   "bmin": 8,
+   "n_tiles_all": 293,
+   "hr_res": 0.9993881205852732,
+   "lr_native": 54.84,
+   "cells_across": 4.665269125999816,
+   "thinner_than_development": false,
+   "n_interior": 5,
+   "blocks_interior": 4,
+   "n_fallback": 191,
+   "blocks_fallback": 25,
+   "view": "fallback",
+   "target": "A_fine_int",
+   "n_scored": 191,
+   "amplitude_m": 0.11082775110874861,
+   "amplitude_from_build": 0.11082775110874861,
+   "rho_s_lr": 0.7675926563791677,
+   "rho_all_s_lr": 0.8181560996926706,
+   "rho_int_s_lr": NaN,
+   "rho_GBT_ship": 0.5651333011848995,
+   "rho_all_GBT_ship": 0.6030274001227028,
+   "rho_int_GBT_ship": NaN,
+   "rho_P-V1": 0.788238839900799,
+   "rho_all_P-V1": 0.8469335277240543,
+   "rho_int_P-V1": NaN,
+   "ci_lo_s_lr": 0.6054933016536486,
+   "ci_hi_s_lr": 0.8284903334992069,
+   "ci_estimable": true,
+   "boot_undefined": 0,
+   "boot_frac_undefined": 0.0,
+   "c1_condition": true,
+   "d_GBT_minus_s_lr": -0.20245935519426828,
+   "d_PV1_minus_s_lr": 0.02064618352163128,
+   "d_PV1_minus_GBT": 0.22310553871589955,
+   "call_relief": "yes",
+   "call_criteria": "a",
+   "call_dominant": "relief",
+   "call_ab_whole_survey": "yes",
+   "status": "in C1 (flagged)",
+   "k": 8,
+   "k_sweep_status": "ok",
+   "k_source": "sweep",
+   "k_source_text": "stage_c2c_recalibrate.sweep (this run)",
+   "per_k_verdicts": "2:recoverable_signal; 4:recoverable_signal; 8:recoverable_signal; 16:roughness_only; 32:no_spectrum",
+   "k_agrees_with_acq_record": true
+  }
+ ],
+ "C1_primary": {
+  "reading": "confirmed",
+  "n_sites": 5,
+  "pooled": {
+   "n_units": 5,
+   "pairs": [
+    "AT26-24__MGDS_31954",
+    "Escanaba__MGDS_30368",
+    "KN161L04__MGDS_22436",
+    "KN173L02__MGDS_31675",
+    "MV1003__MGDS_31860"
+   ],
+   "mean_rho": 0.43169633916820527,
+   "per_unit_rho": {
+    "AT26-24__MGDS_31954": 0.7675926563791677,
+    "Escanaba__MGDS_30368": 0.5167486060859418,
+    "KN161L04__MGDS_22436": -0.2982982390627561,
+    "KN173L02__MGDS_31675": 0.7090909090909092,
+    "MV1003__MGDS_31860": 0.4633477633477635
+   },
+   "n_dropped": 0,
+   "frac_dropped": 0.0,
+   "seed": 20261013,
+   "n_boot": 2000,
+   "ci95": [
+    0.28373817434798737,
+    0.5287002024766472
+   ],
+   "estimable": true,
+   "lower_gt0": true
+  },
+  "rule": "confirmed if the 95 % CI lower bound of the pooled mean s_lr rho over the C1-set sites is above zero"
+ },
+ "C1_per_site_secondary": {
+  "c1_set": [
+   "Escanaba__MGDS_30368",
+   "KN161L04__MGDS_22436",
+   "KN173L02__MGDS_31675",
+   "MV1003__MGDS_31860",
+   "AT26-24__MGDS_31954"
+  ],
+  "c1_set_size": 5,
+  "reading": "partially confirmed (4 of 5)",
+  "with_low_amplitude": {
+   "set": [
+    "Escanaba__MGDS_30368",
+    "KN161L04__MGDS_22436",
+    "KN173L02__MGDS_31675",
+    "MV1003__MGDS_31860",
+    "AT26-24__MGDS_31954"
+   ],
+   "reading": "partially confirmed (4 of 5)"
+  }
+ },
+ "C1_pooled_with_low_amplitude": {
+  "n_units": 5,
+  "pairs": [
+   "AT26-24__MGDS_31954",
+   "Escanaba__MGDS_30368",
+   "KN161L04__MGDS_22436",
+   "KN173L02__MGDS_31675",
+   "MV1003__MGDS_31860"
+  ],
+  "mean_rho": 0.43169633916820527,
+  "per_unit_rho": {
+   "AT26-24__MGDS_31954": 0.7675926563791677,
+   "Escanaba__MGDS_30368": 0.5167486060859418,
+   "KN161L04__MGDS_22436": -0.2982982390627561,
+   "KN173L02__MGDS_31675": 0.7090909090909092,
+   "MV1003__MGDS_31860": 0.4633477633477635
+  },
+  "n_dropped": 0,
+  "frac_dropped": 0.0,
+  "seed": 20261013,
+  "n_boot": 2000,
+  "ci95": [
+   0.28373817434798737,
+   0.5287002024766472
+  ],
+  "estimable": true,
+  "lower_gt0": true
+ },
+ "C2": {
+  "per_site": {
+   "Escanaba__MGDS_30368": {
+    "pair": "Escanaba__MGDS_30368",
+    "status": "in C1",
+    "view": "interior",
+    "n_blocks": 38,
+    "s_lr": {
+     "point": 0.5167486060859418,
+     "ci95": [
+      0.3776816424758383,
+      0.6388161934056502
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "GBT_ship": {
+     "point": 0.48899502935340683,
+     "ci95": [
+      0.3426993181800779,
+      0.6111973088970709
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "P-V1": {
+     "point": 0.5482714454527001,
+     "ci95": [
+      0.4085859419018448,
+      0.6583142470619429
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "d_GBT_minus_s_lr": {
+     "point": -0.027753576732534924,
+     "ci95": [
+      -0.0982393695343768,
+      0.034087317335120014
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "d_PV1_minus_s_lr": {
+     "point": 0.03152283936675837,
+     "ci95": [
+      -0.016838134086622415,
+      0.07938176686578714
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    }
+   },
+   "KN161L04__MGDS_22436": {
+    "pair": "KN161L04__MGDS_22436",
+    "status": "in C1 (flagged)",
+    "view": "interior",
+    "n_blocks": 44,
+    "s_lr": {
+     "point": -0.2982982390627561,
+     "ci95": [
+      -0.4975519450754319,
+      -0.03032576176525029
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "GBT_ship": {
+     "point": 0.17036631947632822,
+     "ci95": [
+      -0.0032791582835107135,
+      0.3180651289758569
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "P-V1": {
+     "point": 0.09540376946271314,
+     "ci95": [
+      -0.1503752989564138,
+      0.33039637122006943
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "d_GBT_minus_s_lr": {
+     "point": 0.4686645585390843,
+     "ci95": [
+      0.24448944783181606,
+      0.6511618274586174
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "d_PV1_minus_s_lr": {
+     "point": 0.3937020085254692,
+     "ci95": [
+      0.22015140817282022,
+      0.5715685499691506
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    }
+   },
+   "KN173L02__MGDS_31675": {
+    "pair": "KN173L02__MGDS_31675",
+    "status": "in C1 (flagged)",
+    "view": "interior",
+    "n_blocks": 9,
+    "s_lr": {
+     "point": 0.7090909090909092,
+     "ci95": [
+      0.12921348314606743,
+      0.9631462086300795
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "GBT_ship": {
+     "point": 0.43636363636363645,
+     "ci95": [
+      -0.5130552291421857,
+      0.8095542564852024
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "P-V1": {
+     "point": 0.9181818181818183,
+     "ci95": [
+      0.46086956521739136,
+      0.9887993871581782
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "d_GBT_minus_s_lr": {
+     "point": -0.27272727272727276,
+     "ci95": [
+      -1.2293930839802396,
+      0.15732427488894685
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "d_PV1_minus_s_lr": {
+     "point": 0.2090909090909091,
+     "ci95": [
+      -0.1367521367521367,
+      0.7545787545787545
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    }
+   },
+   "MV1003__MGDS_31860": {
+    "pair": "MV1003__MGDS_31860",
+    "status": "in C1 (flagged)",
+    "view": "fallback",
+    "n_blocks": 10,
+    "s_lr": {
+     "point": 0.4633477633477635,
+     "ci95": [
+      0.08637192245232311,
+      0.7565991188881352
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "GBT_ship": {
+     "point": 0.3548340548340549,
+     "ci95": [
+      0.03397705350004143,
+      0.6603101937416711
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "P-V1": {
+     "point": 0.6721500721500723,
+     "ci95": [
+      0.41875914280705445,
+      0.8289330898156847
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "d_GBT_minus_s_lr": {
+     "point": -0.10851370851370862,
+     "ci95": [
+      -0.3367429301392267,
+      0.09093329155691035
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "d_PV1_minus_s_lr": {
+     "point": 0.20880230880230877,
+     "ci95": [
+      -0.10963951318162411,
+      0.5173149893966772
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    }
+   },
+   "AT26-24__MGDS_31954": {
+    "pair": "AT26-24__MGDS_31954",
+    "status": "in C1 (flagged)",
+    "view": "fallback",
+    "n_blocks": 25,
+    "s_lr": {
+     "point": 0.7675926563791677,
+     "ci95": [
+      0.6054933016536486,
+      0.8284903334992069
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "GBT_ship": {
+     "point": 0.5651333011848995,
+     "ci95": [
+      0.371237110431661,
+      0.6930688624637122
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "P-V1": {
+     "point": 0.788238839900799,
+     "ci95": [
+      0.6248418462946091,
+      0.8559404263550359
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "d_GBT_minus_s_lr": {
+     "point": -0.20245935519426828,
+     "ci95": [
+      -0.34721127978881494,
+      -0.06922076013870943
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    },
+    "d_PV1_minus_s_lr": {
+     "point": 0.02064618352163128,
+     "ci95": [
+      -0.0015368052098024914,
+      0.050937919878402134
+     ],
+     "estimable": true,
+     "n_undefined": 0,
+     "frac_undefined": 0.0
+    }
+   }
+  },
+  "pooled_C1_set": {
+   "n_units": 5,
+   "pairs": [
+    "AT26-24__MGDS_31954",
+    "Escanaba__MGDS_30368",
+    "KN161L04__MGDS_22436",
+    "KN173L02__MGDS_31675",
+    "MV1003__MGDS_31860"
+   ],
+   "seed": 20261013,
+   "n_boot": 2000,
+   "s_lr": {
+    "point": 0.43169633916820527,
+    "ci95": [
+     0.28373817434798737,
+     0.5287002024766472
+    ],
+    "estimable": true,
+    "n_dropped": 0,
+    "frac_dropped": 0.0
+   },
+   "GBT_ship": {
+    "point": 0.4031384682424652,
+    "ci95": [
+     0.19135369133833555,
+     0.5051251286471453
+    ],
+    "estimable": true,
+    "n_dropped": 0,
+    "frac_dropped": 0.0
+   },
+   "P-V1": {
+    "point": 0.6044491890296206,
+    "ci95": [
+     0.4803813465788769,
+     0.663321173108324
+    ],
+    "estimable": true,
+    "n_dropped": 0,
+    "frac_dropped": 0.0
+   },
+   "d_GBT_minus_s_lr": {
+    "point": -0.02855787092574006,
+    "ci95": [
+     -0.23269231602945548,
+     0.07998104555787548
+    ],
+    "estimable": true,
+    "n_dropped": 0,
+    "frac_dropped": 0.0
+   },
+   "d_PV1_minus_s_lr": {
+    "point": 0.17275284986141534,
+    "ci95": [
+     0.0657996849705458,
+     0.28219451897806763
+    ],
+    "estimable": true,
+    "n_dropped": 0,
+    "frac_dropped": 0.0
+   }
+  },
+  "caveat": "descriptive; no superiority claim (spec \u00a73.5)",
+  "unavailable": {
+   "sites": [
+    "MV1003__MGDS_31860"
+   ],
+   "label": "unavailable (ship products unusable)",
+   "per_site_quantities": [
+    "GBT_ship",
+    "d_GBT_minus_s_lr",
+    "d_PV1_minus_GBT",
+    "rho_all_GBT_ship",
+    "rho_int_GBT_ship"
+   ],
+   "pooled_C2_GBT_rows_unavailable": true
+  }
+ },
+ "exclusions": {
+  "path": "/home/users/scdobbs/GAN_Bathymetry_Project/grl_reviews-and-prompt-reports/directives_and_reports/R17/exclusions_phase5_r17.json",
+  "sha256": "e0a620a03b3bba951ea63fa8aa06da8897fbbcdcb586070fb0e5e25b395bd095",
+  "n_listed": 22,
+  "n_dropped": {
+   "Escanaba__MGDS_30368": 22,
+   "KN161L04__MGDS_22436": 0,
+   "KN173L02__MGDS_31675": 0,
+   "MV1003__MGDS_31860": 0,
+   "AT26-24__MGDS_31954": 0
+  }
+ },
+ "supplementary_declared_R18": {
+  "S1_original_eligibility": {
+   "sites": [
+    "KN173L02__MGDS_31675",
+    "AT26-24__MGDS_31954"
+   ],
+   "n_in_c1_set": 2,
+   "pooled": {
+    "n_units": 2,
+    "pairs": [
+     "AT26-24__MGDS_31954",
+     "KN173L02__MGDS_31675"
+    ],
+    "mean_rho": 0.7383417827350385,
+    "per_unit_rho": {
+     "AT26-24__MGDS_31954": 0.7675926563791677,
+     "KN173L02__MGDS_31675": 0.7090909090909092
+    },
+    "n_dropped": 0,
+    "frac_dropped": 0.0,
+    "seed": 20261013,
+    "n_boot": 2000,
+    "ci95": [
+     0.42412718954503126,
+     0.8723915806451342
+    ],
+    "estimable": true,
+    "lower_gt0": true
+   },
+   "label": "not testable under the original rule"
+  },
+  "S2_rigid_only": {
+   "sites": [
+    "KN161L04__MGDS_22436",
+    "KN173L02__MGDS_31675",
+    "AT26-24__MGDS_31954"
+   ],
+   "n_in_c1_set": 3,
+   "pooled": {
+    "n_units": 3,
+    "pairs": [
+     "AT26-24__MGDS_31954",
+     "KN161L04__MGDS_22436",
+     "KN173L02__MGDS_31675"
+    ],
+    "mean_rho": 0.39279510880244023,
+    "per_unit_rho": {
+     "AT26-24__MGDS_31954": 0.7675926563791677,
+     "KN161L04__MGDS_22436": -0.2982982390627561,
+     "KN173L02__MGDS_31675": 0.7090909090909092
+    },
+    "n_dropped": 0,
+    "frac_dropped": 0.0,
+    "seed": 20261013,
+    "n_boot": 2000,
+    "ci95": [
+     0.1795466924184815,
+     0.522072064946307
+    ],
+    "estimable": true,
+    "lower_gt0": true
+   },
+   "label": "CI lower bound > 0"
+  },
+  "caveat": "declared in R18 before any result; descriptive only"
+ },
+ "seconds": 32.56104111671448
+}
