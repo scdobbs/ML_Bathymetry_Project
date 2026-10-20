@@ -72,9 +72,10 @@ and `phase5/scripts/phase5_score.py` (rehearsal mode; the single phase-mode runs
 ## Pipeline map
 
 All paths below are under `grl_reviews-and-prompt-reports/directives_and_reports/` (written `DR/`) unless stated. Each
-directive `Rnn_directive_*.md` sits next to its folder `Rnn/`, which holds the report, scripts, tables and records.
+round `Rnn/` holds its scripts, tables, records and freeze notes; the directive and report texts of each round are not part
+of the public repository (the ledger summarizes every change).
 
-| Stage | Entry script | Inputs | Outputs | Directive |
+| Stage | Entry script | Inputs | Outputs | Round |
 |---|---|---|---|---|
 | Clean windows (ship side only reaches the inputs) | `preprocessing/extract_clean_patches.py` | the acquisition manifest and the harmonized `hr.tif`, `lr.tif` and masks | 256-px windows at stride 128 with `s_lr` | R02 |
 | Targets and tiles (`A_fine`, `T_fine`, band-passed fields; tiles_v1) | `DR/R04/scripts/build_tiles_targets.py` with the frozen definitions `DR/R04/scripts/targets_v1.py` | windows, `hr.tif`, the pair's `k` and `lr_native` | `tiles_v1.parquet`, `blocks_v1.parquet`, per-pair field mosaics (archive `R04/`) | R04 |
@@ -122,7 +123,7 @@ delivers.
   - `DR/R12c/DEVIATION_phase4_03.md`: the confirmatory allow-list fix and pre-registration revision v2.1.
   - `DR/R13/DEVIATION_phase4_04.md`: the calls file joined to pairs before scoring.
   - `DR/phase5/DEVIATIONS_phase5.md`: seven departures from v3.1 as written (governing document; acquisition freeze v2 to v3 to v4.2; the 30 m bound replaced by the local quadrant test; the 22 Escanaba tiles excluded; three scripts checked as tagged file plus recorded diff; the declared S1 and S2 rows; MV1003 GBT_ship unavailable).
-- Rulings: `DR/R08b/ruling_unit_set_2026-10-09.md` (the ten real-relief and six artifact-affected units); other rulings are recorded in the directive headers and the ledger.
+- Rulings: `DR/R08b/ruling_unit_set_2026-10-09.md` (the ten real-relief and six artifact-affected units); other rulings are recorded in the ledger.
 
 ## What is superseded
 
