@@ -1,0 +1,16 @@
+{
+  "title": "Ship-multibeam roughness analysis, predictors and blind-test scoring code for co-located ship and AUV bathymetry (GRL revision of 2026GL125574)",
+  "upload_type": "software",
+  "description": "Analysis code for the paper \"Ship Multibeam Roughness Ranks Unresolved Seafloor Relief at Unseen Sites: A Pre-Registered Blind Test\" (Geophysical Research Letters, 2026GL125574, in revision). From the co-located ship and AUV bathymetry corpus (companion data record 10.5281/zenodo.23515276) it builds the per-tile targets (the band-passed fine-scale relief A_fine and its interior variant), the ship-only roughness feature s_lr and the tile tables; evaluates the within-site Spearman ranking (eval_v1.1) with block bootstrap; trains the gradient-boosted predictor GBT_ship and the CNN predictors V1, V2 and the pretrained P-V1 (pretraining on a ship-only corpus); and runs the two pre-registered blind tests (Phase 4 and Phase 5) from frozen inputs, with the pre-registrations, sign-offs, committed blind calls, deviation notes and scoring outputs. Every reported number traces to a tagged freeze and a cited acquisition record. The submitted rectified-flow super-resolution model with its heteroscedastic sigma product and the synthetic-LR training regime are kept in the repository for the record but do not support the revised paper. Acquisition and harmonization code is the companion record 10.5281/zenodo.21300925. Python 3.12, PyTorch; CNN training on GPU, everything else on CPU.",
+  "creators": [
+    {"name": "Dobbs, Stephen Cole", "affiliation": "Stanford University"}
+  ],
+  "keywords": ["bathymetry", "multibeam", "AUV", "seafloor roughness", "pre-registered blind test", "gradient boosting", "convolutional neural network", "Spearman correlation", "co-located surveys"],
+  "license": "MIT",
+  "version": "2.0",
+  "access_right": "open",
+  "related_identifiers": [
+    {"identifier": "10.5281/zenodo.23515276", "relation": "isSupplementedBy", "resource_type": "dataset", "scheme": "doi"},
+    {"identifier": "10.5281/zenodo.21300925", "relation": "isRelatedTo", "resource_type": "software", "scheme": "doi"}
+  ]
+}

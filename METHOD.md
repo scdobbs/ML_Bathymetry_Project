@@ -1,3 +1,9 @@
+> **Superseded 2026-10; see README.md.** This method description covers the submitted rectified-flow super-resolution
+> model with its heteroscedastic sigma product and the synthetic-LR training regime. Those products are kept for the record
+> and do not support the claims of the GRL revision (2026GL125574); the revised method (ship-grid roughness `s_lr` versus the
+> fine-band target `A_fine`, GBT_ship and the P-V1 CNN, two pre-registered blind tests) is documented in README.md and in the
+> directive reports. (Directive R20, 2026-10-20.)
+
 # Method — Stochastic Super-Resolution of Seafloor Bathymetry via Rectified Flow
 
 This document describes the model, training procedure, sampler, and

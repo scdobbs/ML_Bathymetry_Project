@@ -49,3 +49,29 @@ logs/*.out
 logs/*.err
 slurm-*.out
 grl_reviews-and-prompt-reports/*.pdf
+
+# R20 (2026-10-20): secrets never enter the repo
+.zenodo_token
+*.token
+*_token
+*.pem
+*.key
+.netrc
+.env.*
+
+# R20: local data, checkpoints, caches and scratch outputs
+*.ckpt
+*.safetensors
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.zarr/
+*.sif
+*.tmp
+scratch/
+tmp/
+wandb/
+.claude/
+# Figure scratch (not part of the code record)
+notebooks/*.png

@@ -5,10 +5,10 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "bathy-diffusion"
 version = "0.1.0"
-description = "Conditional rectified-flow super-resolution for seafloor bathymetry"
+description = "Ship-multibeam roughness analysis, predictors and blind-test scoring for co-located ship/AUV bathymetry (GRL 2026GL125574); includes the superseded rectified-flow super-resolution model"
 requires-python = ">=3.12"
-license = { text = "Proprietary" }
-readme = "CLAUDE.md"
+license = { text = "MIT" }
+readme = "README.md"
 
 [tool.setuptools.packages.find]
 where = ["."]

@@ -1,3 +1,9 @@
+> **Superseded 2026-10; see README.md.** This file is the agent context for the original project: a rectified-flow
+> super-resolution model with a heteroscedastic head (`het_production_v1`) and its sigma product, trained on a synthetic-LR
+> regime. The GRL revision of 2026GL125574 does not rest on any of it; the revised analysis lives under
+> `grl_reviews-and-prompt-reports/directives_and_reports/` (R01-R19, phase4/, phase5/). Kept for the record (directive R20,
+> 2026-10-20).
+
 # GAN Bathymetry Project — Claude Context
 
 ## Status
