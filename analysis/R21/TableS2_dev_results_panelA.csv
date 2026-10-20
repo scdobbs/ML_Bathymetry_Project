@@ -1,0 +1,18 @@
+unit,class,pairs,scored tiles,view,s_lr rho [95% CI],GBT_ship rho,V2 rho,P-V1 rho,spectral extrapolation rho,median A_fine (m)
+lu00,real-relief,1,"2,157",interior D1 (RR1506__MGDS_29779:interior),"+0.51 [+0.39, +0.61]",+0.54,+0.53,+0.59,NOT FOUND (interior),0.2911
+lu04,real-relief,1,86,interior D1 (AT37-13__MGDS_31199:interior),"+0.38 [+0.20, +0.59]",+0.32,+0.37,+0.36,NOT FOUND (interior),0.5468
+lu05,real-relief,3,"5,021",interior D1 (TN399__MGDS_30373:interior; TN399__MGDS_33068:fallback; AT42-06__MGDS_5174:not_scorable),+0.18 [CI NOT FOUND],+0.22,+0.19,+0.25,NOT FOUND (interior),0.3414
+lu07,real-relief,2,79,interior D1 (EW9801__MGDS_31425:interior; KM0923__MGDS_31429:interior),+0.49 [CI NOT FOUND],+0.54,+0.39,+0.56,NOT FOUND (interior),0.8644
+lu08,real-relief,1,969,interior D1 (FK181031__MGDS_24618:interior),"+0.63 [+0.52, +0.72]",+0.53,+0.64,+0.58,NOT FOUND (interior),0.0493
+lu09,real-relief,1,631,interior D1 (tag_m127:interior),"-0.09 [-0.25, +0.10]",+0.10,-0.03,+0.19,NOT FOUND (interior),0.4110
+lu13,real-relief,2,"4,844",interior D1 (NA080__MGDS_31290:interior; NA080__MGDS_31289:interior),+0.59 [CI NOT FOUND],+0.51,+0.70,+0.59,NOT FOUND (interior),0.1055
+lu14,real-relief,1,0,interior D1 (AR26__MGDS_31838:fallback),"— [+0.68, +0.90]",—,—,—,NOT FOUND (interior),—
+lu15,real-relief,2,670,interior D1 (TN299__MGDS_27339:interior; TN299__MGDS_31253:interior),+0.17 [CI NOT FOUND],+0.24,+0.23,+0.25,NOT FOUND (interior),0.7902
+nu00,real-relief,1,523,interior D1 (FK151121__MGDS_22383:interior),"+0.39 [+0.27, +0.51]",+0.37,+0.50,+0.33,NOT FOUND (interior),1.8572
+lu02,artifact-affected,1,214,interior D1 (discol_so242_1:interior),"+0.59 [+0.27, +0.83]",+0.51,+0.56,+0.08,NOT FOUND (interior),0.0065
+lu06,artifact-affected,1,44,interior D1 (ccz_so268_1:fallback),"+0.60 [+0.17, +0.45]",+0.64,+0.62,+0.59,NOT FOUND (interior),0.0013
+lu10,artifact-affected,1,119,interior D1 (NA090__MGDS_31212:interior),"+0.34 [+0.07, +0.56]",+0.17,+0.31,-0.09,NOT FOUND (interior),0.0289
+lu11,artifact-affected,1,118,interior D1 (NA076__MGDS_32317:interior),"-0.01 [-0.33, +0.33]",+0.25,+0.37,+0.03,NOT FOUND (interior),0.0150
+lu12,artifact-affected,18,"1,863",interior D1 (cal_dig_morro_bay__20180426m2_Channel1000:interior; cal_dig_morro_bay__20180427m1_Channel700:interior; cal_dig_morro_bay__20180427m3_PockmarkNorth:interior; cal_dig_morro_bay__20180428m1_Cable:interior; cal_dig_morro_bay__201804_LuciaChica2m:interior; cal_dig_morro_bay__20190314m4_LuciaChica970m:fallback; cal_dig_morro_bay__20190315m1_HeadlessCanyon:interior; cal_dig_morro_bay__20190316m1_BankTop:interior; cal_dig_morro_bay__20190317m1_1000mGully:interior; cal_dig_morro_bay__20190317m2_600mGully:interior; cal_dig_morro_bay__20190318m2_Transect601060m:interior; cal_dig_morro_bay__20190510m1_BankFlankHoles:interior; cal_dig_morro_bay__20190510m2_BankFlankIncipCh:interior; cal_dig_morro_bay__20190511m1_6thHeadlessCany:interior; cal_dig_morro_bay__20190511m2_BankTopEofCanyon3:interior; cal_dig_morro_bay__basin_flank:fallback; cal_dig_morro_bay__luciachica_2007:not_scorable; cal_dig_morro_bay__pockmark_south:interior),+0.55 [CI NOT FOUND],+0.53,+0.53,+0.62,NOT FOUND (interior),0.0148
+vu02,artifact-affected,1,57,interior D1 (EX1402L2__MGDS_31073:interior),"+0.65 [+0.28, +0.84]",+0.69,+0.13,+0.66,NOT FOUND (interior),0.0265
+lu16,EW0207 (scored separately),1,"1,621",interior D1 (EW0207__MGDS_32556:interior),"+0.511 [+0.44, +0.58]",+0.477,+0.506,+0.535,NOT FOUND (interior),1.3342

@@ -1,0 +1,18 @@
+unit,class,pairs,scored tiles,view,s_lr rho [95% CI],GBT_ship rho,V2 rho,P-V1 rho,spectral extrapolation rho,median A_fine (m)
+lu00,real-relief,1,"2,591",all tiles,+0.55 [CI NOT FOUND],+0.56,+0.55,+0.56,+0.006,0.2829
+lu04,real-relief,1,184,all tiles,+0.50 [CI NOT FOUND],+0.53,+0.55,+0.56,+0.180,0.7141
+lu05,real-relief,3,"6,458",all tiles,+0.27 [CI NOT FOUND],+0.28,+0.26,+0.30,-0.016,0.3546
+lu07,real-relief,2,351,all tiles,+0.54 [CI NOT FOUND],+0.47,+0.55,+0.56,+0.350,1.3464
+lu08,real-relief,1,"1,252",all tiles,+0.65 [CI NOT FOUND],+0.57,+0.64,+0.61,-0.367,0.0592
+lu09,real-relief,1,772,all tiles,+0.05 [CI NOT FOUND],+0.18,+0.10,+0.27,+0.362,0.4603
+lu13,real-relief,2,"6,413",all tiles,+0.54 [CI NOT FOUND],+0.49,+0.67,+0.57,-0.134,0.1015
+lu14,real-relief,1,52,all tiles,+0.81 [CI NOT FOUND],+0.66,+0.77,+0.68,+0.111,1.3893
+lu15,real-relief,2,"1,278",all tiles,+0.25 [CI NOT FOUND],+0.36,+0.35,+0.34,+0.073,1.2574
+nu00,real-relief,1,732,all tiles,+0.40 [CI NOT FOUND],+0.36,+0.52,+0.29,-0.031,1.9144
+lu02,artifact-affected,1,300,all tiles,+0.62 [CI NOT FOUND],+0.71,+0.73,+0.34,-0.503,0.0082
+lu06,artifact-affected,1,69,all tiles,+0.32 [CI NOT FOUND],+0.82,+0.81,+0.85,+0.248,0.0015
+lu10,artifact-affected,1,174,all tiles,+0.43 [CI NOT FOUND],+0.27,+0.43,+0.14,+0.387,0.0361
+lu11,artifact-affected,1,206,all tiles,-0.08 [CI NOT FOUND],+0.27,+0.47,+0.30,+0.192,0.0174
+lu12,artifact-affected,18,"2,497",all tiles,+0.34 [CI NOT FOUND],+0.60,+0.61,+0.58,-0.300,0.0182
+vu02,artifact-affected,1,109,all tiles,+0.57 [CI NOT FOUND],+0.73,+0.26,+0.60,+0.246,0.0296
+lu16,EW0207 (scored separately),1,"2,716",all tiles,+0.552 [CI NOT FOUND],+0.467,+0.522,+0.564,NOT FOUND,1.5869
