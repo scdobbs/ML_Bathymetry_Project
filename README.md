@@ -60,18 +60,18 @@ the fallback view on `A_fine_int`) and prints the Spearman rho of `s_lr` against
 ### Rescore the development table and both blind tests from the packaged tile tables
 
 ```bash
-python grl_reviews-and-prompt-reports/scripts/rescore_from_package.py <folder>
+python analysis/scripts/rescore_from_package.py <folder>
 ```
 
 With `tiles.parquet` and `pairs.parquet` from the data record in `<folder>`, this recomputes the per-pair rho of `s_lr`,
 GBT_ship and P-V1 for every scored pair of the development set, blind test 1 and blind test 2 with the frozen rule, applies
 the R17 exclusions, and checks each against the frozen value to three decimals; it runs in seconds. The bootstrap intervals and
-pooled statistics come from the frozen scorers, `grl_reviews-and-prompt-reports/directives_and_reports/phase4/scripts/phase4_score.py`
+pooled statistics come from the frozen scorers, `analysis/phase4/scripts/phase4_score.py`
 and `phase5/scripts/phase5_score.py` (rehearsal mode; the single phase-mode runs are locked and were run once).
 
 ## Pipeline map
 
-All paths below are under `grl_reviews-and-prompt-reports/directives_and_reports/` (written `DR/`) unless stated. Each
+All paths below are under `analysis/` (written `DR/`) unless stated. Each
 round `Rnn/` holds its scripts, tables, records and freeze notes; the directive and report texts of each round are not part
 of the public repository (the ledger summarizes every change).
 
@@ -90,7 +90,7 @@ of the public repository (the ledger summarizes every change).
 | Blind test 2 (Phase 5): parameterized copies of the Phase 4 scripts, R17 exclusions | `DR/phase5/scripts/phase5_build.py`, `phase5_figures.py`, `phase5_predict.py`, `phase5_score.py`; `DR/R17/scripts/make_exclusions_r17.py` | `pairs_phase5_sealed_v4_1.parquet`, acquisition freeze v4.2 | archive `phase5/scores/{results_D1.json,per_pair_D1.csv}` (also `R18/tables/`); `R17/exclusions_phase5_r17.json` | R16, R16c, R17, R18, R19 |
 | Exploratory analyses (not in the claims) | `DR/R14/scripts/` (ship coarsening), `DR/R15/` (Goff abyssal-hill comparison) | | reports in `R14/`, `R15/` | R14, R15 |
 
-The main ledger `grl_reviews-and-prompt-reports/CHANGE_LEDGER.md` has one row per departure from the submitted-paper
+The main ledger `analysis/CHANGE_LEDGER.md` has one row per departure from the submitted-paper
 conventions. `DR/INTERFACE_CONTRACT_v2.1.md` is the contract for the per-sounding ship product rasters the acquisition side
 delivers.
 

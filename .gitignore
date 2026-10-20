@@ -48,7 +48,7 @@ env/
 logs/*.out
 logs/*.err
 slurm-*.out
-grl_reviews-and-prompt-reports/*.pdf
+analysis/*.pdf
 
 # R20 (2026-10-20): secrets never enter the repo
 .zenodo_token
