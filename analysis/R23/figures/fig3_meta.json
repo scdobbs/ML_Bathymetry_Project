@@ -88,19 +88,19 @@
  "files": {
   "pdf": {
    "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure3.pdf",
-   "sha256": "ed2d60b426cc1d4f3820f687f12b5ae8901c8e4eed9c5d34b955dda50a7a80ef"
+   "sha256": "86970e7c988dcb753c0f2a4a93b1de2489a28605fac7a20c1056fff6fb391524"
   },
   "eps": {
    "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure3.eps",
-   "sha256": "25c0fef423676b2a849e868143e4dfc76cae7912716b04f3cadc57b667368e21"
+   "sha256": "bece81849fa8b135e84243d54fe66985b63ed94c2d2d986112fd7a09000a6897"
   },
   "svg": {
    "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure3.svg",
-   "sha256": "3eb899364dde004369e39c7e291e1a3b6266873e7f5db98c8dfb392a03ca6d68"
+   "sha256": "ea16ec12c9ec84a745759bd743b22815f1ceb4b6cc188c00b8aa4d3c095ee3f2"
   },
   "png": {
    "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure3_preview.png",
-   "sha256": "028d4d22d2fd60dab8643f0767d490e8edac50593107a618039c7f7ccfefaf32"
+   "sha256": "230317562a5914bba0a9e5dd414233e65810629875990ed70ab277f9e002c447"
   },
   "csv": {
    "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure3_data.csv",
