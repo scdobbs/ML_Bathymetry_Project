@@ -149,7 +149,7 @@ Fig. 1c: the frozen S3.2 routine (`src/discovery/stage_c5_spectral.py`: planar d
 
 `Dobbs_Figure1_data.csv` (646 rows): 23 site coordinates with sources; 4 raster rows with file, column and colour limits; 523 per-tile s_lr values with tile ids; 96 spectrum bins (frequency, normalised PSD, raw routine value). `Dobbs_Figure2_data.csv`: 9 unit rows with ρ and CI, the pooled row, and 27 model-minus-s_lr rows. `Dobbs_Figure3_data.csv`: 16 + 10 + 16 rows with x, y, group and source column. Meta files `fig{1,2,3}_meta.json` hold the assertion records, candidates, pdffonts output and file hashes.
 
-## 8. Revision after Steve's notes (2026-10-21, same day; jobs 48819262–48819901 on dev)
+## 8. Revision after Steve's notes (2026-10-21, same day; jobs 48820498–48820999 on dev)
 
 1. **Fig. 1a legend** now has four entries: filled circle "Development unit, real relief", open circle "Development unit, artifact-affected", triangle "Blind test 1", square "Blind test 2" (two rows under the map; the panel row of Fig. 1b moved down 3 mm, figure height 131 mm).
 2. **Fig. 1b colour maps** changed from batlow: depth panels now use Crameri **navia** (reversed; pale yellow shallow → green → dark blue deep, colour-vision safe, perceptually uniform), the per-tile s_lr panel uses Crameri **lajolla** (reversed; pale yellow smooth → dark red rough); the fine-field panel keeps **vik**. This departs from the directive's "batlow or oleron" at Steve's request; oleron's ocean half was tried first and was too low in contrast for the 400 m depth range. One line in `fig1.py` (`cmap_d`, `cmap_s`) switches them back.
