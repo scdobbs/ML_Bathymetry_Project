@@ -146,6 +146,13 @@
    1024
   ],
   "dx_m": 1.00027363181973,
+  "ship_grid_shape": [
+   87,
+   67
+  ],
+  "ship_dx_m": 65.91473776180867,
+  "ship_nyquist_cpm": 0.007585556993442255,
+  "norm_factor_ship": 5.4432732336800616,
   "bounds_lonlat": [
    144.69056993761293,
    18.171388927039377,
@@ -170,6 +177,11 @@
   ],
   "n_sites": 7
  },
+ "colormaps": {
+  "depth": "cmcrameri navia (reversed, depth positive down)",
+  "fine_field": "vik",
+  "s_lr": "lajolla (reversed)"
+ },
  "font": {
   "name": "Liberation Sans",
   "files": [
@@ -186,12 +198,12 @@
   "fonts_ok": true,
   "bad_font_rows": [],
   "width_mm": 170.00008333333332,
-  "height_mm": 128.00012499999997,
+  "height_mm": 131.0001472222222,
   "width_ok": true
  },
  "svg_check": {
   "min_font_pt": 6.0,
-  "n_text": 113,
+  "n_text": 118,
   "families": [
    "Liberation Sans"
   ]
@@ -199,23 +211,23 @@
  "files": {
   "pdf": {
    "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure1.pdf",
-   "sha256": "241fda6a06c480a525482c2b979134e7f6522e705027b4ed5e33bc8f6e107733"
+   "sha256": "b57413724c0054403a9e7019fa4a8d5990a6dd81fd43d82e58d1bedd5ff1e683"
   },
   "eps": {
    "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure1.eps",
-   "sha256": "d4fe32db20e119b96578cf75d9e8c16f178c4bf8b5b94380ca0528d4c063f274"
+   "sha256": "12e2c9d2995378819c242e220a5f2b9c3d4e4e00767f8f922203f660ab020834"
   },
   "svg": {
    "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure1.svg",
-   "sha256": "d43f99488859be3c1954954b197d9e3c4fbb1cb78bae8fc2a2a18f0d5859882e"
+   "sha256": "6132ddd9e45f522e2a0ad3035fa1da9234b8f3a12e7f92c2c1c36961e29a9304"
   },
   "png": {
    "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure1_preview.png",
-   "sha256": "089d0564a20aff2d3144183c9f1c245f89d0f77d7be11122e7048325d1abc09a"
+   "sha256": "4c917d345ed261afbd0b6c4461caaed1a6fc21a9900d320a00e63f71d7ef4caa"
   },
   "csv": {
    "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure1_data.csv",
-   "sha256": "b8f572d10d84641be765c7be21b303f84635ebf3ddd6ce49f31956bf343a6fca"
+   "sha256": "8b84c2dc12512201c20750c8c9f67f24a74dc3d709057bb1d7f72b96e603a916"
   }
  }
 }

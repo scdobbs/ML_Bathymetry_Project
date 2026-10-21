@@ -80,7 +80,7 @@
  },
  "svg_check": {
   "min_font_pt": 6.0,
-  "n_text": 105,
+  "n_text": 114,
   "families": [
    "Liberation Sans"
   ]
@@ -88,19 +88,19 @@
  "files": {
   "pdf": {
    "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure3.pdf",
-   "sha256": "6e7f5c80daf1b34a40113d9eb94140c87b5e84887ae55f792dd7b67779be2352"
+   "sha256": "ed2d60b426cc1d4f3820f687f12b5ae8901c8e4eed9c5d34b955dda50a7a80ef"
   },
   "eps": {
    "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure3.eps",
-   "sha256": "359d69185622246bc557e8d16e76b357c2abf1746300b830bb3657eb28ab759b"
+   "sha256": "25c0fef423676b2a849e868143e4dfc76cae7912716b04f3cadc57b667368e21"
   },
   "svg": {
    "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure3.svg",
-   "sha256": "709165964b9a60ee3af2e1175c116ea1402f09aaa57f313ceb0c39a2cd186389"
+   "sha256": "3eb899364dde004369e39c7e291e1a3b6266873e7f5db98c8dfb392a03ca6d68"
   },
   "png": {
    "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure3_preview.png",
-   "sha256": "0eac60ee90c94817e41cc626c2c09ef3b561723c17a61984029c7976f9cc0e9a"
+   "sha256": "028d4d22d2fd60dab8643f0767d490e8edac50593107a618039c7f7ccfefaf32"
   },
   "csv": {
    "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure3_data.csv",

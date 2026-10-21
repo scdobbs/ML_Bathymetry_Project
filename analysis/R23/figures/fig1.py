@@ -93,26 +93,30 @@ b = (max(x[0] for x in bb), max(x[1] for x in bb), min(x[2] for x in bb), min(x[
 target_res = max(0.5, hr_res)
 lr_c, hr_c, dx = SPEC.load_to_common(lr_path, hr_path, b, target_res)
 lr_c, hr_c, dx = SPEC._cap_pair(lr_c, hr_c, dx, 1024)
-fc_h, p_h = SPEC.radial_psd(hr_c, dx); fc_l, p_l = SPEC.radial_psd(lr_c, dx)
-assert fc_h is not None and fc_l is not None and len(fc_h) == 48 and np.allclose(fc_h, fc_l)
-H_, W_ = hr_c.shape; w2 = np.outer(np.hanning(H_), np.hanning(W_)) ** 2
-norm = dx ** 2 / w2.sum()                                   # Welch normalisation of the routine's mean |F|^2: PSD in m^2 per (cycle/m)^2 = m^4
-P_h, P_l = p_h * norm, p_l * norm
+fc_h, p_h = SPEC.radial_psd(hr_c, dx)                      # AUV: the routine on the AUV-native common grid, as in the frozen k sweep
+with rasterio.open(lr_path) as d: lr_dx = abs(d.transform.a)
+fc_l, p_l = SPEC.radial_psd(lr, lr_dx)                      # ship: the same routine on the ship grid at its native cell (no upsampling), so the curve ends at the ship Nyquist 1/(2 dx_ship)
+assert fc_h is not None and fc_l is not None and len(fc_h) == 48 and len(fc_l) == 48
+def welch_norm(a, d):
+    H_, W_ = a.shape; w2 = np.outer(np.hanning(H_), np.hanning(W_)) ** 2; return d ** 2 / w2.sum()   # PSD in m^2 per (cycle/m)^2 = m^4
+norm, norm_l = welch_norm(hr_c, dx), welch_norm(lr, lr_dx)
+P_h, P_l = p_h * norm, p_l * norm_l
+H_, W_ = hr_c.shape
 f_lr_px = hr_res / lr_native; f_hi_px = min(k * f_lr_px, 0.45)
 f_lr_m, f_hi_m = f_lr_px / hr_res, f_hi_px / hr_res         # cycles per metre
 check("band edge f_lr (cycles/m) = (hr_res/lr_native)/hr_res", np.isclose(f_lr_m, 1.0 / lr_native), f_lr_m, 1.0 / lr_native)
 check("band edge f_hi (cycles/m) = min(k f_lr, 0.45)/hr_res", np.isclose(f_hi_m, min(k * f_lr_px, 0.45) / hr_res), f_hi_m, min(k * f_lr_px, 0.45) / hr_res)
-meta["spectra"] = dict(common_grid_shape=[int(H_), int(W_)], dx_m=float(dx), bounds_lonlat=list(map(float, b)), f_lr_cpm=f_lr_m, f_hi_cpm=f_hi_m, k=k, norm_factor=float(norm))
+meta["spectra"] = dict(common_grid_shape=[int(H_), int(W_)], dx_m=float(dx), ship_grid_shape=[int(lr.shape[0]), int(lr.shape[1])], ship_dx_m=float(lr_dx), ship_nyquist_cpm=float(0.5 / lr_dx), norm_factor_ship=float(norm_l), bounds_lonlat=list(map(float, b)), f_lr_cpm=f_lr_m, f_hi_cpm=f_hi_m, k=k, norm_factor=float(norm))
 for i in range(48):
     rows.append(dict(panel="c", series="AUV PSD", item=f"bin{i:02d}", x_lon=None, y_lat=None, value=float(P_h[i]), x_cpm=float(fc_h[i]), psd_raw=float(p_h[i]), source_file=hr_path, source_column="stage_c5_spectral.radial_psd (x norm)"))
-    rows.append(dict(panel="c", series="Ship PSD", item=f"bin{i:02d}", x_lon=None, y_lat=None, value=float(P_l[i]), x_cpm=float(fc_l[i]), psd_raw=float(p_l[i]), source_file=lr_path, source_column="stage_c5_spectral.radial_psd (x norm)"))
+    rows.append(dict(panel="c", series="Ship PSD (native grid)", item=f"bin{i:02d}", x_lon=None, y_lat=None, value=float(P_l[i]), x_cpm=float(fc_l[i]), psd_raw=float(p_l[i]), source_file=lr_path, source_column="stage_c5_spectral.radial_psd on the native ship grid (x norm_ship)"))
 
 failed = [a for a in meta["assertions"] if not a["passed"]]
 if failed:
     json.dump(meta, open(f"{S.OUT}/fig1_meta.json", "w"), indent=1, default=str); raise SystemExit(f"Figure 1 stopped: {failed}")
 
 # ---------------------------------------------------------------- figure
-FIG_H = 128.0
+FIG_H = 131.0
 fig = S.fig_new(S.WIDTH_MM, FIG_H)
 
 # (a) map
@@ -135,7 +139,8 @@ h_b2, = axm.plot([v[0] for v in b2.values()], [v[1] for v in b2.values()], marke
 leg_h = [Line2D([], [], marker="o", color=S.OKABE["black"], markerfacecolor=S.OKABE["black"], linestyle="none", markersize=S.MS, markeredgewidth=0.5),
          Line2D([], [], marker="^", color=S.OKABE["vermillion"], markerfacecolor=S.OKABE["vermillion"], linestyle="none", markersize=S.MS, markeredgewidth=0.5),
          Line2D([], [], marker="s", color=S.OKABE["blue"], markerfacecolor=S.OKABE["blue"], linestyle="none", markersize=S.MS, markeredgewidth=0.5)]
-leg = axm.legend(leg_h, ["Development unit", "Blind test 1", "Blind test 2"], loc="upper center", bbox_to_anchor=(0.5, -0.13), ncol=3, frameon=False, fontsize=S.FS, handletextpad=0.3, borderaxespad=0.0, columnspacing=1.5)
+leg_h.insert(1, Line2D([], [], marker="o", color=S.OKABE["black"], markerfacecolor="white", linestyle="none", markersize=S.MS, markeredgewidth=0.5))
+leg = axm.legend(leg_h, ["Development unit, real relief", "Development unit, artifact-affected", "Blind test 1", "Blind test 2"], loc="upper center", bbox_to_anchor=(0.5, -0.13), ncol=2, frameon=False, fontsize=S.FS, handletextpad=0.3, borderaxespad=0.0, columnspacing=1.5)
 leg.set_gid("fig1a_legend")
 # inset for the north-east Pacific margin, where seven sites lie within a few degrees of each other
 INSET = (-130.0, -104.0, 21.0, 47.0)
@@ -155,12 +160,15 @@ S.panel_letter(fig, axm, "a", dx_mm=-10.0, dy_mm=-1.0)
 
 # (b) four map panels, identical extent
 ext = (hr_bounds.left, hr_bounds.right, hr_bounds.bottom, hr_bounds.top); ext_lr = (lr_bounds.left, lr_bounds.right, lr_bounds.bottom, lr_bounds.top)
-PW = 37.5; PH = PW * hr.shape[0] / hr.shape[1]; X0 = 8.0; GAP = 3.0; YB = 66.0
+PW = 37.5; PH = PW * hr.shape[0] / hr.shape[1]; X0 = 8.0; GAP = 3.0; YB = 69.0
 depth_lr = -lr; depth_hr = -hr
 vmin_d, vmax_d = np.nanpercentile(depth_lr, [1, 99]); vmin_d, vmax_d = float(np.floor(vmin_d / 10) * 10), float(np.ceil(vmax_d / 10) * 10)
 amp = float(np.nanpercentile(np.abs(Fhr[np.isfinite(slr_mos)]), 99)); amp = float(np.round(amp, 1)) if amp >= 1 else float(np.round(amp, 2))
 smin, smax = float(np.floor(tl.ref_s_lr.min())), float(np.ceil(tl.ref_s_lr.max()))
-cmap_d = cmc.batlow.copy(); cmap_d.set_bad("white"); cmap_v = cmc.vik.copy(); cmap_v.set_bad("white"); cmap_s = cmc.batlow.copy(); cmap_s.set_bad("white")
+from matplotlib.colors import ListedColormap
+cmap_d = cmc.navia_r.copy(); cmap_d.set_bad("white")      # depth positive down: pale yellow (shallow) -> green -> dark blue (deep); Crameri navia, colour-vision safe
+cmap_v = cmc.vik.copy(); cmap_v.set_bad("white"); cmap_s = cmc.lajolla_r.copy(); cmap_s.set_bad("white")   # s_lr: pale yellow (smooth) -> dark red (rough)
+meta["colormaps"] = dict(depth="cmcrameri navia (reversed, depth positive down)", fine_field="vik", s_lr="lajolla (reversed)")
 panels = [("fig1b_ship_grid", depth_lr, ext_lr, cmap_d, vmin_d, vmax_d), ("fig1b_auv_grid", depth_hr, ext, cmap_d, vmin_d, vmax_d),
           ("fig1b_fine_field", Fhr, ext, cmap_v, -amp, amp), ("fig1b_tile_s_lr", slr_mos, ext, cmap_s, smin, smax)]
 axes_b, ims = [], []
@@ -192,14 +200,14 @@ band = axs.axvspan(f_lr_m, f_hi_m, color=S.GRAY_BAND, linewidth=0, zorder=0); ba
 good_h = np.isfinite(P_h) & (P_h > 0); good_l = np.isfinite(P_l) & (P_l > 0)
 la, = axs.loglog(fc_h[good_h], P_h[good_h], color=S.OKABE["blue"], linewidth=S.LW_DATA, linestyle="-", zorder=3); la.set_gid("fig1c_auv_spectrum")
 ls, = axs.loglog(fc_l[good_l], P_l[good_l], color=S.OKABE["vermillion"], linewidth=S.LW_DATA, linestyle=(0, (3, 1.5)), zorder=2); ls.set_gid("fig1c_ship_spectrum")
-ymin = float(np.nanmin(P_h[good_h])) / 30.0; ymax = float(np.nanmax(np.r_[P_h[good_h], P_l[good_l]])) * 5.0
-axs.set_ylim(ymin, ymax); axs.set_xlim(float(fc_h[0]) * 0.8, float(fc_h[-1]) * 1.3)
+ymin = float(min(np.nanmin(P_h[good_h]), np.nanmin(P_l[good_l]))) / 30.0; ymax = float(np.nanmax(np.r_[P_h[good_h], P_l[good_l]])) * 5.0
+axs.set_ylim(ymin, ymax); axs.set_xlim(float(min(fc_h[good_h][0], fc_l[good_l][0])) * 0.8, float(fc_h[-1]) * 1.3)
 axs.set_xlabel("wavenumber (cycles m$^{-1}$)", fontsize=S.FS); axs.set_ylabel("radial PSD (m$^{4}$)", fontsize=S.FS)
 axs.tick_params(axis="both", which="both", labelsize=S.FS)
 # direct labels at the line ends (AUV at its last bin; ship where its line leaves the axes or at its last bin inside)
 ymid = np.sqrt(ymin * ymax)
 n_a = int(np.argmin(np.abs(np.log(P_h[good_h]) - np.log(ymid / 30)))); ta = axs.text(fc_h[good_h][n_a] * 1.9, P_h[good_h][n_a], "AUV", color=S.OKABE["blue"], fontsize=S.FS, ha="left", va="center"); ta.set_gid("fig1c_label_auv")
-n_s = int(np.argmin(np.abs(np.log(P_l[good_l]) - np.log(ymid)))); ts = axs.text(fc_l[good_l][n_s] * 0.55, P_l[good_l][n_s], "Ship", color=S.OKABE["vermillion"], fontsize=S.FS, ha="right", va="center"); ts.set_gid("fig1c_label_ship")
+n_s = int(np.argmin(np.abs(np.log(fc_l[good_l]) - np.log(fc_h[good_h][0] * 0.45)))); ts = axs.text(fc_l[good_l][n_s], P_l[good_l][n_s] * 5.0, "Ship", color=S.OKABE["vermillion"], fontsize=S.FS, ha="center", va="bottom"); ts.set_gid("fig1c_label_ship")
 S.panel_letter(fig, axs, "c", dx_mm=-9.5, dy_mm=1.0)
 
 S.finish(fig, 1, font, meta, rows)

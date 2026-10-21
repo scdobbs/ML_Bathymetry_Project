@@ -8,27 +8,27 @@ Jobs (dev partition, 4 CPUs, 16 GB): 48817527 (failed on my own pdffonts parser,
 
 | file | MB | sha256 |
 |---|---|---|
-| `analysis/R23/figures/Dobbs_Figure1.eps` | 42.13 | `d4fe32db20e119b96578cf75d9e8c16f178c4bf8b5b94380ca0528d4c063f274` |
-| `analysis/R23/figures/Dobbs_Figure1.pdf` | 2.47 | `241fda6a06c480a525482c2b979134e7f6522e705027b4ed5e33bc8f6e107733` |
-| `analysis/R23/figures/Dobbs_Figure1.svg` | 3.95 | `d43f99488859be3c1954954b197d9e3c4fbb1cb78bae8fc2a2a18f0d5859882e` |
-| `analysis/R23/figures/Dobbs_Figure1_data.csv` | 0.14 | `b8f572d10d84641be765c7be21b303f84635ebf3ddd6ce49f31956bf343a6fca` |
-| `analysis/R23/figures/Dobbs_Figure1_preview.png` | 1.11 | `089d0564a20aff2d3144183c9f1c245f89d0f77d7be11122e7048325d1abc09a` |
+| `analysis/R23/figures/Dobbs_Figure1.eps` | 42.13 | `12e2c9d2995378819c242e220a5f2b9c3d4e4e00767f8f922203f660ab020834` |
+| `analysis/R23/figures/Dobbs_Figure1.pdf` | 2.49 | `b57413724c0054403a9e7019fa4a8d5990a6dd81fd43d82e58d1bedd5ff1e683` |
+| `analysis/R23/figures/Dobbs_Figure1.svg` | 3.97 | `6132ddd9e45f522e2a0ad3035fa1da9234b8f3a12e7f92c2c1c36961e29a9304` |
+| `analysis/R23/figures/Dobbs_Figure1_data.csv` | 0.15 | `8b84c2dc12512201c20750c8c9f67f24a74dc3d709057bb1d7f72b96e603a916` |
+| `analysis/R23/figures/Dobbs_Figure1_preview.png` | 1.12 | `4c917d345ed261afbd0b6c4461caaed1a6fc21a9900d320a00e63f71d7ef4caa` |
 | `analysis/R23/figures/Dobbs_Figure2.eps` | 0.07 | `bc6f0cb316e36a1572587556207c644733ed6d71bed0f952d03886fecc1761a2` |
 | `analysis/R23/figures/Dobbs_Figure2.pdf` | 0.02 | `8f3c6d0dd0e8fffb103f63262c4500c88ac0984afc40b6dd137c779cac442a5f` |
 | `analysis/R23/figures/Dobbs_Figure2.svg` | 0.03 | `f3e8964ac779fe7aa9af080d678ca970671f68937721c1a5fb664f13305f1767` |
 | `analysis/R23/figures/Dobbs_Figure2_data.csv` | 0.01 | `3a3318e3ce113661bab7f016f7dfd3feeb35e5f967b3eecf93cf0147b7e854f2` |
 | `analysis/R23/figures/Dobbs_Figure2_preview.png` | 0.09 | `227be6933e89025de9c4c0e357404a17632003c37cb5aaba7661a0f40c956850` |
-| `analysis/R23/figures/Dobbs_Figure3.eps` | 0.07 | `359d69185622246bc557e8d16e76b357c2abf1746300b830bb3657eb28ab759b` |
-| `analysis/R23/figures/Dobbs_Figure3.pdf` | 0.02 | `6e7f5c80daf1b34a40113d9eb94140c87b5e84887ae55f792dd7b67779be2352` |
-| `analysis/R23/figures/Dobbs_Figure3.svg` | 0.05 | `709165964b9a60ee3af2e1175c116ea1402f09aaa57f313ceb0c39a2cd186389` |
+| `analysis/R23/figures/Dobbs_Figure3.eps` | 0.08 | `25c0fef423676b2a849e868143e4dfc76cae7912716b04f3cadc57b667368e21` |
+| `analysis/R23/figures/Dobbs_Figure3.pdf` | 0.02 | `ed2d60b426cc1d4f3820f687f12b5ae8901c8e4eed9c5d34b955dda50a7a80ef` |
+| `analysis/R23/figures/Dobbs_Figure3.svg` | 0.05 | `3eb899364dde004369e39c7e291e1a3b6266873e7f5db98c8dfb392a03ca6d68` |
 | `analysis/R23/figures/Dobbs_Figure3_data.csv` | 0.01 | `b503853f9443d78376802341ea7b34bce3e502d954f5e11b839434141678a480` |
-| `analysis/R23/figures/Dobbs_Figure3_preview.png` | 0.09 | `0eac60ee90c94817e41cc626c2c09ef3b561723c17a61984029c7976f9cc0e9a` |
-| `analysis/R23/figures/fig1.py` | 0.02 | `d3af5458b7b810be1757e42c0c184f0b377d0b4534cebbd095765af6615b2147` |
-| `analysis/R23/figures/fig1_meta.json` | 0.01 | `68981c7e390b620b78ba98f0f5a80f2f47db56aaae2e7d149b0aed525906e551` |
+| `analysis/R23/figures/Dobbs_Figure3_preview.png` | 0.11 | `028d4d22d2fd60dab8643f0767d490e8edac50593107a618039c7f7ccfefaf32` |
+| `analysis/R23/figures/fig1.py` | 0.02 | `0d360d2f05d93d0ee0f4dc22e9ae070fd79131d6ca2196700869efabf64a0e7c` |
+| `analysis/R23/figures/fig1_meta.json` | 0.01 | `29e7f00ca016e5e3ec71ce65edf20bd4bd125a4c24b5de82edaffe394dae3e51` |
 | `analysis/R23/figures/fig2.py` | 0.01 | `7f04f9a78708e1fa4a084f5345c4fd773b5b965bedd2c1d4fd97edc7d1490300` |
 | `analysis/R23/figures/fig2_meta.json` | 0.00 | `fc55d105b0a93ef8b145e70d0f242d91ca5bda33fd7124973a5ab560b8d9880f` |
-| `analysis/R23/figures/fig3.py` | 0.01 | `6aea6e22056d208890f36054f764d3196041f2bfb4071ea924e78f2e9185cdff` |
-| `analysis/R23/figures/fig3_meta.json` | 0.00 | `691fd541357faa8bb5fce2b3b6b39d3827b0dbfc9d49258c4b458ba7a758792f` |
+| `analysis/R23/figures/fig3.py` | 0.01 | `0a23ff8fde8672f67e94ee6256a5ab5d7ade567ff4f0758abdcb56d25e0709c8` |
+| `analysis/R23/figures/fig3_meta.json` | 0.00 | `c4f2774e4bd81f1e73a55cd8e69fb07a43d48f4a0ff8dba6f0adf1b584cf138e` |
 | `analysis/R23/figures/fig_style.py` | 0.01 | `ffb7f05c2e5e0b03e9906abb318554df54ae799aa9317e70bbe6c95600eae245` |
 | `analysis/R23/figures/run_r23.sh` | 0.00 | `c6ef2ae26c30148d2eb37777fc1721c33f741d902bd3f184e0821d7eb61661c2` |
 
@@ -38,7 +38,7 @@ Jobs (dev partition, 4 CPUs, 16 GB): 48817527 (failed on my own pdffonts parser,
 
 `fc-list` on Sherlock finds only DejaVu (9 entries); **Arial is not available**, so **Liberation Sans** (Arial-metric) is used, as the directive provides. It was not installed either: Liberation Fonts 2.1.5 (SIL OFL 1.1) were fetched from the upstream release (`https://github.com/liberationfonts/liberation-fonts/files/7261482/liberation-fonts-ttf-2.1.5.tar.gz`, sha256 `7191c669bf38899f73a2094ed00f7b800553364f90e2637010a69c0e268f25d0`) and the four LiberationSans ttf files plus the licence were placed in the user font directory `~/.local/share/fonts/` (user-level only, `fc-cache` on that directory). `fig_style.py` registers these files with matplotlib explicitly and also maps the mathtext font set (rm/it/bf/sf/cal/tt) to Liberation Sans with `mathtext.fallback = None`, so no other font can enter the PDFs. Every PDF is checked in code with `pdffonts` (module `system poppler/0.47.0`): all fonts embedded (Type 42 subsets, reported as "CID TrueType") and named LiberationSans; page width 170 mm ± 0.5 mm via `pdfinfo`; and the SVG is parsed to assert no text below 6 pt.
 
-### pdffonts, `Dobbs_Figure1.pdf` (170.000 × 128.000 mm; SVG smallest text 6.0 pt over 113 text elements, families ['Liberation Sans'])
+### pdffonts, `Dobbs_Figure1.pdf` (170.000 × 131.000 mm; SVG smallest text 6.0 pt over 118 text elements, families ['Liberation Sans'])
 ```
 name                                 type              encoding         emb sub uni object ID
 ------------------------------------ ----------------- ---------------- --- --- --- ---------
@@ -52,7 +52,7 @@ name                                 type              encoding         emb sub 
 FRZNSF+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     18  0
 FRZNSF+LiberationSans                CID TrueType      Identity-H       yes yes yes     25  0
 ```
-### pdffonts, `Dobbs_Figure3.pdf` (170.000 × 61.000 mm; SVG smallest text 6.0 pt over 105 text elements, families ['Liberation Sans'])
+### pdffonts, `Dobbs_Figure3.pdf` (170.000 × 61.000 mm; SVG smallest text 6.0 pt over 114 text elements, families ['Liberation Sans'])
 ```
 name                                 type              encoding         emb sub uni object ID
 ------------------------------------ ----------------- ---------------- --- --- --- ---------
@@ -148,3 +148,13 @@ Fig. 1c: the frozen S3.2 routine (`src/discovery/stage_c5_spectral.py`: planar d
 ## 7. Data csv contents
 
 `Dobbs_Figure1_data.csv` (646 rows): 23 site coordinates with sources; 4 raster rows with file, column and colour limits; 523 per-tile s_lr values with tile ids; 96 spectrum bins (frequency, normalised PSD, raw routine value). `Dobbs_Figure2_data.csv`: 9 unit rows with ρ and CI, the pooled row, and 27 model-minus-s_lr rows. `Dobbs_Figure3_data.csv`: 16 + 10 + 16 rows with x, y, group and source column. Meta files `fig{1,2,3}_meta.json` hold the assertion records, candidates, pdffonts output and file hashes.
+
+## 8. Revision after Steve's notes (2026-10-21, same day; jobs 48819262–48819901 on dev)
+
+1. **Fig. 1a legend** now has four entries: filled circle "Development unit, real relief", open circle "Development unit, artifact-affected", triangle "Blind test 1", square "Blind test 2" (two rows under the map; the panel row of Fig. 1b moved down 3 mm, figure height 131 mm).
+2. **Fig. 1b colour maps** changed from batlow: depth panels now use Crameri **navia** (reversed; pale yellow shallow → green → dark blue deep, colour-vision safe, perceptually uniform), the per-tile s_lr panel uses Crameri **lajolla** (reversed; pale yellow smooth → dark red rough); the fine-field panel keeps **vik**. This departs from the directive's "batlow or oleron" at Steve's request; oleron's ocean half was tried first and was too low in contrast for the 400 m depth range. One line in `fig1.py` (`cmap_d`, `cmap_s`) switches them back.
+3. **Fig. 1c ship spectrum.** The gray band is the target band [f_lr, k·f_lr] = [0.0152, 0.2425] cycles m⁻¹ (ship sampling frequency 1/65.99 m to 16 times it), not the Nyquist frequency. In the first version the ship curve ran through the band because the frozen k-sweep routine first resamples the ship grid bilinearly onto the 1 m AUV grid, and that interpolation carries steeply decaying power above f_lr (interpolation leakage, no ship information). The ship spectrum is now computed with the same routine (`radial_psd`, 48 log bins, Hann window) on the ship grid at its native 65.91 m cell (87 × 67 cells), so it ends at the ship Nyquist 0.0076 cycles m⁻¹ = f_lr/2, left of the band; where the two spectra overlap (10⁻³ to 7.6 × 10⁻³ cycles m⁻¹) they agree, which is the co-registration check one would hope to see. The low-frequency end of the ship curve is noisy because the 87 × 67 ship grid gives only a few FFT cells per log bin there. The AUV spectrum is unchanged (routine on the AUV-native 1024 × 1024 common grid). Data csv series renamed "Ship PSD (native grid)"; Welch factor per grid.
+4. **Fig. 3 legends** added, no frames: (a) filled "real-relief unit" / open "artifact-affected unit", lower left; (b) filled "Goff computed" / open "Goff possibly interpolated", upper right (x axis widened to 0–400 m and the shared y axis given headroom to 10¹ m so the legend sits clear of the points); (c) gray square "no Goff value", lower right. Marker shapes unchanged.
+5. **Fig. 3 panel (c), text for the caption** (the current caption folds (b) and (c) together): "(c) The same unit-median fine-band amplitude as in (b) against unit-median s_lr for all 16 development units, on logarithmic axes; the ten units with a Goff (2020) value are drawn as in (b) and the six without one (off oceanic crust, or no value within 0.5° of the footprint: Kermadec Arc, Gulf of California margin NA090, Southern California, eastern North American margin, Izu-Bonin-Mariana arc, Gulf of Mexico) as gray squares. Spearman ρ(s_lr, A_fine) = +0.64 over the ten and +0.70 over all 16, against ρ(Goff, A_fine) = −0.31 in (b)." (The six Goff-undefined units are lu00, lu10, lu11, lu14, nu00, vu02; their `domain_class` in R15 `units.csv` is "no value".)
+6. Fig. 2 unchanged. The P-V1 5-of-9 note in §3 stands.
+
