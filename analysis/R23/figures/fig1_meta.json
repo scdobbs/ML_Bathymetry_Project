@@ -1,0 +1,221 @@
+{
+ "directive": "R23",
+ "figure": 1,
+ "assertions": [
+  {
+   "name": "16 development units",
+   "passed": true,
+   "got": 16,
+   "want": 16
+  },
+  {
+   "name": "10 real-relief (filled)",
+   "passed": true,
+   "got": 10,
+   "want": 10
+  },
+  {
+   "name": "6 artifact-affected (open)",
+   "passed": true,
+   "got": 6,
+   "want": 6
+  },
+  {
+   "name": "2 blind-test-1 triangles",
+   "passed": true,
+   "got": 2,
+   "want": 2
+  },
+  {
+   "name": "5 blind-test-2 squares",
+   "passed": true,
+   "got": 5,
+   "want": 5
+  },
+  {
+   "name": "14 scorable real-relief development pairs",
+   "passed": true,
+   "got": 14,
+   "want": 14
+  },
+  {
+   "name": "chosen pair rho equals frozen (per_pair_D1 rho_s_lr)",
+   "passed": true,
+   "got": 0.3902422411318533,
+   "want": 0.3902422411318533
+  },
+  {
+   "name": "chosen pair k equals frozen (manifest max_recoverable_k)",
+   "passed": true,
+   "got": 16,
+   "want": "manifest"
+  },
+  {
+   "name": "chosen pair lr_native equals frozen (per_pair_D1 lr_native)",
+   "passed": true,
+   "got": 65.99,
+   "want": 65.99
+  },
+  {
+   "name": "chosen pair hr_res equals frozen (per_pair_D1 hr_res)",
+   "passed": true,
+   "got": 1.00027363181973,
+   "want": 1.00027363181973
+  },
+  {
+   "name": "interior tiles of the chosen pair equal frozen n_interior",
+   "passed": true,
+   "got": 523,
+   "want": 523
+  },
+  {
+   "name": "band edge f_lr (cycles/m) = (hr_res/lr_native)/hr_res",
+   "passed": true,
+   "got": 0.015153811183512654,
+   "want": 0.015153811183512654
+  },
+  {
+   "name": "band edge f_hi (cycles/m) = min(k f_lr, 0.45)/hr_res",
+   "passed": true,
+   "got": 0.24246097893620247,
+   "want": 0.24246097893620247
+  }
+ ],
+ "notes": [],
+ "candidates": [
+  {
+   "pair": "FK151121__MGDS_22383",
+   "unit": "nu00",
+   "rho_s_lr": 0.3902422411318533,
+   "n_interior": 523,
+   "k": 16,
+   "lr_native": 65.99,
+   "hr_res": 1.00027363181973,
+   "dist": 0.0017577588681467193
+  },
+  {
+   "pair": "AT37-13__MGDS_31199",
+   "unit": "lu04",
+   "rho_s_lr": 0.3840652860984008,
+   "n_interior": 86,
+   "k": 8,
+   "lr_native": 23.2,
+   "hr_res": 1.0018418046337725,
+   "dist": 0.007934713901599222
+  },
+  {
+   "pair": "RR1506__MGDS_29779",
+   "unit": "lu00",
+   "rho_s_lr": 0.5064537749802951,
+   "n_interior": 2157,
+   "k": 8,
+   "lr_native": 20.3,
+   "hr_res": 1.0001380165858795,
+   "dist": 0.11445377498029508
+  },
+  {
+   "pair": "EW9801__MGDS_31425",
+   "unit": "lu07",
+   "rho_s_lr": 0.545815295815296,
+   "n_interior": 55,
+   "k": 2,
+   "lr_native": 50.4,
+   "hr_res": 2.066556123827675,
+   "dist": 0.15381529581529596
+  },
+  {
+   "pair": "NA080__MGDS_31290",
+   "unit": "lu13",
+   "rho_s_lr": 0.5863417389777791,
+   "n_interior": 2430,
+   "k": 16,
+   "lr_native": 57.4,
+   "hr_res": 1.0,
+   "dist": 0.19434173897777907
+  }
+ ],
+ "chosen_pair": "FK151121__MGDS_22383",
+ "chosen_unit": "nu00",
+ "chosen_center": {
+  "lon": 144.71170492133749,
+  "lat": 18.1972992847167
+ },
+ "spectra": {
+  "common_grid_shape": [
+   1024,
+   1024
+  ],
+  "dx_m": 1.00027363181973,
+  "bounds_lonlat": [
+   144.69056993761293,
+   18.171388927039377,
+   144.73297655459476,
+   18.223371570741353
+  ],
+  "f_lr_cpm": 0.015153811183512654,
+  "f_hi_cpm": 0.24246097893620247,
+  "k": 16,
+  "norm_factor": 6.798668069492929e-06
+ },
+ "map_box_mm": {
+  "w": 96.0,
+  "h": 46.724829637203776
+ },
+ "inset": {
+  "extent_lon_lat": [
+   -130.0,
+   -104.0,
+   21.0,
+   47.0
+  ],
+  "n_sites": 7
+ },
+ "font": {
+  "name": "Liberation Sans",
+  "files": [
+   "/home/users/scdobbs/.local/share/fonts/LiberationSans-Bold.ttf",
+   "/home/users/scdobbs/.local/share/fonts/LiberationSans-BoldItalic.ttf",
+   "/home/users/scdobbs/.local/share/fonts/LiberationSans-Italic.ttf",
+   "/home/users/scdobbs/.local/share/fonts/LiberationSans-Regular.ttf"
+  ],
+  "source": "fc-list"
+ },
+ "pdf_check": {
+  "pdffonts": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nFRZNSF+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     30  0\nFRZNSF+LiberationSans                CID TrueType      Identity-H       yes yes yes     37  0\n",
+  "n_fonts": 2,
+  "fonts_ok": true,
+  "bad_font_rows": [],
+  "width_mm": 170.00008333333332,
+  "height_mm": 128.00012499999997,
+  "width_ok": true
+ },
+ "svg_check": {
+  "min_font_pt": 6.0,
+  "n_text": 113,
+  "families": [
+   "Liberation Sans"
+  ]
+ },
+ "files": {
+  "pdf": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure1.pdf",
+   "sha256": "241fda6a06c480a525482c2b979134e7f6522e705027b4ed5e33bc8f6e107733"
+  },
+  "eps": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure1.eps",
+   "sha256": "d4fe32db20e119b96578cf75d9e8c16f178c4bf8b5b94380ca0528d4c063f274"
+  },
+  "svg": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure1.svg",
+   "sha256": "d43f99488859be3c1954954b197d9e3c4fbb1cb78bae8fc2a2a18f0d5859882e"
+  },
+  "png": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure1_preview.png",
+   "sha256": "089d0564a20aff2d3144183c9f1c245f89d0f77d7be11122e7048325d1abc09a"
+  },
+  "csv": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure1_data.csv",
+   "sha256": "b8f572d10d84641be765c7be21b303f84635ebf3ddd6ce49f31956bf343a6fca"
+  }
+ }
+}

@@ -1,0 +1,163 @@
+{
+ "directive": "R23",
+ "figure": 2,
+ "assertions": [
+  {
+   "name": "9 units in (a)",
+   "passed": true,
+   "got": 9,
+   "want": 9
+  },
+  {
+   "name": "median s_lr rho = 0.390",
+   "passed": true,
+   "got": 0.39,
+   "want": 0.39
+  },
+  {
+   "name": "frozen CI of the median [0.165, 0.588] (R09 scores_ten, interior D1)",
+   "passed": true,
+   "got": [
+    0.165,
+    0.588
+   ],
+   "want": [
+    0.165,
+    0.588
+   ]
+  },
+  {
+   "name": "min s_lr rho = -0.09 at TAG (lu09)",
+   "passed": true,
+   "got": [
+    -0.09,
+    "lu09"
+   ],
+   "want": [
+    -0.09,
+    "lu09"
+   ]
+  },
+  {
+   "name": "max s_lr rho = 0.63",
+   "passed": true,
+   "got": [
+    0.63,
+    "lu08"
+   ],
+   "want": 0.63
+  },
+  {
+   "name": "pooled row 0.392 [0.317, 0.430], 14 pairs, seed 20261013",
+   "passed": true,
+   "got": [
+    0.392,
+    0.317,
+    0.43,
+    14,
+    20261013
+   ],
+   "want": [
+    0.392,
+    0.317,
+    0.43,
+    14,
+    20261013
+   ]
+  },
+  {
+   "name": "median GBT_ship rho = 0.370",
+   "passed": true,
+   "got": 0.37,
+   "want": 0.37
+  },
+  {
+   "name": "median V2 - s_lr = +0.028",
+   "passed": true,
+   "got": 0.028,
+   "want": 0.028
+  },
+  {
+   "name": "P-V1 above s_lr at exactly 5 of 9 (full precision)",
+   "passed": false,
+   "got": 6,
+   "want": 5
+  },
+  {
+   "name": "P-V1 above s_lr at exactly 5 of 9 (two-decimal values, as tabulated)",
+   "passed": true,
+   "got": 5,
+   "want": 5
+  }
+ ],
+ "labels": {
+  "lu00": "Kermadec Arc",
+  "lu04": "Costa Rica Rift",
+  "lu05": "EPR 9\u00b0N",
+  "lu07": "Loihi Seamount",
+  "lu08": "Pescadero Basin",
+  "lu09": "TAG, MAR 26\u00b0N",
+  "lu13": "Davidson Seamount",
+  "lu15": "Gorda / Cascadia",
+  "nu00": "Izu-Bonin-Mariana arc"
+ },
+ "pv1_minus_s_lr": {
+  "lu08": -0.054342278630315155,
+  "lu13": 0.005252489360575097,
+  "lu00": 0.07870108084792671,
+  "lu07": 0.06888920258485476,
+  "nu00": -0.059953719664914695,
+  "lu04": -0.028623991697721618,
+  "lu05": 0.0644158375738137,
+  "lu15": 0.08589123932089548,
+  "lu09": 0.2750967445494917
+ },
+ "font": {
+  "name": "Liberation Sans",
+  "files": [
+   "/home/users/scdobbs/.local/share/fonts/LiberationSans-Bold.ttf",
+   "/home/users/scdobbs/.local/share/fonts/LiberationSans-BoldItalic.ttf",
+   "/home/users/scdobbs/.local/share/fonts/LiberationSans-Italic.ttf",
+   "/home/users/scdobbs/.local/share/fonts/LiberationSans-Regular.ttf"
+  ],
+  "source": "fc-list"
+ },
+ "pdf_check": {
+  "pdffonts": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nFRZNSF+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     18  0\nFRZNSF+LiberationSans                CID TrueType      Identity-H       yes yes yes     25  0\n",
+  "n_fonts": 2,
+  "fonts_ok": true,
+  "bad_font_rows": [],
+  "width_mm": 170.00008333333332,
+  "height_mm": 74.99985,
+  "width_ok": true
+ },
+ "svg_check": {
+  "min_font_pt": 6.0,
+  "n_text": 58,
+  "families": [
+   "Liberation Sans"
+  ]
+ },
+ "files": {
+  "pdf": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure2.pdf",
+   "sha256": "8f3c6d0dd0e8fffb103f63262c4500c88ac0984afc40b6dd137c779cac442a5f"
+  },
+  "eps": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure2.eps",
+   "sha256": "bc6f0cb316e36a1572587556207c644733ed6d71bed0f952d03886fecc1761a2"
+  },
+  "svg": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure2.svg",
+   "sha256": "f3e8964ac779fe7aa9af080d678ca970671f68937721c1a5fb664f13305f1767"
+  },
+  "png": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure2_preview.png",
+   "sha256": "227be6933e89025de9c4c0e357404a17632003c37cb5aaba7661a0f40c956850"
+  },
+  "csv": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure2_data.csv",
+   "sha256": "3a3318e3ce113661bab7f016f7dfd3feeb35e5f967b3eecf93cf0147b7e854f2"
+  }
+ }
+}

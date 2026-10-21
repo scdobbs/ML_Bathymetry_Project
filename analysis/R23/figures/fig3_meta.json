@@ -1,0 +1,110 @@
+{
+ "directive": "R23",
+ "figure": 3,
+ "assertions": [
+  {
+   "name": "16 units in (a)",
+   "passed": true,
+   "got": [
+    16,
+    16
+   ],
+   "want": 16
+  },
+  {
+   "name": "median s_lr rho (64-cell window, all tiles) = 0.350",
+   "passed": true,
+   "got": 0.35,
+   "want": 0.35
+  },
+  {
+   "name": "median spectral rho = 0.09",
+   "passed": true,
+   "got": 0.09,
+   "want": 0.09
+  },
+  {
+   "name": "10 units with Goff defined, 4 computed",
+   "passed": true,
+   "got": [
+    10,
+    4
+   ],
+   "want": [
+    10,
+    4
+   ]
+  },
+  {
+   "name": "Spearman rho(Goff, A_fine) = -0.31 on the 10 plotted points",
+   "passed": true,
+   "got": -0.309,
+   "want": -0.31
+  },
+  {
+   "name": "Spearman rho(s_lr, A_fine) = +0.64 on the 10 black points",
+   "passed": true,
+   "got": 0.636,
+   "want": 0.64
+  },
+  {
+   "name": "Spearman rho(s_lr, A_fine) = 0.70 on all 16",
+   "passed": true,
+   "got": 0.697,
+   "want": 0.7
+  }
+ ],
+ "spearman": {
+  "goff_vs_Afine_10": -0.309090909090909,
+  "s_lr_vs_Afine_10": 0.6363636363636362,
+  "s_lr_vs_Afine_16": 0.6970588235294117
+ },
+ "font": {
+  "name": "Liberation Sans",
+  "files": [
+   "/home/users/scdobbs/.local/share/fonts/LiberationSans-Bold.ttf",
+   "/home/users/scdobbs/.local/share/fonts/LiberationSans-BoldItalic.ttf",
+   "/home/users/scdobbs/.local/share/fonts/LiberationSans-Italic.ttf",
+   "/home/users/scdobbs/.local/share/fonts/LiberationSans-Regular.ttf"
+  ],
+  "source": "fc-list"
+ },
+ "pdf_check": {
+  "pdffonts": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nFRZNSF+LiberationSans-Bold           CID TrueType      Identity-H       yes yes yes     22  0\nFRZNSF+LiberationSans                CID TrueType      Identity-H       yes yes yes     29  0\n",
+  "n_fonts": 2,
+  "fonts_ok": true,
+  "bad_font_rows": [],
+  "width_mm": 170.00008333333332,
+  "height_mm": 60.99986388888889,
+  "width_ok": true
+ },
+ "svg_check": {
+  "min_font_pt": 6.0,
+  "n_text": 105,
+  "families": [
+   "Liberation Sans"
+  ]
+ },
+ "files": {
+  "pdf": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure3.pdf",
+   "sha256": "6e7f5c80daf1b34a40113d9eb94140c87b5e84887ae55f792dd7b67779be2352"
+  },
+  "eps": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure3.eps",
+   "sha256": "359d69185622246bc557e8d16e76b357c2abf1746300b830bb3657eb28ab759b"
+  },
+  "svg": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure3.svg",
+   "sha256": "709165964b9a60ee3af2e1175c116ea1402f09aaa57f313ceb0c39a2cd186389"
+  },
+  "png": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure3_preview.png",
+   "sha256": "0eac60ee90c94817e41cc626c2c09ef3b561723c17a61984029c7976f9cc0e9a"
+  },
+  "csv": {
+   "path": "/home/users/scdobbs/GAN_Bathymetry_Project/analysis/R23/figures/Dobbs_Figure3_data.csv",
+   "sha256": "b503853f9443d78376802341ea7b34bce3e502d954f5e11b839434141678a480"
+  }
+ }
+}
