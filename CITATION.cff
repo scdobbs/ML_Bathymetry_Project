@@ -2,10 +2,10 @@ cff-version: 1.2.0
 message: "If you use this code, please cite the paper (preferred-citation) and the data record it accompanies."
 type: software
 title: "Ship-multibeam roughness analysis, predictors and blind-test scoring code for co-located ship and AUV bathymetry"
-version: "2.0"
-date-released: "2026-10-20"
+version: "2.0.1"
+date-released: "2026-10-21"
 license: MIT
-repository-code: "https://github.com/scdobbs/GAN_Bathymetry_Project"
+repository-code: "https://github.com/scdobbs/ML_Bathymetry_Project"
 doi: 10.5281/zenodo.21300922
 authors:
   - family-names: Dobbs
